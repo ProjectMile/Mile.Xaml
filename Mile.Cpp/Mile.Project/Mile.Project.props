@@ -91,9 +91,6 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <PropertyGroup>
-    <OutDir>$(SolutionDir)Output\Binaries\$(Configuration)\$(Platform)\</OutDir>
-    <IntDir>$(SolutionDir)Output\Objects\$(Configuration)\$(MSBuildProjectName)\$(Platform)\</IntDir>
-    <GeneratedFilesDir>$(IntDir)Generated Files\</GeneratedFilesDir>
     <LinkIncremental Condition="'$(Configuration)'=='Debug'">true</LinkIncremental>
     <LinkIncremental Condition="'$(Configuration)'=='Release'">false</LinkIncremental>
     <GenerateManifest>false</GenerateManifest>

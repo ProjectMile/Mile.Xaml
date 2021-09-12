@@ -10,11 +10,21 @@
 -->
 <Project>
   <PropertyGroup>
-    <MSBuildProjectExtensionsPath>$(SolutionDir)Output\Objects\$(Configuration)\$(MSBuildProjectName)\obj\</MSBuildProjectExtensionsPath>
+    <MileProjectOutputPath>$(MSBuildThisFileDirectory)Output\</MileProjectOutputPath>
+    <MileProjectBinariesPath>$(MileProjectOutputPath)Binaries\</MileProjectBinariesPath>
+    <MileProjectObjectsPath>$(MileProjectOutputPath)Objects\</MileProjectObjectsPath>
+    <GenerateProjectSpecificOutputFolder>False</GenerateProjectSpecificOutputFolder>
+    <MSBuildProjectExtensionsPath>$(MileProjectObjectsPath)$(Configuration)\$(MSBuildProjectName)\obj\</MSBuildProjectExtensionsPath>
+    <AppxPackageDir>$(MileProjectBinariesPath)AppPackages\$(ProjectName)\</AppxPackageDir>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">
+    <OutDir>$(MileProjectBinariesPath)$(Configuration)\$(Platform)\</OutDir>
+    <IntDir>$(MileProjectObjectsPath)$(Configuration)\$(MSBuildProjectName)\$(Platform)\</IntDir>
+    <GeneratedFilesDir>$(IntDir)Generated Files\</GeneratedFilesDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.wapproj'">
-    <OutputPath>$(SolutionDir)Output\Binaries\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
-    <IntermediateOutputPath>$(SolutionDir)Output\Objects\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>
+    <OutputPath>$(MileProjectBinariesPath)$(Configuration)\$(MSBuildProjectName)\$(Platform)\</OutputPath>
+    <IntermediateOutputPath>$(MileProjectObjectsPath)$(Configuration)\$(MSBuildProjectName)\</IntermediateOutputPath>
     <BaseIntermediateOutputPath>$(IntermediateOutputPath)</BaseIntermediateOutputPath>
   </PropertyGroup>
   <ItemGroup Label="NuGet" Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">
