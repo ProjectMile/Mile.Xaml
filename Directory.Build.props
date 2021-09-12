@@ -12,6 +12,11 @@
   <PropertyGroup>
     <MSBuildProjectExtensionsPath>$(SolutionDir)Output\Objects\$(Configuration)\$(MSBuildProjectName)\obj\</MSBuildProjectExtensionsPath>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(MSBuildProjectExtension)' == '.wapproj'">
+    <OutputPath>$(SolutionDir)Output\Binaries\$(MSBuildProjectName)\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>$(SolutionDir)Output\Objects\$(MSBuildProjectName)\$(Configuration)\</IntermediateOutputPath>
+    <BaseIntermediateOutputPath>$(IntermediateOutputPath)</BaseIntermediateOutputPath>
+  </PropertyGroup>
   <ItemGroup Label="NuGet" Condition="'$(MSBuildProjectExtension)' == '.vcxproj'">
     <ProjectCapability Include="PackageReferences" />
   </ItemGroup>
