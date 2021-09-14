@@ -56,6 +56,8 @@
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
     <EntryPointProjectUniqueName>..\MileXamlApplication\MileXamlApplication.vcxproj</EntryPointProjectUniqueName>
+    <!-- https://github.com/microsoft/Terminal/issues/700 -->
+    <DebuggerType>NativeOnly</DebuggerType>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
