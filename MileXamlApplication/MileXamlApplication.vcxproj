@@ -18,8 +18,21 @@
     <WindowsTargetPlatformVersion Condition=" '$(WindowsTargetPlatformVersion)' == '' ">10.0.19041.0</WindowsTargetPlatformVersion>
     <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
+  <PropertyGroup Label="Globals">
+    <!-- Import all Windows Runtime metadata in Windows SDK -->
+    <CppWinRTImplicitlyExpandTargetPlatform>true</CppWinRTImplicitlyExpandTargetPlatform>
+    <!-- Disable Microsoft.VCLibs reference -->
+    <UseCrtSDKReference>false</UseCrtSDKReference>
+    <!-- https://github.com/microsoft/terminal/blob/9dc922fc37a479dd560675ac4ea1ce3713ae0ada/src/cppwinrt.build.pre.props#L39 -->
+    <_NoWinAPIFamilyApp>true</_NoWinAPIFamilyApp>
+    <!-- https://github.com/microsoft/terminal/blob/9dc922fc37a479dd560675ac4ea1ce3713ae0ada/src/cppwinrt.build.pre.props#L40 -->
+    <_VC_Target_Library_Platform>Desktop</_VC_Target_Library_Platform>
+    <!-- Enable VC-LTL Clean Import Mode -->
+    <CleanImport>true</CleanImport>
+  </PropertyGroup>
   <Import Project="..\Mile.Cpp\Mile.Project\Mile.Project.props" />
   <Import Project="..\Mile.Cpp\Mile.Project\Mile.Project.Library.CppWinRT.props" />
+  <Import Project="..\Mile.Cpp\Mile.Project\Mile.Project.Runtime.VC-LTL.props" />
   <ImportGroup Label="PropertySheets">
     <Import Project="PropertySheet.props" />
   </ImportGroup>
@@ -35,6 +48,7 @@
     </ClCompile>
     <Link>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
+      <AdditionalDependencies>kernel32.lib;ole32.lib;oleaut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
