@@ -1,0 +1,19 @@
+﻿
+namespace Mile.Xaml
+{
+    interface IXamlMetadataContainer
+    {
+        Windows.Foundation.Collections.IVector<Windows.UI.Xaml.Markup.IXamlMetadataProvider> MetadataProviders { get; };
+    };
+
+    [default_interface]
+    unsealed runtimeclass Application : Windows.UI.Xaml.Application, IXamlMetadataContainer, Windows.Foundation.IClosable
+    {
+        Application(Windows.Foundation.Collections.IVector<Windows.UI.Xaml.Markup.IXamlMetadataProvider> providers);
+        protected Application();
+        protected void Initialize();
+
+        Windows.Foundation.IClosable WindowsXamlManager{ get; };
+        Boolean IsDisposed { get; };
+    }
+}

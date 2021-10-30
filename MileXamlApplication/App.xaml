@@ -1,9 +1,9 @@
-﻿<Toolkit:XamlApplication
+﻿<MileXaml:Application
   x:Class="MileXamlApplication.App"
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+  xmlns:MileXaml="using:Mile.Xaml"
   xmlns:local="using:MileXamlApplication"
-  xmlns:Toolkit="using:Microsoft.Toolkit.Win32.UI.XamlHost"
   RequestedTheme="Dark">
-  <Toolkit:XamlApplication.Resources />
-</Toolkit:XamlApplication>
+  <MileXaml:Application.Resources />
+</MileXaml:Application>
