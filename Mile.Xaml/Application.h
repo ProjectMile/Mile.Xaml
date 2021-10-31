@@ -1,58 +1,78 @@
-﻿#pragma once
+﻿/*
+ * PROJECT:   Mouri Internal Library Essentials
+ * FILE:      Application.h
+ * PURPOSE:   Definition for the Mile.Xaml.Application
+ *
+ * LICENSE:   The MIT License
+ *
+ * DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
+ */
+
+#pragma once
 
 #include "Application.g.h"
-#include <winrt/Windows.UI.Xaml.Hosting.h>
-#include <winrt/Windows.UI.ViewManagement.h>
-#include <winrt/Windows.Foundation.Collections.h>
+
 #include <Windows.h>
+
+#include <winrt/Windows.Foundation.Collections.h>
+#include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Windows.UI.Xaml.Hosting.h>
+
+namespace winrt
+{
+    using Windows::Foundation::Collections::IVector;
+    using Windows::Foundation::IClosable;
+    using Windows::UI::Xaml::Interop::TypeName;
+    using Windows::UI::Xaml::Hosting::WindowsXamlManager;
+    using Windows::UI::Xaml::Markup::IXamlMetadataProvider;
+    using Windows::UI::Xaml::Markup::IXamlType;
+    using Windows::UI::Xaml::Markup::XmlnsDefinition;
+    using XmlnsDefinitions = winrt::com_array<winrt::XmlnsDefinition>;
+    using XamlMetadataProviders = winrt::IVector<winrt::IXamlMetadataProvider>;
+}
 
 namespace winrt::Mile::Xaml::implementation
 {
-    enum ExecutionMode
-    {
-        UWP = 0,
-        Win32 = 1,
-    };
-
-    class Application : public ApplicationT<Application, Windows::UI::Xaml::Markup::IXamlMetadataProvider>
+    class Application :
+        public ApplicationT<Application, winrt::IXamlMetadataProvider>
     {
     public:
+
         Application();
-        Application(winrt::Windows::Foundation::Collections::IVector<winrt::Windows::UI::Xaml::Markup::IXamlMetadataProvider> providers);
+        Application(winrt::XamlMetadataProviders Providers);
         ~Application();
 
         void Initialize();
+
         void Close();
 
-        winrt::Windows::Foundation::IClosable WindowsXamlManager() const;
+        winrt::IXamlType GetXamlType(winrt::TypeName const& type);
+        winrt::IXamlType GetXamlType(winrt::hstring const& fullName);
+        winrt::XmlnsDefinitions GetXmlnsDefinitions();
 
-        winrt::Windows::UI::Xaml::Markup::IXamlType GetXamlType(winrt::Windows::UI::Xaml::Interop::TypeName const& type);
-        winrt::Windows::UI::Xaml::Markup::IXamlType GetXamlType(winrt::hstring const& fullName);
-        winrt::com_array<winrt::Windows::UI::Xaml::Markup::XmlnsDefinition> GetXmlnsDefinitions();
-
-        winrt::Windows::Foundation::Collections::IVector<winrt::Windows::UI::Xaml::Markup::IXamlMetadataProvider> MetadataProviders();
-
-        bool IsDisposed() const
-        {
-            return m_bIsClosed;
-        }
+        winrt::XamlMetadataProviders MetadataProviders();
 
     private:
-        ExecutionMode m_executionMode = ExecutionMode::Win32;
-        winrt::Windows::UI::Xaml::Hosting::WindowsXamlManager m_windowsXamlManager = nullptr;
-        winrt::Windows::Foundation::Collections::IVector<winrt::Windows::UI::Xaml::Markup::IXamlMetadataProvider> m_providers = winrt::single_threaded_vector<Windows::UI::Xaml::Markup::IXamlMetadataProvider>();
-        bool m_bIsClosed = false;
+
+        winrt::WindowsXamlManager m_WindowsXamlManager = nullptr;
+        winrt::XamlMetadataProviders m_Providers =
+            winrt::single_threaded_vector<winrt::IXamlMetadataProvider>();
+        bool m_IsClosed = false;
     };
 }
 
 namespace winrt::Mile::Xaml::factory_implementation
 {
-    class Application : public ApplicationT<Application, implementation::Application>
+    class Application :
+        public ApplicationT<Application, implementation::Application>
     {
     public:
+
         Application();
         ~Application();
+
     private:
-        std::array<HMODULE, 2> m_preloadInstances;
+
+        std::vector<HMODULE> m_PreloadModules;
     };
 }

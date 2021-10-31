@@ -1,27 +1,28 @@
-﻿#include "pch.h"
+﻿/*
+ * PROJECT:   Mouri Internal Library Essentials
+ * FILE:      Application.cpp
+ * PURPOSE:   Implementation for the Mile.Xaml.Application
+ *
+ * LICENSE:   The MIT License
+ *
+ * DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
+ */
+
+#include "pch.h"
 
 #include "Application.h"
 #include "Application.g.cpp"
 
-namespace xaml = ::winrt::Windows::UI::Xaml;
-
-extern "C" {
-    WINBASEAPI HMODULE WINAPI LoadLibraryExW(_In_ LPCWSTR lpLibFileName, _Reserved_ HANDLE hFile, _In_ DWORD dwFlags);
-    WINBASEAPI HMODULE WINAPI GetModuleHandleW(_In_opt_ LPCWSTR lpModuleName);
-    WINUSERAPI BOOL WINAPI PeekMessageW(_Out_ LPMSG lpMsg, _In_opt_ HWND hWnd, _In_ UINT wMsgFilterMin, _In_ UINT wMsgFilterMax, _In_ UINT wRemoveMsg);
-    WINUSERAPI LRESULT WINAPI DispatchMessageW(_In_ CONST MSG* lpMsg);
-}
-
 namespace winrt::Mile::Xaml::implementation
 {
-    Application::Application(winrt::Windows::Foundation::Collections::IVector<winrt::Windows::UI::Xaml::Markup::IXamlMetadataProvider> providers)
+    Application::Application(winrt::XamlMetadataProviders Providers)
     {
-        for(auto provider : providers)
+        for(auto const& Provider : Providers)
         {
-            m_providers.Append(provider);
+            this->m_Providers.Append(Provider);
         }
 
-        Initialize();
+        this->Initialize();
     }
 
     Application::Application()
@@ -33,104 +34,92 @@ namespace winrt::Mile::Xaml::implementation
         const auto out = outer();
         if (out)
         {
-            winrt::Windows::UI::Xaml::Markup::IXamlMetadataProvider provider(nullptr);
+            winrt::IXamlMetadataProvider provider(nullptr);
             winrt::check_hresult(out->QueryInterface(
-                winrt::guid_of<winrt::Windows::UI::Xaml::Markup::IXamlMetadataProvider>(),
+                winrt::guid_of<winrt::IXamlMetadataProvider>(),
                 reinterpret_cast<void**>(winrt::put_abi(provider))));
-            m_providers.Append(provider);
+            this->m_Providers.Append(provider);
         }
 
-        const auto dispatcherQueue = winrt::Windows::System::DispatcherQueue::GetForCurrentThread();
-        if (!dispatcherQueue)
-        {
-            m_executionMode = ExecutionMode::Win32;
-            m_windowsXamlManager = xaml::Hosting::WindowsXamlManager::InitializeForCurrentThread();
-        }
-        else
-        {
-            m_executionMode = ExecutionMode::UWP;
-        }
-    }
-
-    winrt::Windows::Foundation::IClosable Application::WindowsXamlManager() const
-    {
-        return m_windowsXamlManager;
+        this->m_WindowsXamlManager =
+            winrt::WindowsXamlManager::InitializeForCurrentThread();
     }
 
     void Application::Close()
     {
-        if (m_bIsClosed)
+        if (this->m_IsClosed)
         {
             return;
         }
 
-        m_bIsClosed = true;
+        this->m_IsClosed = true;
 
-        m_windowsXamlManager.Close();
-        m_providers.Clear();
-        m_windowsXamlManager = nullptr;
+        this->m_WindowsXamlManager.Close();
+        this->m_Providers.Clear();
+        this->m_WindowsXamlManager = nullptr;
 
-        Exit();
+        this->Exit();
+
         {
-            MSG msg = {};
-            while (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE))
+            MSG Message;
+            while (::PeekMessageW(&Message, nullptr, 0, 0, PM_REMOVE))
             {
-                ::DispatchMessageW(&msg);
+                ::DispatchMessageW(&Message);
             }
         }
     }
 
     Application::~Application()
     {
-        Close();
+        this->Close();
     }
 
-    xaml::Markup::IXamlType Application::GetXamlType(xaml::Interop::TypeName const& type)
+    winrt::IXamlType Application::GetXamlType(winrt::TypeName const& type)
     {
-        for (const auto& provider : m_providers)
+        for (const auto& Provider : this->m_Providers)
         {
-            const auto xamlType = provider.GetXamlType(type);
-            if (xamlType != nullptr)
+            const auto Current = Provider.GetXamlType(type);
+            if (Current != nullptr)
             {
-                return xamlType;
+                return Current;
             }
         }
 
         return nullptr;
     }
 
-    xaml::Markup::IXamlType Application::GetXamlType(winrt::hstring const& fullName)
+    winrt::IXamlType Application::GetXamlType(winrt::hstring const& fullName)
     {
-        for (const auto& provider : m_providers)
+        for (const auto& Provider : this->m_Providers)
         {
-            const auto xamlType = provider.GetXamlType(fullName);
-            if (xamlType != nullptr)
+            const auto Current = Provider.GetXamlType(fullName);
+            if (Current != nullptr)
             {
-                return xamlType;
+                return Current;
             }
         }
 
         return nullptr;
     }
 
-    winrt::com_array<xaml::Markup::XmlnsDefinition> Application::GetXmlnsDefinitions()
+    winrt::XmlnsDefinitions Application::GetXmlnsDefinitions()
     {
-        std::list<xaml::Markup::XmlnsDefinition> definitions;
-        for (const auto& provider : m_providers)
+        std::list<winrt::XmlnsDefinition> Definitions;
+
+        for (const auto& Provider : this->m_Providers)
         {
-            auto defs = provider.GetXmlnsDefinitions();
-            for (const auto& def : defs)
+            for (const auto& Definition : Provider.GetXmlnsDefinitions())
             {
-                definitions.insert(definitions.begin(), def);
+                Definitions.insert(Definitions.begin(), Definition);
             }
         }
 
-        return winrt::com_array<xaml::Markup::XmlnsDefinition>(definitions.begin(), definitions.end());
+        return winrt::XmlnsDefinitions(Definitions.begin(), Definitions.end());
     }
 
-    winrt::Windows::Foundation::Collections::IVector<xaml::Markup::IXamlMetadataProvider> Application::MetadataProviders()
+    winrt::XamlMetadataProviders Application::MetadataProviders()
     {
-        return m_providers;
+        return this->m_Providers;
     }
 }
 
@@ -138,24 +127,32 @@ namespace winrt::Mile::Xaml::factory_implementation
 {
     Application::Application()
     {
-        // Workaround a bug where twinapi.appcore.dll and threadpoolwinrt.dll gets loaded after it has been unloaded
-        // because of a call to GetActivationFactory
-        const wchar_t* preloadDlls[] = {
+        // Workaround a bug where twinapi.appcore.dll and threadpoolwinrt.dll
+        // gets loaded after it has been unloaded because of a call to
+        // GetActivationFactory.
+        LPCWSTR PreloadModuleNames[] =
+        {
             L"twinapi.appcore.dll",
             L"threadpoolwinrt.dll",
         };
-        for (size_t i = 0; i < m_preloadInstances.size(); i++)
+        const size_t PreloadModuleNamesCount =
+            sizeof(PreloadModuleNames) / sizeof(*PreloadModuleNames);
+        for (size_t i = 0; i < PreloadModuleNamesCount; ++i)
         {
-            const auto module = ::LoadLibraryExW(preloadDlls[i], nullptr, 0);
-            m_preloadInstances[i] = module;
+            this->m_PreloadModules.push_back(
+                ::LoadLibraryExW(
+                    PreloadModuleNames[i],
+                    nullptr,
+                    LOAD_LIBRARY_SEARCH_SYSTEM32));
         }
     }
 
     Application::~Application()
     {
-        for (auto module : m_preloadInstances)
+        for (auto const& PreloadModules : this->m_PreloadModules)
         {
-            ::FreeLibrary(module);
+            ::FreeLibrary(PreloadModules);
         }
+        this->m_PreloadModules.clear();
     }
 }

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MileXamlApplication", "MileXamlApplication\MileXamlApplication.vcxproj", "{E92DF504-8673-495F-BC03-9CA3ECF452FB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4C5DA281-1FDD-41B7-9D3F-94132227CA0E} = {4C5DA281-1FDD-41B7-9D3F-94132227CA0E}
+	EndProjectSection
 EndProject
 Project("{C7167F0D-BC9F-4E6E-AFE1-012C56B48DB5}") = "MileXamlApplicationPackage", "MileXamlApplicationPackage\MileXamlApplicationPackage.wapproj", "{99FA0E84-F428-4C86-812C-12003BDB0EAB}"
 EndProject
