@@ -65,7 +65,7 @@
     <Midl Include="Application.idl" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Microsoft.ApplicationModel.Resources.PriGen.targets" />
+    <None Include="MrtCore.PriGen.targets" />
     <None Include="Mile.Xaml.def" />
   </ItemGroup>
   <ItemGroup>

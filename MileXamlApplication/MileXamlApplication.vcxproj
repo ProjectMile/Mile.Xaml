@@ -98,5 +98,5 @@
     <ProjectReference Include="..\Mile.Xaml\Mile.Xaml.vcxproj" />
   </ItemGroup>
   <Import Project="..\Mile.Cpp\Mile.Project\Mile.Project.targets" />
-  <Import Project="..\Mile.Xaml\Microsoft.ApplicationModel.Resources.PriGen.targets" />
+  <Import Project="..\Mile.Xaml\MrtCore.PriGen.targets" />
 </Project>
