@@ -5,16 +5,19 @@
 #include "App.h"
 #include "MainPage.h"
 
-//#include <winrt/Windows.UI.Xaml.h>
+#include <winrt/Windows.UI.Xaml.h>
+#include <winrt/Windows.UI.Xaml.Media.h>
 #include <winrt/Windows.UI.Xaml.Hosting.h>
 #include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
 
 namespace winrt
 {
+    using winrt::Windows::UI::Xaml::ElementTheme;
+    using winrt::Windows::UI::Xaml::FrameworkElement;
     using winrt::Windows::UI::Xaml::UIElement;
     using winrt::Windows::UI::Xaml::Hosting::DesktopWindowXamlSource;
+    using winrt::Windows::UI::Xaml::Media::VisualTreeHelper;
 }
-
 namespace
 {
     static LRESULT CALLBACK XamlIslandWindowCallback(
@@ -114,6 +117,24 @@ namespace
 
             return MAKELRESULT(0, MNC_CLOSE);
         }
+        case WM_SETTINGCHANGE:
+        {
+            winrt::DesktopWindowXamlSource XamlSource = nullptr;
+            winrt::copy_from_abi(
+                XamlSource,
+                ::GetPropW(hWnd, L"XamlWindowSource"));
+            if (XamlSource)
+            {
+                winrt::FrameworkElement Content =
+                    XamlSource.Content().try_as<winrt::FrameworkElement>();
+                if (Content &&
+                    winrt::VisualTreeHelper::GetParent(Content))
+                {
+                    Content.RequestedTheme(winrt::ElementTheme::Default);
+                }
+            }
+            break;
+        }
         case WM_DESTROY:
         {
             winrt::DesktopWindowXamlSource XamlWindowSource = nullptr;
@@ -191,7 +212,6 @@ int WINAPI StartXamlIslandHost(
 
     return static_cast<int>(Message.wParam);
 }
-
 
 int WINAPI wWinMain(
     _In_ HINSTANCE hInstance,
