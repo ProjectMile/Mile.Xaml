@@ -39,7 +39,7 @@ namespace winrt::Mile::Xaml::implementation
     public:
 
         Application();
-        Application(winrt::XamlMetadataProviders Providers);
+        Application(winrt::XamlMetadataProviders const& Providers);
         ~Application();
 
         void Initialize();

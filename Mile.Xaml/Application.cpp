@@ -15,7 +15,7 @@
 
 namespace winrt::Mile::Xaml::implementation
 {
-    Application::Application(winrt::XamlMetadataProviders Providers)
+    Application::Application(winrt::XamlMetadataProviders const& Providers)
     {
         for(auto const& Provider : Providers)
         {
