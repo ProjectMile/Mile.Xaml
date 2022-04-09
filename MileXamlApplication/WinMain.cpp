@@ -37,10 +37,10 @@ namespace
             LPCREATESTRUCT CreateStruct =
                 reinterpret_cast<LPCREATESTRUCT>(lParam);
 
-            winrt::DesktopWindowXamlSource XamlWindowSource;
+            winrt::DesktopWindowXamlSource XamlSource;
 
             winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-                XamlWindowSource.as<IDesktopWindowXamlSourceNative>();
+                XamlSource.as<IDesktopWindowXamlSourceNative>();
 
             // Parent the DesktopWindowXamlSource object to current window
             if (FAILED(XamlSourceNative->AttachToWindow(hWnd)))
@@ -50,7 +50,7 @@ namespace
 
             winrt::UIElement Content = nullptr;
             winrt::copy_from_abi(Content, CreateStruct->lpCreateParams);
-            XamlWindowSource.Content(Content);
+            XamlSource.Content(Content);
 
             HWND XamlWindowHandle = nullptr;
             if (FAILED(XamlSourceNative->get_WindowHandle(&XamlWindowHandle)))
@@ -61,7 +61,7 @@ namespace
             if (!::SetPropW(
                 hWnd,
                 L"XamlWindowSource",
-                reinterpret_cast<HANDLE>(winrt::detach_abi(XamlWindowSource))))
+                reinterpret_cast<HANDLE>(winrt::detach_abi(XamlSource))))
             {
                 return -1;
             }
@@ -78,23 +78,23 @@ namespace
         }
         case WM_SETFOCUS:
         {
-            HWND XamlIslandsWindowHandle = reinterpret_cast<HWND>(
+            HWND XamlWindowHandle = reinterpret_cast<HWND>(
                 ::GetPropW(hWnd, L"XamlWindowHandle"));
-            if (XamlIslandsWindowHandle)
+            if (XamlWindowHandle)
             {
-                ::SetFocus(XamlIslandsWindowHandle);
+                ::SetFocus(XamlWindowHandle);
             }
 
             break;
         }
         case WM_SIZE:
         {
-            HWND XamlIslandsWindowHandle = reinterpret_cast<HWND>(
+            HWND XamlWindowHandle = reinterpret_cast<HWND>(
                 ::GetPropW(hWnd, L"XamlWindowHandle"));
-            if (XamlIslandsWindowHandle)
+            if (XamlWindowHandle)
             {
                 ::SetWindowPos(
-                    XamlIslandsWindowHandle,
+                    XamlWindowHandle,
                     nullptr,
                     0,
                     0,
@@ -107,15 +107,15 @@ namespace
         }
         case WM_DPICHANGED:
         {
-            LPRECT NewRectangle = reinterpret_cast<LPRECT>(lParam);
+            LPRECT NewWindowRectangle = reinterpret_cast<LPRECT>(lParam);
 
             ::SetWindowPos(
                 hWnd,
                 nullptr,
-                NewRectangle->left,
-                NewRectangle->top,
-                NewRectangle->right - NewRectangle->left,
-                NewRectangle->bottom - NewRectangle->top,
+                NewWindowRectangle->left,
+                NewWindowRectangle->top,
+                NewWindowRectangle->right - NewWindowRectangle->left,
+                NewWindowRectangle->bottom - NewWindowRectangle->top,
                 SWP_NOZORDER | SWP_NOACTIVATE);
         }
         case WM_MENUCHAR:
@@ -150,11 +150,11 @@ namespace
         }
         case WM_DESTROY:
         {
-            winrt::DesktopWindowXamlSource XamlWindowSource = nullptr;
+            winrt::DesktopWindowXamlSource XamlSource = nullptr;
             winrt::copy_from_abi(
-                XamlWindowSource,
+                XamlSource,
                 ::RemovePropW(hWnd, L"XamlWindowSource"));
-            XamlWindowSource.Close();
+            XamlSource.Close();
 
             ::RemovePropW(hWnd, L"XamlWindowHandle");
 
