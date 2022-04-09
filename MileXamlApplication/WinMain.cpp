@@ -105,6 +105,19 @@ namespace
 
             break;
         }
+        case WM_DPICHANGED:
+        {
+            LPRECT NewRectangle = reinterpret_cast<LPRECT>(lParam);
+
+            ::SetWindowPos(
+                hWnd,
+                nullptr,
+                NewRectangle->left,
+                NewRectangle->top,
+                NewRectangle->right - NewRectangle->left,
+                NewRectangle->bottom - NewRectangle->top,
+                SWP_NOZORDER | SWP_NOACTIVATE);
+        }
         case WM_MENUCHAR:
         {
             // Reference: https://github.com/microsoft/terminal
