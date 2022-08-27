@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\Mile.Cpp\Mile.Project\Mile.Project.Wap.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x86.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x64.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Wap.props" />
   <PropertyGroup>
     <ProjectGuid>99fa0e84-f428-4c86-812c-12003bdb0eab</ProjectGuid>
     <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
@@ -36,5 +39,5 @@
       <SkipGetTargetFrameworkProperties>True</SkipGetTargetFrameworkProperties>
     </ProjectReference>
   </ItemGroup>
-  <Import Project="..\Mile.Cpp\Mile.Project\Mile.Project.Wap.targets" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Wap.targets" />
 </Project>
