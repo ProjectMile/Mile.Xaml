@@ -16,8 +16,8 @@
     <authors>Kenji Mouri</authors>
     <projectUrl>https://github.com/ProjectMile/Mile.Xaml</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <license type="file">build\native\License.md</license>
-    <readme>build\native\ReadMe.md</readme>
+    <license type="file">License.md</license>
+    <readme>ReadMe.md</readme>
     <dependencies>
       <group targetFramework="uap10.0" />
     </dependencies>
@@ -40,9 +40,9 @@
     <file src="Mile.Xaml.targets" target="build\native"/>
     <file src="MrtCore.PriGen.targets" target="build\native"/>
 
-    <file src="..\ReadMe.md" target="build\native"/>
-    <file src="..\License.md" target="build\native"/>
-    <file src="..\ReleaseNotes.md" target="build\native"/>
+    <file src="..\ReadMe.md" target="."/>
+    <file src="..\License.md" target="."/>
+    <file src="..\ReleaseNotes.md" target="."/>
 
   </files>
 </package>
