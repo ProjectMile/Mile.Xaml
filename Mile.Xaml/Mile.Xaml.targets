@@ -15,5 +15,4 @@
     </Reference>
     <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\runtimes\win10-$(PlatformTarget)\native\*.dll" />
   </ItemGroup>
-  <Import Project="$(MSBuildThisFileDirectory)MrtCore.PriGen.targets" />
 </Project>

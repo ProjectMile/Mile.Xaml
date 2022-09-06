@@ -9,7 +9,7 @@
    DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <PropertyGroup Label="Globals">
+  <PropertyGroup>
     <!--
       This is an override that, puzzlingly, _forces XBF (XAML binary) embedding_.
       We have to do this to overcome a layout issue in the WAP packaging project.
@@ -17,6 +17,7 @@
     -->
     <DisableEmbeddedXbf>false</DisableEmbeddedXbf>
     <_SupportXbfAsEmbedFileResources>true</_SupportXbfAsEmbedFileResources>
+    <ForceImportAfterCppTargets>$(MSBuildThisFileDirectory)MrtCore.PriGen.targets;$(ForceImportAfterCppTargets)</ForceImportAfterCppTargets>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
