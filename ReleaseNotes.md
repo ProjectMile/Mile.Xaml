@@ -1,6 +1,6 @@
 ﻿# Mile.Xaml Release Notes
 
-**Mile.Xaml 1.0 (1.0.230.0)**
+**Mile.Xaml 1.0 (1.0.360.0)**
 
 - Integrate all features from Microsoft.Toolkit.Win32.UI.XamlApplication.
 - Provide Mile.Xaml.ContentWindow window class for simplifying the development.

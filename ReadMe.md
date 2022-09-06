@@ -18,10 +18,7 @@ applications with XAML Islands.
 
 ## Usage
 
-You only need to search and add `Mile.Xaml` package in your NuGet client or 
-download packages in 
-[GitHub Releases](https://github.com/ProjectMile/Mile.Xaml/releases) if you
-don't want to use NuGet package manager.
+You only need to search and add `Mile.Xaml` package in your NuGet client.
 
 ## System Requirements
 
