@@ -25,7 +25,7 @@ don't want to use NuGet package manager.
 ## System Requirements
 
 - Supported OS: Windows 10 Version 1903 (Build 18362) or later
-- Supported Platforms: x86, x86-64(AMD64), ARM and ARM64.
+- Supported Platforms: x86, x86-64(AMD64) and ARM64.
 
 ## Documents
 
