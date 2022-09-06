@@ -13,6 +13,269 @@
 #include "Application.h"
 #include "Application.g.cpp"
 
+#include <winrt/Windows.UI.Xaml.Controls.h>
+#include <winrt/Windows.UI.Xaml.Hosting.h>
+#include <winrt/Windows.UI.Xaml.Media.h>
+#include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
+
+#include <Mile.Windows.DwmHelpers.h>
+
+namespace winrt
+{
+    using Windows::UI::Xaml::ElementTheme;
+    using Windows::UI::Xaml::FocusState;
+    using Windows::UI::Xaml::FrameworkElement;
+    using Windows::UI::Xaml::Controls::Control;
+    using Windows::UI::Xaml::Hosting::DesktopWindowXamlSource;
+    using Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceTakeFocusRequestedEventArgs;
+    using Windows::UI::Xaml::Media::VisualTreeHelper;
+}
+
+namespace
+{
+    static LRESULT CALLBACK MileXamlContentWindowCallback(
+        _In_ HWND hWnd,
+        _In_ UINT uMsg,
+        _In_ WPARAM wParam,
+        _In_ LPARAM lParam)
+    {
+        switch (uMsg)
+        {
+        case WM_CREATE:
+        {
+            // Note: Return -1 directly because WM_DESTROY message will be sent
+            // when destroy the window automatically. We free the resource when
+            // processing the WM_DESTROY message of this window.
+
+            LPCREATESTRUCT CreateStruct =
+                reinterpret_cast<LPCREATESTRUCT>(lParam);
+
+            winrt::DesktopWindowXamlSource XamlSource;
+
+            winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
+                XamlSource.as<IDesktopWindowXamlSourceNative>();
+
+            // Parent the DesktopWindowXamlSource object to current window.
+            if (FAILED(XamlSourceNative->AttachToWindow(hWnd)))
+            {
+                return -1;
+            }
+
+            winrt::FrameworkElement Content = nullptr;
+            winrt::copy_from_abi(Content, CreateStruct->lpCreateParams);
+            XamlSource.Content(Content);
+
+            HWND XamlWindowHandle = nullptr;
+            if (FAILED(XamlSourceNative->get_WindowHandle(&XamlWindowHandle)))
+            {
+                return -1;
+            }
+
+            // When focus is moving out from XAML island, move it back in again.
+            XamlSource.TakeFocusRequested([](
+                winrt::DesktopWindowXamlSource sender,
+                winrt::DesktopWindowXamlSourceTakeFocusRequestedEventArgs args)
+            {
+                sender.Content().as<winrt::Control>().Focus(
+                    winrt::FocusState::Programmatic);
+            });
+
+            if (!::SetPropW(
+                hWnd,
+                L"XamlWindowSource",
+                reinterpret_cast<HANDLE>(winrt::detach_abi(XamlSource))))
+            {
+                return -1;
+            }
+
+            // Focus on XAML Island host window for Acrylic brush support.
+            ::SetFocus(XamlWindowHandle);
+
+            ::MileDisableSystemBackdrop(hWnd);
+
+            ::MileSetUseImmersiveDarkModeAttribute(
+                hWnd,
+                (Content.ActualTheme() == winrt::ElementTheme::Dark
+                    ? TRUE
+                    : FALSE));
+
+            ::MileSetCaptionColorAttribute(
+                hWnd,
+                (Content.ActualTheme() == winrt::ElementTheme::Dark
+                    ? RGB(0, 0, 0)
+                    : RGB(255, 255, 255)));
+
+            return 0;
+        }
+        case WM_SETFOCUS:
+        {
+            winrt::DesktopWindowXamlSource XamlSource = nullptr;
+            winrt::copy_from_abi(
+                XamlSource,
+                ::GetPropW(hWnd, L"XamlWindowSource"));
+            if (!XamlSource)
+            {
+                break;
+            }
+
+            winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
+                XamlSource.as<IDesktopWindowXamlSourceNative>();
+
+            HWND XamlWindowHandle = nullptr;
+            winrt::check_hresult(
+                XamlSourceNative->get_WindowHandle(&XamlWindowHandle));
+
+            ::SetFocus(XamlWindowHandle);
+
+            break;
+        }
+        case WM_ACTIVATE:
+        {
+            UINT State = static_cast<UINT>(LOWORD(wParam));
+            BOOL Minimized = static_cast<BOOL>(HIWORD(wParam));
+
+            if (Minimized || State == WA_INACTIVE)
+            {
+                break;
+            }
+
+            winrt::DesktopWindowXamlSource XamlSource = nullptr;
+            winrt::copy_from_abi(
+                XamlSource,
+                ::GetPropW(hWnd, L"XamlWindowSource"));
+            if (!XamlSource)
+            {
+                break;
+            }
+
+            winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
+                XamlSource.as<IDesktopWindowXamlSourceNative>();
+
+            HWND XamlWindowHandle = nullptr;
+            winrt::check_hresult(
+                XamlSourceNative->get_WindowHandle(&XamlWindowHandle));
+
+            ::SetFocus(XamlWindowHandle);
+
+            break;
+        }
+        case WM_SIZE:
+        {
+            winrt::DesktopWindowXamlSource XamlSource = nullptr;
+            winrt::copy_from_abi(
+                XamlSource,
+                ::GetPropW(hWnd, L"XamlWindowSource"));
+            if (!XamlSource)
+            {
+                break;
+            }
+
+            winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
+                XamlSource.as<IDesktopWindowXamlSourceNative>();
+
+            HWND XamlWindowHandle = nullptr;
+            winrt::check_hresult(
+                XamlSourceNative->get_WindowHandle(&XamlWindowHandle));
+            if (!XamlWindowHandle)
+            {
+                break;
+            }
+
+            ::SetWindowPos(
+                XamlWindowHandle,
+                nullptr,
+                0,
+                0,
+                LOWORD(lParam),
+                HIWORD(lParam),
+                SWP_SHOWWINDOW);
+
+            break;
+        }
+        case WM_DPICHANGED:
+        {
+            LPRECT NewWindowRectangle = reinterpret_cast<LPRECT>(lParam);
+
+            ::SetWindowPos(
+                hWnd,
+                nullptr,
+                NewWindowRectangle->left,
+                NewWindowRectangle->top,
+                NewWindowRectangle->right - NewWindowRectangle->left,
+                NewWindowRectangle->bottom - NewWindowRectangle->top,
+                SWP_NOZORDER | SWP_NOACTIVATE);
+        }
+        case WM_MENUCHAR:
+        {
+            // Reference: https://github.com/microsoft/terminal
+            //            /blob/756fd444b1d443320cf2ed6887d4b65aa67a9a03
+            //            /scratch/ScratchIslandApp
+            //            /WindowExe/SampleIslandWindow.cpp#L155
+            // Return this LRESULT here to prevent the app from making a bell
+            // when alt+key is pressed. A menu is active and the user presses a
+            // key that does not correspond to any mnemonic or accelerator key.
+
+            return MAKELRESULT(0, MNC_CLOSE);
+        }
+        case WM_SETTINGCHANGE:
+        {
+            LPCTSTR Section = reinterpret_cast<LPCTSTR>(lParam);
+
+            if (Section && 0 == std::wcscmp(Section, L"ImmersiveColorSet"))
+            {
+                winrt::DesktopWindowXamlSource XamlSource = nullptr;
+                winrt::copy_from_abi(
+                    XamlSource,
+                    ::GetPropW(hWnd, L"XamlWindowSource"));
+                if (XamlSource)
+                {
+                    winrt::FrameworkElement Content =
+                        XamlSource.Content().try_as<winrt::FrameworkElement>();
+                    if (Content &&
+                        winrt::VisualTreeHelper::GetParent(Content))
+                    {
+                        Content.RequestedTheme(winrt::ElementTheme::Default);
+
+                        ::MileSetUseImmersiveDarkModeAttribute(
+                            hWnd,
+                            (Content.ActualTheme() == winrt::ElementTheme::Dark
+                                ? TRUE
+                                : FALSE));
+
+                        ::MileSetCaptionColorAttribute(
+                            hWnd,
+                            (Content.ActualTheme() == winrt::ElementTheme::Dark
+                                ? RGB(0, 0, 0)
+                                : RGB(255, 255, 255)));
+                    }
+                }
+            }
+
+            break;
+        }
+        case WM_DESTROY:
+        {
+            winrt::DesktopWindowXamlSource XamlSource = nullptr;
+            winrt::copy_from_abi(
+                XamlSource,
+                ::RemovePropW(hWnd, L"XamlWindowSource"));
+            XamlSource.Close();
+
+            if (hWnd == ::GetAncestor(hWnd, GA_ROOT))
+            {
+                ::PostQuitMessage(0);
+            }
+
+            break;
+        }
+        default:
+            return ::DefWindowProcW(hWnd, uMsg, wParam, lParam);
+        }
+
+        return 0;
+    }
+}
+
 namespace winrt::Mile::Xaml::implementation
 {
     Application::Application(winrt::XamlMetadataProviders const& Providers)
@@ -43,6 +306,22 @@ namespace winrt::Mile::Xaml::implementation
 
         this->m_WindowsXamlManager =
             winrt::WindowsXamlManager::InitializeForCurrentThread();
+
+        WNDCLASSEXW WindowClass;
+        WindowClass.cbSize = sizeof(WNDCLASSEXW);
+        WindowClass.style = 0;
+        WindowClass.lpfnWndProc = ::MileXamlContentWindowCallback;
+        WindowClass.cbClsExtra = 0;
+        WindowClass.cbWndExtra = 0;
+        WindowClass.hInstance = nullptr;
+        WindowClass.hIcon = nullptr;
+        WindowClass.hCursor = ::LoadCursorW(nullptr, IDC_ARROW);
+        WindowClass.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1);
+        WindowClass.lpszMenuName = nullptr;
+        WindowClass.lpszClassName = L"Mile.Xaml.ContentWindow";
+        WindowClass.hIconSm = nullptr;
+
+        winrt::check_bool(::RegisterClassExW(&WindowClass));
     }
 
     void Application::Close()
@@ -53,6 +332,8 @@ namespace winrt::Mile::Xaml::implementation
         }
 
         this->m_IsClosed = true;
+
+        ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
 
         this->m_WindowsXamlManager.Close();
         this->m_Providers.Clear();
