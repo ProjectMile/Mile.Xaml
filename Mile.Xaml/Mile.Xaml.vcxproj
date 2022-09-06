@@ -45,6 +45,9 @@
     <Midl Include="Application.idl" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Mile.Xaml.nuspec" />
+    <None Include="Mile.Xaml.props" />
+    <None Include="Mile.Xaml.targets" />
     <None Include="MrtCore.PriGen.targets" />
     <None Include="Mile.Xaml.def" />
   </ItemGroup>
