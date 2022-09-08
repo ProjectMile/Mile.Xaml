@@ -2,6 +2,7 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///SunValleyStyles/Common.xaml" />
+        <ResourceDictionary Source="ms-appx:///Styles/AppBarButton.xaml" />
         <ResourceDictionary Source="ms-appx:///SunValleyStyles/TextBlock.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
