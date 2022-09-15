@@ -22,9 +22,11 @@
 
 namespace winrt
 {
+    using Windows::Foundation::Uri;
     using Windows::UI::Xaml::ElementTheme;
     using Windows::UI::Xaml::FocusState;
     using Windows::UI::Xaml::FrameworkElement;
+    using Windows::UI::Xaml::ResourceDictionary;
     using Windows::UI::Xaml::Controls::Control;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSource;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceTakeFocusRequestedEventArgs;
@@ -33,6 +35,43 @@ namespace winrt
 
 namespace
 {
+    static const std::wstring SunValleyStyles[] =
+    {
+        L"AcrylicBrush.xaml",
+        L"AppBarButton.xaml",
+        L"AppBarSeparator.xaml",
+        L"AppBarToggleButton.xaml",
+        L"AutoSuggestBox.xaml",
+        L"Button.xaml",
+        L"CheckBox.xaml",
+        L"ComboBox.xaml",
+        L"CommandBar.xaml",
+        L"CommandBarFlyout.xaml",
+        L"Common.xaml",
+        L"CornerRadius.xaml",
+        L"Deprecated.xaml",
+        L"FlyoutPresenter.xaml",
+        L"Hyperlink.xaml",
+        L"HyperlinkButton.xaml",
+        L"ListViewItem.xaml",
+        L"MenuBar.xaml",
+        L"MenuBarItem.xaml",
+        L"MenuFlyout.xaml",
+        L"PasswordBox.xaml",
+        L"Pivot.xaml",
+        L"RadioButton.xaml",
+        L"RepeatButton.xaml",
+        L"RichEditBox.xaml",
+        L"ScrollBar.xaml",
+        L"ScrollViewer.xaml",
+        L"Slider.xaml",
+        L"TextBlock.xaml",
+        L"TextBox.xaml",
+        L"ToggleButton.xaml",
+        L"ToggleSwitch.xaml",
+        L"ToolTip.xaml"
+    };
+
     static LRESULT CALLBACK MileXamlContentWindowCallback(
         _In_ HWND hWnd,
         _In_ UINT uMsg,
@@ -306,6 +345,14 @@ namespace winrt::Mile::Xaml::implementation
 
         this->m_WindowsXamlManager =
             winrt::WindowsXamlManager::InitializeForCurrentThread();
+
+        for (auto& Style : SunValleyStyles)
+        {
+            winrt::ResourceDictionary Current;
+            Current.Source(winrt::Uri(
+                std::wstring(L"ms-appx:///Mile.Xaml/SunValleyStyles/") + Style));
+            this->Resources().MergedDictionaries().Append(Current);
+        }
 
         WNDCLASSEXW WindowClass;
         WindowClass.cbSize = sizeof(WNDCLASSEXW);

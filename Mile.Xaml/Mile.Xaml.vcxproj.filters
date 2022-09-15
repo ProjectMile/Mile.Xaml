@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
+    <ClCompile Include="pch.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mile.Project.Properties.h" />
+    <ClInclude Include="pch.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Application.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Mile.Xaml.nuspec" />
+    <None Include="Mile.Xaml.props" />
+    <None Include="Mile.Xaml.targets" />
+    <None Include="MrtCore.PriGen.targets" />
+    <None Include="Mile.Xaml.def" />
+    <None Include="PropertySheet.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="SunValleyStyles">
+      <UniqueIdentifier>{532dbb62-7736-42a1-84c6-e7388682c424}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="SunValleyStyles\AcrylicBrush.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\AppBarButton.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\AppBarSeparator.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\AppBarToggleButton.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\AutoSuggestBox.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\Button.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\CheckBox.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\ComboBox.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\CommandBar.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\CommandBarFlyout.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\Common.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\CornerRadius.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\Deprecated.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\FlyoutPresenter.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\Hyperlink.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\HyperlinkButton.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\ListViewItem.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\MenuBar.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\MenuBarItem.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\MenuFlyout.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\PasswordBox.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\Pivot.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\RadioButton.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\RepeatButton.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\RichEditBox.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\ScrollBar.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\ScrollViewer.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\Slider.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\TextBlock.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\TextBox.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\ToggleButton.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\ToggleSwitch.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+    <Page Include="SunValleyStyles\ToolTip.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
+  </ItemGroup>
+</Project>

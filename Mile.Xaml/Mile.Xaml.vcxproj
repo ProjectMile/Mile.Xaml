@@ -18,6 +18,7 @@
     <MileProjectEnableCppWinRTSupport>true</MileProjectEnableCppWinRTSupport>
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
+  <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" />
   <Import Project="..\Mile.Library.Windows\Mile.Library.Windows.props" />
   <ImportGroup Label="PropertySheets">
     <Import Project="PropertySheet.props" />
@@ -53,6 +54,41 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="SunValleyStyles\AcrylicBrush.xaml" />
+    <Page Include="SunValleyStyles\AppBarButton.xaml" />
+    <Page Include="SunValleyStyles\AppBarSeparator.xaml" />
+    <Page Include="SunValleyStyles\AppBarToggleButton.xaml" />
+    <Page Include="SunValleyStyles\AutoSuggestBox.xaml" />
+    <Page Include="SunValleyStyles\Button.xaml" />
+    <Page Include="SunValleyStyles\CheckBox.xaml" />
+    <Page Include="SunValleyStyles\ComboBox.xaml" />
+    <Page Include="SunValleyStyles\CommandBar.xaml" />
+    <Page Include="SunValleyStyles\CommandBarFlyout.xaml" />
+    <Page Include="SunValleyStyles\Common.xaml" />
+    <Page Include="SunValleyStyles\CornerRadius.xaml" />
+    <Page Include="SunValleyStyles\Deprecated.xaml" />
+    <Page Include="SunValleyStyles\FlyoutPresenter.xaml" />
+    <Page Include="SunValleyStyles\Hyperlink.xaml" />
+    <Page Include="SunValleyStyles\HyperlinkButton.xaml" />
+    <Page Include="SunValleyStyles\ListViewItem.xaml" />
+    <Page Include="SunValleyStyles\MenuBar.xaml" />
+    <Page Include="SunValleyStyles\MenuBarItem.xaml" />
+    <Page Include="SunValleyStyles\MenuFlyout.xaml" />
+    <Page Include="SunValleyStyles\PasswordBox.xaml" />
+    <Page Include="SunValleyStyles\Pivot.xaml" />
+    <Page Include="SunValleyStyles\RadioButton.xaml" />
+    <Page Include="SunValleyStyles\RepeatButton.xaml" />
+    <Page Include="SunValleyStyles\RichEditBox.xaml" />
+    <Page Include="SunValleyStyles\ScrollBar.xaml" />
+    <Page Include="SunValleyStyles\ScrollViewer.xaml" />
+    <Page Include="SunValleyStyles\Slider.xaml" />
+    <Page Include="SunValleyStyles\TextBlock.xaml" />
+    <Page Include="SunValleyStyles\TextBox.xaml" />
+    <Page Include="SunValleyStyles\ToggleButton.xaml" />
+    <Page Include="SunValleyStyles\ToggleSwitch.xaml" />
+    <Page Include="SunValleyStyles\ToolTip.xaml" />
   </ItemGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.targets" />
 </Project>

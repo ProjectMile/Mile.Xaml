@@ -3,8 +3,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///SunValleyStyles/Common.xaml" />
-        <ResourceDictionary Source="ms-appx:///SunValleyStyles/Button.xaml" />
+        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/Common.xaml" />
+        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/Button.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <ResourceDictionary.ThemeDictionaries>
