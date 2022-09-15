@@ -255,7 +255,11 @@
 
                             </VisualStateGroup>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <PointerUpThemeAnimation Storyboard.TargetName="Root" />
+                                    </Storyboard>
+                                </VisualState>
 
                                 <VisualState x:Name="PointerOver">
                                     <VisualState.Setters>
@@ -267,6 +271,9 @@
                                         <Setter Target="SubItemChevron.Foreground" Value="{ThemeResource AppBarButtonSubItemChevronForegroundPointerOver}" />
                                         <Setter Target="KeyboardAcceleratorTextLabel.Foreground" Value="{ThemeResource AppBarButtonKeyboardAcceleratorTextForegroundPointerOver}" />
                                     </VisualState.Setters>
+                                    <Storyboard>
+                                        <PointerUpThemeAnimation Storyboard.TargetName="Root" />
+                                    </Storyboard>
                                 </VisualState>
 
                                 <VisualState x:Name="Pressed">
@@ -279,6 +286,9 @@
                                         <Setter Target="SubItemChevron.Foreground" Value="{ThemeResource AppBarButtonSubItemChevronForegroundPressed}" />
                                         <Setter Target="KeyboardAcceleratorTextLabel.Foreground" Value="{ThemeResource AppBarButtonKeyboardAcceleratorTextForegroundPressed}" />
                                     </VisualState.Setters>
+                                    <Storyboard>
+                                        <PointerDownThemeAnimation Storyboard.TargetName="Root" />
+                                    </Storyboard>
                                 </VisualState>
 
                                 <VisualState x:Name="Disabled">

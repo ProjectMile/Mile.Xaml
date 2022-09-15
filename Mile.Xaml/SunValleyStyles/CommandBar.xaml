@@ -6,6 +6,7 @@
         <ResourceDictionary Source="ms-appx:///SunValleyStyles/AppBarButton.xaml" />
         <ResourceDictionary Source="ms-appx:///SunValleyStyles/AppBarSeparator.xaml" />
         <ResourceDictionary Source="ms-appx:///SunValleyStyles/AppBarToggleButton.xaml" />
+        <ResourceDictionary Source="ms-appx:///SunValleyStyles/ScrollViewer.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <ResourceDictionary.ThemeDictionaries>
@@ -908,8 +909,7 @@
                                     </Grid.Clip>
                                     <CommandBarOverflowPresenter x:Name="SecondaryItemsControl"
                                         Style="{TemplateBinding CommandBarOverflowPresenterStyle}"
-                                        IsTabStop="False"
-                                        Background="{StaticResource FlyoutBackgroundThemeBrush}">
+                                        IsTabStop="False">
                                         <CommandBarOverflowPresenter.RenderTransform>
                                             <TranslateTransform x:Name="OverflowContentTransform" />
                                         </CommandBarOverflowPresenter.RenderTransform>
@@ -1017,7 +1017,11 @@
 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
-                                <VisualState x:Name="Normal" />
+                                <VisualState x:Name="Normal">
+                                    <Storyboard>
+                                        <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
+                                    </Storyboard>
+                                </VisualState>
 
                                 <VisualState x:Name="PointerOver">
 
@@ -1031,6 +1035,7 @@
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarButtonBorderBrushPointerOver}" />
                                         </ObjectAnimationUsingKeyFrames>
+                                        <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
                                     </Storyboard>
                                 </VisualState>
 
@@ -1046,6 +1051,7 @@
                                         <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="BorderBrush">
                                             <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource AppBarButtonBorderBrushPressed}" />
                                         </ObjectAnimationUsingKeyFrames>
+                                        <PointerDownThemeAnimation Storyboard.TargetName="ContentPresenter" />
                                     </Storyboard>
                                 </VisualState>
 
