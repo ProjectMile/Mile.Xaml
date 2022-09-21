@@ -16,6 +16,7 @@
     <WindowsTargetPlatformMinVersion>10.0.17763.0</WindowsTargetPlatformMinVersion>
     <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
     <MileProjectEnableCppWinRTSupport>true</MileProjectEnableCppWinRTSupport>
+    <CppWinRTAddXamlMetaDataProviderIdl>false</CppWinRTAddXamlMetaDataProviderIdl>
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
   <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" />
@@ -91,4 +92,12 @@
     <Page Include="SunValleyStyles\ToolTip.xaml" />
   </ItemGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.targets" />
+  <!-- 
+    Override the target which appends the XamlCompiler generated files to the
+    ClCompile input list. Doing this makes it so that we get XBF generation but
+    ignore the XamlCompiler outputs (which are in C++/CX format and do us no
+    good. We are currently hand-authoring the necessary parts of our
+    IXamlMetadataProvider implementation. 
+  -->
+  <Target Name="ComputeXamlGeneratedCompileInputs" />
 </Project>
