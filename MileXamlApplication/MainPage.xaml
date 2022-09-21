@@ -6,7 +6,183 @@
   xmlns:local="using:MileXamlApplication"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d">
-  <Grid>
+  <Pivot Title="Test UI App">
+    <PivotItem Header="All">
+      <StackPanel
+        HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Background="{ThemeResource SystemChromeAltMediumHighColor}"
+        Orientation="Vertical">
+        <StackPanel
+          Padding="50,25"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          Orientation="Horizontal"
+          Spacing="20">
+          <AppBarButton Icon="Like" Label="Like" />
+          <AppBarSeparator />
+          <AppBarToggleButton Icon="Dislike" Label="Dislike" />
+          <Button Content="Default Button" />
+          <Button Content="Accent Button" Style="{StaticResource AccentButtonStyle}" />
+          <CommandBar
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            DefaultLabelPosition="Right"
+            IsOpen="False">
+            <CommandBar.PrimaryCommands>
+              <AppBarButton Icon="AttachCamera" Label="Attach Camera" />
+              <AppBarSeparator />
+              <AppBarToggleButton Icon="Shuffle" Label="SymbolIcon" />
+            </CommandBar.PrimaryCommands>
+            <CommandBar.SecondaryCommands>
+              <AppBarButton
+                Icon="Setting"
+                KeyboardAcceleratorTextOverride="Ctrl+I"
+                Label="Settings">
+                <AppBarButton.KeyboardAccelerators>
+                  <KeyboardAccelerator Key="I" Modifiers="Control" />
+                </AppBarButton.KeyboardAccelerators>
+              </AppBarButton>
+            </CommandBar.SecondaryCommands>
+          </CommandBar>
+          <TextBox
+            Width="240"
+            Height="32"
+            FontFamily="Arial"
+            FontStyle="Italic"
+            Foreground="#5178BE"
+            Text="I am super excited to be here!" />
+          <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="+1" />
+        </StackPanel>
+        <StackPanel
+          Padding="50,25"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          Orientation="Horizontal"
+          Spacing="20">
+          <ToggleButton Content="3 State Toogle Button" IsThreeState="True" />
+          <Slider
+            Width="150"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Maximum="50"
+            Minimum="-50"
+            Orientation="Horizontal"
+            TickFrequency="10"
+            TickPlacement="Outside" />
+          <CheckBox Content="Three-state" IsThreeState="True" />
+          <ToggleSwitch
+            Margin="0,0,-30,0"
+            Header="Toggle work"
+            IsOn="True"
+            OffContent="Do work"
+            OnContent="Working" />
+          <StackPanel>
+            <RadioButton Content="Option 1" />
+            <RadioButton Content="Option 2" />
+          </StackPanel>
+          <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink>HyperLink</Hyperlink></TextBlock>
+          <HyperlinkButton Content="HyperLink Button" />
+          <RepeatButton Content="Repeat Button" />
+        </StackPanel>
+        <StackPanel
+          Padding="50,25"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          Orientation="Horizontal"
+          Spacing="20">
+          <RichEditBox Width="120" Height="120" />
+          <PasswordBox Width="180" Height="32" />
+          <Button Content="Menu Flyout">
+            <Button.Flyout>
+              <MenuFlyout>
+                <MenuFlyoutItem Text="Share">
+                  <MenuFlyoutItem.Icon>
+                    <FontIcon Glyph="&#xE72D;" />
+                  </MenuFlyoutItem.Icon>
+                  <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="S" Modifiers="Control" />
+                  </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Icon="Copy" Text="Copy">
+                  <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="C" Modifiers="Control" />
+                  </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Icon="Delete" Text="Delete">
+                  <MenuFlyoutItem.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="Delete" />
+                  </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem Text="Rename" />
+                <MenuFlyoutItem Text="Select" />
+              </MenuFlyout>
+            </Button.Flyout>
+          </Button>
+          <Button Content="Flyout Presenter">
+            <Button.Flyout>
+              <Flyout>
+                <StackPanel>
+                  <TextBlock
+                    Margin="0,0,0,12"
+                    Style="{ThemeResource BaseTextBlockStyle}"
+                    Text="This is Flyout Presenter" />
+                  <Button Content="OK" />
+                </StackPanel>
+              </Flyout>
+            </Button.Flyout>
+          </Button>
+          <ComboBox
+            Width="120"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            IsEditable="True"
+            PlaceholderText="Pick a color">
+            <x:String>Blue</x:String>
+            <x:String>Green</x:String>
+            <x:String>Red</x:String>
+            <x:String>Yellow</x:String>
+          </ComboBox>
+          <AutoSuggestBox
+            Width="180"
+            Height="32"
+            QueryIcon="Find">
+            <AutoSuggestBox.Items>
+              <x:String>Blue</x:String>
+              <x:String>Green</x:String>
+              <x:String>Red</x:String>
+              <x:String>Yellow</x:String>
+            </AutoSuggestBox.Items>
+          </AutoSuggestBox>
+          <MenuBar>
+            <MenuBarItem Title="File">
+              <MenuFlyoutSubItem Text="New">
+                <MenuFlyoutItem Text="Plain Text Document" />
+                <MenuFlyoutItem Text="Rich Text Document" />
+                <MenuFlyoutItem Text="Other Formats..." />
+              </MenuFlyoutSubItem>
+              <MenuFlyoutItem Text="Open..." />
+              <MenuFlyoutItem Text="Save" />
+              <MenuFlyoutSeparator />
+              <MenuFlyoutItem Text="Exit" />
+            </MenuBarItem>
+            <MenuBarItem Title="Edit">
+              <MenuFlyoutItem Text="Undo" />
+              <MenuFlyoutItem Text="Cut" />
+              <MenuFlyoutItem Text="Copy" />
+              <MenuFlyoutItem Text="Paste" />
+            </MenuBarItem>
+            <MenuBarItem Title="Help">
+              <MenuFlyoutItem Text="About" />
+            </MenuBarItem>
+          </MenuBar>
+        </StackPanel>
+      </StackPanel>
+    </PivotItem>
+    <PivotItem Header="Null" />
+  </Pivot>
+  <!--<Grid>
 
     <Grid.RowDefinitions>
       <RowDefinition Height="auto" />
@@ -201,5 +377,5 @@
           Text="/s" />
       </StackPanel>
     </StackPanel>
-  </Grid>
+  </Grid>-->
 </Page>
