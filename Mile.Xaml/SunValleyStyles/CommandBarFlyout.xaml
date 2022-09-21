@@ -1,15 +1,6 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/Common.xaml" />
-        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/AcrylicBrush.xaml" />
-        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/CommandBar.xaml" />
-        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/ScrollViewer.xaml" />
-        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/TextBlock.xaml" />
-    </ResourceDictionary.MergedDictionaries>
-
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
             <StaticResource x:Key="CommandBarFlyoutBackground" ResourceKey="AcrylicInAppFillColorDefaultBrush"/>
