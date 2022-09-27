@@ -42,6 +42,7 @@ namespace
         L"Common.xaml",
         L"AppBarSeparator.xaml",
         L"Button.xaml",
+        L"ProgressBar.xaml",
         L"TextBlock.xaml",
         L"AppBarButton.xaml",
         L"ListViewItem.xaml",

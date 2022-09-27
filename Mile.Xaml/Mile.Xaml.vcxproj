@@ -79,6 +79,7 @@
     <Page Include="SunValleyStyles\MenuFlyout.xaml" />
     <Page Include="SunValleyStyles\PasswordBox.xaml" />
     <Page Include="SunValleyStyles\Pivot.xaml" />
+    <Page Include="SunValleyStyles\ProgressBar.xaml" />
     <Page Include="SunValleyStyles\RadioButton.xaml" />
     <Page Include="SunValleyStyles\RepeatButton.xaml" />
     <Page Include="SunValleyStyles\RichEditBox.xaml" />

@@ -124,5 +124,8 @@
     <Page Include="SunValleyStyles\ToolTip.xaml">
       <Filter>SunValleyStyles</Filter>
     </Page>
+    <Page Include="SunValleyStyles\ProgressBar.xaml">
+      <Filter>SunValleyStyles</Filter>
+    </Page>
   </ItemGroup>
 </Project>
