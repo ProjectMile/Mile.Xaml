@@ -1,6 +1,10 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Mile.Xaml/SunValleyStyles/CornerRadius.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <!--
         SystemControlTransparentBrush isn't defined in TH2. In RS1 and RS2, it's set to Transparent
         for all the themes. We explicitly set it here to ensure it's always defined.
