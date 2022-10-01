@@ -35,44 +35,6 @@ namespace winrt
 
 namespace
 {
-    static const std::wstring SunValleyStyles[] =
-    {
-        L"CornerRadius.xaml",
-        L"Deprecated.xaml",
-        L"Common.xaml",
-        L"AppBarSeparator.xaml",
-        L"Button.xaml",
-        L"ProgressBar.xaml",
-        L"TextBlock.xaml",
-        L"AppBarButton.xaml",
-        L"ListViewItem.xaml",
-        L"AppBarToggleButton.xaml",
-        L"AcrylicBrush.xaml",
-        L"ScrollBar.xaml",
-        L"ScrollViewer.xaml",
-        L"CommandBar.xaml",
-        L"CommandBarFlyout.xaml",  
-        L"TextBox.xaml",
-        L"MenuFlyout.xaml",
-        L"MenuBarItem.xaml",
-        L"AutoSuggestBox.xaml",
-        L"CheckBox.xaml",
-        L"ComboBox.xaml",
-        L"FlyoutPresenter.xaml",
-        L"Hyperlink.xaml",
-        L"HyperlinkButton.xaml",
-        L"MenuBar.xaml",
-        L"PasswordBox.xaml",
-        L"Pivot.xaml",
-        L"RadioButton.xaml",
-        L"RepeatButton.xaml",
-        L"RichEditBox.xaml",
-        L"Slider.xaml",
-        L"ToggleButton.xaml",
-        L"ToggleSwitch.xaml",
-        L"ToolTip.xaml"
-    };
-
     static LRESULT CALLBACK MileXamlContentWindowCallback(
         _In_ HWND hWnd,
         _In_ UINT uMsg,
@@ -347,13 +309,10 @@ namespace winrt::Mile::Xaml::implementation
         this->m_WindowsXamlManager =
             winrt::WindowsXamlManager::InitializeForCurrentThread();
 
-        for (auto& Style : SunValleyStyles)
-        {
-            winrt::ResourceDictionary Current;
-            Current.Source(winrt::Uri(
-                std::wstring(L"ms-appx:///Mile.Xaml/SunValleyStyles/") + Style));
-            this->Resources().MergedDictionaries().Append(Current);
-        }
+        winrt::ResourceDictionary Current;
+        Current.Source(winrt::Uri(
+            L"ms-appx:///Mile.Xaml/SunValleyStyles.xaml"));
+        this->Resources().MergedDictionaries().Append(Current);
 
         WNDCLASSEXW WindowClass;
         WindowClass.cbSize = sizeof(WNDCLASSEXW);
