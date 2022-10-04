@@ -4,8 +4,8 @@
 [![GitHub Releases](https://img.shields.io/github/v/release/ProjectMile/Mile.Xaml?include_prereleases)](https://github.com/ProjectMile/Mile.Xaml/releases)
 [![NuGet Package](https://img.shields.io/nuget/vpre/Mile.Xaml)](https://www.nuget.org/packages/Mile.Xaml)
 
-Mile.Xaml provides the modern Windows style to Windows.UI.Xaml for desktop 
-applications with XAML Islands.
+Mile.Xaml is the lightweight XAML Islands toolchain with the Windows 11 controls
+styles.
 
 ## Features
 
@@ -30,3 +30,9 @@ You only need to search and add `Mile.Xaml` package in your NuGet client.
 - [License](https://github.com/ProjectMile/Mile.Xaml/blob/main/License.md)
 - [Release Notes](https://github.com/ProjectMile/Mile.Xaml/blob/main/ReleaseNotes.md)
 
+## Credits
+
+Note: This list sort in alphabetical order.
+
+- AndromedaMelody, https://github.com/AndromedaMelody
+- Kenji Mouri, https://github.com/MouriNaruto
