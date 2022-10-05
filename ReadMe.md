@@ -1,7 +1,5 @@
 ﻿# Mile.Xaml
 
-![Total Downloads](https://img.shields.io/github/downloads/ProjectMile/Mile.Xaml/total)
-[![GitHub Releases](https://img.shields.io/github/v/release/ProjectMile/Mile.Xaml?include_prereleases)](https://github.com/ProjectMile/Mile.Xaml/releases)
 [![NuGet Package](https://img.shields.io/nuget/vpre/Mile.Xaml)](https://www.nuget.org/packages/Mile.Xaml)
 
 Mile.Xaml is the lightweight XAML Islands toolchain with the Windows 11 controls
@@ -15,6 +13,7 @@ styles.
 - Use [VC-LTL 5.x](https://github.com/Chuyu-Team/VC-LTL5) toolchain to make the
   binary size smaller.
 - Provide NuGet package.
+- Provide Windows 11 controls styles.
 
 ## Usage
 
