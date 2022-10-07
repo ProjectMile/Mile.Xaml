@@ -43,7 +43,6 @@ namespace winrt::MileXamlApplication::implementation
     {
     public:
         App();
-        ~App();
     };
 }
 

@@ -19,13 +19,5 @@ namespace winrt::MileXamlApplication::implementation
     App::App()
     {
         Initialize();
-
-        AddRef();
-        m_inner.as<::IUnknown>()->Release();
-    }
-
-    App::~App()
-    {
-        Close();
     }
 }
