@@ -259,11 +259,7 @@ namespace
         }
         case WM_DESTROY:
         {
-            winrt::DesktopWindowXamlSource XamlSource = nullptr;
-            winrt::copy_from_abi(
-                XamlSource,
-                ::RemovePropW(hWnd, L"XamlWindowSource"));
-            XamlSource.Close();
+            ::RemovePropW(hWnd, L"XamlWindowSource");
 
             if (hWnd == ::GetAncestor(hWnd, GA_ROOT))
             {
