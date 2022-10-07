@@ -11,6 +11,7 @@
 #pragma once
 
 #include "Application.g.h"
+#include "XamlControlsResources.g.h"
 
 #include <Windows.h>
 
@@ -33,8 +34,9 @@ namespace winrt
 
 namespace winrt::Mile::Xaml::implementation
 {
-    class Application :
-        public ApplicationT<Application, winrt::IXamlMetadataProvider>
+    class Application : public ApplicationT<
+        Application,
+        winrt::IXamlMetadataProvider>
     {
     public:
 
@@ -59,12 +61,22 @@ namespace winrt::Mile::Xaml::implementation
             winrt::single_threaded_vector<winrt::IXamlMetadataProvider>();
         bool m_IsClosed = false;
     };
+
+    class XamlControlsResources : public XamlControlsResourcesT<
+        XamlControlsResources,
+        winrt::composable>
+    {
+    public:
+
+        XamlControlsResources();
+    };
 }
 
 namespace winrt::Mile::Xaml::factory_implementation
 {
-    class Application :
-        public ApplicationT<Application, implementation::Application>
+    class Application : public ApplicationT<
+        Application,
+        implementation::Application>
     {
     public:
 
@@ -74,5 +86,11 @@ namespace winrt::Mile::Xaml::factory_implementation
     private:
 
         std::vector<HMODULE> m_PreloadModules;
+    };
+
+    class XamlControlsResources : public XamlControlsResourcesT<
+        XamlControlsResources,
+        implementation::XamlControlsResources>
+    {
     };
 }

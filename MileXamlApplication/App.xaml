@@ -5,5 +5,7 @@
   xmlns:MileXaml="using:Mile.Xaml"
   xmlns:local="using:MileXamlApplication"
   RequestedTheme="Dark">
-  <MileXaml:Application.Resources />
+  <Application.Resources>
+    <MileXaml:XamlControlsResources/>
+  </Application.Resources>
 </MileXaml:Application>

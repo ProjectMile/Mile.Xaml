@@ -25,4 +25,10 @@ namespace Mile.Xaml
         protected Application();
         protected void Initialize();
     }
+
+    [default_interface]
+    runtimeclass XamlControlsResources : Windows.UI.Xaml.ResourceDictionary
+    {
+        XamlControlsResources();
+    }
 }

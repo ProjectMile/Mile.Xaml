@@ -11,7 +11,9 @@
 #include "pch.h"
 
 #include "Mile.Xaml.h"
+
 #include "Application.g.cpp"
+#include "XamlControlsResources.g.cpp"
 
 #include <winrt/Windows.UI.Xaml.Controls.h>
 #include <winrt/Windows.UI.Xaml.Hosting.h>
@@ -309,11 +311,6 @@ namespace winrt::Mile::Xaml::implementation
         this->m_WindowsXamlManager =
             winrt::WindowsXamlManager::InitializeForCurrentThread();
 
-        winrt::ResourceDictionary Current;
-        Current.Source(winrt::Uri(
-            L"ms-appx:///Mile.Xaml/SunValleyStyles.xaml"));
-        this->Resources().MergedDictionaries().Append(Current);
-
         WNDCLASSEXW WindowClass;
         WindowClass.cbSize = sizeof(WNDCLASSEXW);
         WindowClass.style = 0;
@@ -408,6 +405,11 @@ namespace winrt::Mile::Xaml::implementation
     winrt::XamlMetadataProviders Application::MetadataProviders()
     {
         return this->m_Providers;
+    }
+
+    XamlControlsResources::XamlControlsResources()
+    {
+        this->Source(winrt::Uri(L"ms-appx:///Mile.Xaml/SunValleyStyles.xaml"));
     }
 }
 
