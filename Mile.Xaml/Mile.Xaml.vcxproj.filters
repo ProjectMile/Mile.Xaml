@@ -9,7 +9,7 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Application.idl" />
+    <Midl Include="Mile.Xaml.idl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Mile.Xaml.nuspec" />

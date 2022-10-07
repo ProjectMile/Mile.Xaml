@@ -31,20 +31,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Mile.Project.Properties.h" />
-    <ClInclude Include="Application.h">
-      <DependentUpon>Application.idl</DependentUpon>
-    </ClInclude>
+    <ClInclude Include="Mile.Xaml.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Application.cpp">
-      <DependentUpon>Application.idl</DependentUpon>
-    </ClCompile>
+    <ClCompile Include="Mile.Xaml.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Application.idl" />
+    <Midl Include="Mile.Xaml.idl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Mile.Xaml.nuspec" />
