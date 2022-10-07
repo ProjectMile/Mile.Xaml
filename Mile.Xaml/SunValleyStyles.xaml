@@ -3606,11 +3606,6 @@
   <Thickness x:Key="AppBarButtonInnerBorderMargin">2,6,2,6</Thickness>
   <Thickness x:Key="AppBarButtonInnerBorderCompactMargin">2,6,2,22</Thickness>
   <Thickness x:Key="AppBarButtonInnerBorderOverflowMargin">4,0,4,0</Thickness>
-  <Style TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}" />
-  <Style x:Key="AppBarButtonOverflowStyle" TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}">
-    <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="Width" Value="NaN" />
-  </Style>
   <Style x:Key="DefaultAppBarButtonStyle" TargetType="AppBarButton">
     <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource AppBarButtonForeground}" />
@@ -3878,12 +3873,16 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}" />
+  <Style x:Key="AppBarButtonOverflowStyle" TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Width" Value="NaN" />
+  </Style>
   <Thickness x:Key="AppBarSeparatorMargin">2,8,2,8</Thickness>
   <Thickness x:Key="AppBarOverflowSeparatorMargin">0,4,0,4</Thickness>
   <x:Double x:Key="AppBarSeparatorWidth">1</x:Double>
   <x:Double x:Key="AppBarOverflowSeparatorHeight">1</x:Double>
   <x:Double x:Key="AppBarSeparatorCornerRadius">0.5</x:Double>
-  <Style TargetType="AppBarSeparator" BasedOn="{StaticResource DefaultAppBarSeparatorStyle}" />
   <Style x:Key="DefaultAppBarSeparatorStyle" TargetType="AppBarSeparator">
     <Setter Property="Foreground" Value="{ThemeResource AppBarSeparatorForeground}" />
     <Setter Property="Padding" Value="{ThemeResource AppBarSeparatorMargin}" />
@@ -3917,6 +3916,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="AppBarSeparator" BasedOn="{StaticResource DefaultAppBarSeparatorStyle}" />
   <Thickness x:Key="AppBarToggleButtonBorderThemeThickness">1</Thickness>
   <Thickness x:Key="AppBarToggleButtonOverflowTextTouchMargin">0,9,0,12</Thickness>
   <Thickness x:Key="AppBarToggleButtonOverflowCheckTouchMargin">12,10,12,10</Thickness>
@@ -3924,11 +3924,6 @@
   <Thickness x:Key="AppBarToggleButtonTextLabelMargin">2,0,2,8</Thickness>
   <Thickness x:Key="AppBarToggleButtonTextLabelOnRightMargin">8,16,12,10</Thickness>
   <Thickness x:Key="AppBarToggleButtonOverflowTextLabelPadding">0,5,0,8</Thickness>
-  <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}" />
-  <Style x:Key="AppBarToggleButtonOverflowStyle" TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}">
-    <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="Width" Value="NaN" />
-  </Style>
   <Style x:Key="DefaultAppBarToggleButtonStyle" TargetType="AppBarToggleButton">
     <Setter Property="Background" Value="{ThemeResource AppBarToggleButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource AppBarToggleButtonForeground}" />
@@ -4232,6 +4227,11 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}" />
+  <Style x:Key="AppBarToggleButtonOverflowStyle" TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Width" Value="NaN" />
+  </Style>
   <Thickness x:Key="AutoSuggestBoxTopHeaderMargin">0,0,0,8</Thickness>
   <Thickness x:Key="AutoSuggestBoxInnerButtonMargin">1,3</Thickness>
   <Thickness x:Key="AutoSuggestBoxDeleteButtonMargin">0,4</Thickness>
@@ -4452,7 +4452,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="AutoSuggestBox" BasedOn="{StaticResource DefaultAutoSuggestBoxStyle}" />
   <Style x:Key="DefaultAutoSuggestBoxStyle" TargetType="AutoSuggestBox">
     <Setter Property="VerticalAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
@@ -4494,8 +4493,8 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="AutoSuggestBox" BasedOn="{StaticResource DefaultAutoSuggestBoxStyle}" />
   <Thickness x:Key="ButtonPadding">11,5,11,6</Thickness>
-  <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
   <Style x:Key="DefaultButtonStyle" TargetType="Button">
     <Setter Property="Background" Value="{ThemeResource ButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
@@ -4573,6 +4572,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
   <Style x:Key="AccentButtonStyle" TargetType="Button">
     <Setter Property="Foreground" Value="{ThemeResource AccentButtonForeground}" />
     <Setter Property="Background" Value="{ThemeResource AccentButtonBackground}" />
@@ -4650,7 +4650,6 @@
   <Thickness x:Key="CheckBoxFocusVisualMargin">-7,-3,-7,-3</Thickness>
   <x:String x:Key="CheckBoxCheckedGlyph"></x:String>
   <x:String x:Key="CheckBoxIndeterminateGlyph"></x:String>
-  <Style TargetType="CheckBox" BasedOn="{StaticResource DefaultCheckBoxStyle}" />
   <Style x:Key="DefaultCheckBoxStyle" TargetType="CheckBox">
     <Setter Property="Background" Value="{ThemeResource CheckBoxBackgroundUnchecked}" />
     <Setter Property="Foreground" Value="{ThemeResource CheckBoxForegroundUnchecked}" />
@@ -4985,6 +4984,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="CheckBox" BasedOn="{StaticResource DefaultCheckBoxStyle}" />
   <x:Double x:Key="ComboBoxArrowThemeFontSize">21</x:Double>
   <x:Double x:Key="ComboBoxThemeMinWidth">64</x:Double>
   <x:Double x:Key="ComboBoxPopupThemeMinWidth">80</x:Double>
@@ -5025,7 +5025,6 @@
     <Setter Property="RadiusY" Value="{StaticResource ComboBoxItemPillRectangleRadiusY}" />
     <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
   </Style>
-  <Style TargetType="ComboBox" BasedOn="{StaticResource DefaultComboBoxStyle}" />
   <Style x:Key="DefaultComboBoxStyle" TargetType="ComboBox">
     <Setter Property="Padding" Value="{ThemeResource ComboBoxPadding}" />
     <Setter Property="MaxDropDownHeight" Value="504" />
@@ -5256,7 +5255,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ComboBoxItem" BasedOn="{StaticResource DefaultComboBoxItemStyle}" />
+  <Style TargetType="ComboBox" BasedOn="{StaticResource DefaultComboBoxStyle}" />
   <Style TargetType="ComboBoxItem" x:Key="DefaultComboBoxItemStyle">
     <Setter Property="Foreground" Value="{ThemeResource ComboBoxItemForeground}" />
     <Setter Property="Background" Value="{ThemeResource ComboBoxItemBackground}" />
@@ -5425,6 +5424,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ComboBoxItem" BasedOn="{StaticResource DefaultComboBoxItemStyle}" />
   <Style TargetType="TextBox" x:Key="ComboBoxTextBoxStyle">
     <Setter Property="Template">
       <Setter.Value>
@@ -5474,7 +5474,49 @@
   <Thickness x:Key="AppBarEllipsisButtonInnerBorderMargin">2,6,6,6</Thickness>
   <x:Double x:Key="AppBarMoreButtonColumnMinWidth">6</x:Double>
   <Thickness x:Key="CommandBarOverflowPresenterMargin">0,4,0,4</Thickness>
-  <Style TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
+  <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="CommandBarOverflowPresenter">
+    <Setter Property="Background" Value="{ThemeResource CommandBarOverflowPresenterBackground}" />
+    <Setter Property="BorderBrush" Value="{ThemeResource CommandBarOverflowPresenterBorderBrush}" />
+    <Setter Property="Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderPadding}" />
+    <Setter Property="MaxWidth" Value="{ThemeResource CommandBarOverflowMaxWidth}" />
+    <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+    <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto" />
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
+    <Setter Property="AllowFocusOnInteraction" Value="False" />
+    <Setter Property="TabNavigation" Value="Once" />
+    <Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="CommandBarOverflowPresenter">
+          <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}" BackgroundSizing="InnerBorderEdge" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{ThemeResource CommandBarOverflowPresenterBorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="DisplayModeStates">
+                <VisualState x:Name="DisplayModeDefault" />
+                <VisualState x:Name="FullWidthOpenDown">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderDownPadding}" />
+                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderDownThickness}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="FullWidthOpenUp">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderUpPadding}" />
+                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderUpThickness}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <ScrollViewer HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" AutomationProperties.AccessibilityView="Raw">
+              <ItemsPresenter x:Name="ItemsPresenter" Margin="{ThemeResource CommandBarOverflowPresenterMargin}" />
+            </ScrollViewer>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style TargetType="CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
   <Style x:Key="DefaultCommandBarStyle" TargetType="CommandBar">
     <Setter Property="Background" Value="{ThemeResource CommandBarBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource CommandBarForeground}" />
@@ -5506,8 +5548,8 @@
                   <SplineDoubleKeyFrame KeyTime="{StaticResource ControlFastAnimationDuration}" KeySpline="{StaticResource ControlFastOutSlowInKeySpline}" Value="0" />
                 </DoubleAnimationUsingKeyFrames>
               </Storyboard>
-              <Style TargetType="SplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" />
-              <Style TargetType="ToggleSplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" />
+              <!-- <Style TargetType="SplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" />
+              <Style TargetType="ToggleSplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" /> -->
             </Grid.Resources>
             <VisualStateManager.VisualStateGroups>
               <VisualStateGroup x:Name="CommonStates">
@@ -6261,49 +6303,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
-  <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="CommandBarOverflowPresenter">
-    <Setter Property="Background" Value="{ThemeResource CommandBarOverflowPresenterBackground}" />
-    <Setter Property="BorderBrush" Value="{ThemeResource CommandBarOverflowPresenterBorderBrush}" />
-    <Setter Property="Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderPadding}" />
-    <Setter Property="MaxWidth" Value="{ThemeResource CommandBarOverflowMaxWidth}" />
-    <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
-    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-    <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto" />
-    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-    <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
-    <Setter Property="AllowFocusOnInteraction" Value="False" />
-    <Setter Property="TabNavigation" Value="Once" />
-    <Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate TargetType="CommandBarOverflowPresenter">
-          <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}" BackgroundSizing="InnerBorderEdge" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{ThemeResource CommandBarOverflowPresenterBorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
-            <VisualStateManager.VisualStateGroups>
-              <VisualStateGroup x:Name="DisplayModeStates">
-                <VisualState x:Name="DisplayModeDefault" />
-                <VisualState x:Name="FullWidthOpenDown">
-                  <VisualState.Setters>
-                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderDownPadding}" />
-                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderDownThickness}" />
-                  </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="FullWidthOpenUp">
-                  <VisualState.Setters>
-                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderUpPadding}" />
-                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderUpThickness}" />
-                  </VisualState.Setters>
-                </VisualState>
-              </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-            <ScrollViewer HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" AutomationProperties.AccessibilityView="Raw">
-              <ItemsPresenter x:Name="ItemsPresenter" Margin="{ThemeResource CommandBarOverflowPresenterMargin}" />
-            </ScrollViewer>
-          </Grid>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
+  <Style TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
   <Style x:Key="CommandBarWithoutRevealStyle" TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
   <Style x:Key="EllipsisButton" TargetType="Button">
     <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
@@ -7304,7 +7304,6 @@
   <CornerRadius x:Key="OverlayTopCornerRadiusFilter">8,8,0,0</CornerRadius>
   <CornerRadius x:Key="OverlayBottomCornerRadiusFilter">0,0,8,8</CornerRadius>
   <Thickness x:Key="FlyoutContentPadding">16,15,16,17</Thickness>
-  <Style TargetType="FlyoutPresenter" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" />
   <Style x:Key="DefaultFlyoutPresenterStyle" TargetType="FlyoutPresenter">
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
@@ -7335,8 +7334,8 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="FlyoutPresenter" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" />
   <x:Boolean x:Key="HyperlinkUnderlineVisible">False</x:Boolean>
-  <Style TargetType="HyperlinkButton" BasedOn="{StaticResource DefaultHyperlinkButtonStyle}" />
   <Style x:Key="DefaultHyperlinkButtonStyle" TargetType="HyperlinkButton">
     <Setter Property="Background" Value="{ThemeResource HyperlinkButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
@@ -7413,8 +7412,8 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="HyperlinkButton" BasedOn="{StaticResource DefaultHyperlinkButtonStyle}" />
   <x:Boolean x:Key="ListViewBaseItemRoundedChromeEnabled">True</x:Boolean>
-  <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}" />
   <Style x:Key="DefaultListViewItemStyle" TargetType="ListViewItem">
     <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
     <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
@@ -7442,6 +7441,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}" />
   <Style TargetType="ListViewItem" x:Key="ListViewItemExpanded">
     <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
     <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
@@ -7870,7 +7870,6 @@
     </Setter>
   </Style>
   <x:Double x:Key="MenuBarHeight">40</x:Double>
-  <Style TargetType="MenuBar" BasedOn="{StaticResource DefaultMenuBarStyle}" />
   <Style x:Key="DefaultMenuBarStyle" TargetType="MenuBar">
     <Setter Property="Background" Value="{ThemeResource MenuBarBackground}" />
     <Setter Property="IsTabStop" Value="False" />
@@ -7892,6 +7891,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="MenuBar" BasedOn="{StaticResource DefaultMenuBarStyle}" />
   <Thickness x:Key="MenuBarItemButtonPadding">10,4,10,4</Thickness>
   <Thickness x:Key="MenuBarItemMargin">4,4,4,4</Thickness>
   <Style TargetType="MenuBarItem">
@@ -7953,10 +7953,6 @@
   <Thickness x:Key="MenuFlyoutItemMargin">4,2,4,2</Thickness>
   <Thickness x:Key="MenuFlyoutItemThemePadding">11,8,11,9</Thickness>
   <Thickness x:Key="MenuFlyoutItemThemePaddingNarrow">11,4,11,5</Thickness>
-  <Style TargetType="MenuFlyoutPresenter" BasedOn="{StaticResource DefaultMenuFlyoutPresenterStyle}" />
-  <Style TargetType="MenuFlyoutItem" BasedOn="{StaticResource DefaultMenuFlyoutItemStyle}" />
-  <Style TargetType="MenuFlyoutSubItem" BasedOn="{StaticResource DefaultMenuFlyoutSubItemStyle}" />
-  <Style TargetType="ToggleMenuFlyoutItem" BasedOn="{StaticResource DefaultToggleMenuFlyoutItemStyle}" />
   <Style TargetType="MenuFlyoutPresenter" x:Key="DefaultMenuFlyoutPresenterStyle">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutPresenterBackground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutPresenterBorderBrush}" />
@@ -7984,6 +7980,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="MenuFlyoutPresenter" BasedOn="{StaticResource DefaultMenuFlyoutPresenterStyle}" />
   <Style TargetType="MenuFlyoutItem" x:Key="DefaultMenuFlyoutItemStyle">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutItemBackground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutItemBackgroundBrush}" />
@@ -8082,6 +8079,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="MenuFlyoutItem" BasedOn="{StaticResource DefaultMenuFlyoutItemStyle}" />
   <Style TargetType="ToggleMenuFlyoutItem" x:Key="DefaultToggleMenuFlyoutItemStyle">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutItemBackgroundBrush}" />
@@ -8183,6 +8181,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ToggleMenuFlyoutItem" BasedOn="{StaticResource DefaultToggleMenuFlyoutItemStyle}" />
   <Style TargetType="MenuFlyoutSubItem" x:Key="DefaultMenuFlyoutSubItemStyle">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutSubItemBackground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutSubItemBackgroundBrush}" />
@@ -8282,6 +8281,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="MenuFlyoutSubItem" BasedOn="{StaticResource DefaultMenuFlyoutSubItemStyle}" />
   <Style TargetType="MenuFlyoutSeparator">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutSeparatorBackground}" />
     <Setter Property="Padding" Value="{StaticResource MenuFlyoutSeparatorThemePadding}" />
@@ -8607,7 +8607,6 @@
   </Style>
   <Thickness x:Key="PasswordBoxTopHeaderMargin">0,0,0,8</Thickness>
   <x:Double x:Key="PasswordBoxIconFontSize">12</x:Double>
-  <Style TargetType="PasswordBox" BasedOn="{StaticResource DefaultPasswordBoxStyle}" />
   <Style x:Key="DefaultPasswordBoxStyle" TargetType="PasswordBox">
     <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}" />
     <Setter Property="Background" Value="{ThemeResource TextControlBackground}" />
@@ -8797,10 +8796,10 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="PasswordBox" BasedOn="{StaticResource DefaultPasswordBoxStyle}" />
   <CornerRadius x:Key="PivotHeaderItemSelectedPipeCornerRadius">1.5</CornerRadius>
   <x:Double x:Key="PivotHeaderItemSelectedPipeRectangleRadiusX">1.5</x:Double>
   <x:Double x:Key="PivotHeaderItemSelectedPipeRectangleRadiusY">1.5</x:Double>
-  <Style TargetType="Pivot" BasedOn="{StaticResource DefaultPivotStyle}" />
   <Style x:Key="DefaultPivotStyle" TargetType="Pivot">
     <Setter Property="Margin" Value="0" />
     <Setter Property="Padding" Value="0" />
@@ -9042,7 +9041,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="PivotItem" BasedOn="{StaticResource DefaultPivotItemStyle}" />
+  <Style TargetType="Pivot" BasedOn="{StaticResource DefaultPivotStyle}" />
   <Style x:Key="DefaultPivotItemStyle" TargetType="PivotItem">
     <Setter Property="Background" Value="{ThemeResource PivotItemBackground}" />
     <Setter Property="Margin" Value="{ThemeResource PivotItemMargin}" />
@@ -9067,7 +9066,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="PivotHeaderItem" BasedOn="{StaticResource DefaultPivotHeaderItemStyle}" />
+  <Style TargetType="PivotItem" BasedOn="{StaticResource DefaultPivotItemStyle}" />
   <Style x:Key="DefaultPivotHeaderItemStyle" TargetType="PivotHeaderItem">
     <Setter Property="FontSize" Value="{ThemeResource PivotHeaderItemFontSize}" />
     <Setter Property="FontFamily" Value="{ThemeResource PivotHeaderItemFontFamily}" />
@@ -9186,6 +9185,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="PivotHeaderItem" BasedOn="{StaticResource DefaultPivotHeaderItemStyle}" />
   <Style x:Key="PivotTitleContentControlStyle" TargetType="ContentControl">
     <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilyNormal}" />
     <Setter Property="FontWeight" Value="SemiBold" />
@@ -9200,7 +9200,6 @@
   <CornerRadius x:Key="ProgressBarTrackCornerRadius">0.5</CornerRadius>
   <x:Double x:Key="ProgressBarTrackRectangleRadiusX">0.5</x:Double>
   <x:Double x:Key="ProgressBarTrackRectangleRadiusY">0.5</x:Double>
-  <Style TargetType="ProgressBar" BasedOn="{StaticResource DefaultProgressBarStyle}" />
   <Style x:Key="DefaultProgressBarStyle" TargetType="ProgressBar">
     <Setter Property="Foreground" Value="{ThemeResource ProgressBarForeground}" />
     <Setter Property="Background" Value="{ThemeResource ProgressBarBackground}" />
@@ -9419,10 +9418,10 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ProgressBar" BasedOn="{StaticResource DefaultProgressBarStyle}" />
   <x:Double x:Key="RadioButtonCheckGlyphSize">12</x:Double>
   <x:Double x:Key="RadioButtonCheckGlyphPointerOverSize">14</x:Double>
   <x:Double x:Key="RadioButtonCheckGlyphPressedOverSize">10</x:Double>
-  <Style TargetType="RadioButton" BasedOn="{StaticResource DefaultRadioButtonStyle}" />
   <Style x:Key="DefaultRadioButtonStyle" TargetType="RadioButton">
     <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource RadioButtonForeground}" />
@@ -9622,7 +9621,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="RepeatButton" BasedOn="{StaticResource DefaultRepeatButtonStyle}" />
+  <Style TargetType="RadioButton" BasedOn="{StaticResource DefaultRadioButtonStyle}" />
   <Style x:Key="DefaultRepeatButtonStyle" TargetType="RepeatButton">
     <Setter Property="Background" Value="{ThemeResource RepeatButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
@@ -9700,8 +9699,8 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="RepeatButton" BasedOn="{StaticResource DefaultRepeatButtonStyle}" />
   <Thickness x:Key="RichEditBoxTopHeaderMargin">0,0,0,8</Thickness>
-  <Style TargetType="RichEditBox" BasedOn="{StaticResource DefaultRichEditBoxStyle}" />
   <Style x:Key="DefaultRichEditBoxStyle" TargetType="RichEditBox">
     <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}" />
     <Setter Property="Background" Value="{ThemeResource TextControlBackground}" />
@@ -9801,6 +9800,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="RichEditBox" BasedOn="{StaticResource DefaultRichEditBoxStyle}" />
   <x:String x:Key="ScrollBarExpandDuration">00:00:00.167</x:String>
   <x:String x:Key="ScrollBarOpacityChangeDuration">00:00:00.083</x:String>
   <x:String x:Key="ScrollBarColorChangeDuration">00:00:00.083</x:String>
@@ -9827,7 +9827,6 @@
   <Thickness x:Key="ScrollBarHorizontalIncreaseMargin">0,0,4,0</Thickness>
   <Thickness x:Key="ScrollBarVerticalDecreaseMargin">0,4,0,0</Thickness>
   <Thickness x:Key="ScrollBarVerticalIncreaseMargin">0,0,0,4</Thickness>
-  <Style TargetType="ScrollBar" BasedOn="{StaticResource DefaultScrollBarStyle}" />
   <Style x:Key="DefaultScrollBarStyle" TargetType="ScrollBar">
     <Setter Property="MinWidth" Value="{StaticResource ScrollBarSize}" />
     <Setter Property="MinHeight" Value="{StaticResource ScrollBarSize}" />
@@ -10344,6 +10343,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ScrollBar" BasedOn="{StaticResource DefaultScrollBarStyle}" />
   <Thickness x:Key="ScrollViewerScrollBarMargin">1</Thickness>
   <x:String x:Key="ScrollViewerSeparatorExpandBeginTime">00:00:00.40</x:String>
   <x:String x:Key="ScrollViewerSeparatorExpandDuration">00:00:00.1</x:String>
@@ -10351,7 +10351,6 @@
   <x:String x:Key="ScrollViewerSeparatorContractDelay">00:00:02</x:String>
   <x:String x:Key="ScrollViewerSeparatorContractDuration">00:00:00.1</x:String>
   <x:String x:Key="ScrollViewerSeparatorContractFinalKeyframe">00:00:02.1</x:String>
-  <Style TargetType="ScrollViewer" BasedOn="{StaticResource DefaultScrollViewerStyle}" />
   <Style x:Key="DefaultScrollViewerStyle" TargetType="ScrollViewer">
     <Setter Property="HorizontalScrollMode" Value="Auto" />
     <Setter Property="VerticalScrollMode" Value="Auto" />
@@ -10553,6 +10552,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ScrollViewer" BasedOn="{StaticResource DefaultScrollViewerStyle}" />
   <Thickness x:Key="SliderTopHeaderMargin">0,0,0,4</Thickness>
   <CornerRadius x:Key="SliderTrackCornerRadius">2</CornerRadius>
   <x:Double x:Key="SliderTrackRectangleRadiusX">2</x:Double>
@@ -10568,7 +10568,6 @@
   <x:Double x:Key="SliderVerticalThumbHeight">18</x:Double>
   <x:Double x:Key="SliderInnerThumbWidth">12</x:Double>
   <x:Double x:Key="SliderInnerThumbHeight">12</x:Double>
-  <Style TargetType="Slider" BasedOn="{StaticResource DefaultSliderStyle}" />
   <Style x:Key="DefaultSliderStyle" TargetType="Slider">
     <Setter Property="Background" Value="{ThemeResource SliderTrackFill}" />
     <Setter Property="BorderThickness" Value="{ThemeResource SliderBorderThemeThickness}" />
@@ -10827,6 +10826,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="Slider" BasedOn="{StaticResource DefaultSliderStyle}" />
   <x:Double x:Key="CaptionTextBlockFontSize">12</x:Double>
   <x:Double x:Key="BodyTextBlockFontSize">14</x:Double>
   <x:Double x:Key="SubtitleTextBlockFontSize">20</x:Double>
@@ -10869,7 +10869,6 @@
   <Thickness x:Key="TextBoxTopHeaderMargin">0,0,0,8</Thickness>
   <Thickness x:Key="TextBoxInnerButtonMargin">0,4,4,4</Thickness>
   <x:Double x:Key="TextBoxIconFontSize">12</x:Double>
-  <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}" />
   <Style x:Key="DefaultTextBoxStyle" TargetType="TextBox">
     <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}" />
     <Setter Property="Background" Value="{ThemeResource TextControlBackground}" />
@@ -11037,7 +11036,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
+  <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}" />
   <Style x:Key="DefaultToggleButtonStyle" TargetType="ToggleButton">
     <Setter Property="Background" Value="{ThemeResource ToggleButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
@@ -11234,11 +11233,11 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
   <Thickness x:Key="ToggleSwitchTopHeaderMargin">0,0,0,4</Thickness>
   <x:Double x:Key="ToggleSwitchPreContentMargin">10</x:Double>
   <x:Double x:Key="ToggleSwitchPostContentMargin">10</x:Double>
   <x:Double x:Key="ToggleSwitchThemeMinWidth">154</x:Double>
-  <Style TargetType="ToggleSwitch" BasedOn="{StaticResource DefaultToggleSwitchStyle}" />
   <Style x:Key="DefaultToggleSwitchStyle" TargetType="ToggleSwitch">
     <Setter Property="Foreground" Value="{ThemeResource ToggleSwitchContentForeground}" />
     <Setter Property="HorizontalAlignment" Value="Left" />
@@ -11586,9 +11585,9 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ToggleSwitch" BasedOn="{StaticResource DefaultToggleSwitchStyle}" />
   <Thickness x:Key="ToolTipBorderPadding">9,6,9,8</Thickness>
   <x:Double x:Key="ToolTipMaxWidth">320</x:Double>
-  <Style TargetType="ToolTip" BasedOn="{StaticResource DefaultToolTipStyle}" />
   <Style x:Key="DefaultToolTipStyle" TargetType="ToolTip">
     <Setter Property="Foreground" Value="{ThemeResource ToolTipForegroundBrush}" />
     <Setter Property="Background" Value="{ThemeResource ToolTipBackgroundBrush}" />
@@ -11623,4 +11622,5 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="ToolTip" BasedOn="{StaticResource DefaultToolTipStyle}" />
 </ResourceDictionary>
