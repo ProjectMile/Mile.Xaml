@@ -15,9 +15,12 @@
 #include "Application.g.cpp"
 #include "XamlControlsResources.g.cpp"
 
+#include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.UI.Xaml.Controls.h>
 #include <winrt/Windows.UI.Xaml.Hosting.h>
 #include <winrt/Windows.UI.Xaml.Media.h>
+
+#include <CoreWindow.h>
 #include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
 
 #include <Mile.Windows.DwmHelpers.h>
@@ -25,6 +28,7 @@
 namespace winrt
 {
     using Windows::Foundation::Uri;
+    using Windows::UI::Core::CoreWindow;
     using Windows::UI::Xaml::ElementTheme;
     using Windows::UI::Xaml::FocusState;
     using Windows::UI::Xaml::FrameworkElement;
@@ -306,6 +310,17 @@ namespace winrt::Mile::Xaml::implementation
 
         this->m_WindowsXamlManager =
             winrt::WindowsXamlManager::InitializeForCurrentThread();
+
+        // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
+        // in the task bar.
+        // Reference: https://github.com/microsoft/terminal/issues/6507
+        // Reference: https://github.com/microsoft/microsoft-ui-xaml/issues/6490
+        // Fixes: https://github.com/M2Team/NanaZip/issues/225
+        HWND CoreWindowHandle;
+        winrt::check_hresult(
+            winrt::CoreWindow::GetForCurrentThread().as<ICoreWindowInterop>(
+                )->get_WindowHandle(&CoreWindowHandle));
+        ::ShowWindow(CoreWindowHandle, SW_HIDE);
 
         WNDCLASSEXW WindowClass;
         WindowClass.cbSize = sizeof(WNDCLASSEXW);
