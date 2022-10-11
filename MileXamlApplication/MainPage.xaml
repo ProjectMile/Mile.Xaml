@@ -6,12 +6,19 @@
   xmlns:local="using:MileXamlApplication"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d">
-  <Pivot Title="Test UI App">
-    <PivotItem Header="All">
+  <Page.Background>
+    <AcrylicBrush
+      TintColor="#2C2C2C"
+      TintOpacity="0.15"
+      FallbackColor="#2C2C2C"
+      BackgroundSource="HostBackdrop"/>
+  </Page.Background>
+
+  <Pivot Title="Test UI App -- Win11's Style for UWP &amp; XAML Islands without installing WinUI" IsTabStop="False">
+    <PivotItem Header="Pivot">
       <StackPanel
         HorizontalAlignment="Center"
         VerticalAlignment="Center"
-        Background="{ThemeResource SystemChromeAltMediumHighColor}"
         Orientation="Vertical">
         <StackPanel
           Padding="50,25"
@@ -19,9 +26,6 @@
           VerticalAlignment="Center"
           Orientation="Horizontal"
           Spacing="20">
-          <AppBarButton Icon="Like" Label="Like" />
-          <AppBarSeparator />
-          <AppBarToggleButton Icon="Dislike" Label="Dislike" />
           <Button Content="Default Button" />
           <Button Content="Accent Button" Style="{StaticResource AccentButtonStyle}" />
           <CommandBar
@@ -30,9 +34,9 @@
             DefaultLabelPosition="Right"
             IsOpen="False">
             <CommandBar.PrimaryCommands>
-              <AppBarButton Icon="AttachCamera" Label="Attach Camera" />
+              <AppBarButton Icon="Setting" Label="AppBar Button" />
               <AppBarSeparator />
-              <AppBarToggleButton Icon="Shuffle" Label="SymbolIcon" />
+              <AppBarToggleButton Icon="Like" Label="AppBar ToggleButton" />
             </CommandBar.PrimaryCommands>
             <CommandBar.SecondaryCommands>
               <AppBarButton
@@ -45,14 +49,44 @@
               </AppBarButton>
             </CommandBar.SecondaryCommands>
           </CommandBar>
-          <TextBox
-            Width="240"
-            Height="32"
-            FontFamily="Arial"
+          <ToggleButton Content="3 State ToogleButton" IsThreeState="True" />
+          <RepeatButton Content="RepeatButton" />
+          <HyperlinkButton Content="HyperLinkButton" />
+        </StackPanel>
+        <StackPanel
+          Padding="50,0"
+          HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          Orientation="Horizontal"
+          Spacing="20">
+          <TextBlock
+            VerticalAlignment="Center"
+            FontSize="24"
             FontStyle="Italic"
             Foreground="#5178BE"
-            Text="I am super excited to be here!" />
-          <TextBlock Style="{StaticResource HeaderTextBlockStyle}" Text="+1" />
+            Style="{StaticResource HeaderTextBlockStyle}"
+            Text="TextBlock" />
+          <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Hyperlink>HyperLinkText</Hyperlink>
+          </TextBlock>
+          <TextBox
+            Width="180"
+            Height="32"
+            Text="TextBox" />
+          <PasswordBox Width="180" Height="32" />
+          <AutoSuggestBox
+            Width="180"
+            Height="32"
+            QueryIcon="Find"
+            Text="AutoSuggestBox">
+            <AutoSuggestBox.Items>
+              <x:String>Blue</x:String>
+              <x:String>Green</x:String>
+              <x:String>Red</x:String>
+              <x:String>Yellow</x:String>
+            </AutoSuggestBox.Items>
+          </AutoSuggestBox>
+          <RichEditBox Width="180" Height="100" />
         </StackPanel>
         <StackPanel
           Padding="50,25"
@@ -60,30 +94,32 @@
           VerticalAlignment="Center"
           Orientation="Horizontal"
           Spacing="20">
-          <ToggleButton Content="3 State Toogle Button" IsThreeState="True" />
+          <TextBlock VerticalAlignment="Center" Text="Slider" />
           <Slider
+            x:Name="slider"
             Width="150"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Maximum="50"
-            Minimum="-50"
+            Maximum="100"
+            Minimum="0"
             Orientation="Horizontal"
             TickFrequency="10"
-            TickPlacement="Outside" />
-          <CheckBox Content="Three-state" IsThreeState="True" />
-          <ToggleSwitch
-            Margin="0,0,-30,0"
-            Header="Toggle work"
-            IsOn="True"
-            OffContent="Do work"
-            OnContent="Working" />
-          <StackPanel>
-            <RadioButton Content="Option 1" />
-            <RadioButton Content="Option 2" />
-          </StackPanel>
-          <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Hyperlink>HyperLink</Hyperlink></TextBlock>
-          <HyperlinkButton Content="HyperLink Button" />
-          <RepeatButton Content="Repeat Button" />
+            TickPlacement="Outside"
+            Value="50" />
+          <TextBlock VerticalAlignment="Center" Text="ProgressBar" />
+          <ProgressBar Width="150" Value="{Binding Value, ElementName=slider}" />
+          <TextBlock VerticalAlignment="Center" Text="Pause State" />
+          <ProgressBar
+            x:Name="ProgressBarPause"
+            Width="150"
+            ShowPaused="True"
+            Value="{Binding Value, ElementName=slider}" />
+          <TextBlock VerticalAlignment="Center" Text="Error State" />
+          <ProgressBar
+            x:Name="ProgressBarError"
+            Width="150"
+            ShowError="True"
+            Value="{Binding Value, ElementName=slider}" />
         </StackPanel>
         <StackPanel
           Padding="50,25"
@@ -91,8 +127,33 @@
           VerticalAlignment="Center"
           Orientation="Horizontal"
           Spacing="20">
-          <RichEditBox Width="120" Height="120" />
-          <PasswordBox Width="180" Height="32" />
+          <CheckBox Content="3 State CheckBox" IsThreeState="True" />
+          <ToggleSwitch
+            Margin="0,0,-70,0"
+            Header="ToggleSwitch"
+            IsOn="True"
+            OffContent="Off"
+            OnContent="On" />
+          <StackPanel>
+            <RadioButton Content="Radio Button 1" />
+            <RadioButton Content="Radio Button 2" />
+          </StackPanel>
+          <MenuBar>
+            <MenuBarItem Title="MenuBar 1">
+              <MenuFlyoutSubItem Text="SubMenu">
+                <MenuFlyoutItem Text="SubItem1" />
+                <MenuFlyoutItem Text="SubItem2" />
+              </MenuFlyoutSubItem>
+              <MenuFlyoutItem Text="Item1" />
+              <MenuFlyoutSeparator />
+              <MenuFlyoutItem Text="Item2" />
+            </MenuBarItem>
+            <MenuBarItem Title="MenuBar 2">
+              <MenuFlyoutItem Text="Item3" />
+              <MenuFlyoutItem Text="Item4" />
+              <MenuFlyoutItem Text="Item5" />
+            </MenuBarItem>
+          </MenuBar>
           <Button Content="Menu Flyout">
             <Button.Flyout>
               <MenuFlyout>
@@ -104,12 +165,18 @@
                     <KeyboardAccelerator Key="S" Modifiers="Control" />
                   </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Icon="Copy" Text="Copy">
+                <MenuFlyoutItem Text="Copy">
+                  <MenuFlyoutItem.Icon>
+                    <SymbolIcon Symbol="Copy" />
+                  </MenuFlyoutItem.Icon>
                   <MenuFlyoutItem.KeyboardAccelerators>
                     <KeyboardAccelerator Key="C" Modifiers="Control" />
                   </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Icon="Delete" Text="Delete">
+                <MenuFlyoutItem Text="Delete">
+                  <MenuFlyoutItem.Icon>
+                    <SymbolIcon Symbol="Delete" />
+                  </MenuFlyoutItem.Icon>
                   <MenuFlyoutItem.KeyboardAccelerators>
                     <KeyboardAccelerator Key="Delete" />
                   </MenuFlyoutItem.KeyboardAccelerators>
@@ -138,244 +205,15 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             IsEditable="True"
-            PlaceholderText="Pick a color">
+            PlaceholderText="ComboBox">
             <x:String>Blue</x:String>
             <x:String>Green</x:String>
             <x:String>Red</x:String>
             <x:String>Yellow</x:String>
           </ComboBox>
-          <AutoSuggestBox
-            Width="180"
-            Height="32"
-            QueryIcon="Find">
-            <AutoSuggestBox.Items>
-              <x:String>Blue</x:String>
-              <x:String>Green</x:String>
-              <x:String>Red</x:String>
-              <x:String>Yellow</x:String>
-            </AutoSuggestBox.Items>
-          </AutoSuggestBox>
-          <MenuBar>
-            <MenuBarItem Title="File">
-              <MenuFlyoutSubItem Text="New">
-                <MenuFlyoutItem Text="Plain Text Document" />
-                <MenuFlyoutItem Text="Rich Text Document" />
-                <MenuFlyoutItem Text="Other Formats..." />
-              </MenuFlyoutSubItem>
-              <MenuFlyoutItem Text="Open..." />
-              <MenuFlyoutItem Text="Save" />
-              <MenuFlyoutSeparator />
-              <MenuFlyoutItem Text="Exit" />
-            </MenuBarItem>
-            <MenuBarItem Title="Edit">
-              <MenuFlyoutItem Text="Undo" />
-              <MenuFlyoutItem Text="Cut" />
-              <MenuFlyoutItem Text="Copy" />
-              <MenuFlyoutItem Text="Paste" />
-            </MenuBarItem>
-            <MenuBarItem Title="Help">
-              <MenuFlyoutItem Text="About" />
-            </MenuBarItem>
-          </MenuBar>
         </StackPanel>
       </StackPanel>
     </PivotItem>
-    <PivotItem Header="Null" />
+    <PivotItem Header="Background uses AcrylicBrush" />
   </Pivot>
-  <!--<Grid>
-
-    <Grid.RowDefinitions>
-      <RowDefinition Height="auto" />
-      <RowDefinition Height="auto" />
-      <RowDefinition Height="*" />
-      <RowDefinition Height="auto" />
-    </Grid.RowDefinitions>
-
-    <Grid
-      x:Name="TitleGrid"
-      Height="32"
-      Background="{ThemeResource SystemChromeHighColor}"
-      Visibility="Collapsed">
-      <Grid
-        x:Name="realTitle"
-        Grid.Column="0"
-        Grid.ColumnSpan="6"
-        Background="Transparent" />
-
-      <TextBlock
-        Grid.Column="1"
-        Margin="12,0,0,0"
-        VerticalAlignment="Center"
-        FontSize="12"
-        Text="Nagisa (PREVIEW)" />
-    </Grid>
-
-    <Grid
-      x:Name="ToolBarGrid"
-      Grid.Row="1"
-      Height="44"
-      Background="{ThemeResource SystemChromeHighColor}">
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="4" />
-        <ColumnDefinition Width="44" />
-        <ColumnDefinition Width="44" />
-        <ColumnDefinition Width="44" />
-        <ColumnDefinition Width="44" />
-        <ColumnDefinition Width="*" />
-        <ColumnDefinition Width="44" />
-        <ColumnDefinition Width="44" />
-        <ColumnDefinition Width="4" />
-      </Grid.ColumnDefinitions>
-
-      <Button
-        x:Uid="/MainPage/NewTaskAppBarButton"
-        Grid.Column="1"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="Transparent"
-        Content="&#xE710;"
-        FontFamily="Segoe MDL2 Assets"
-        FontSize="20"
-        ToolTipService.ToolTip="[New Task]"
-        AutomationProperties.Name="[New Task]"/>
-      <Button
-        x:Uid="/MainPage/StartAllAppBarButton"
-        Grid.Column="2"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="Transparent"
-        Content="&#xE768;"
-        FontFamily="Segoe MDL2 Assets"
-        FontSize="20"
-        ToolTipService.ToolTip="[Start All]" />
-      <Button
-        x:Uid="/MainPage/PauseAllAppBarButton"
-        Grid.Column="3"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="Transparent"
-        Content="&#xE769;"
-        FontFamily="Segoe MDL2 Assets"
-        FontSize="20"
-        ToolTipService.ToolTip="[Pause All]" />
-      <Button
-        x:Uid="/MainPage/ClearListAppBarButton"
-        Grid.Column="4"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="Transparent"
-        Content="&#xE74D;"
-        FontFamily="Segoe MDL2 Assets"
-        FontSize="20"
-        ToolTipService.ToolTip="[Clear List]" />
-      <AutoSuggestBox
-        x:Name="SearchAutoSuggestBox"
-        x:Uid="/MainPage/SearchAutoSuggestBox"
-        Grid.Column="5"
-        Grid.ColumnSpan="2"
-        Margin="6,0"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Center"
-        BorderThickness="0"
-        PlaceholderText="[Search Downloads]"
-        QueryIcon="Find" />
-      <Button
-        x:Uid="/MainPage/TaskItemMoreButton"
-        Grid.Column="7"
-        HorizontalAlignment="Stretch"
-        VerticalAlignment="Stretch"
-        Background="Transparent"
-        Content="&#xE712;"
-        FontFamily="Segoe MDL2 Assets"
-        FontSize="20"
-        ToolTipService.ToolTip="[Menu]">
-        <Button.Flyout>
-          <MenuFlyout>
-            <MenuFlyoutItem
-              x:Uid="/MainPage/OpenDownloadsFolderAppBarButton"
-              Icon="Folder"
-              Text="[Open Downloads Folder]" />
-            <MenuFlyoutItem
-              x:Uid="/MainPage/SettingsAppBarButton"
-              Icon="Setting"
-              Text="[Settings]" />
-            <MenuFlyoutSeparator />
-            <MenuFlyoutItem
-              x:Uid="/MainPage/AboutAppBarButton"
-              Icon="Help"
-              Text="[About]" />
-          </MenuFlyout>
-        </Button.Flyout>
-      </Button>
-
-
-    </Grid>
-
-    <ListView
-      x:Name="TaskList"
-      Grid.Row="2">
-      <ListView.ItemContainerStyle>
-        <Style TargetType="ListViewItem">
-          <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-          <Setter Property="VerticalContentAlignment" Value="Stretch" />
-          <Setter Property="Padding" Value="0" />
-        </Style>
-      </ListView.ItemContainerStyle>
-
-    </ListView>
-
-    <TextBlock
-      x:Name="TaskListNoItemsTextBlock"
-      x:Uid="/MainPage/TaskListNoItemsTextBlock"
-      Grid.Row="2"
-      Margin="16"
-      Text="[No Downloads]"
-      TextAlignment="Center" />
-
-    <StackPanel
-      x:Name="StatusBarStackPanel"
-      Grid.Row="3"
-      Padding="8"
-      Background="{ThemeResource SystemChromeHighColor}"
-      Orientation="Horizontal">
-      <StackPanel
-        x:Uid="/MainPage/TotalDownloadBandwidthStackPanel"
-        Margin="8"
-        Orientation="Horizontal"
-        ToolTipService.ToolTip="[Total Download Bandwidth]">
-        <FontIcon
-          Margin="0,0,8,0"
-          VerticalAlignment="Center"
-          FontSize="15"
-          Glyph="&#xE74B;" />
-        <TextBlock
-          VerticalAlignment="Center"
-          FontSize="15"
-          Text="1 GiB"/>
-        <TextBlock
-          VerticalAlignment="Center"
-          FontSize="15"
-          Text="/s" />
-      </StackPanel>
-      <StackPanel
-        x:Uid="/MainPage/TotalUploadBandwidthStackPanel"
-        Margin="8"
-        Orientation="Horizontal"
-        ToolTipService.ToolTip="[Total Upload Bandwidth]">
-        <FontIcon
-          Margin="0,0,8,0"
-          VerticalAlignment="Center"
-          FontSize="15"
-          Glyph="&#xE74A;" />
-        <TextBlock
-          VerticalAlignment="Center"
-          FontSize="15"
-          Text="128 MiB"/>
-        <TextBlock
-          VerticalAlignment="Center"
-          FontSize="15"
-          Text="/s" />
-      </StackPanel>
-    </StackPanel>
-  </Grid>-->
 </Page>
