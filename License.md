@@ -1,9 +1,9 @@
 # Mile.Xaml License
 
-For giving the maximum respect for the upstream projects and following the 
-philosophy about open-source software from Kenji Mouri (MouriNaruto). 
+For giving the maximum respect for the upstream projects and following the
+philosophy about open-source software from Kenji Mouri (MouriNaruto).
 
-The source code of Mile.Xaml (not including the source code from third-party 
+The source code of Mile.Xaml (not including the source code from third-party
 libraries) is distributed under the MIT License.
 
 The source code from the third-party libraries is distributed under the original
@@ -17,12 +17,12 @@ of the Software.
 ```
 You shouldn't make your software open source if you don't want your source code
 or ideas used in proprietary software. Because they always have the way to cross
-restrictions if they really want to do, even you distributed your source code 
-under the strictest copyleft license, they can use clean room to resolve it. 
+restrictions if they really want to do, even you distributed your source code
+under the strictest copyleft license, they can use clean room to resolve it.
 
-Use copyleft licenses make you feel anxious because you always need to worry 
-about someone uses your source code in proprietary software. So, I choose to 
-give the maximum respect to users and I also hope every people treat others 
+Use copyleft licenses make you feel anxious because you always need to worry
+about someone uses your source code in proprietary software. So, I choose to
+give the maximum respect to users and I also hope every people treat others
 kindly.
 
 Kenji Mouri
@@ -57,6 +57,7 @@ SOFTWARE.
 ### The third-party libraries used in NanaBox
 
 - C++/WinRT, https://github.com/microsoft/cppwinrt
+- IWindowPrivate, https://github.com/ADeltaX/IWindowPrivate
 - Mile.Cpp, https://github.com/ProjectMile/Mile.Cpp
 - VC-LTL, https://github.com/Chuyu-Team/VC-LTL5
 - Windows App SDK, https://github.com/microsoft/WindowsAppSDK

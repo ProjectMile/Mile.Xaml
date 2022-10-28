@@ -15,6 +15,14 @@ namespace Mile.Xaml
         Windows.Foundation.Collections.IVector<Windows.UI.Xaml.Markup.IXamlMetadataProvider> MetadataProviders { get; };
     };
 
+    // Enable XamlHost transparency by using a undocumented API.
+    // Reference: https://github.com/ADeltaX/IWindowPrivate/blob/main/IWindowPrivate.idl
+    [uuid(06636C29-5A17-458D-8EA2-2422D997A922)]
+    interface IWindowPrivate
+    {
+        Boolean TransparentBackground{ get; set; };
+    }
+
     [default_interface]
     unsealed runtimeclass Application :
         Windows.UI.Xaml.Application,

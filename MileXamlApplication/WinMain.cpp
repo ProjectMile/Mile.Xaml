@@ -23,7 +23,7 @@ int WINAPI wWinMain(
         winrt::make<winrt::MileXamlApplication::implementation::MainPage>();
 
     HWND WindowHandle = ::CreateWindowExW(
-        WS_EX_CLIENTEDGE,
+        WS_EX_NOREDIRECTIONBITMAP,
         L"Mile.Xaml.ContentWindow",
         L"MileXamlApplicationWindow",
         WS_OVERLAPPEDWINDOW,

@@ -6,8 +6,8 @@
   <Import Project="..\Mile.Project.Windows\Mile.Project.Wap.props" />
   <PropertyGroup>
     <ProjectGuid>99fa0e84-f428-4c86-812c-12003bdb0eab</ProjectGuid>
-    <TargetPlatformVersion>10.0.19041.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.18362.0</TargetPlatformMinVersion>
     <DefaultLanguage>zh-CN</DefaultLanguage>
     <AppxPackageSigningEnabled>false</AppxPackageSigningEnabled>
     <EntryPointProjectUniqueName>..\MileXamlApplication\MileXamlApplication.vcxproj</EntryPointProjectUniqueName>

@@ -6,13 +6,6 @@
   xmlns:local="using:MileXamlApplication"
   xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
   mc:Ignorable="d">
-  <Page.Background>
-    <AcrylicBrush
-      TintColor="#2C2C2C"
-      TintOpacity="0.15"
-      FallbackColor="#2C2C2C"
-      BackgroundSource="HostBackdrop"/>
-  </Page.Background>
 
   <Pivot Title="Test UI App -- Win11's Style for UWP &amp; XAML Islands without installing WinUI" IsTabStop="False">
     <PivotItem Header="Pivot">
