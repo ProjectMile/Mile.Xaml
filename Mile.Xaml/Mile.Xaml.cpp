@@ -83,6 +83,21 @@ enum class DwmSystemBackdropType : DWORD
 };
 
 /**
+ * @brief 
+ * @return Defalut
+ * @return Auto
+ * @return Dark
+ * @return Light 
+*/
+enum class UxThemePreferredAppModeType : DWORD
+{
+    Defalut = 0, 
+    Auto = 1,
+    Dark = 2,
+    Light = 3
+};
+
+/**
  * @brief Extends the window frame into the client area.
  * @param WindowHandle The handle to the window for which the attribute value
  *                     is to be set.
@@ -140,6 +155,22 @@ HRESULT MileSetSystemBackdropAttribute(
         DwmWindowSystemBackdropTypeAttribute,
         &Type,
         sizeof(DWORD));
+}
+
+/**
+ * @brief 
+ * @param Type 
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+HRESULT MileSetPreferredAppModeAttribute(
+    UxThemePreferredAppModeType Type)
+{
+    static const auto SetPreferredAppMode =
+        reinterpret_cast<HRESULT(CALLBACK*)(DWORD)>(::GetProcAddress(
+            ::GetModuleHandleW(L"UxTheme.dll"),
+            MAKEINTRESOURCEA(135)));
+    return SetPreferredAppMode(static_cast<DWORD>(Type));
 }
 
 namespace winrt
@@ -222,6 +253,22 @@ namespace
                 (Content.ActualTheme() == winrt::ElementTheme::Dark
                     ? TRUE
                     : FALSE));
+
+            ::MileSetPreferredAppModeAttribute(UxThemePreferredAppModeType::Auto);
+            //::MileSetPreferredAppModeAttribute([&]()-> UxThemePreferredAppModeType
+            //    {
+            //        switch (Content.ActualTheme())
+            //        {
+            //        case winrt::ElementTheme::Default:
+            //            return UxThemePreferredAppModeType::Auto;
+            //        case winrt::ElementTheme::Light:
+            //            return UxThemePreferredAppModeType::Light;
+            //        case winrt::ElementTheme::Dark:
+            //            return UxThemePreferredAppModeType::Dark;
+            //        default:
+            //            return UxThemePreferredAppModeType::Defalut;
+            //        }
+            //    });
 
             ::MileSetWindowFrameMargins(hWnd, -1, -1, -1, -1);
 
@@ -372,6 +419,22 @@ namespace
                             (Content.ActualTheme() == winrt::ElementTheme::Dark
                                 ? TRUE
                                 : FALSE));
+
+                        ::MileSetPreferredAppModeAttribute(UxThemePreferredAppModeType::Auto);
+                        //::MileSetPreferredAppModeAttribute([&]()-> UxThemePreferredAppModeType
+                        //    {
+                        //        switch (Content.ActualTheme())
+                        //        {
+                        //        case winrt::ElementTheme::Default:
+                        //            return UxThemePreferredAppModeType::Auto;
+                        //        case winrt::ElementTheme::Light:
+                        //            return UxThemePreferredAppModeType::Light;
+                        //        case winrt::ElementTheme::Dark:
+                        //            return UxThemePreferredAppModeType::Dark;
+                        //        default:
+                        //            return UxThemePreferredAppModeType::Defalut;
+                        //        }
+                        //    });
 
                         if (FAILED(::MileSetSystemBackdropAttribute(
                             hWnd,
