@@ -55,7 +55,7 @@ bool IsWindowsVersionOrLater(
 
 static bool IsSupportSystemBackdrop()
 {
-    static bool CachedResult = IsWindowsVersionOrLater(10, 0, 22523);
+    static bool CachedResult = ::IsWindowsVersionOrLater(10, 0, 22523);
     return CachedResult;
 }
 
@@ -117,7 +117,7 @@ HRESULT MileSetWindowFrameMargins(
     Value.cyTopHeight = TopHeight;
     Value.cxRightWidth = RightWidth;
     Value.cyBottomHeight = BottomHeight;
-    return DwmExtendFrameIntoClientArea(
+    return ::DwmExtendFrameIntoClientArea(
         WindowHandle,
         &Value);
 }
