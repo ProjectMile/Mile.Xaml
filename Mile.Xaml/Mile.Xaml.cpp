@@ -82,13 +82,6 @@ enum class DwmSystemBackdropType : DWORD
     MicaAlt = 4
 };
 
-/**
- * @brief 
- * @return Default
- * @return Auto
- * @return Dark
- * @return Light 
-*/
 enum class UxThemePreferredAppModeType : DWORD
 {
     Default = 0, 
@@ -157,12 +150,6 @@ HRESULT MileSetSystemBackdropAttribute(
         sizeof(DWORD));
 }
 
-/**
- * @brief 
- * @param Type 
- * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
- *         HRESULT error code.
-*/
 HRESULT MileSetPreferredAppModeAttribute(
     UxThemePreferredAppModeType Type)
 {
