@@ -84,14 +84,14 @@ enum class DwmSystemBackdropType : DWORD
 
 /**
  * @brief 
- * @return Defalut
+ * @return Default
  * @return Auto
  * @return Dark
  * @return Light 
 */
 enum class UxThemePreferredAppModeType : DWORD
 {
-    Defalut = 0, 
+    Default = 0, 
     Auto = 1,
     Dark = 2,
     Light = 3
@@ -266,7 +266,7 @@ namespace
             //        case winrt::ElementTheme::Dark:
             //            return UxThemePreferredAppModeType::Dark;
             //        default:
-            //            return UxThemePreferredAppModeType::Defalut;
+            //            return UxThemePreferredAppModeType::Default;
             //        }
             //    });
 
@@ -432,7 +432,7 @@ namespace
                         //        case winrt::ElementTheme::Dark:
                         //            return UxThemePreferredAppModeType::Dark;
                         //        default:
-                        //            return UxThemePreferredAppModeType::Defalut;
+                        //            return UxThemePreferredAppModeType::Default;
                         //        }
                         //    });
 
