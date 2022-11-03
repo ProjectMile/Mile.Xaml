@@ -82,7 +82,7 @@ enum class DwmSystemBackdropType : DWORD
     MicaAlt = 4
 };
 
-enum class UxThemePreferredAppModeType : DWORD
+enum class PREFERRED_APP_MODE : DWORD
 {
     Default = 0, 
     Auto = 1,
@@ -150,8 +150,8 @@ HRESULT MileSetSystemBackdropAttribute(
         sizeof(DWORD));
 }
 
-HRESULT MileSetPreferredAppModeAttribute(
-    UxThemePreferredAppModeType Type)
+HRESULT MileSetPreferredAppMode(
+    PREFERRED_APP_MODE Type)
 {
     static const auto SetPreferredAppMode =
         reinterpret_cast<HRESULT(CALLBACK*)(DWORD)>(::GetProcAddress(
@@ -241,19 +241,19 @@ namespace
                     ? TRUE
                     : FALSE));
 
-            ::MileSetPreferredAppModeAttribute(UxThemePreferredAppModeType::Auto);
-            //::MileSetPreferredAppModeAttribute([&]()-> UxThemePreferredAppModeType
+            ::MileSetPreferredAppMode(PREFERRED_APP_MODE::Auto);
+            //::MileSetPreferredAppMode([&]()-> PREFERRED_APP_MODE
             //    {
             //        switch (Content.ActualTheme())
             //        {
             //        case winrt::ElementTheme::Default:
-            //            return UxThemePreferredAppModeType::Auto;
+            //            return PREFERRED_APP_MODE::Auto;
             //        case winrt::ElementTheme::Light:
-            //            return UxThemePreferredAppModeType::Light;
+            //            return PREFERRED_APP_MODE::Light;
             //        case winrt::ElementTheme::Dark:
-            //            return UxThemePreferredAppModeType::Dark;
+            //            return PREFERRED_APP_MODE::Dark;
             //        default:
-            //            return UxThemePreferredAppModeType::Default;
+            //            return PREFERRED_APP_MODE::Default;
             //        }
             //    });
 
@@ -407,19 +407,19 @@ namespace
                                 ? TRUE
                                 : FALSE));
 
-                        ::MileSetPreferredAppModeAttribute(UxThemePreferredAppModeType::Auto);
-                        //::MileSetPreferredAppModeAttribute([&]()-> UxThemePreferredAppModeType
+                        ::MileSetPreferredAppMode(PREFERRED_APP_MODE::Auto);
+                        //::MileSetPreferredAppMode([&]()-> PREFERRED_APP_MODE
                         //    {
                         //        switch (Content.ActualTheme())
                         //        {
                         //        case winrt::ElementTheme::Default:
-                        //            return UxThemePreferredAppModeType::Auto;
+                        //            return PREFERRED_APP_MODE::Auto;
                         //        case winrt::ElementTheme::Light:
-                        //            return UxThemePreferredAppModeType::Light;
+                        //            return PREFERRED_APP_MODE::Light;
                         //        case winrt::ElementTheme::Dark:
-                        //            return UxThemePreferredAppModeType::Dark;
+                        //            return PREFERRED_APP_MODE::Dark;
                         //        default:
-                        //            return UxThemePreferredAppModeType::Default;
+                        //            return PREFERRED_APP_MODE::Default;
                         //        }
                         //    });
 
