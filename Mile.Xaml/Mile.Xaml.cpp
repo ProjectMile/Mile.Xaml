@@ -134,11 +134,27 @@ HRESULT MileSetSystemBackdropAttribute(
 HRESULT MileSetPreferredAppMode(
     PREFERRED_APP_MODE Type)
 {
-    static const auto SetPreferredAppMode =
-        reinterpret_cast<HRESULT(CALLBACK*)(DWORD)>(::GetProcAddress(
-            ::GetModuleHandleW(L"UxTheme.dll"),
-            MAKEINTRESOURCEA(135)));
-    return SetPreferredAppMode(static_cast<DWORD>(Type));
+    HRESULT hr = E_NOINTERFACE;
+
+    HMODULE ModuleHandle = ::LoadLibraryExW(
+        L"uxtheme.dll",
+        nullptr,
+        LOAD_LIBRARY_SEARCH_SYSTEM32);
+    if (ModuleHandle)
+    {
+        typedef HRESULT(WINAPI* ProcType)(PREFERRED_APP_MODE);
+
+        ProcType ProcAddress = reinterpret_cast<ProcType>(
+            ::GetProcAddress(ModuleHandle, reinterpret_cast<LPCSTR>(135)));
+        if (ProcAddress)
+        {
+            hr = ProcAddress(Type);
+        }
+
+        ::FreeLibrary(ModuleHandle);
+    }
+
+    return hr;
 }
 
 namespace winrt
