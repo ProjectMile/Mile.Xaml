@@ -104,38 +104,6 @@ enum class PREFERRED_APP_MODE : DWORD
 };
 
 /**
- * @brief Extends the window frame into the client area.
- * @param WindowHandle The handle to the window for which the attribute value
- *                     is to be set.
- * @param LeftWidth describes the left margins to use when extending the frame
- *                  into the client area.
- * @param TopHeight describes the top margins to use when extending the frame
- *                  into the client area.
- * @param RightWidth describes the right margins to use when extending the frame
- *                   into the client area.
- * @param BottomHeight describes the bottom margins to use when extending the frame
- *                     into the client area.
- * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
- *         HRESULT error code.
-*/
-HRESULT MileSetWindowFrameMargins(
-    HWND WindowHandle,
-    int LeftWidth,
-    int TopHeight,
-    int RightWidth,
-    int BottomHeight)
-{
-    MARGINS Value{ 0 };
-    Value.cxLeftWidth = LeftWidth;
-    Value.cyTopHeight = TopHeight;
-    Value.cxRightWidth = RightWidth;
-    Value.cyBottomHeight = BottomHeight;
-    return ::DwmExtendFrameIntoClientArea(
-        WindowHandle,
-        &Value);
-}
-
-/**
  * @brief Retrieves or specifies the system-drawn backdrop material of a
  *        window, including behind the non-client area.
  * @param WindowHandle The handle to the window for which the attribute value
@@ -270,7 +238,8 @@ namespace
             //        }
             //    });
 
-            ::MileSetWindowFrameMargins(hWnd, -1, -1, -1, -1);
+            MARGINS Margins = { -1 };
+            ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
 
             if (FAILED(::MileSetSystemBackdropAttribute(
                 hWnd,
@@ -525,7 +494,8 @@ namespace winrt::Mile::Xaml::implementation
         WindowClass.hInstance = nullptr;
         WindowClass.hIcon = nullptr;
         WindowClass.hCursor = ::LoadCursorW(nullptr, IDC_ARROW);
-        WindowClass.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1);
+        WindowClass.hbrBackground = reinterpret_cast<HBRUSH>(
+            ::GetStockObject(BLACK_BRUSH));
         WindowClass.lpszMenuName = nullptr;
         WindowClass.lpszClassName = L"Mile.Xaml.ContentWindow";
         WindowClass.hIconSm = nullptr;
