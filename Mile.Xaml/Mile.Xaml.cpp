@@ -62,23 +62,36 @@ static bool IsSupportSystemBackdrop()
 /**
  * @brief Flags for specifying the system-drawn backdrop material of a window,
  *        including behind the non-client area.
- * @return Auto Let the Desktop Window Manager automatically decide the
- *              system-drawn backdrop material for this window. (Applies to
- *              TitleBar only, not supporting extend into client aero.)
- * @return None Don't draw any system backdrop.
- * @return Mica Draw the backdrop material effect corresponding to a long-lived
- *              window.
- * @return Acrylic Draw the backdrop material effect corresponding to a
- *                 transient window.
- * @return MicaAlt Draw the backdrop material effect corresponding to a
- *                 window with a tabbed title bar.
 */
 enum class DwmSystemBackdropType : DWORD
 {
-    Auto = 0, 
+    /**
+     * @brief The default. Let the Desktop Window Manager (DWM) automatically
+              decide the system-drawn backdrop material for this window.
+    */
+    Auto = 0,
+
+    /**
+     * @brief Don't draw any system backdrop.
+    */
     None = 1,
+
+    /**
+     * @brief Draw the backdrop material effect corresponding to a long-lived
+     *        window.
+    */
     Mica = 2,
+
+    /**
+     * @brief Draw the backdrop material effect corresponding to a transient
+     *        window.
+    */
     Acrylic = 3,
+
+    /**
+     * @brief Draw the backdrop material effect corresponding to a window with
+     *        a tabbed title bar.
+    */
     MicaAlt = 4
 };
 
