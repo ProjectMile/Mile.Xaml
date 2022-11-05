@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<ResourceDictionary xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:contract13Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 13)" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
   <ResourceDictionary.ThemeDictionaries>
     <ResourceDictionary x:Key="Default">
       <AcrylicBrush x:Key="AcrylicBackgroundFillColorDefaultBrush" TintColor="#2C2C2C" TintOpacity="0.15" TintLuminosityOpacity="0.96" FallbackColor="#2C2C2C" BackgroundSource="HostBackdrop" />
@@ -597,6 +597,9 @@
       <CornerRadius x:Key="OverlayCornerRadius">8,8,8,8</CornerRadius>
       <Color x:Key="ControlAAStrokeColorDefault">#8BFFFFFF</Color>
       <SolidColorBrush x:Key="ControlAAStrokeColorDefaultBrush" Color="{StaticResource ControlAAStrokeColorDefault}" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondary" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondaryPointerOver" ResourceKey="TextFillColorTertiaryBrush" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondaryPressed" ResourceKey="TextFillColorTertiaryBrush" />
       <StaticResource x:Key="FlyoutPresenterBackground" ResourceKey="AcrylicInAppFillColorDefaultBrush" />
       <StaticResource x:Key="FlyoutBorderThemeBrush" ResourceKey="SurfaceStrokeColorFlyoutBrush" />
       <Thickness x:Key="FlyoutBorderThemeThickness">1</Thickness>
@@ -770,6 +773,70 @@
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushPointerOver" ResourceKey="SystemControlTransparentRevealBorderBrush" />
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushSubMenuOpened" ResourceKey="SystemControlTransparentRevealBorderBrush" />
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewDefaultPaneBackground" ResourceKey="SolidBackgroundFillColorBaseBrush" />
+      <StaticResource x:Key="NavigationViewExpandedPaneBackground" ResourceKey="SolidBackgroundFillColorTransparent" />
+      <StaticResource x:Key="NavigationViewTopPaneBackground" ResourceKey="ControlFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewContentBackground" ResourceKey="LayerFillColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewItemBackground" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundPointerOver" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundPressed" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundChecked" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedPointerOver" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedPressed" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelected" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedPointerOver" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedPressed" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedDisabled" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForeground" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundChecked" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelected" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrush" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushChecked" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelected" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemSeparatorForeground" ResourceKey="DividerStrokeColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewItemHeaderForeground" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewSelectionIndicatorForeground" ResourceKey="AccentFillColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewContentGridBorderBrush" ResourceKey="CardStrokeColorDefaultBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForeground" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelected" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelected" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelectedPointerOver" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelectedPressed" ResourceKey="TextFillColorTertiaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelectedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelectedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemSeparatorForeground" ResourceKey="DividerStrokeColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundPointerOver" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundPressed" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundDisabled" ResourceKey="ControlFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewBackButtonBackground" ResourceKey="SubtleFillColorTransparentBrush" />
       <FontFamily x:Key="PivotHeaderItemFontFamily">XamlAutoFontFamily</FontFamily>
       <FontFamily x:Key="PivotTitleFontFamily">XamlAutoFontFamily</FontFamily>
       <x:Double x:Key="PivotHeaderItemFontSize">24</x:Double>
@@ -1024,6 +1091,34 @@
       <SolidColorBrush x:Key="SliderTrackPointerOverBackgroundThemeBrush" Color="#46FFFFFF" />
       <SolidColorBrush x:Key="SliderTrackPressedBackgroundThemeBrush" Color="#59FFFFFF" />
       <SolidColorBrush x:Key="SliderHeaderForegroundThemeBrush" Color="#FFFFFFFF" />
+      <StaticResource x:Key="SplitButtonBackground" ResourceKey="ControlFillColorDefaultBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundPointerOver" ResourceKey="ControlFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundPressed" ResourceKey="ControlFillColorTertiaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundDisabled" ResourceKey="ControlFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundChecked" ResourceKey="AccentFillColorDefaultBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedPointerOver" ResourceKey="AccentFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedPressed" ResourceKey="AccentFillColorTertiaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedDisabled" ResourceKey="AccentFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonForeground" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonForegroundChecked" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedPointerOver" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedPressed" ResourceKey="TextOnAccentFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonForegroundSecondary" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundSecondaryPressed" ResourceKey="TextFillColorTertiaryBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrush" ResourceKey="ControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushPointerOver" ResourceKey="ControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushPressed" ResourceKey="ControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushDisabled" ResourceKey="ControlStrokeColorDefaultBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushChecked" ResourceKey="AccentControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedPointerOver" ResourceKey="AccentControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedPressed" ResourceKey="ControlFillColorTransparentBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedDisabled" ResourceKey="ControlFillColorTransparentBrush" />
+      <Thickness x:Key="SplitButtonBorderThemeThickness">1</Thickness>
+      <StaticResource x:Key="SplitButtonInAppBarUnfocusedPointerOver" ResourceKey="SubtleFillColorTertiaryBrush" />
       <SolidColorBrush x:Key="TextBoxForegroundHeaderThemeBrush" Color="#FFFFFFFF" />
       <SolidColorBrush x:Key="TextBoxPlaceholderTextThemeBrush" Color="#AB000000" />
       <SolidColorBrush x:Key="TextBoxBackgroundThemeBrush" Color="#FFFFFFFF" />
@@ -1803,6 +1898,9 @@
       <CornerRadius x:Key="OverlayCornerRadius">8,8,8,8</CornerRadius>
       <Color x:Key="ControlAAStrokeColorDefault">#72000000</Color>
       <SolidColorBrush x:Key="ControlAAStrokeColorDefaultBrush" Color="{StaticResource ControlAAStrokeColorDefault}" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondary" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondaryPointerOver" ResourceKey="TextFillColorTertiaryBrush" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondaryPressed" ResourceKey="TextFillColorTertiaryBrush" />
       <StaticResource x:Key="FlyoutPresenterBackground" ResourceKey="AcrylicInAppFillColorDefaultBrush" />
       <StaticResource x:Key="FlyoutBorderThemeBrush" ResourceKey="SurfaceStrokeColorFlyoutBrush" />
       <Thickness x:Key="FlyoutBorderThemeThickness">1</Thickness>
@@ -1986,6 +2084,70 @@
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushPointerOver" ResourceKey="SystemControlTransparentRevealBorderBrush" />
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushSubMenuOpened" ResourceKey="SystemControlTransparentRevealBorderBrush" />
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewDefaultPaneBackground" ResourceKey="SolidBackgroundFillColorBaseBrush" />
+      <StaticResource x:Key="NavigationViewExpandedPaneBackground" ResourceKey="SolidBackgroundFillColorTransparent" />
+      <StaticResource x:Key="NavigationViewTopPaneBackground" ResourceKey="ControlFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewContentBackground" ResourceKey="LayerFillColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewItemBackground" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundPointerOver" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundPressed" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundChecked" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedPointerOver" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedPressed" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelected" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedPointerOver" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedPressed" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedDisabled" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForeground" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundChecked" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelected" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrush" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushChecked" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelected" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedDisabled" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemSeparatorForeground" ResourceKey="DividerStrokeColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewItemHeaderForeground" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewSelectionIndicatorForeground" ResourceKey="AccentFillColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewContentGridBorderBrush" ResourceKey="CardStrokeColorDefaultBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForeground" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelected" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelectedPointerOver" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelectedPressed" ResourceKey="TextFillColorTertiaryBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelected" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelectedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelectedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemSeparatorForeground" ResourceKey="DividerStrokeColorDefaultBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundPointerOver" ResourceKey="SubtleFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundPressed" ResourceKey="SubtleFillColorTertiaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundDisabled" ResourceKey="ControlFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="NavigationViewBackButtonBackground" ResourceKey="SubtleFillColorTransparentBrush" />
       <FontFamily x:Key="PivotHeaderItemFontFamily">XamlAutoFontFamily</FontFamily>
       <FontFamily x:Key="PivotTitleFontFamily">XamlAutoFontFamily</FontFamily>
       <x:Double x:Key="PivotHeaderItemFontSize">24</x:Double>
@@ -2240,6 +2402,34 @@
       <SolidColorBrush x:Key="SliderTrackPointerOverBackgroundThemeBrush" Color="#46FFFFFF" />
       <SolidColorBrush x:Key="SliderTrackPressedBackgroundThemeBrush" Color="#59FFFFFF" />
       <SolidColorBrush x:Key="SliderHeaderForegroundThemeBrush" Color="#FFFFFFFF" />
+      <StaticResource x:Key="SplitButtonBackground" ResourceKey="ControlFillColorDefaultBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundPointerOver" ResourceKey="ControlFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundPressed" ResourceKey="ControlFillColorTertiaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundDisabled" ResourceKey="ControlFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundChecked" ResourceKey="AccentFillColorDefaultBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedPointerOver" ResourceKey="AccentFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedPressed" ResourceKey="AccentFillColorTertiaryBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedDisabled" ResourceKey="AccentFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonForeground" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundPointerOver" ResourceKey="TextFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundPressed" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonForegroundChecked" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedPointerOver" ResourceKey="TextOnAccentFillColorPrimaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedPressed" ResourceKey="TextOnAccentFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedDisabled" ResourceKey="TextFillColorDisabledBrush" />
+      <StaticResource x:Key="SplitButtonForegroundSecondary" ResourceKey="TextFillColorSecondaryBrush" />
+      <StaticResource x:Key="SplitButtonForegroundSecondaryPressed" ResourceKey="TextFillColorTertiaryBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrush" ResourceKey="ControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushPointerOver" ResourceKey="ControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushPressed" ResourceKey="ControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushDisabled" ResourceKey="ControlStrokeColorDefaultBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushChecked" ResourceKey="AccentControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedPointerOver" ResourceKey="AccentControlElevationBorderBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedPressed" ResourceKey="ControlFillColorTransparentBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedDisabled" ResourceKey="ControlFillColorTransparentBrush" />
+      <Thickness x:Key="SplitButtonBorderThemeThickness">1</Thickness>
+      <StaticResource x:Key="SplitButtonInAppBarUnfocusedPointerOver" ResourceKey="SubtleFillColorTertiaryBrush" />
       <SolidColorBrush x:Key="TextBoxForegroundHeaderThemeBrush" Color="#FF000000" />
       <SolidColorBrush x:Key="TextBoxPlaceholderTextThemeBrush" Color="#AB000000" />
       <SolidColorBrush x:Key="TextBoxBackgroundThemeBrush" Color="#FFFFFFFF" />
@@ -2998,6 +3188,9 @@
       <CornerRadius x:Key="OverlayCornerRadius">8,8,8,8</CornerRadius>
       <Color x:Key="ControlAAStrokeColorDefault">#8BFFFFFF</Color>
       <SolidColorBrush x:Key="ControlAAStrokeColorDefaultBrush" Color="{ThemeResource SystemColorButtonTextColor}" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondary" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondaryPointerOver" ResourceKey="SystemColorHighlightColorBrush" />
+      <StaticResource x:Key="DropDownButtonForegroundSecondaryPressed" ResourceKey="SystemColorHighlightColorBrush" />
       <StaticResource x:Key="FlyoutPresenterBackground" ResourceKey="SystemColorWindowColorBrush" />
       <StaticResource x:Key="FlyoutBorderThemeBrush" ResourceKey="SystemColorWindowTextColorBrush" />
       <Thickness x:Key="FlyoutBorderThemeThickness">2</Thickness>
@@ -3181,6 +3374,70 @@
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushPointerOver" ResourceKey="SystemControlTransparentRevealBorderBrush" />
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushSubMenuOpened" ResourceKey="SystemControlTransparentRevealBorderBrush" />
       <StaticResource x:Key="MenuFlyoutSubItemRevealBorderBrushDisabled" ResourceKey="SystemControlTransparentBrush" />
+      <StaticResource x:Key="NavigationViewDefaultPaneBackground" ResourceKey="AcrylicInAppFillColorDefaultBrush" />
+      <SolidColorBrush x:Key="NavigationViewExpandedPaneBackground" Color="{ThemeResource SystemColorWindowColor}" />
+      <StaticResource x:Key="NavigationViewTopPaneBackground" ResourceKey="AcrylicInAppFillColorDefaultBrush" />
+      <SolidColorBrush x:Key="NavigationViewContentBackground" Color="{ThemeResource SystemColorWindowColor}" />
+      <StaticResource x:Key="NavigationViewItemBackground" ResourceKey="SystemControlBackgroundBaseLowBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundPointerOver" ResourceKey="SystemControlHighlightListLowRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundPressed" ResourceKey="SystemControlHighlightListMediumRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundDisabled" ResourceKey="SystemControlBackgroundBaseLowBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundChecked" ResourceKey="SystemControlTransparentRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedPointerOver" ResourceKey="SystemControlHighlightListLowRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedPressed" ResourceKey="SystemControlHighlightListMediumRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundCheckedDisabled" ResourceKey="SystemControlTransparentRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelected" ResourceKey="SystemControlHighlightListLowRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedPointerOver" ResourceKey="SystemControlHighlightListLowRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedPressed" ResourceKey="SystemControlHighlightListMediumRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemBackgroundSelectedDisabled" ResourceKey="SystemControlTransparentRevealBackgroundBrush" />
+      <StaticResource x:Key="NavigationViewItemForeground" ResourceKey="SystemControlForegroundBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundPointerOver" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundPressed" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundChecked" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedPointerOver" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedPressed" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundCheckedDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelected" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedPointerOver" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedPressed" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewItemForegroundSelectedDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrush" ResourceKey="SystemControlTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushPointerOver" ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushPressed" ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushDisabled" ResourceKey="SystemControlTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushChecked" ResourceKey="SystemControlBackgroundTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedPointerOver" ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedPressed" ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushCheckedDisabled" ResourceKey="SystemControlTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelected" ResourceKey="SystemControlBackgroundTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedPointerOver" ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedPressed" ResourceKey="SystemControlHighlightAltTransparentRevealBorderBrush" />
+      <StaticResource x:Key="NavigationViewItemBorderBrushSelectedDisabled" ResourceKey="SystemControlTransparentBrush" />
+      <StaticResource x:Key="NavigationViewItemSeparatorForeground" ResourceKey="SystemControlForegroundBaseLowBrush" />
+      <StaticResource x:Key="NavigationViewItemHeaderForeground" ResourceKey="SystemControlForegroundBaseHighBrush" />
+      <SolidColorBrush x:Key="NavigationViewSelectionIndicatorForeground" Color="{ThemeResource SystemColorHighlightTextColor}" />
+      <StaticResource x:Key="NavigationViewContentGridBorderBrush" ResourceKey="SystemControlTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForeground" ResourceKey="NavigationViewItemForeground" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundPointerOver" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundPressed" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelected" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelectedPointerOver" ResourceKey="NavigationViewItemForeground" />
+      <StaticResource x:Key="TopNavigationViewItemForegroundSelectedPressed" ResourceKey="NavigationViewItemForeground" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundPointerOver" ResourceKey="SystemControlHighlightListLowRevealBackgroundBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundPressed" ResourceKey="SystemControlHighlightListMediumRevealBackgroundBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelected" ResourceKey="SystemControlHighlightListLowRevealBackgroundBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelectedPointerOver" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemBackgroundSelectedPressed" ResourceKey="SubtleFillColorTransparentBrush" />
+      <StaticResource x:Key="TopNavigationViewItemSeparatorForeground" ResourceKey="SystemControlForegroundBaseLowBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundPointerOver" ResourceKey="SystemControlHighlightListLowBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundPressed" ResourceKey="SystemControlHighlightListMediumBrush" />
+      <StaticResource x:Key="NavigationViewButtonBackgroundDisabled" ResourceKey="SystemControlBackgroundBaseLowBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundPointerOver" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundPressed" ResourceKey="SystemControlHighlightAltBaseHighBrush" />
+      <StaticResource x:Key="NavigationViewButtonForegroundDisabled" ResourceKey="SystemControlDisabledBaseMediumLowBrush" />
+      <StaticResource x:Key="NavigationViewBackButtonBackground" ResourceKey="SystemControlBackgroundBaseLowBrush" />
       <StaticResource x:Key="PivotBackground" ResourceKey="SystemControlTransparentBrush" />
       <StaticResource x:Key="PivotHeaderBackground" ResourceKey="SystemControlTransparentBrush" />
       <StaticResource x:Key="PivotNextButtonBackground" ResourceKey="SystemControlBackgroundBaseMediumLowBrush" />
@@ -3435,6 +3692,34 @@
       <SolidColorBrush x:Key="SliderTrackPointerOverBackgroundThemeBrush" Color="{ThemeResource SystemColorButtonFaceColor}" />
       <SolidColorBrush x:Key="SliderTrackPressedBackgroundThemeBrush" Color="{ThemeResource SystemColorButtonFaceColor}" />
       <SolidColorBrush x:Key="SliderHeaderForegroundThemeBrush" Color="{ThemeResource SystemColorButtonTextColor}" />
+      <StaticResource x:Key="SplitButtonBackground" ResourceKey="SystemColorButtonFaceColorBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundPointerOver" ResourceKey="SystemColorHighlightTextColorBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundPressed" ResourceKey="SystemColorHighlightTextColorBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundDisabled" ResourceKey="SystemColorWindowColorBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundChecked" ResourceKey="SystemColorHighlightColorBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedPointerOver" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedPressed" ResourceKey="SystemColorButtonFaceColorBrush" />
+      <StaticResource x:Key="SplitButtonBackgroundCheckedDisabled" ResourceKey="SystemColorGrayTextColorBrush" />
+      <StaticResource x:Key="SplitButtonForeground" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundPointerOver" ResourceKey="SystemColorHighlightColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundPressed" ResourceKey="SystemColorHighlightColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundDisabled" ResourceKey="SystemColorGrayTextColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundChecked" ResourceKey="SystemColorHighlightTextColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedPointerOver" ResourceKey="SystemColorButtonFaceColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedPressed" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundCheckedDisabled" ResourceKey="SystemColorWindowColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundSecondary" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="SplitButtonForegroundSecondaryPressed" ResourceKey="SystemColorHighlightColorBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrush" ResourceKey="SystemControlForegroundTransparentBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushPointerOver" ResourceKey="SystemColorHighlightColorBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushPressed" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushDisabled" ResourceKey="SystemControlDisabledTransparentBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushChecked" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedPointerOver" ResourceKey="SystemColorButtonTextColorBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedPressed" ResourceKey="SystemColorButtonFaceColorBrush" />
+      <StaticResource x:Key="SplitButtonBorderBrushCheckedDisabled" ResourceKey="SystemColorGrayTextColorBrush" />
+      <Thickness x:Key="SplitButtonBorderThemeThickness">1</Thickness>
+      <StaticResource x:Key="SplitButtonInAppBarUnfocusedPointerOver" ResourceKey="SystemColorButtonFaceColorBrush" />
       <SolidColorBrush x:Key="TextBoxForegroundHeaderThemeBrush" Color="{ThemeResource SystemColorButtonFaceColor}" />
       <SolidColorBrush x:Key="TextBoxPlaceholderTextThemeBrush" Color="{ThemeResource SystemColorGrayTextColor}" />
       <SolidColorBrush x:Key="TextBoxBackgroundThemeBrush" Color="{ThemeResource SystemColorButtonFaceColor}" />
@@ -3606,6 +3891,11 @@
   <Thickness x:Key="AppBarButtonInnerBorderMargin">2,6,2,6</Thickness>
   <Thickness x:Key="AppBarButtonInnerBorderCompactMargin">2,6,2,22</Thickness>
   <Thickness x:Key="AppBarButtonInnerBorderOverflowMargin">4,0,4,0</Thickness>
+  <Style TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}" />
+  <Style x:Key="AppBarButtonOverflowStyle" TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Width" Value="NaN" />
+  </Style>
   <Style x:Key="DefaultAppBarButtonStyle" TargetType="AppBarButton">
     <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource AppBarButtonForeground}" />
@@ -3873,16 +4163,12 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}" />
-  <Style x:Key="AppBarButtonOverflowStyle" TargetType="AppBarButton" BasedOn="{StaticResource DefaultAppBarButtonStyle}">
-    <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="Width" Value="NaN" />
-  </Style>
   <Thickness x:Key="AppBarSeparatorMargin">2,8,2,8</Thickness>
   <Thickness x:Key="AppBarOverflowSeparatorMargin">0,4,0,4</Thickness>
   <x:Double x:Key="AppBarSeparatorWidth">1</x:Double>
   <x:Double x:Key="AppBarOverflowSeparatorHeight">1</x:Double>
   <x:Double x:Key="AppBarSeparatorCornerRadius">0.5</x:Double>
+  <Style TargetType="AppBarSeparator" BasedOn="{StaticResource DefaultAppBarSeparatorStyle}" />
   <Style x:Key="DefaultAppBarSeparatorStyle" TargetType="AppBarSeparator">
     <Setter Property="Foreground" Value="{ThemeResource AppBarSeparatorForeground}" />
     <Setter Property="Padding" Value="{ThemeResource AppBarSeparatorMargin}" />
@@ -3916,7 +4202,230 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="AppBarSeparator" BasedOn="{StaticResource DefaultAppBarSeparatorStyle}" />
+  <Thickness x:Key="AppBarSplitButtonPadding">12,8,4,8</Thickness>
+  <Style x:Key="SubAppBarSplitButton" TargetType="Button">
+    <Setter Property="Foreground" Value="{ThemeResource AppBarButtonForeground}" />
+    <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="0" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+    <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+    <Setter Property="FocusVisualMargin" Value="-3" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Grid x:Name="RootGrid" Background="Transparent">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal">
+                  <Storyboard>
+                    <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="PointerOver">
+                  <Storyboard>
+                    <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <Storyboard>
+                    <PointerDownThemeAnimation Storyboard.TargetName="ContentPresenter" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <VisualState.Setters>
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource AppBarButtonForegroundDisabled}" />
+                    <Setter Target="RootGrid.Background" Value="{ThemeResource AppBarButtonBackgroundDisabled}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <ContentPresenter x:Name="ContentPresenter" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BackgroundSizing="{TemplateBinding BackgroundSizing}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" CornerRadius="{TemplateBinding CornerRadius}" AutomationProperties.AccessibilityView="Raw" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="SplitButtonCommandBarStyle" TargetType="SplitButton">
+    <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
+    <Setter Property="Foreground" Value="{ThemeResource AppBarButtonForeground}" />
+    <Setter Property="BorderBrush" Value="{ThemeResource AppBarButtonBorderBrush}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="HorizontalContentAlignment" Value="Right" />
+    <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="FontSize" Value="12" />
+    <Setter Property="UseSystemFocusVisuals" Value="True" />
+    <Setter Property="FocusVisualMargin" Value="-3" />
+    <Setter Property="IsTabStop" Value="True" />
+    <Setter Property="Padding" Value="{StaticResource AppBarSplitButtonPadding}" />
+    <Setter Property="Height" Value="{ThemeResource AppBarThemeCompactHeight}" />
+    <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="SplitButton">
+          <Grid x:Name="RootGrid" Background="Transparent" Padding="{ThemeResource AppBarButtonInnerBorderMargin}">
+            <Grid.Resources>
+              <Style TargetType="Button" BasedOn="{StaticResource SubAppBarSplitButton}" />
+            </Grid.Resources>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="Disabled">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarButtonBorderBrushDisabled}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarButtonBorderBrushDisabled}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="FlyoutOpen">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarButtonBorderBrushPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarButtonBorderBrushPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarButtonForegroundPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarButtonForegroundPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="TouchPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarButtonBorderBrushPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarButtonBorderBrushPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarButtonForegroundPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarButtonForegroundPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PrimaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPointerOver}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonInAppBarUnfocusedPointerOver}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarButtonForegroundPointerOver}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PrimaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonInAppBarUnfocusedPointerOver}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarButtonForegroundPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SecondaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonInAppBarUnfocusedPointerOver}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPointerOver}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarButtonForeground}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SecondaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonInAppBarUnfocusedPointerOver}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarButtonBackgroundPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarButtonForegroundPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Checked">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundChecked}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundChecked}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundChecked}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundChecked}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedFlyoutOpen">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedTouchPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedPrimaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPointerOver}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPointerOver}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundChecked}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundChecked}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedPrimaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundChecked}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundChecked}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedSecondaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundChecked}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundChecked}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPointerOver}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPointerOver}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedSecondaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource AppBarToggleButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundChecked}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundChecked}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource AppBarToggleButtonBackgroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource AppBarToggleButtonForegroundCheckedPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="SecondaryButtonPlacementStates">
+                <VisualState x:Name="SecondaryButtonRight" />
+                <VisualState x:Name="SecondaryButtonSpan">
+                  <VisualState.Setters>
+                    <Setter Target="SecondaryButton.(Grid.Column)" Value="0" />
+                    <Setter Target="SecondaryButton.(Grid.ColumnSpan)" Value="2" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition x:Name="PrimaryButtonColumn" Width="*" />
+              <ColumnDefinition x:Name="SecondaryButtonColumn" Width="23" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="PrimaryButton" Grid.Column="0" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Padding="{TemplateBinding Padding}" IsTabStop="False" CornerRadius="{StaticResource ControlLeftCornerRadiusFilter}" AutomationProperties.AccessibilityView="Raw" />
+            <Button x:Name="SecondaryButton" Grid.Column="1" Foreground="{ThemeResource AppBarButtonForeground}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="2,0,8,0" IsTabStop="False" CornerRadius="{StaticResource ControlRightCornerRadiusFilter}" AutomationProperties.AccessibilityView="Raw">
+              <Button.Content>
+                <TextBlock FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="8" Text="" VerticalAlignment="Center" Padding="2,1,2,0" HorizontalAlignment="Right" IsTextScaleFactorEnabled="False" AutomationProperties.AccessibilityView="Raw" />
+              </Button.Content>
+            </Button>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
   <Thickness x:Key="AppBarToggleButtonBorderThemeThickness">1</Thickness>
   <Thickness x:Key="AppBarToggleButtonOverflowTextTouchMargin">0,9,0,12</Thickness>
   <Thickness x:Key="AppBarToggleButtonOverflowCheckTouchMargin">12,10,12,10</Thickness>
@@ -3924,6 +4433,11 @@
   <Thickness x:Key="AppBarToggleButtonTextLabelMargin">2,0,2,8</Thickness>
   <Thickness x:Key="AppBarToggleButtonTextLabelOnRightMargin">8,16,12,10</Thickness>
   <Thickness x:Key="AppBarToggleButtonOverflowTextLabelPadding">0,5,0,8</Thickness>
+  <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}" />
+  <Style x:Key="AppBarToggleButtonOverflowStyle" TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}">
+    <Setter Property="HorizontalAlignment" Value="Stretch" />
+    <Setter Property="Width" Value="NaN" />
+  </Style>
   <Style x:Key="DefaultAppBarToggleButtonStyle" TargetType="AppBarToggleButton">
     <Setter Property="Background" Value="{ThemeResource AppBarToggleButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource AppBarToggleButtonForeground}" />
@@ -4227,11 +4741,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}" />
-  <Style x:Key="AppBarToggleButtonOverflowStyle" TargetType="AppBarToggleButton" BasedOn="{StaticResource DefaultAppBarToggleButtonStyle}">
-    <Setter Property="HorizontalAlignment" Value="Stretch" />
-    <Setter Property="Width" Value="NaN" />
-  </Style>
   <Thickness x:Key="AutoSuggestBoxTopHeaderMargin">0,0,0,8</Thickness>
   <Thickness x:Key="AutoSuggestBoxInnerButtonMargin">1,3</Thickness>
   <Thickness x:Key="AutoSuggestBoxDeleteButtonMargin">0,4</Thickness>
@@ -4452,6 +4961,7 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Style TargetType="AutoSuggestBox" BasedOn="{StaticResource DefaultAutoSuggestBoxStyle}" />
   <Style x:Key="DefaultAutoSuggestBoxStyle" TargetType="AutoSuggestBox">
     <Setter Property="VerticalAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
@@ -4493,8 +5003,8 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="AutoSuggestBox" BasedOn="{StaticResource DefaultAutoSuggestBoxStyle}" />
   <Thickness x:Key="ButtonPadding">11,5,11,6</Thickness>
+  <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
   <Style x:Key="DefaultButtonStyle" TargetType="Button">
     <Setter Property="Background" Value="{ThemeResource ButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
@@ -4572,7 +5082,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="Button" BasedOn="{StaticResource DefaultButtonStyle}" />
   <Style x:Key="AccentButtonStyle" TargetType="Button">
     <Setter Property="Foreground" Value="{ThemeResource AccentButtonForeground}" />
     <Setter Property="Background" Value="{ThemeResource AccentButtonBackground}" />
@@ -4650,6 +5159,7 @@
   <Thickness x:Key="CheckBoxFocusVisualMargin">-7,-3,-7,-3</Thickness>
   <x:String x:Key="CheckBoxCheckedGlyph"></x:String>
   <x:String x:Key="CheckBoxIndeterminateGlyph"></x:String>
+  <Style TargetType="CheckBox" BasedOn="{StaticResource DefaultCheckBoxStyle}" />
   <Style x:Key="DefaultCheckBoxStyle" TargetType="CheckBox">
     <Setter Property="Background" Value="{ThemeResource CheckBoxBackgroundUnchecked}" />
     <Setter Property="Foreground" Value="{ThemeResource CheckBoxForegroundUnchecked}" />
@@ -4984,7 +5494,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="CheckBox" BasedOn="{StaticResource DefaultCheckBoxStyle}" />
   <x:Double x:Key="ComboBoxArrowThemeFontSize">21</x:Double>
   <x:Double x:Key="ComboBoxThemeMinWidth">64</x:Double>
   <x:Double x:Key="ComboBoxPopupThemeMinWidth">80</x:Double>
@@ -5025,6 +5534,7 @@
     <Setter Property="RadiusY" Value="{StaticResource ComboBoxItemPillRectangleRadiusY}" />
     <Setter Property="RenderTransformOrigin" Value="0.5,0.5" />
   </Style>
+  <Style TargetType="ComboBox" BasedOn="{StaticResource DefaultComboBoxStyle}" />
   <Style x:Key="DefaultComboBoxStyle" TargetType="ComboBox">
     <Setter Property="Padding" Value="{ThemeResource ComboBoxPadding}" />
     <Setter Property="MaxDropDownHeight" Value="504" />
@@ -5255,7 +5765,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ComboBox" BasedOn="{StaticResource DefaultComboBoxStyle}" />
+  <Style TargetType="ComboBoxItem" BasedOn="{StaticResource DefaultComboBoxItemStyle}" />
   <Style TargetType="ComboBoxItem" x:Key="DefaultComboBoxItemStyle">
     <Setter Property="Foreground" Value="{ThemeResource ComboBoxItemForeground}" />
     <Setter Property="Background" Value="{ThemeResource ComboBoxItemBackground}" />
@@ -5424,7 +5934,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ComboBoxItem" BasedOn="{StaticResource DefaultComboBoxItemStyle}" />
   <Style TargetType="TextBox" x:Key="ComboBoxTextBoxStyle">
     <Setter Property="Template">
       <Setter.Value>
@@ -5474,49 +5983,7 @@
   <Thickness x:Key="AppBarEllipsisButtonInnerBorderMargin">2,6,6,6</Thickness>
   <x:Double x:Key="AppBarMoreButtonColumnMinWidth">6</x:Double>
   <Thickness x:Key="CommandBarOverflowPresenterMargin">0,4,0,4</Thickness>
-  <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="CommandBarOverflowPresenter">
-    <Setter Property="Background" Value="{ThemeResource CommandBarOverflowPresenterBackground}" />
-    <Setter Property="BorderBrush" Value="{ThemeResource CommandBarOverflowPresenterBorderBrush}" />
-    <Setter Property="Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderPadding}" />
-    <Setter Property="MaxWidth" Value="{ThemeResource CommandBarOverflowMaxWidth}" />
-    <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
-    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-    <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto" />
-    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
-    <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
-    <Setter Property="AllowFocusOnInteraction" Value="False" />
-    <Setter Property="TabNavigation" Value="Once" />
-    <Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
-    <Setter Property="Template">
-      <Setter.Value>
-        <ControlTemplate TargetType="CommandBarOverflowPresenter">
-          <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}" BackgroundSizing="InnerBorderEdge" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{ThemeResource CommandBarOverflowPresenterBorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
-            <VisualStateManager.VisualStateGroups>
-              <VisualStateGroup x:Name="DisplayModeStates">
-                <VisualState x:Name="DisplayModeDefault" />
-                <VisualState x:Name="FullWidthOpenDown">
-                  <VisualState.Setters>
-                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderDownPadding}" />
-                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderDownThickness}" />
-                  </VisualState.Setters>
-                </VisualState>
-                <VisualState x:Name="FullWidthOpenUp">
-                  <VisualState.Setters>
-                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderUpPadding}" />
-                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderUpThickness}" />
-                  </VisualState.Setters>
-                </VisualState>
-              </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>
-            <ScrollViewer HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" AutomationProperties.AccessibilityView="Raw">
-              <ItemsPresenter x:Name="ItemsPresenter" Margin="{ThemeResource CommandBarOverflowPresenterMargin}" />
-            </ScrollViewer>
-          </Grid>
-        </ControlTemplate>
-      </Setter.Value>
-    </Setter>
-  </Style>
-  <Style TargetType="CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
+  <Style TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
   <Style x:Key="DefaultCommandBarStyle" TargetType="CommandBar">
     <Setter Property="Background" Value="{ThemeResource CommandBarBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource CommandBarForeground}" />
@@ -5548,8 +6015,8 @@
                   <SplineDoubleKeyFrame KeyTime="{StaticResource ControlFastAnimationDuration}" KeySpline="{StaticResource ControlFastOutSlowInKeySpline}" Value="0" />
                 </DoubleAnimationUsingKeyFrames>
               </Storyboard>
-              <!-- <Style TargetType="SplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" />
-              <Style TargetType="ToggleSplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" /> -->
+              <Style TargetType="SplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" />
+              <Style TargetType="ToggleSplitButton" BasedOn="{StaticResource SplitButtonCommandBarStyle}" />
             </Grid.Resources>
             <VisualStateManager.VisualStateGroups>
               <VisualStateGroup x:Name="CommonStates">
@@ -6303,7 +6770,49 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
+  <Style TargetType="CommandBarOverflowPresenter" BasedOn="{StaticResource DefaultCommandBarOverflowPresenterStyle}" />
+  <Style x:Key="DefaultCommandBarOverflowPresenterStyle" TargetType="CommandBarOverflowPresenter">
+    <Setter Property="Background" Value="{ThemeResource CommandBarOverflowPresenterBackground}" />
+    <Setter Property="BorderBrush" Value="{ThemeResource CommandBarOverflowPresenterBorderBrush}" />
+    <Setter Property="Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderPadding}" />
+    <Setter Property="MaxWidth" Value="{ThemeResource CommandBarOverflowMaxWidth}" />
+    <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled" />
+    <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+    <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto" />
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+    <Setter Property="ScrollViewer.ZoomMode" Value="Disabled" />
+    <Setter Property="AllowFocusOnInteraction" Value="False" />
+    <Setter Property="TabNavigation" Value="Once" />
+    <Setter Property="CornerRadius" Value="{ThemeResource OverlayCornerRadius}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="CommandBarOverflowPresenter">
+          <Grid x:Name="LayoutRoot" Background="{TemplateBinding Background}" BackgroundSizing="InnerBorderEdge" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{ThemeResource CommandBarOverflowPresenterBorderThickness}" CornerRadius="{TemplateBinding CornerRadius}">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="DisplayModeStates">
+                <VisualState x:Name="DisplayModeDefault" />
+                <VisualState x:Name="FullWidthOpenDown">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderDownPadding}" />
+                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderDownThickness}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="FullWidthOpenUp">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Padding" Value="{ThemeResource CommandBarOverflowPresenterBorderUpPadding}" />
+                    <Setter Target="LayoutRoot.BorderThickness" Value="{ThemeResource CommandBarOverflowPresenterBorderUpThickness}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <ScrollViewer HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}" AutomationProperties.AccessibilityView="Raw">
+              <ItemsPresenter x:Name="ItemsPresenter" Margin="{ThemeResource CommandBarOverflowPresenterMargin}" />
+            </ScrollViewer>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
   <Style x:Key="CommandBarWithoutRevealStyle" TargetType="CommandBar" BasedOn="{StaticResource DefaultCommandBarStyle}" />
   <Style x:Key="EllipsisButton" TargetType="Button">
     <Setter Property="Background" Value="{ThemeResource AppBarButtonBackground}" />
@@ -7301,9 +7810,99 @@
   <TextCommandBarFlyout x:Key="TextControlCommandBarSelectionFlyout" Placement="TopEdgeAlignedLeft" />
   <x:Double x:Key="ControlRectangleRadiusX">4</x:Double>
   <x:Double x:Key="ControlRectangleRadiusY">4</x:Double>
+  <CornerRadius x:Key="ControlLeftCornerRadiusFilter">4,0,0,4</CornerRadius>
+  <CornerRadius x:Key="ControlRightCornerRadiusFilter">0,4,4,0</CornerRadius>
   <CornerRadius x:Key="OverlayTopCornerRadiusFilter">8,8,0,0</CornerRadius>
   <CornerRadius x:Key="OverlayBottomCornerRadiusFilter">0,0,8,8</CornerRadius>
+  <Style x:Key="DefaultDropDownButtonStyle" TargetType="DropDownButton">
+    <Setter Property="Background" Value="{ThemeResource ButtonBackground}" />
+    <Setter Property="Foreground" Value="{ThemeResource ButtonForeground}" />
+    <Setter Property="BorderBrush" Value="{ThemeResource ButtonBorderBrush}" />
+    <Setter Property="BorderThickness" Value="{ThemeResource ButtonBorderThemeThickness}" />
+    <Setter Property="Padding" Value="{StaticResource ButtonPadding}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+    <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+    <Setter Property="FocusVisualMargin" Value="-3" />
+    <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+    <Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Grid x:Name="RootGrid" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{TemplateBinding CornerRadius}" BackgroundSizing="{TemplateBinding BackgroundSizing}">
+            <Grid.BackgroundTransition>
+              <BrushTransition Duration="0:0:0.083" />
+            </Grid.BackgroundTransition>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="PointerOver">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBackgroundPointerOver}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBorderBrushPointerOver}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundPointerOver}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChevronIcon" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource DropDownButtonForegroundSecondaryPointerOver}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBackgroundPressed}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBorderBrushPressed}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundPressed}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChevronIcon" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource DropDownButtonForegroundSecondaryPressed}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBackgroundDisabled}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="BorderBrush">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonBorderBrushDisabled}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ContentPresenter" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundDisabled}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ChevronIcon" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonForegroundDisabled}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*" />
+              <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <ContentPresenter x:Name="ContentPresenter" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" AutomationProperties.AccessibilityView="Raw" />
+            <FontIcon x:Name="ChevronIcon" Grid.Column="1" Foreground="{ThemeResource DropDownButtonForegroundSecondary}" FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="8" Glyph="" Width="12" Height="12" Margin="8,0,0,0" IsTextScaleFactorEnabled="False" AutomationProperties.AccessibilityView="Raw" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style TargetType="DropDownButton" BasedOn="{StaticResource DefaultDropDownButtonStyle}" />
   <Thickness x:Key="FlyoutContentPadding">16,15,16,17</Thickness>
+  <Style TargetType="FlyoutPresenter" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" />
   <Style x:Key="DefaultFlyoutPresenterStyle" TargetType="FlyoutPresenter">
     <Setter Property="HorizontalContentAlignment" Value="Stretch" />
     <Setter Property="VerticalContentAlignment" Value="Stretch" />
@@ -7334,8 +7933,8 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="FlyoutPresenter" BasedOn="{StaticResource DefaultFlyoutPresenterStyle}" />
   <x:Boolean x:Key="HyperlinkUnderlineVisible">False</x:Boolean>
+  <Style TargetType="HyperlinkButton" BasedOn="{StaticResource DefaultHyperlinkButtonStyle}" />
   <Style x:Key="DefaultHyperlinkButtonStyle" TargetType="HyperlinkButton">
     <Setter Property="Background" Value="{ThemeResource HyperlinkButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
@@ -7412,8 +8011,8 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="HyperlinkButton" BasedOn="{StaticResource DefaultHyperlinkButtonStyle}" />
   <x:Boolean x:Key="ListViewBaseItemRoundedChromeEnabled">True</x:Boolean>
+  <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}" />
   <Style x:Key="DefaultListViewItemStyle" TargetType="ListViewItem">
     <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
     <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
@@ -7436,12 +8035,11 @@
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="ListViewItem">
-          <ListViewItemPresenter x:Name="Root" ContentTransitions="{TemplateBinding ContentTransitions}" Control.IsTemplateFocusTarget="True" FocusVisualMargin="{TemplateBinding FocusVisualMargin}" FocusVisualPrimaryBrush="{TemplateBinding FocusVisualPrimaryBrush}" FocusVisualPrimaryThickness="{TemplateBinding FocusVisualPrimaryThickness}" FocusVisualSecondaryBrush="{TemplateBinding FocusVisualSecondaryBrush}" FocusVisualSecondaryThickness="{TemplateBinding FocusVisualSecondaryThickness}" SelectionCheckMarkVisualEnabled="{ThemeResource ListViewItemSelectionCheckMarkVisualEnabled}" CheckBrush="{ThemeResource ListViewItemCheckBrush}" CheckBoxBrush="{ThemeResource ListViewItemCheckBoxBrush}" DragBackground="{ThemeResource ListViewItemDragBackground}" DragForeground="{ThemeResource ListViewItemDragForeground}" FocusBorderBrush="{ThemeResource ListViewItemFocusBorderBrush}" FocusSecondaryBorderBrush="{ThemeResource ListViewItemFocusSecondaryBorderBrush}" PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackground}" PointerOverBackground="{ThemeResource ListViewItemBackgroundPointerOver}" PointerOverForeground="{ThemeResource ListViewItemForegroundPointerOver}" SelectedBackground="{ThemeResource ListViewItemBackgroundSelected}" SelectedForeground="{ThemeResource ListViewItemForegroundSelected}" SelectedPointerOverBackground="{ThemeResource ListViewItemBackgroundSelectedPointerOver}" PressedBackground="{ThemeResource ListViewItemBackgroundPressed}" SelectedPressedBackground="{ThemeResource ListViewItemBackgroundSelectedPressed}" DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}" DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}" ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" ContentMargin="{TemplateBinding Padding}" CheckMode="{ThemeResource ListViewItemCheckMode}" CornerRadius="{ThemeResource ListViewItemCornerRadius}" />
+          <ListViewItemPresenter x:Name="Root" ContentTransitions="{TemplateBinding ContentTransitions}" Control.IsTemplateFocusTarget="True" FocusVisualMargin="{TemplateBinding FocusVisualMargin}" FocusVisualPrimaryBrush="{TemplateBinding FocusVisualPrimaryBrush}" FocusVisualPrimaryThickness="{TemplateBinding FocusVisualPrimaryThickness}" FocusVisualSecondaryBrush="{TemplateBinding FocusVisualSecondaryBrush}" FocusVisualSecondaryThickness="{TemplateBinding FocusVisualSecondaryThickness}" SelectionCheckMarkVisualEnabled="{ThemeResource ListViewItemSelectionCheckMarkVisualEnabled}" CheckBrush="{ThemeResource ListViewItemCheckBrush}" CheckBoxBrush="{ThemeResource ListViewItemCheckBoxBrush}" DragBackground="{ThemeResource ListViewItemDragBackground}" DragForeground="{ThemeResource ListViewItemDragForeground}" FocusBorderBrush="{ThemeResource ListViewItemFocusBorderBrush}" FocusSecondaryBorderBrush="{ThemeResource ListViewItemFocusSecondaryBorderBrush}" PlaceholderBackground="{ThemeResource ListViewItemPlaceholderBackground}" PointerOverBackground="{ThemeResource ListViewItemBackgroundPointerOver}" PointerOverForeground="{ThemeResource ListViewItemForegroundPointerOver}" SelectedBackground="{ThemeResource ListViewItemBackgroundSelected}" SelectedForeground="{ThemeResource ListViewItemForegroundSelected}" SelectedPointerOverBackground="{ThemeResource ListViewItemBackgroundSelectedPointerOver}" PressedBackground="{ThemeResource ListViewItemBackgroundPressed}" SelectedPressedBackground="{ThemeResource ListViewItemBackgroundSelectedPressed}" DisabledOpacity="{ThemeResource ListViewItemDisabledThemeOpacity}" DragOpacity="{ThemeResource ListViewItemDragThemeOpacity}" ReorderHintOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" ContentMargin="{TemplateBinding Padding}" CheckMode="{ThemeResource ListViewItemCheckMode}" CornerRadius="{ThemeResource ListViewItemCornerRadius}" contract13Present:CheckPressedBrush="{ThemeResource ListViewItemCheckPressedBrush}" contract13Present:CheckDisabledBrush="{ThemeResource ListViewItemCheckDisabledBrush}" contract13Present:CheckBoxPointerOverBrush="{ThemeResource ListViewItemCheckBoxPointerOverBrush}" contract13Present:CheckBoxPressedBrush="{ThemeResource ListViewItemCheckBoxPressedBrush}" contract13Present:CheckBoxDisabledBrush="{ThemeResource ListViewItemCheckBoxDisabledBrush}" contract13Present:CheckBoxSelectedBrush="{ThemeResource ListViewItemCheckBoxSelectedBrush}" contract13Present:CheckBoxSelectedPointerOverBrush="{ThemeResource ListViewItemCheckBoxSelectedPointerOverBrush}" contract13Present:CheckBoxSelectedPressedBrush="{ThemeResource ListViewItemCheckBoxSelectedPressedBrush}" contract13Present:CheckBoxSelectedDisabledBrush="{ThemeResource ListViewItemCheckBoxSelectedDisabledBrush}" contract13Present:CheckBoxBorderBrush="{ThemeResource ListViewItemCheckBoxBorderBrush}" contract13Present:CheckBoxPointerOverBorderBrush="{ThemeResource ListViewItemCheckBoxPointerOverBorderBrush}" contract13Present:CheckBoxPressedBorderBrush="{ThemeResource ListViewItemCheckBoxPressedBorderBrush}" contract13Present:CheckBoxDisabledBorderBrush="{ThemeResource ListViewItemCheckBoxDisabledBorderBrush}" contract13Present:CheckBoxCornerRadius="{ThemeResource ListViewItemCheckBoxCornerRadius}" contract13Present:SelectionIndicatorCornerRadius="{ThemeResource ListViewItemSelectionIndicatorCornerRadius}" contract13Present:SelectionIndicatorVisualEnabled="{ThemeResource ListViewItemSelectionIndicatorVisualEnabled}" contract13Present:SelectionIndicatorBrush="{ThemeResource ListViewItemSelectionIndicatorBrush}" contract13Present:SelectionIndicatorPointerOverBrush="{ThemeResource ListViewItemSelectionIndicatorPointerOverBrush}" contract13Present:SelectionIndicatorPressedBrush="{ThemeResource ListViewItemSelectionIndicatorPressedBrush}" contract13Present:SelectionIndicatorDisabledBrush="{ThemeResource ListViewItemSelectionIndicatorDisabledBrush}" contract13Present:SelectedDisabledBackground="{ThemeResource ListViewItemBackgroundSelectedDisabled}" />
         </ControlTemplate>
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ListViewItem" BasedOn="{StaticResource DefaultListViewItemStyle}" />
   <Style TargetType="ListViewItem" x:Key="ListViewItemExpanded">
     <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
     <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
@@ -7870,6 +8468,7 @@
     </Setter>
   </Style>
   <x:Double x:Key="MenuBarHeight">40</x:Double>
+  <Style TargetType="MenuBar" BasedOn="{StaticResource DefaultMenuBarStyle}" />
   <Style x:Key="DefaultMenuBarStyle" TargetType="MenuBar">
     <Setter Property="Background" Value="{ThemeResource MenuBarBackground}" />
     <Setter Property="IsTabStop" Value="False" />
@@ -7891,7 +8490,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="MenuBar" BasedOn="{StaticResource DefaultMenuBarStyle}" />
   <Thickness x:Key="MenuBarItemButtonPadding">10,4,10,4</Thickness>
   <Thickness x:Key="MenuBarItemMargin">4,4,4,4</Thickness>
   <Style TargetType="MenuBarItem">
@@ -7953,6 +8551,10 @@
   <Thickness x:Key="MenuFlyoutItemMargin">4,2,4,2</Thickness>
   <Thickness x:Key="MenuFlyoutItemThemePadding">11,8,11,9</Thickness>
   <Thickness x:Key="MenuFlyoutItemThemePaddingNarrow">11,4,11,5</Thickness>
+  <Style TargetType="MenuFlyoutPresenter" BasedOn="{StaticResource DefaultMenuFlyoutPresenterStyle}" />
+  <Style TargetType="MenuFlyoutItem" BasedOn="{StaticResource DefaultMenuFlyoutItemStyle}" />
+  <Style TargetType="MenuFlyoutSubItem" BasedOn="{StaticResource DefaultMenuFlyoutSubItemStyle}" />
+  <Style TargetType="ToggleMenuFlyoutItem" BasedOn="{StaticResource DefaultToggleMenuFlyoutItemStyle}" />
   <Style TargetType="MenuFlyoutPresenter" x:Key="DefaultMenuFlyoutPresenterStyle">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutPresenterBackground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutPresenterBorderBrush}" />
@@ -7980,7 +8582,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="MenuFlyoutPresenter" BasedOn="{StaticResource DefaultMenuFlyoutPresenterStyle}" />
   <Style TargetType="MenuFlyoutItem" x:Key="DefaultMenuFlyoutItemStyle">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutItemBackground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutItemBackgroundBrush}" />
@@ -8079,7 +8680,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="MenuFlyoutItem" BasedOn="{StaticResource DefaultMenuFlyoutItemStyle}" />
   <Style TargetType="ToggleMenuFlyoutItem" x:Key="DefaultToggleMenuFlyoutItemStyle">
     <Setter Property="Background" Value="Transparent" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutItemBackgroundBrush}" />
@@ -8181,7 +8781,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ToggleMenuFlyoutItem" BasedOn="{StaticResource DefaultToggleMenuFlyoutItemStyle}" />
   <Style TargetType="MenuFlyoutSubItem" x:Key="DefaultMenuFlyoutSubItemStyle">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutSubItemBackground}" />
     <Setter Property="BorderBrush" Value="{ThemeResource MenuFlyoutSubItemBackgroundBrush}" />
@@ -8281,7 +8880,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="MenuFlyoutSubItem" BasedOn="{StaticResource DefaultMenuFlyoutSubItemStyle}" />
   <Style TargetType="MenuFlyoutSeparator">
     <Setter Property="Background" Value="{ThemeResource MenuFlyoutSeparatorBackground}" />
     <Setter Property="Padding" Value="{StaticResource MenuFlyoutSeparatorThemePadding}" />
@@ -8605,8 +9203,348 @@
       </Setter.Value>
     </Setter>
   </Style>
+  <Thickness x:Key="NavigationViewAutoSuggestBoxMargin">16,0</Thickness>
+  <Thickness x:Key="TopNavigationViewAutoSuggestBoxMargin">4,0</Thickness>
+  <x:Double x:Key="PaneToggleButtonHeight">36</x:Double>
+  <x:Double x:Key="PaneToggleButtonWidth">40</x:Double>
+  <x:Double x:Key="NavigationViewCompactPaneLength">48</x:Double>
+  <x:Double x:Key="NavigationViewIconBoxWidth">40</x:Double>
+  <x:Double x:Key="NavigationViewTopPaneHeight">48</x:Double>
+  <x:Double x:Key="NavigationViewAutoSuggestAreaHeight">40</x:Double>
+  <x:Double x:Key="TopNavigationViewPaneCustomContentMinWidth">48</x:Double>
+  <x:Double x:Key="TopNavigationViewOverflowButtonWidth">40</x:Double>
+  <x:Double x:Key="TopNavigationViewOverflowButtonHeight">40</x:Double>
+  <x:Double x:Key="TopNavigationViewSettingsButtonWidth">40</x:Double>
+  <x:Double x:Key="TopNavigationViewSettingsButtonHeight">40</x:Double>
+  <x:Double x:Key="NavigationViewItemOnLeftMinHeight">36</x:Double>
+  <x:Double x:Key="NavigationViewPaneHeaderRowMinHeight">40</x:Double>
+  <x:Double x:Key="NavigationViewItemOnLeftIconBoxHeight">16</x:Double>
+  <x:Double x:Key="NavigationViewSelectionIndicatorWidth">3</x:Double>
+  <x:Double x:Key="NavigationViewSelectionIndicatorHeight">16</x:Double>
+  <x:Double x:Key="NavigationViewSelectionIndicatorRadius">2</x:Double>
+  <x:Double x:Key="NavigationViewItemSeparatorHeight">1</x:Double>
+  <x:Double x:Key="TopNavigationViewItemSeparatorWidth">1</x:Double>
+  <Thickness x:Key="NavigationViewToggleBorderThickness">0</Thickness>
+  <Thickness x:Key="NavigationViewItemBorderThickness">1</Thickness>
+  <Thickness x:Key="NavigationViewItemOnLeftIconBoxMargin">0</Thickness>
+  <Thickness x:Key="NavigationViewItemButtonMargin">4,2</Thickness>
+  <Thickness x:Key="NavigationViewItemInnerHeaderMargin">16,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemInnerHeaderMargin">12,0</Thickness>
+  <Thickness x:Key="NavigationViewMinimalHeaderMargin">-24,44,0,0</Thickness>
+  <Thickness x:Key="NavigationViewButtonHolderGridMargin">0,4</Thickness>
+  <Thickness x:Key="NavigationViewPaneContentGridMargin">-1,3</Thickness>
+  <Thickness x:Key="NavigationViewContentGridBorderThickness">1,1,0,0</Thickness>
+  <Thickness x:Key="NavigationViewMinimalContentGridBorderThickness">0,1,0,0</Thickness>
+  <Thickness x:Key="TopNavigationViewContentGridBorderThickness">0,1,0,0</Thickness>
+  <Thickness x:Key="TopNavigationViewTopNavGridMargin">4,0</Thickness>
+  <Thickness x:Key="NavigationViewBorderThickness">1</Thickness>
+  <Thickness x:Key="NavigationViewHeaderMargin">56,44,0,0</Thickness>
+  <Thickness x:Key="NavigationViewContentPresenterMargin">0</Thickness>
+  <Thickness x:Key="NavigationViewContentMargin">0</Thickness>
+  <Thickness x:Key="NavigationViewMinimalContentMargin">0</Thickness>
+  <Thickness x:Key="TopNavigationViewContentMargin">0</Thickness>
+  <Thickness x:Key="NavigationViewPaneTitlePresenterMargin">8,4,0,0</Thickness>
+  <Thickness x:Key="NavigationViewItemMargin">0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemMargin">0</Thickness>
+  <Thickness x:Key="NavigationViewItemSeparatorMargin">0,3,0,4</Thickness>
+  <Thickness x:Key="NavigationViewCompactItemSeparatorMargin">0,3,0,4</Thickness>
+  <Thickness x:Key="TopNavigationViewItemSeparatorMargin">3,0,4,0</Thickness>
+  <Thickness x:Key="TopNavigationViewOverflowButtonMargin">0</Thickness>
+  <Thickness x:Key="NavigationViewItemContentPresenterMargin">4,-1,8,-1</Thickness>
+  <Thickness x:Key="NavigationViewCompactItemContentPresenterMargin">0,0,0,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemContentPresenterMargin">8,-1,12,-1</Thickness>
+  <Thickness x:Key="TopNavigationViewItemContentOnlyContentPresenterMargin">12,0</Thickness>
+  <Thickness x:Key="NavigationViewItemExpandChevronMargin">0,0,-14,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemExpandChevronMargin">-16,0,0,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemIconOnlyExpandChevronMargin">0,0,0,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemContentOnlyExpandChevronMargin">-12,0,0,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemOnOverflowContentPresenterMargin">12,0,20,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemOnOverflowNoIconContentPresenterMargin">16,0,20,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemOnOverflowExpandChevronMargin">-4,0,-8,0</Thickness>
+  <Thickness x:Key="TopNavigationViewItemOnOverflowExpandChevronPadding">12,0,12,0</Thickness>
+  <CornerRadius x:Key="NavigationViewContentGridCornerRadius">8,0,0,0</CornerRadius>
+  <CornerRadius x:Key="TopNavigationViewContentGridCornerRadius">0</CornerRadius>
+  <CornerRadius x:Key="NavigationViewMinimalContentGridCornerRadius">0</CornerRadius>
+  <Thickness x:Key="TopNavigationViewOverflowMenuPadding">0,8</Thickness>
+  <Thickness x:Key="NavigationViewItemChildrenMenuFlyoutPadding">0,8</Thickness>
+  <x:Double x:Key="NavigationViewItemExpandedGlyphFontSize">8</x:Double>
+  <x:String x:Key="NavigationViewItemExpandedGlyph"></x:String>
+  <x:Double x:Key="NavigationBackButtonWidth">40</x:Double>
+  <x:Double x:Key="NavigationBackButtonHeight">36</x:Double>
+  <Style x:Key="NavigationBackButtonNormalStyle" TargetType="Button">
+    <Setter Property="Background" Value="{ThemeResource NavigationViewBackButtonBackground}" />
+    <Setter Property="Foreground" Value="{ThemeResource NavigationViewItemForeground}" />
+    <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="Height" Value="{ThemeResource NavigationBackButtonHeight}" />
+    <Setter Property="Width" Value="{ThemeResource NavigationBackButtonWidth}" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+    <Setter Property="Content" Value="" />
+    <Setter Property="Margin" Value="4,2" />
+    <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Grid x:Name="RootGrid" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="PointerOver">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonBackgroundPointerOver}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonForegroundPointerOver}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="RootGrid" Storyboard.TargetProperty="Background">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonBackgroundPressed}" />
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonForegroundPressed}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <Storyboard>
+                    <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Foreground">
+                      <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource NavigationViewButtonForegroundDisabled}" />
+                    </ObjectAnimationUsingKeyFrames>
+                  </Storyboard>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <FontIcon x:Name="Content" Height="16" Width="16" FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FontSize}" FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FontFamily}" Glyph="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Content}" MirroredWhenRightToLeft="True" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" AutomationProperties.AccessibilityView="Raw" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="NavigationBackButtonSmallStyle" TargetType="Button" BasedOn="{StaticResource NavigationBackButtonNormalStyle}">
+    <Setter Property="Margin" Value="4,2,0,2" />
+  </Style>
+  <Style x:Key="PaneToggleButtonStyle" TargetType="Button">
+    <Setter Property="FontSize" Value="16" />
+    <Setter Property="FontFamily" Value="{StaticResource SymbolThemeFontFamily}" />
+    <Setter Property="MinHeight" Value="{StaticResource PaneToggleButtonHeight}" />
+    <Setter Property="MinWidth" Value="{StaticResource PaneToggleButtonWidth}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Top" />
+    <Setter Property="HorizontalContentAlignment" Value="Center" />
+    <Setter Property="VerticalContentAlignment" Value="Center" />
+    <Setter Property="Background" Value="{ThemeResource NavigationViewItemBackground}" />
+    <Setter Property="Foreground" Value="{ThemeResource NavigationViewItemForeground}" />
+    <Setter Property="BorderThickness" Value="{ThemeResource NavigationViewToggleBorderThickness}" />
+    <Setter Property="Padding" Value="{ThemeResource NavigationViewItemButtonMargin}" />
+    <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Grid x:Name="LayoutRoot" Height="{TemplateBinding MinHeight}" Margin="{TemplateBinding Padding}" Background="{TemplateBinding Background}" HorizontalAlignment="Stretch" CornerRadius="{TemplateBinding CornerRadius}">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="Auto" />
+              <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="{ThemeResource PaneToggleButtonHeight}" />
+            </Grid.RowDefinitions>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="PointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewButtonBackgroundPointerOver}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewButtonForegroundPointerOver}" />
+                    <Setter Target="Icon.Foreground" Value="{ThemeResource NavigationViewButtonForegroundPointerOver}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewButtonBackgroundPressed}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewButtonForegroundPressed}" />
+                    <Setter Target="Icon.Foreground" Value="{ThemeResource NavigationViewButtonForegroundPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewButtonBackgroundDisabled}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewButtonForegroundDisabled}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Border Width="{TemplateBinding MinWidth}">
+              <FontIcon x:Name="Icon" Width="16" Height="16" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Center" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" AutomationProperties.AccessibilityView="Raw" Glyph="" FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=FontSize }" />
+            </Border>
+            <ContentPresenter x:Name="ContentPresenter" VerticalContentAlignment="Center" Content="{TemplateBinding Content}" FontSize="{TemplateBinding FontSize}" Padding="4,0,0,0" Grid.Column="1" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="NavigationViewItemHeaderTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+    <Setter Property="FontWeight" Value="Bold" />
+    <Setter Property="OpticalMarginAlignment" Value="TrimSideBearings" />
+    <Setter Property="TextWrapping" Value="NoWrap" />
+  </Style>
+  <Style x:Key="NavigationViewTitleHeaderContentControlTextStyle" TargetType="ContentControl">
+    <Setter Property="FontWeight" Value="SemiBold" />
+    <Setter Property="FontSize" Value="28" />
+    <Setter Property="FontFamily" Value="XamlAutoFontFamily" />
+    <Setter Property="Margin" Value="{ThemeResource NavigationViewHeaderMargin}" />
+    <Setter Property="VerticalAlignment" Value="Stretch" />
+  </Style>
+  <Style x:Key="NavigationViewPaneSearchButtonStyle" TargetType="Button">
+    <Setter Property="FontFamily" Value="{ThemeResource SymbolThemeFontFamily}" />
+    <Setter Property="BorderThickness" Value="{ThemeResource NavigationViewToggleBorderThickness}" />
+    <Setter Property="Background" Value="{ThemeResource NavigationViewItemBackground}" />
+    <Setter Property="Foreground" Value="{ThemeResource NavigationViewItemForeground}" />
+    <Setter Property="Content" Value="" />
+    <Setter Property="MinHeight" Value="36" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="FocusVisualMargin" Value="-4,0" />
+    <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+  </Style>
+  <Style TargetType="NavigationViewItemPresenter" x:Key="NavigationViewItemPresenterStyleWhenOnLeftPane">
+    <Setter Property="Foreground" Value="{ThemeResource NavigationViewItemForeground}" />
+    <Setter Property="Background" Value="{ThemeResource NavigationViewItemBackground}" />
+    <Setter Property="BorderBrush" Value="{ThemeResource NavigationViewItemBorderBrush}" />
+    <Setter Property="BorderThickness" Value="{StaticResource NavigationViewItemBorderThickness}" />
+    <Setter Property="UseSystemFocusVisuals" Value="True" />
+    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="NavigationViewItemPresenter">
+          <Grid x:Name="LayoutRoot" MinHeight="{ThemeResource NavigationViewItemOnLeftMinHeight}" Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding CornerRadius}" Margin="{ThemeResource NavigationViewItemButtonMargin}" Control.IsTemplateFocusTarget="True">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="PointerStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="PointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewItemBackgroundPointerOver}" />
+                    <Setter Target="Icon.Foreground" Value="{ThemeResource NavigationViewItemForegroundPointerOver}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewItemForegroundPointerOver}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewItemBackgroundPressed}" />
+                    <Setter Target="Icon.Foreground" Value="{ThemeResource NavigationViewItemForegroundPressed}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewItemForegroundPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Selected">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewItemBackgroundSelected}" />
+                    <Setter Target="Icon.Foreground" Value="{ThemeResource NavigationViewItemForegroundSelected}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewItemForegroundSelected}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PointerOverSelected">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewItemBackgroundSelectedPointerOver}" />
+                    <Setter Target="Icon.Foreground" Value="{ThemeResource NavigationViewItemForegroundSelectedPointerOver}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewItemForegroundSelectedPointerOver}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PressedSelected">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Background" Value="{ThemeResource NavigationViewItemBackgroundSelectedPressed}" />
+                    <Setter Target="Icon.Foreground" Value="{ThemeResource NavigationViewItemForegroundSelectedPressed}" />
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource NavigationViewItemForegroundSelectedPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="DisabledStates">
+                <VisualState x:Name="Enabled" />
+                <VisualState x:Name="Disabled">
+                  <VisualState.Setters>
+                    <Setter Target="LayoutRoot.Opacity" Value="{ThemeResource ListViewItemDisabledThemeOpacity}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="IconStates">
+                <VisualState x:Name="IconVisible" />
+                <VisualState x:Name="IconCollapsed">
+                  <VisualState.Setters>
+                    <Setter Target="IconBox.Visibility" Value="Collapsed" />
+                    <Setter Target="IconColumn.Width" Value="8" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="ChevronStates">
+                <VisualState x:Name="ChevronHidden" />
+                <VisualState x:Name="ChevronVisibleOpen">
+                  <VisualState.Setters>
+                    <Setter Target="ExpandCollapseChevron.Visibility" Value="Visible" />
+                    <Setter Target="ExpandCollapseChevronIcon.Visibility" Value="Visible" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="ChevronVisibleClosed">
+                  <VisualState.Setters>
+                    <Setter Target="ExpandCollapseChevron.Visibility" Value="Visible" />
+                    <Setter Target="ExpandCollapseChevronIcon.Visibility" Value="Visible" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="PointerChevronStates">
+                <VisualState x:Name="NormalChevronHidden" />
+                <VisualState x:Name="NormalChevronVisibleOpen" />
+                <VisualState x:Name="NormalChevronVisibleClosed" />
+                <VisualState x:Name="PointerOverChevronHidden" />
+                <VisualState x:Name="PointerOverChevronVisibleOpen" />
+                <VisualState x:Name="PointerOverChevronVisibleClosed" />
+                <VisualState x:Name="PressedChevronHidden" />
+                <VisualState x:Name="PressedChevronVisibleOpen" />
+                <VisualState x:Name="PressedChevronVisibleClosed" />
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="PaneAndTopLevelItemStates">
+                <VisualState x:Name="NotClosedCompactAndTopLevelItem" />
+                <VisualState x:Name="ClosedCompactAndTopLevelItem">
+                  <VisualState.Setters>
+                    <Setter Target="ContentPresenter.Margin" Value="{ThemeResource NavigationViewCompactItemContentPresenterMargin}" />
+                    <Setter Target="ContentGrid.Margin" Value="0,0,0,0" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid x:Name="PresenterContentRootGrid">
+              <Grid HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Rectangle x:Name="SelectionIndicator" Width="{ThemeResource NavigationViewSelectionIndicatorWidth}" Height="{ThemeResource NavigationViewSelectionIndicatorHeight}" Fill="{ThemeResource NavigationViewSelectionIndicatorForeground}" Opacity="0.0" RadiusX="{ThemeResource NavigationViewSelectionIndicatorRadius}" RadiusY="{ThemeResource NavigationViewSelectionIndicatorRadius}" />
+              </Grid>
+              <Grid x:Name="ContentGrid" MinHeight="{ThemeResource NavigationViewItemOnLeftMinHeight}" Margin="0,0,14,0" HorizontalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Border x:Name="IconColumn" Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SmallerIconWidth}">
+                  <Viewbox x:Name="IconBox" Height="{ThemeResource NavigationViewItemOnLeftIconBoxHeight}" HorizontalAlignment="Center" Margin="10,12,16,12">
+                    <ContentPresenter x:Name="Icon" Content="{TemplateBinding Icon}" Foreground="{TemplateBinding Foreground}" />
+                  </Viewbox>
+                </Border>
+                <ContentPresenter x:Name="ContentPresenter" Grid.Column="1" Margin="{ThemeResource NavigationViewItemContentPresenterMargin}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" Padding="{TemplateBinding Padding}" AutomationProperties.AccessibilityView="Raw" />
+                <Grid x:Load="False" x:Name="ExpandCollapseChevron" Grid.Column="3" Visibility="Collapsed" HorizontalAlignment="Right" Width="40" Margin="{ThemeResource NavigationViewItemExpandChevronMargin}" Background="Transparent">
+                  <FontIcon Width="12" Height="12" RenderTransformOrigin="0.5, 0.5" x:Name="ExpandCollapseChevronIcon" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" AutomationProperties.AccessibilityView="Raw" x:DeferLoadStrategy="Lazy" Foreground="{ThemeResource NavigationViewItemForeground}" FontSize="{ThemeResource NavigationViewItemExpandedGlyphFontSize}" Glyph="{StaticResource NavigationViewItemExpandedGlyph}" FontFamily="{StaticResource SymbolThemeFontFamily}" />
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
   <Thickness x:Key="PasswordBoxTopHeaderMargin">0,0,0,8</Thickness>
   <x:Double x:Key="PasswordBoxIconFontSize">12</x:Double>
+  <Style TargetType="PasswordBox" BasedOn="{StaticResource DefaultPasswordBoxStyle}" />
   <Style x:Key="DefaultPasswordBoxStyle" TargetType="PasswordBox">
     <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}" />
     <Setter Property="Background" Value="{ThemeResource TextControlBackground}" />
@@ -8796,10 +9734,10 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="PasswordBox" BasedOn="{StaticResource DefaultPasswordBoxStyle}" />
   <CornerRadius x:Key="PivotHeaderItemSelectedPipeCornerRadius">1.5</CornerRadius>
   <x:Double x:Key="PivotHeaderItemSelectedPipeRectangleRadiusX">1.5</x:Double>
   <x:Double x:Key="PivotHeaderItemSelectedPipeRectangleRadiusY">1.5</x:Double>
+  <Style TargetType="Pivot" BasedOn="{StaticResource DefaultPivotStyle}" />
   <Style x:Key="DefaultPivotStyle" TargetType="Pivot">
     <Setter Property="Margin" Value="0" />
     <Setter Property="Padding" Value="0" />
@@ -9041,7 +9979,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="Pivot" BasedOn="{StaticResource DefaultPivotStyle}" />
+  <Style TargetType="PivotItem" BasedOn="{StaticResource DefaultPivotItemStyle}" />
   <Style x:Key="DefaultPivotItemStyle" TargetType="PivotItem">
     <Setter Property="Background" Value="{ThemeResource PivotItemBackground}" />
     <Setter Property="Margin" Value="{ThemeResource PivotItemMargin}" />
@@ -9066,7 +10004,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="PivotItem" BasedOn="{StaticResource DefaultPivotItemStyle}" />
+  <Style TargetType="PivotHeaderItem" BasedOn="{StaticResource DefaultPivotHeaderItemStyle}" />
   <Style x:Key="DefaultPivotHeaderItemStyle" TargetType="PivotHeaderItem">
     <Setter Property="FontSize" Value="{ThemeResource PivotHeaderItemFontSize}" />
     <Setter Property="FontFamily" Value="{ThemeResource PivotHeaderItemFontFamily}" />
@@ -9185,7 +10123,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="PivotHeaderItem" BasedOn="{StaticResource DefaultPivotHeaderItemStyle}" />
   <Style x:Key="PivotTitleContentControlStyle" TargetType="ContentControl">
     <Setter Property="FontFamily" Value="{ThemeResource PhoneFontFamilyNormal}" />
     <Setter Property="FontWeight" Value="SemiBold" />
@@ -9200,6 +10137,7 @@
   <CornerRadius x:Key="ProgressBarTrackCornerRadius">0.5</CornerRadius>
   <x:Double x:Key="ProgressBarTrackRectangleRadiusX">0.5</x:Double>
   <x:Double x:Key="ProgressBarTrackRectangleRadiusY">0.5</x:Double>
+  <Style TargetType="ProgressBar" BasedOn="{StaticResource DefaultProgressBarStyle}" />
   <Style x:Key="DefaultProgressBarStyle" TargetType="ProgressBar">
     <Setter Property="Foreground" Value="{ThemeResource ProgressBarForeground}" />
     <Setter Property="Background" Value="{ThemeResource ProgressBarBackground}" />
@@ -9418,10 +10356,10 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ProgressBar" BasedOn="{StaticResource DefaultProgressBarStyle}" />
   <x:Double x:Key="RadioButtonCheckGlyphSize">12</x:Double>
   <x:Double x:Key="RadioButtonCheckGlyphPointerOverSize">14</x:Double>
   <x:Double x:Key="RadioButtonCheckGlyphPressedOverSize">10</x:Double>
+  <Style TargetType="RadioButton" BasedOn="{StaticResource DefaultRadioButtonStyle}" />
   <Style x:Key="DefaultRadioButtonStyle" TargetType="RadioButton">
     <Setter Property="Background" Value="{ThemeResource RadioButtonBackground}" />
     <Setter Property="Foreground" Value="{ThemeResource RadioButtonForeground}" />
@@ -9621,7 +10559,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="RadioButton" BasedOn="{StaticResource DefaultRadioButtonStyle}" />
+  <Style TargetType="RepeatButton" BasedOn="{StaticResource DefaultRepeatButtonStyle}" />
   <Style x:Key="DefaultRepeatButtonStyle" TargetType="RepeatButton">
     <Setter Property="Background" Value="{ThemeResource RepeatButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
@@ -9699,8 +10637,8 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="RepeatButton" BasedOn="{StaticResource DefaultRepeatButtonStyle}" />
   <Thickness x:Key="RichEditBoxTopHeaderMargin">0,0,0,8</Thickness>
+  <Style TargetType="RichEditBox" BasedOn="{StaticResource DefaultRichEditBoxStyle}" />
   <Style x:Key="DefaultRichEditBoxStyle" TargetType="RichEditBox">
     <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}" />
     <Setter Property="Background" Value="{ThemeResource TextControlBackground}" />
@@ -9800,7 +10738,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="RichEditBox" BasedOn="{StaticResource DefaultRichEditBoxStyle}" />
   <x:String x:Key="ScrollBarExpandDuration">00:00:00.167</x:String>
   <x:String x:Key="ScrollBarOpacityChangeDuration">00:00:00.083</x:String>
   <x:String x:Key="ScrollBarColorChangeDuration">00:00:00.083</x:String>
@@ -9827,6 +10764,7 @@
   <Thickness x:Key="ScrollBarHorizontalIncreaseMargin">0,0,4,0</Thickness>
   <Thickness x:Key="ScrollBarVerticalDecreaseMargin">0,4,0,0</Thickness>
   <Thickness x:Key="ScrollBarVerticalIncreaseMargin">0,0,0,4</Thickness>
+  <Style TargetType="ScrollBar" BasedOn="{StaticResource DefaultScrollBarStyle}" />
   <Style x:Key="DefaultScrollBarStyle" TargetType="ScrollBar">
     <Setter Property="MinWidth" Value="{StaticResource ScrollBarSize}" />
     <Setter Property="MinHeight" Value="{StaticResource ScrollBarSize}" />
@@ -10343,7 +11281,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ScrollBar" BasedOn="{StaticResource DefaultScrollBarStyle}" />
   <Thickness x:Key="ScrollViewerScrollBarMargin">1</Thickness>
   <x:String x:Key="ScrollViewerSeparatorExpandBeginTime">00:00:00.40</x:String>
   <x:String x:Key="ScrollViewerSeparatorExpandDuration">00:00:00.1</x:String>
@@ -10351,6 +11288,7 @@
   <x:String x:Key="ScrollViewerSeparatorContractDelay">00:00:02</x:String>
   <x:String x:Key="ScrollViewerSeparatorContractDuration">00:00:00.1</x:String>
   <x:String x:Key="ScrollViewerSeparatorContractFinalKeyframe">00:00:02.1</x:String>
+  <Style TargetType="ScrollViewer" BasedOn="{StaticResource DefaultScrollViewerStyle}" />
   <Style x:Key="DefaultScrollViewerStyle" TargetType="ScrollViewer">
     <Setter Property="HorizontalScrollMode" Value="Auto" />
     <Setter Property="VerticalScrollMode" Value="Auto" />
@@ -10552,7 +11490,6 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ScrollViewer" BasedOn="{StaticResource DefaultScrollViewerStyle}" />
   <Thickness x:Key="SliderTopHeaderMargin">0,0,0,4</Thickness>
   <CornerRadius x:Key="SliderTrackCornerRadius">2</CornerRadius>
   <x:Double x:Key="SliderTrackRectangleRadiusX">2</x:Double>
@@ -10568,6 +11505,7 @@
   <x:Double x:Key="SliderVerticalThumbHeight">18</x:Double>
   <x:Double x:Key="SliderInnerThumbWidth">12</x:Double>
   <x:Double x:Key="SliderInnerThumbHeight">12</x:Double>
+  <Style TargetType="Slider" BasedOn="{StaticResource DefaultSliderStyle}" />
   <Style x:Key="DefaultSliderStyle" TargetType="Slider">
     <Setter Property="Background" Value="{ThemeResource SliderTrackFill}" />
     <Setter Property="BorderThickness" Value="{ThemeResource SliderBorderThemeThickness}" />
@@ -10826,7 +11764,238 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="Slider" BasedOn="{StaticResource DefaultSliderStyle}" />
+  <x:Double x:Key="SplitButtonPrimaryButtonSize">35</x:Double>
+  <x:Double x:Key="SplitButtonSecondaryButtonSize">35</x:Double>
+  <Style x:Key="SubSplitButton" TargetType="Button">
+    <Setter Property="Foreground" Value="{ThemeResource SplitButtonForeground}" />
+    <Setter Property="BackgroundSizing" Value="OuterBorderEdge" />
+    <Setter Property="BorderBrush" Value="Transparent" />
+    <Setter Property="BorderThickness" Value="{ThemeResource SplitButtonBorderThemeThickness}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+    <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
+    <Setter Property="FocusVisualMargin" Value="-3" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <Grid x:Name="RootGrid" Background="Transparent">
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal">
+                  <Storyboard>
+                    <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="PointerOver">
+                  <Storyboard>
+                    <PointerUpThemeAnimation Storyboard.TargetName="ContentPresenter" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Pressed">
+                  <Storyboard>
+                    <PointerDownThemeAnimation Storyboard.TargetName="ContentPresenter" />
+                  </Storyboard>
+                </VisualState>
+                <VisualState x:Name="Disabled">
+                  <VisualState.Setters>
+                    <Setter Target="ContentPresenter.Foreground" Value="{ThemeResource SplitButtonForegroundDisabled}" />
+                    <Setter Target="RootGrid.Background" Value="{ThemeResource SplitButtonBackgroundDisabled}" />
+                    <Setter Target="ContentPresenter.BorderBrush" Value="Transparent" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <ContentPresenter x:Name="ContentPresenter" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BackgroundSizing="{TemplateBinding BackgroundSizing}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" CornerRadius="{TemplateBinding CornerRadius}" AutomationProperties.AccessibilityView="Raw" />
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style x:Key="SplitButtonStyle" TargetType="SplitButton">
+    <Setter Property="Background" Value="{ThemeResource SplitButtonBackground}" />
+    <Setter Property="Foreground" Value="{ThemeResource SplitButtonForeground}" />
+    <Setter Property="BorderBrush" Value="{ThemeResource SplitButtonBorderBrush}" />
+    <Setter Property="BorderThickness" Value="{ThemeResource SplitButtonBorderThemeThickness}" />
+    <Setter Property="HorizontalAlignment" Value="Left" />
+    <Setter Property="VerticalAlignment" Value="Center" />
+    <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}" />
+    <Setter Property="FontWeight" Value="Normal" />
+    <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}" />
+    <Setter Property="UseSystemFocusVisuals" Value="True" />
+    <Setter Property="FocusVisualMargin" Value="-1" />
+    <Setter Property="IsTabStop" Value="True" />
+    <Setter Property="Padding" Value="{ThemeResource ButtonPadding}" />
+    <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="SplitButton">
+          <Grid x:Name="RootGrid" Background="Transparent" CornerRadius="{TemplateBinding CornerRadius}">
+            <Grid.Resources>
+              <Style TargetType="Button" BasedOn="{StaticResource SubSplitButton}" />
+            </Grid.Resources>
+            <VisualStateManager.VisualStateGroups>
+              <VisualStateGroup x:Name="CommonStates">
+                <VisualState x:Name="Normal" />
+                <VisualState x:Name="Disabled">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushDisabled}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushDisabled}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundDisabled}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundDisabled}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundDisabled}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundDisabled}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="FlyoutOpen">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundSecondaryPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="TouchPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundSecondaryPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PrimaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPointerOver}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundPointerOver}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackground}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="PrimaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackground}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SecondaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackground}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPointerOver}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushPointerOver}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundPointerOver}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="SecondaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackground}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundSecondaryPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Checked">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundChecked}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundChecked}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundChecked}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundChecked}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedFlyoutOpen">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedTouchPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPressed}" />
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushCheckedPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedPrimaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPointerOver}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPointerOver}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundChecked}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundChecked}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedPrimaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPressed}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundChecked}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundChecked}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedSecondaryPointerOver">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundChecked}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundChecked}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPointerOver}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPointerOver}" />
+                  </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="CheckedSecondaryPressed">
+                  <VisualState.Setters>
+                    <Setter Target="PrimaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="SecondaryButton.BorderBrush" Value="{ThemeResource SplitButtonBorderBrushChecked}" />
+                    <Setter Target="PrimaryButton.Background" Value="{ThemeResource SplitButtonBackgroundChecked}" />
+                    <Setter Target="PrimaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundChecked}" />
+                    <Setter Target="SecondaryButton.Background" Value="{ThemeResource SplitButtonBackgroundCheckedPressed}" />
+                    <Setter Target="SecondaryButton.Foreground" Value="{ThemeResource SplitButtonForegroundCheckedPressed}" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+              <VisualStateGroup x:Name="SecondaryButtonPlacementStates">
+                <VisualState x:Name="SecondaryButtonRight" />
+                <VisualState x:Name="SecondaryButtonSpan">
+                  <VisualState.Setters>
+                    <Setter Target="SecondaryButton.(Grid.Column)" Value="0" />
+                    <Setter Target="SecondaryButton.(Grid.ColumnSpan)" Value="2" />
+                  </VisualState.Setters>
+                </VisualState>
+              </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition x:Name="PrimaryButtonColumn" Width="*" MinWidth="{ThemeResource SplitButtonPrimaryButtonSize}" />
+              <ColumnDefinition x:Name="SecondaryButtonColumn" Width="{ThemeResource SplitButtonSecondaryButtonSize}" />
+            </Grid.ColumnDefinitions>
+            <Button x:Name="PrimaryButton" Grid.Column="0" Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Content="{TemplateBinding Content}" ContentTransitions="{TemplateBinding ContentTransitions}" ContentTemplate="{TemplateBinding ContentTemplate}" Command="{TemplateBinding Command}" CommandParameter="{TemplateBinding CommandParameter}" FontFamily="{TemplateBinding FontFamily}" FontSize="{TemplateBinding FontSize}" FontWeight="{TemplateBinding FontWeight}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Padding="{TemplateBinding Padding}" IsTabStop="False" CornerRadius="{StaticResource ControlLeftCornerRadiusFilter}" AutomationProperties.AccessibilityView="Raw" />
+            <Button x:Name="SecondaryButton" Grid.Column="1" Foreground="{ThemeResource SplitButtonForegroundSecondary}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Padding="0,0,12,0" IsTabStop="False" CornerRadius="{StaticResource ControlRightCornerRadiusFilter}" AutomationProperties.AccessibilityView="Raw">
+              <Button.Content>
+                <FontIcon FontFamily="{ThemeResource SymbolThemeFontFamily}" FontSize="8" Height="12" Width="12" Glyph="" VerticalAlignment="Center" HorizontalAlignment="Right" IsTextScaleFactorEnabled="False" AutomationProperties.AccessibilityView="Raw" />
+              </Button.Content>
+            </Button>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+  <Style TargetType="SplitButton" BasedOn="{StaticResource SplitButtonStyle}" />
+  <Style TargetType="ToggleSplitButton" BasedOn="{StaticResource SplitButtonStyle}" />
   <x:Double x:Key="CaptionTextBlockFontSize">12</x:Double>
   <x:Double x:Key="BodyTextBlockFontSize">14</x:Double>
   <x:Double x:Key="SubtitleTextBlockFontSize">20</x:Double>
@@ -10869,6 +12038,7 @@
   <Thickness x:Key="TextBoxTopHeaderMargin">0,0,0,8</Thickness>
   <Thickness x:Key="TextBoxInnerButtonMargin">0,4,4,4</Thickness>
   <x:Double x:Key="TextBoxIconFontSize">12</x:Double>
+  <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}" />
   <Style x:Key="DefaultTextBoxStyle" TargetType="TextBox">
     <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}" />
     <Setter Property="Background" Value="{ThemeResource TextControlBackground}" />
@@ -11036,7 +12206,7 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="TextBox" BasedOn="{StaticResource DefaultTextBoxStyle}" />
+  <Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
   <Style x:Key="DefaultToggleButtonStyle" TargetType="ToggleButton">
     <Setter Property="Background" Value="{ThemeResource ToggleButtonBackground}" />
     <Setter Property="BackgroundSizing" Value="InnerBorderEdge" />
@@ -11233,11 +12403,11 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ToggleButton" BasedOn="{StaticResource DefaultToggleButtonStyle}" />
   <Thickness x:Key="ToggleSwitchTopHeaderMargin">0,0,0,4</Thickness>
   <x:Double x:Key="ToggleSwitchPreContentMargin">10</x:Double>
   <x:Double x:Key="ToggleSwitchPostContentMargin">10</x:Double>
   <x:Double x:Key="ToggleSwitchThemeMinWidth">154</x:Double>
+  <Style TargetType="ToggleSwitch" BasedOn="{StaticResource DefaultToggleSwitchStyle}" />
   <Style x:Key="DefaultToggleSwitchStyle" TargetType="ToggleSwitch">
     <Setter Property="Foreground" Value="{ThemeResource ToggleSwitchContentForeground}" />
     <Setter Property="HorizontalAlignment" Value="Left" />
@@ -11585,9 +12755,9 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ToggleSwitch" BasedOn="{StaticResource DefaultToggleSwitchStyle}" />
   <Thickness x:Key="ToolTipBorderPadding">9,6,9,8</Thickness>
   <x:Double x:Key="ToolTipMaxWidth">320</x:Double>
+  <Style TargetType="ToolTip" BasedOn="{StaticResource DefaultToolTipStyle}" />
   <Style x:Key="DefaultToolTipStyle" TargetType="ToolTip">
     <Setter Property="Foreground" Value="{ThemeResource ToolTipForegroundBrush}" />
     <Setter Property="Background" Value="{ThemeResource ToolTipBackgroundBrush}" />
@@ -11622,5 +12792,4 @@
       </Setter.Value>
     </Setter>
   </Style>
-  <Style TargetType="ToolTip" BasedOn="{StaticResource DefaultToolTipStyle}" />
 </ResourceDictionary>
