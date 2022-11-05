@@ -13,7 +13,7 @@
 #include "Application.g.h"
 #include "XamlControlsResources.g.h"
 
-#include <Windows.h>
+#include "Mile.Xaml.h"
 
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.UI.ViewManagement.h>
