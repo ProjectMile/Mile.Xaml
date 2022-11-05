@@ -1,7 +1,7 @@
 ﻿/*
  * PROJECT:   Mouri Internal Library Essentials
- * FILE:      Application.h
- * PURPOSE:   Definition for the Mile.Xaml
+ * FILE:      Mile.Xaml.Private.h
+ * PURPOSE:   Private Definition for the Mile.Xaml
  *
  * LICENSE:   The MIT License
  *

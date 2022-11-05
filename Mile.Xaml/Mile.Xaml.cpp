@@ -1,6 +1,6 @@
 ﻿/*
  * PROJECT:   Mouri Internal Library Essentials
- * FILE:      Application.cpp
+ * FILE:      Mile.Xaml.cpp
  * PURPOSE:   Implementation for the Mile.Xaml
  *
  * LICENSE:   The MIT License
@@ -10,7 +10,7 @@
 
 #include "pch.h"
 
-#include "Mile.Xaml.h"
+#include "Mile.Xaml.Private.h"
 
 #include "Application.g.cpp"
 #include "XamlControlsResources.g.cpp"

@@ -31,7 +31,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Mile.Project.Properties.h" />
-    <ClInclude Include="Mile.Xaml.h" />
+    <ClInclude Include="Mile.Xaml.Private.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
