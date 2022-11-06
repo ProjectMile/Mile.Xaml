@@ -20,7 +20,6 @@
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
   <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" />
-  <Import Project="..\Mile.Library.Windows\Mile.Library.Windows.props" />
   <ImportGroup Label="PropertySheets">
     <Import Project="PropertySheet.props" />
   </ImportGroup>

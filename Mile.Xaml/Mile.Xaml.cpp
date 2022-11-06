@@ -26,9 +26,14 @@
 
 #include <Mile.Helpers.h>
 
-#include <Mile.Windows.DwmHelpers.h>
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
+
+static bool IsWindows10Version20H1OrLater()
+{
+    static bool CachedResult = ::MileIsWindowsVersionAtLeast(10, 0, 19041);
+    return CachedResult;
+}
 
 static bool IsSupportSystemBackdrop()
 {
@@ -79,6 +84,51 @@ enum class PREFERRED_APP_MODE : DWORD
     Dark = 2,
     Light = 3
 };
+
+/**
+ * @brief Allows the window frame for this window to be drawn in dark mode
+ *        colors when the dark mode system setting is enabled.
+ * @param WindowHandle The handle to the window for which the attribute value
+ *                     is to be set.
+ * @param Value TRUE to honor dark mode for the window, FALSE to always use
+ *              light mode.
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+EXTERN_C HRESULT WINAPI MileSetUseImmersiveDarkModeAttribute(
+    _In_ HWND WindowHandle,
+    _In_ BOOL Value)
+{
+    const DWORD DwmWindowUseImmersiveDarkModeBefore20H1Attribute = 19;
+    const DWORD DwmWindowUseImmersiveDarkModeAttribute = 20;
+    return ::DwmSetWindowAttribute(
+        WindowHandle,
+        (::IsWindows10Version20H1OrLater()
+            ? DwmWindowUseImmersiveDarkModeAttribute
+            : DwmWindowUseImmersiveDarkModeBefore20H1Attribute),
+        &Value,
+        sizeof(BOOL));
+}
+
+/**
+ * @brief Specifies the color of the caption.
+ * @param WindowHandle The handle to the window for which the attribute value
+ *                     is to be set.
+ * @param Value The color of the caption.
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+EXTERN_C HRESULT WINAPI MileSetCaptionColorAttribute(
+    _In_ HWND WindowHandle,
+    _In_ COLORREF Value)
+{
+    const DWORD DwmWindowCaptionColorAttribute = 35;
+    return ::DwmSetWindowAttribute(
+        WindowHandle,
+        DwmWindowCaptionColorAttribute,
+        &Value,
+        sizeof(COLORREF));
+}
 
 /**
  * @brief Retrieves or specifies the system-drawn backdrop material of a
