@@ -24,6 +24,8 @@
 #include <CoreWindow.h>
 #include <windows.ui.xaml.hosting.desktopwindowxamlsource.h>
 
+#include <Mile.Helpers.h>
+
 #include <Mile.Windows.DwmHelpers.h>
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
