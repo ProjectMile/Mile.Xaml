@@ -30,34 +30,9 @@
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
 
-bool IsWindowsVersionOrLater(
-    DWORD const& MajorVersion,
-    DWORD const& MinorVersion,
-    DWORD const& BuildNumber)
-{
-    OSVERSIONINFOEXW OSVersionInfoEx = { 0 };
-    OSVersionInfoEx.dwOSVersionInfoSize = sizeof(OSVERSIONINFOEXW);
-    OSVersionInfoEx.dwMajorVersion = MajorVersion;
-    OSVersionInfoEx.dwMinorVersion = MinorVersion;
-    OSVersionInfoEx.dwBuildNumber = BuildNumber;
-    return ::VerifyVersionInfoW(
-        &OSVersionInfoEx,
-        VER_BUILDNUMBER,
-        ::VerSetConditionMask(
-            ::VerSetConditionMask(
-                ::VerSetConditionMask(
-                    0,
-                    VER_MAJORVERSION,
-                    VER_GREATER_EQUAL),
-                VER_MINORVERSION,
-                VER_GREATER_EQUAL),
-            VER_BUILDNUMBER,
-            VER_GREATER_EQUAL));
-}
-
 static bool IsSupportSystemBackdrop()
 {
-    static bool CachedResult = ::IsWindowsVersionOrLater(10, 0, 22523);
+    static bool CachedResult = ::MileIsWindowsVersionAtLeast(10, 0, 22523);
     return CachedResult;
 }
 
