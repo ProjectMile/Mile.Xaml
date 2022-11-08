@@ -29,9 +29,9 @@
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
 
-static bool IsWindows10Version20H1OrLater()
+static bool IsWindows10Version1903OrLater()
 {
-    static bool CachedResult = ::MileIsWindowsVersionAtLeast(10, 0, 19041);
+    static bool CachedResult = ::MileIsWindowsVersionAtLeast(10, 0, 18362);
     return CachedResult;
 }
 
@@ -86,58 +86,12 @@ enum class PREFERRED_APP_MODE : DWORD
 };
 
 /**
- * @brief Allows the window frame for this window to be drawn in dark mode
- *        colors when the dark mode system setting is enabled.
- * @param WindowHandle The handle to the window for which the attribute value
- *                     is to be set.
- * @param Value TRUE to honor dark mode for the window, FALSE to always use
- *              light mode.
- * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
- *         HRESULT error code.
-*/
-EXTERN_C HRESULT WINAPI MileSetUseImmersiveDarkModeAttribute(
-    _In_ HWND WindowHandle,
-    _In_ BOOL Value)
-{
-    const DWORD DwmWindowUseImmersiveDarkModeBefore20H1Attribute = 19;
-    const DWORD DwmWindowUseImmersiveDarkModeAttribute = 20;
-    return ::DwmSetWindowAttribute(
-        WindowHandle,
-        (::IsWindows10Version20H1OrLater()
-            ? DwmWindowUseImmersiveDarkModeAttribute
-            : DwmWindowUseImmersiveDarkModeBefore20H1Attribute),
-        &Value,
-        sizeof(BOOL));
-}
-
-/**
- * @brief Specifies the color of the caption.
- * @param WindowHandle The handle to the window for which the attribute value
- *                     is to be set.
- * @param Value The color of the caption.
- * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
- *         HRESULT error code.
-*/
-EXTERN_C HRESULT WINAPI MileSetCaptionColorAttribute(
-    _In_ HWND WindowHandle,
-    _In_ COLORREF Value)
-{
-    const DWORD DwmWindowCaptionColorAttribute = 35;
-    return ::DwmSetWindowAttribute(
-        WindowHandle,
-        DwmWindowCaptionColorAttribute,
-        &Value,
-        sizeof(COLORREF));
-}
-
-/**
  * @brief Retrieves or specifies the system-drawn backdrop material of a
  *        window, including behind the non-client area.
  * @param WindowHandle The handle to the window for which the attribute value
  *                     is to be set.
- * @param Type Flags for specifying the system-drawn backdrop
- *                           material of a window, including behind the
- *                           non-client area.
+ * @param Type Flags for specifying the system-drawn backdrop material of a
+ *             window, including behind the non-client area.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
 */
@@ -149,7 +103,7 @@ HRESULT MileSetSystemBackdropAttribute(
     {
         return E_NOINTERFACE;
     }
-    ::MileSetCaptionColorAttribute(WindowHandle, static_cast<COLORREF>(-1));
+    ::MileSetWindowCaptionColorAttribute(WindowHandle, static_cast<COLORREF>(-1));
     const DWORD DwmWindowSystemBackdropTypeAttribute = 38;
     return ::DwmSetWindowAttribute(
         WindowHandle,
@@ -163,22 +117,25 @@ HRESULT MileSetPreferredAppMode(
 {
     HRESULT hr = E_NOINTERFACE;
 
-    HMODULE ModuleHandle = ::LoadLibraryExW(
-        L"uxtheme.dll",
-        nullptr,
-        LOAD_LIBRARY_SEARCH_SYSTEM32);
-    if (ModuleHandle)
+    if (::IsWindows10Version1903OrLater())
     {
-        typedef HRESULT(WINAPI* ProcType)(PREFERRED_APP_MODE);
-
-        ProcType ProcAddress = reinterpret_cast<ProcType>(
-            ::GetProcAddress(ModuleHandle, reinterpret_cast<LPCSTR>(135)));
-        if (ProcAddress)
+        HMODULE ModuleHandle = ::LoadLibraryExW(
+            L"uxtheme.dll",
+            nullptr,
+            LOAD_LIBRARY_SEARCH_SYSTEM32);
+        if (ModuleHandle)
         {
-            hr = ProcAddress(Type);
-        }
+            typedef HRESULT(WINAPI* ProcType)(PREFERRED_APP_MODE);
 
-        ::FreeLibrary(ModuleHandle);
+            ProcType ProcAddress = reinterpret_cast<ProcType>(
+                ::GetProcAddress(ModuleHandle, reinterpret_cast<LPCSTR>(135)));
+            if (ProcAddress)
+            {
+                hr = ProcAddress(Type);
+            }
+
+            ::FreeLibrary(ModuleHandle);
+        }
     }
 
     return hr;
@@ -259,7 +216,7 @@ namespace
             // Focus on XAML Island host window for Acrylic brush support.
             ::SetFocus(XamlWindowHandle);
 
-            ::MileSetUseImmersiveDarkModeAttribute(
+            ::MileSetWindowUseImmersiveDarkModeAttribute(
                 hWnd,
                 (Content.ActualTheme() == winrt::ElementTheme::Dark
                     ? TRUE
@@ -288,7 +245,7 @@ namespace
                 hWnd,
                 DwmSystemBackdropType::Mica)))
             {
-                ::MileSetCaptionColorAttribute(
+                ::MileSetWindowCaptionColorAttribute(
                     hWnd,
                     (Content.ActualTheme() == winrt::ElementTheme::Dark
                         ? RGB(32, 32, 32)
@@ -426,7 +383,7 @@ namespace
                     {
                         Content.RequestedTheme(winrt::ElementTheme::Default);
 
-                        ::MileSetUseImmersiveDarkModeAttribute(
+                        ::MileSetWindowUseImmersiveDarkModeAttribute(
                             hWnd,
                             (Content.ActualTheme() == winrt::ElementTheme::Dark
                                 ? TRUE
@@ -452,7 +409,7 @@ namespace
                             hWnd,
                             DwmSystemBackdropType::Mica)))
                         {
-                            ::MileSetCaptionColorAttribute(
+                            ::MileSetWindowCaptionColorAttribute(
                                 hWnd,
                                 (Content.ActualTheme() == winrt::ElementTheme::Dark
                                     ? RGB(32, 32, 32)
