@@ -29,118 +29,6 @@
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
 
-static bool IsWindows10Version1903OrLater()
-{
-    static bool CachedResult = ::MileIsWindowsVersionAtLeast(10, 0, 18362);
-    return CachedResult;
-}
-
-static bool IsSupportSystemBackdrop()
-{
-    static bool CachedResult = ::MileIsWindowsVersionAtLeast(10, 0, 22523);
-    return CachedResult;
-}
-
-/**
- * @brief Flags for specifying the system-drawn backdrop material of a window,
- *        including behind the non-client area.
-*/
-enum class DwmSystemBackdropType : DWORD
-{
-    /**
-     * @brief The default. Let the Desktop Window Manager (DWM) automatically
-              decide the system-drawn backdrop material for this window.
-    */
-    Auto = 0,
-
-    /**
-     * @brief Don't draw any system backdrop.
-    */
-    None = 1,
-
-    /**
-     * @brief Draw the backdrop material effect corresponding to a long-lived
-     *        window.
-    */
-    Mica = 2,
-
-    /**
-     * @brief Draw the backdrop material effect corresponding to a transient
-     *        window.
-    */
-    Acrylic = 3,
-
-    /**
-     * @brief Draw the backdrop material effect corresponding to a window with
-     *        a tabbed title bar.
-    */
-    MicaAlt = 4
-};
-
-enum class PREFERRED_APP_MODE : DWORD
-{
-    Default = 0, 
-    Auto = 1,
-    Dark = 2,
-    Light = 3
-};
-
-/**
- * @brief Retrieves or specifies the system-drawn backdrop material of a
- *        window, including behind the non-client area.
- * @param WindowHandle The handle to the window for which the attribute value
- *                     is to be set.
- * @param Type Flags for specifying the system-drawn backdrop material of a
- *             window, including behind the non-client area.
- * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
- *         HRESULT error code.
-*/
-HRESULT MileSetSystemBackdropAttribute(
-    HWND WindowHandle,
-    DwmSystemBackdropType Type)
-{
-    if (!::IsSupportSystemBackdrop())
-    {
-        return E_NOINTERFACE;
-    }
-    ::MileSetWindowCaptionColorAttribute(WindowHandle, static_cast<COLORREF>(-1));
-    const DWORD DwmWindowSystemBackdropTypeAttribute = 38;
-    return ::DwmSetWindowAttribute(
-        WindowHandle,
-        DwmWindowSystemBackdropTypeAttribute,
-        &Type,
-        sizeof(DWORD));
-}
-
-HRESULT MileSetPreferredAppMode(
-    PREFERRED_APP_MODE Type)
-{
-    HRESULT hr = E_NOINTERFACE;
-
-    if (::IsWindows10Version1903OrLater())
-    {
-        HMODULE ModuleHandle = ::LoadLibraryExW(
-            L"uxtheme.dll",
-            nullptr,
-            LOAD_LIBRARY_SEARCH_SYSTEM32);
-        if (ModuleHandle)
-        {
-            typedef HRESULT(WINAPI* ProcType)(PREFERRED_APP_MODE);
-
-            ProcType ProcAddress = reinterpret_cast<ProcType>(
-                ::GetProcAddress(ModuleHandle, reinterpret_cast<LPCSTR>(135)));
-            if (ProcAddress)
-            {
-                hr = ProcAddress(Type);
-            }
-
-            ::FreeLibrary(ModuleHandle);
-        }
-    }
-
-    return hr;
-}
-
 namespace winrt
 {
     using Windows::Foundation::Uri;
@@ -222,28 +110,14 @@ namespace
                     ? TRUE
                     : FALSE));
 
-            ::MileSetPreferredAppMode(PREFERRED_APP_MODE::Auto);
-            //::MileSetPreferredAppMode([&]()-> PREFERRED_APP_MODE
-            //    {
-            //        switch (Content.ActualTheme())
-            //        {
-            //        case winrt::ElementTheme::Default:
-            //            return PREFERRED_APP_MODE::Auto;
-            //        case winrt::ElementTheme::Light:
-            //            return PREFERRED_APP_MODE::Light;
-            //        case winrt::ElementTheme::Dark:
-            //            return PREFERRED_APP_MODE::Dark;
-            //        default:
-            //            return PREFERRED_APP_MODE::Default;
-            //        }
-            //    });
+            ::MileSetPreferredAppMode(MILE_PREFERRED_APP_MODE_AUTO);
 
             MARGINS Margins = { -1 };
             ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
 
-            if (FAILED(::MileSetSystemBackdropAttribute(
+            if (FAILED(::MileSetWindowSystemBackdropTypeAttribute(
                 hWnd,
-                DwmSystemBackdropType::Mica)))
+                MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA)))
             {
                 ::MileSetWindowCaptionColorAttribute(
                     hWnd,
@@ -389,25 +263,22 @@ namespace
                                 ? TRUE
                                 : FALSE));
 
-                        ::MileSetPreferredAppMode(PREFERRED_APP_MODE::Auto);
-                        //::MileSetPreferredAppMode([&]()-> PREFERRED_APP_MODE
-                        //    {
-                        //        switch (Content.ActualTheme())
-                        //        {
-                        //        case winrt::ElementTheme::Default:
-                        //            return PREFERRED_APP_MODE::Auto;
-                        //        case winrt::ElementTheme::Light:
-                        //            return PREFERRED_APP_MODE::Light;
-                        //        case winrt::ElementTheme::Dark:
-                        //            return PREFERRED_APP_MODE::Dark;
-                        //        default:
-                        //            return PREFERRED_APP_MODE::Default;
-                        //        }
-                        //    });
+                        bool NeedFallback = true;
 
-                        if (FAILED(::MileSetSystemBackdropAttribute(
+                        MILE_WINDOW_SYSTEM_BACKDROP_TYPE Type =
+                            MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO;
+                        if (S_OK == ::MileGetWindowSystemBackdropTypeAttribute(
                             hWnd,
-                            DwmSystemBackdropType::Mica)))
+                            &Type))
+                        {
+                            if (MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO != Type &&
+                                MILE_WINDOW_SYSTEM_BACKDROP_TYPE_NONE != Type)
+                            {
+                                NeedFallback = false;
+                            }
+                        }
+
+                        if (NeedFallback)
                         {
                             ::MileSetWindowCaptionColorAttribute(
                                 hWnd,
