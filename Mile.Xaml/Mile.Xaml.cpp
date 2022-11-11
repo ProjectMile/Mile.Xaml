@@ -29,6 +29,8 @@
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
 
+#include "IWindowPrivate.h"
+
 namespace winrt
 {
     using Windows::Foundation::Uri;
@@ -341,7 +343,7 @@ namespace winrt::Mile::Xaml::implementation
             winrt::WindowsXamlManager::InitializeForCurrentThread();
 
         winrt::Window::Current().as<IWindowPrivate>(
-            ).TransparentBackground(true);
+            )->put_TransparentBackground(true);
 
         // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
         // in the task bar.

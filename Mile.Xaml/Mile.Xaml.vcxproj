@@ -29,6 +29,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="IWindowPrivate.h" />
     <ClInclude Include="Mile.Project.Properties.h" />
     <ClInclude Include="Mile.Xaml.h" />
     <ClInclude Include="Mile.Xaml.Private.h" />
