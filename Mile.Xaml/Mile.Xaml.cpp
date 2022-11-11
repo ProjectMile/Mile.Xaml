@@ -110,8 +110,6 @@ namespace
                     ? TRUE
                     : FALSE));
 
-            ::MileSetPreferredAppMode(MILE_PREFERRED_APP_MODE_AUTO);
-
             MARGINS Margins = { -1 };
             ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
 
@@ -370,8 +368,9 @@ namespace winrt::Mile::Xaml::implementation
         WindowClass.lpszMenuName = nullptr;
         WindowClass.lpszClassName = L"Mile.Xaml.ContentWindow";
         WindowClass.hIconSm = nullptr;
-
         winrt::check_bool(::RegisterClassExW(&WindowClass));
+
+        ::MileSetPreferredAppMode(MILE_PREFERRED_APP_MODE_AUTO);
     }
 
     void Application::Close()
@@ -382,6 +381,8 @@ namespace winrt::Mile::Xaml::implementation
         }
 
         this->m_IsClosed = true;
+
+        ::MileSetPreferredAppMode(MILE_PREFERRED_APP_MODE_DEFAULT);
 
         ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
 
