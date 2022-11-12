@@ -24,6 +24,8 @@ namespace Mile.Xaml
         Application(Windows.Foundation.Collections.IVector<Windows.UI.Xaml.Markup.IXamlMetadataProvider> providers);
         protected Application();
         protected void Initialize();
+
+        Boolean TransparentBackground;
     }
 
     [default_interface]

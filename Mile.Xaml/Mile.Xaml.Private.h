@@ -48,6 +48,9 @@ namespace winrt::Mile::Xaml::implementation
 
         void Close();
 
+        bool TransparentBackground();
+        void TransparentBackground(bool const& value);
+
         winrt::IXamlType GetXamlType(winrt::TypeName const& type);
         winrt::IXamlType GetXamlType(winrt::hstring const& fullName);
         winrt::XmlnsDefinitions GetXmlnsDefinitions();

@@ -342,8 +342,7 @@ namespace winrt::Mile::Xaml::implementation
         this->m_WindowsXamlManager =
             winrt::WindowsXamlManager::InitializeForCurrentThread();
 
-        winrt::Window::Current().as<IWindowPrivate>(
-            )->put_TransparentBackground(true);
+        this->TransparentBackground(true);
 
         // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
         // in the task bar.
@@ -401,6 +400,23 @@ namespace winrt::Mile::Xaml::implementation
                 ::DispatchMessageW(&Message);
             }
         }
+    }
+
+    bool Application::TransparentBackground()
+    {
+        boolean value = false;
+        if (SUCCEEDED(winrt::Window::Current().as<IWindowPrivate>(
+            )->get_TransparentBackground(&value)))
+        {
+            return value;
+        }
+        return false;
+    }
+
+    void Application::TransparentBackground(bool const& value)
+    {
+        winrt::Window::Current().as<IWindowPrivate>(
+            )->put_TransparentBackground(value);
     }
 
     Application::~Application()
