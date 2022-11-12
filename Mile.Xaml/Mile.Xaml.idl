@@ -26,6 +26,7 @@ namespace Mile.Xaml
         protected void Initialize();
 
         Boolean TransparentBackground;
+        Boolean PreferredDarkModeIfAvailable;
     }
 
     [default_interface]

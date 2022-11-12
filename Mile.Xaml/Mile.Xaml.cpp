@@ -48,6 +48,8 @@ namespace winrt
 
 namespace
 {
+    static bool volatile g_PreferredDarkModeIfAvailable = false;
+
     static LRESULT CALLBACK MileXamlContentWindowCallback(
         _In_ HWND hWnd,
         _In_ UINT uMsg,
@@ -371,7 +373,7 @@ namespace winrt::Mile::Xaml::implementation
         WindowClass.hIconSm = nullptr;
         winrt::check_bool(::RegisterClassExW(&WindowClass));
 
-        ::MileSetPreferredAppMode(MILE_PREFERRED_APP_MODE_AUTO);
+        this->PreferredDarkModeIfAvailable(true);
     }
 
     void Application::Close()
@@ -383,7 +385,10 @@ namespace winrt::Mile::Xaml::implementation
 
         this->m_IsClosed = true;
 
-        ::MileSetPreferredAppMode(MILE_PREFERRED_APP_MODE_DEFAULT);
+        if (this->PreferredDarkModeIfAvailable())
+        {
+            this->PreferredDarkModeIfAvailable(false);
+        }
 
         ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
 
@@ -417,6 +422,26 @@ namespace winrt::Mile::Xaml::implementation
     {
         winrt::Window::Current().as<IWindowPrivate>(
             )->put_TransparentBackground(value);
+    }
+
+    bool Application::PreferredDarkModeIfAvailable()
+    {
+        return g_PreferredDarkModeIfAvailable;
+    }
+
+    void Application::PreferredDarkModeIfAvailable(bool const& value)
+    {
+        MILE_PREFERRED_APP_MODE PreferredAppMode = (
+            value
+            ? MILE_PREFERRED_APP_MODE_AUTO
+            : MILE_PREFERRED_APP_MODE_DEFAULT);
+
+        ::MileSetPreferredAppMode(PreferredAppMode);
+
+        // Call twice to get the current status.
+        g_PreferredDarkModeIfAvailable = (
+            MILE_PREFERRED_APP_MODE_AUTO == ::MileSetPreferredAppMode(
+                PreferredAppMode));
     }
 
     Application::~Application()
