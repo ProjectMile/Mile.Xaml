@@ -29,6 +29,12 @@
 #include <dwmapi.h>
 #pragma comment(lib, "dwmapi.lib")
 
+EXTERN_C COLORREF WINAPI MileGetDefaultBackgroundColorValue(
+    _In_ BOOL UseImmersiveDarkMode)
+{
+    return (UseImmersiveDarkMode ? RGB(32, 32, 32) : RGB(243, 243, 243));
+}
+
 #include "IWindowPrivate.h"
 
 namespace winrt
