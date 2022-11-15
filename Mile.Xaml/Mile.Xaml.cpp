@@ -150,25 +150,18 @@ namespace
             // Focus on XAML Island host window for Acrylic brush support.
             ::SetFocus(XamlWindowHandle);
 
-            ::MileSetWindowUseImmersiveDarkModeAttribute(
+            MARGINS Margins = { -1 };
+            ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
+
+            ::MileSetWindowSystemBackdropTypeAttribute(
+                hWnd,
+                MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA);
+
+            ::MileEnableImmersiveDarkModeForWindow(
                 hWnd,
                 (Content.ActualTheme() == winrt::ElementTheme::Dark
                     ? TRUE
                     : FALSE));
-
-            MARGINS Margins = { -1 };
-            ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
-
-            if (FAILED(::MileSetWindowSystemBackdropTypeAttribute(
-                hWnd,
-                MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA)))
-            {
-                ::MileSetWindowCaptionColorAttribute(
-                    hWnd,
-                    (Content.ActualTheme() == winrt::ElementTheme::Dark
-                        ? RGB(32, 32, 32)
-                        : RGB(243, 243, 243)));
-            }
 
             return 0;
         }
@@ -301,35 +294,11 @@ namespace
                     {
                         Content.RequestedTheme(winrt::ElementTheme::Default);
 
-                        ::MileSetWindowUseImmersiveDarkModeAttribute(
+                        ::MileEnableImmersiveDarkModeForWindow(
                             hWnd,
                             (Content.ActualTheme() == winrt::ElementTheme::Dark
                                 ? TRUE
                                 : FALSE));
-
-                        bool NeedFallback = true;
-
-                        MILE_WINDOW_SYSTEM_BACKDROP_TYPE Type =
-                            MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO;
-                        if (S_OK == ::MileGetWindowSystemBackdropTypeAttribute(
-                            hWnd,
-                            &Type))
-                        {
-                            if (MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO != Type &&
-                                MILE_WINDOW_SYSTEM_BACKDROP_TYPE_NONE != Type)
-                            {
-                                NeedFallback = false;
-                            }
-                        }
-
-                        if (NeedFallback)
-                        {
-                            ::MileSetWindowCaptionColorAttribute(
-                                hWnd,
-                                (Content.ActualTheme() == winrt::ElementTheme::Dark
-                                    ? RGB(32, 32, 32)
-                                    : RGB(243, 243, 243)));
-                        }
                     }
                 }
             }
