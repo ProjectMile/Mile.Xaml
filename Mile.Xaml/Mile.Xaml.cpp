@@ -35,6 +35,42 @@ EXTERN_C COLORREF WINAPI MileGetDefaultBackgroundColorValue(
     return (UseImmersiveDarkMode ? RGB(32, 32, 32) : RGB(243, 243, 243));
 }
 
+EXTERN_C HRESULT WINAPI MileEnableImmersiveDarkModeForWindow(
+    _In_ HWND WindowHandle,
+    _In_ BOOL UseImmersiveDarkMode)
+{
+    HRESULT hr = ::MileSetWindowUseImmersiveDarkModeAttribute(
+        WindowHandle,
+        UseImmersiveDarkMode);
+    if (S_OK == hr)
+    {
+        bool NeedFallback = true;
+
+        MILE_WINDOW_SYSTEM_BACKDROP_TYPE Type =
+            MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO;
+        hr = ::MileGetWindowSystemBackdropTypeAttribute(
+            WindowHandle,
+            &Type);
+        if (S_OK == hr)
+        {
+            if (MILE_WINDOW_SYSTEM_BACKDROP_TYPE_AUTO != Type &&
+                MILE_WINDOW_SYSTEM_BACKDROP_TYPE_NONE != Type)
+            {
+                NeedFallback = false;
+            }
+        }
+
+        if (NeedFallback)
+        {
+            hr = ::MileSetWindowCaptionColorAttribute(
+                WindowHandle,
+                ::MileGetDefaultBackgroundColorValue(UseImmersiveDarkMode));
+        }
+    }
+
+    return hr;
+}
+
 #include "IWindowPrivate.h"
 
 namespace winrt
