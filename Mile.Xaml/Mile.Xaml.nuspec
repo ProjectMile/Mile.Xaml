@@ -29,15 +29,15 @@
 
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.dll" target="runtimes\win10-x86\native"/>
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.pdb" target="runtimes\win10-x86\native"/>
-    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.pri" target="runtimes\win10-x86\native"/>
+    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.Styles.SunValley.xbf" target="runtimes\win10-x86\native"/>
 
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.dll" target="runtimes\win10-x64\native"/>
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.pdb" target="runtimes\win10-x64\native"/>
-    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.pri" target="runtimes\win10-x64\native"/>
+    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.Styles.SunValley.xbf" target="runtimes\win10-x64\native"/>
 
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.dll" target="runtimes\win10-arm64\native"/>
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.pdb" target="runtimes\win10-arm64\native"/>
-    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.pri" target="runtimes\win10-arm64\native"/>
+    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.Styles.SunValley.xbf" target="runtimes\win10-arm64\native"/>
 
     <file src="Mile.Xaml.props" target="build\native"/>
     <file src="Mile.Xaml.targets" target="build\native"/>

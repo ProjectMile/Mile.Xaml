@@ -468,7 +468,7 @@ namespace winrt::Mile::Xaml::implementation
 
     XamlControlsResources::XamlControlsResources()
     {
-        this->Source(winrt::Uri(L"ms-appx:///Mile.Xaml/SunValleyStyles.xaml"));
+        this->Source(winrt::Uri(L"ms-appx:///Mile.Xaml.Styles.SunValley.xbf"));
     }
 }
 

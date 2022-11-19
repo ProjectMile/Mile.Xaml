@@ -19,7 +19,7 @@
     <CppWinRTAddXamlMetaDataProviderIdl>false</CppWinRTAddXamlMetaDataProviderIdl>
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
-  <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" />
+  <!-- <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" /> -->
   <ImportGroup Label="PropertySheets">
     <Import Project="PropertySheet.props" />
   </ImportGroup>
@@ -49,12 +49,16 @@
     <None Include="Mile.Xaml.targets" />
     <None Include="MrtCore.PriGen.targets" />
     <None Include="Mile.Xaml.def" />
+    <None Include="$(GeneratedFilesDir)Mile.Xaml.Styles.SunValley.xbf">
+      <DeploymentContent>true</DeploymentContent>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="SunValleyStyles.xaml" />
+    <Page Include="Mile.Xaml.Styles.SunValley.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Mile.Windows.Helpers">
