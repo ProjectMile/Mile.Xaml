@@ -13,7 +13,10 @@ styles.
 - Use [VC-LTL 5.x](https://github.com/Chuyu-Team/VC-LTL5) toolchain to make the
   binary size smaller.
 - Provide NuGet package.
-- Provide Windows 11 controls styles.
+- Provide Windows 11 XAML controls styles and Mile.Xaml.XamlControlsResources
+  class for enabling them.
+- Provide immersive Mica effect support Mile.Xaml.ContentWindow window class.
+- Provide Win32 context menu dark mode support.
 
 ## Usage
 
