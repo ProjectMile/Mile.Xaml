@@ -1,6 +1,6 @@
 ﻿# Mile.Xaml Release Notes
 
-**Mile.Xaml 1.1 (1.1.433.0)**
+**Mile.Xaml 1.1 (1.1.434.0)**
 
 - Port Windows 11 XAML control styles from Windows UI Library 2.8.1. 
   (Contributed by AndromedaMelody.)
@@ -17,6 +17,7 @@
 - Add TransparentBackground property for Mile.Xaml.Application class.
 - Add PreferredDarkModeIfAvailable property for Mile.Xaml.Application class.
 - Adjust and simplify the Mile.Xaml implementation.
+- Fix the window with empty content due to CoreWindow is not exist issue.
 
 **Mile.Xaml 1.0 (1.0.361.0)**
 
