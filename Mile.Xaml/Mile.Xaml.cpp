@@ -41,6 +41,7 @@ namespace winrt
     using Windows::UI::Xaml::ResourceDictionary;
     using Windows::UI::Xaml::Window;
     using Windows::UI::Xaml::Controls::Control;
+    using Windows::UI::Xaml::Controls::Grid;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSource;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceTakeFocusRequestedEventArgs;
     using Windows::UI::Xaml::Media::VisualTreeHelper;
@@ -315,17 +316,6 @@ namespace winrt::Mile::Xaml::implementation
 
         this->TransparentBackground(true);
 
-        // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
-        // in the task bar.
-        // Reference: https://github.com/microsoft/terminal/issues/6507
-        // Reference: https://github.com/microsoft/microsoft-ui-xaml/issues/6490
-        // Fixes: https://github.com/M2Team/NanaZip/issues/225
-        HWND CoreWindowHandle;
-        winrt::check_hresult(
-            winrt::CoreWindow::GetForCurrentThread().as<ICoreWindowInterop>(
-                )->get_WindowHandle(&CoreWindowHandle));
-        ::ShowWindow(CoreWindowHandle, SW_HIDE);
-
         WNDCLASSEXW WindowClass;
         WindowClass.cbSize = sizeof(WNDCLASSEXW);
         WindowClass.style = 0;
@@ -343,6 +333,29 @@ namespace winrt::Mile::Xaml::implementation
         winrt::check_bool(::RegisterClassExW(&WindowClass));
 
         this->PreferredDarkModeIfAvailable(true);
+
+        // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
+        // in the task bar.
+        // Reference: https://github.com/microsoft/terminal/issues/6507
+        // Reference: https://github.com/microsoft/microsoft-ui-xaml/issues/6490
+        // Fixes: https://github.com/M2Team/NanaZip/issues/225
+        // For also fixing the window with empty content due to CoreWindow is
+        // not exist issue, create a host window without message loop is a
+        // better workaround.
+        this->m_CoreWindowHostWindowHandle = ::CreateWindowExW(
+            0,
+            L"Mile.Xaml.ContentWindow",
+            L"Mile.Xaml.CoreWindowHostWindow",
+            0,
+            CW_USEDEFAULT,
+            0,
+            CW_USEDEFAULT,
+            0,
+            nullptr,
+            nullptr,
+            nullptr,
+            winrt::get_abi(winrt::Grid()));
+        winrt::check_pointer(this->m_CoreWindowHostWindowHandle);
     }
 
     void Application::Close()
@@ -353,6 +366,8 @@ namespace winrt::Mile::Xaml::implementation
         }
 
         this->m_IsClosed = true;
+
+        ::DestroyWindow(this->m_CoreWindowHostWindowHandle);
 
         if (this->PreferredDarkModeIfAvailable())
         {

@@ -66,6 +66,7 @@ namespace winrt::Mile::Xaml::implementation
         winrt::XamlMetadataProviders m_Providers =
             winrt::single_threaded_vector<winrt::IXamlMetadataProvider>();
         bool m_IsClosed = false;
+        HWND m_CoreWindowHostWindowHandle = nullptr;
     };
 
     class XamlControlsResources : public XamlControlsResourcesT<
