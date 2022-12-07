@@ -54,11 +54,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-### The third-party libraries used in NanaBox
+### The third-party libraries used in Mile.Xaml
 
 - C++/WinRT, https://github.com/microsoft/cppwinrt
 - IWindowPrivate, https://github.com/ADeltaX/IWindowPrivate
 - Mile.Cpp, https://github.com/ProjectMile/Mile.Cpp
+- Mile.Windows.Helpers, https://github.com/ProjectMile/Mile.Windows.Helpers
 - VC-LTL, https://github.com/Chuyu-Team/VC-LTL5
 - Windows App SDK, https://github.com/microsoft/WindowsAppSDK
 - Windows UI Library, https://github.com/microsoft/microsoft-ui-xaml
