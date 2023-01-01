@@ -109,18 +109,33 @@ namespace
             // Focus on XAML Island host window for Acrylic brush support.
             ::SetFocus(XamlWindowHandle);
 
-            MARGINS Margins = { -1 };
-            ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
-
             ::MileSetWindowSystemBackdropTypeAttribute(
                 hWnd,
                 MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA);
 
-            ::MileEnableImmersiveDarkModeForWindow(
+            BOOL UseImmersiveDarkMode = (
+                Content.ActualTheme() == winrt::ElementTheme::Dark
+                ? TRUE
+                : FALSE);
+
+            if (S_OK == ::MileEnableImmersiveDarkModeForWindow(
                 hWnd,
-                (Content.ActualTheme() == winrt::ElementTheme::Dark
-                    ? TRUE
-                    : FALSE));
+                UseImmersiveDarkMode))
+            {
+                MARGINS Margins = { -1 };
+                ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
+            }
+            else
+            {
+                if (!::SetPropW(
+                    hWnd,
+                    L"BackgroundFallbackColor",
+                    ::ULongToHandle(::MileGetDefaultBackgroundColorValue(
+                        UseImmersiveDarkMode))))
+                {
+                    return -1;
+                }
+            }
 
             return 0;
         }
@@ -222,6 +237,39 @@ namespace
                 NewWindowRectangle->bottom - NewWindowRectangle->top,
                 SWP_NOZORDER | SWP_NOACTIVATE);
         }
+        case WM_ERASEBKGND:
+        {
+            RECT ClientArea = { 0 };
+            if (::GetClientRect(hWnd, &ClientArea))
+            {
+                COLORREF BackgroundColor = ::HandleToULong(
+                    ::GetPropW(hWnd, L"BackgroundFallbackColor"));
+                if (BackgroundColor)
+                {
+                    HBRUSH BackgroundBrush =
+                        ::CreateSolidBrush(BackgroundColor);
+                    if (BackgroundBrush)
+                    {
+                        ::FillRect(
+                            reinterpret_cast<HDC>(wParam),
+                            &ClientArea,
+                            BackgroundBrush);
+
+                        ::DeleteObject(BackgroundBrush);
+                    }
+                }
+                else
+                {
+                    ::FillRect(
+                        reinterpret_cast<HDC>(wParam),
+                        &ClientArea,
+                        reinterpret_cast<HBRUSH>(
+                            ::GetStockObject(BLACK_BRUSH)));
+                }
+            }
+
+            return TRUE;
+        }
         case WM_MENUCHAR:
         {
             // Reference: https://github.com/microsoft/terminal
@@ -253,11 +301,25 @@ namespace
                     {
                         Content.RequestedTheme(winrt::ElementTheme::Default);
 
-                        ::MileEnableImmersiveDarkModeForWindow(
+                        BOOL UseImmersiveDarkMode = (
+                            Content.ActualTheme() == winrt::ElementTheme::Dark
+                            ? TRUE
+                            : FALSE);
+
+                        if (S_OK != ::MileEnableImmersiveDarkModeForWindow(
                             hWnd,
-                            (Content.ActualTheme() == winrt::ElementTheme::Dark
-                                ? TRUE
-                                : FALSE));
+                            UseImmersiveDarkMode))
+                        {
+                            if (::SetPropW(
+                                hWnd,
+                                L"BackgroundFallbackColor",
+                                ::ULongToHandle(
+                                    ::MileGetDefaultBackgroundColorValue(
+                                        UseImmersiveDarkMode))))
+                            {
+                                ::InvalidateRect(hWnd, nullptr, TRUE);
+                            }
+                        }
                     }
                 }
             }
@@ -266,6 +328,7 @@ namespace
         }
         case WM_DESTROY:
         {
+            ::RemovePropW(hWnd, L"BackgroundFallbackColor");
             ::RemovePropW(hWnd, L"XamlWindowSource");
 
             if (hWnd == ::GetAncestor(hWnd, GA_ROOT))
