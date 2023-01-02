@@ -22,6 +22,10 @@ styles.
 
 You only need to search and add `Mile.Xaml` package in your NuGet client.
 
+There are [some samples](https://github.com/ProjectMile/Mile.Xaml.Samples)
+that demonstrate using XAML Islands with Mile.Xaml. We hope it can help you
+develop applications with Mile.Xaml and enjoy the beauty of XAML Islands.
+
 ## System Requirements
 
 - Supported OS: Windows 10 Version 1903 (Build 18362) or later
