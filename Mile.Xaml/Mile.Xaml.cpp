@@ -130,7 +130,7 @@ namespace
                 if (!::SetPropW(
                     hWnd,
                     L"BackgroundFallbackColor",
-                    ::ULongToHandle(::MileGetDefaultBackgroundColorValue(
+                    ULongToHandle(::MileGetDefaultBackgroundColorValue(
                         UseImmersiveDarkMode))))
                 {
                     return -1;
@@ -242,7 +242,7 @@ namespace
             RECT ClientArea = { 0 };
             if (::GetClientRect(hWnd, &ClientArea))
             {
-                COLORREF BackgroundColor = ::HandleToULong(
+                COLORREF BackgroundColor = HandleToULong(
                     ::GetPropW(hWnd, L"BackgroundFallbackColor"));
                 if (BackgroundColor)
                 {
@@ -313,7 +313,7 @@ namespace
                             if (::SetPropW(
                                 hWnd,
                                 L"BackgroundFallbackColor",
-                                ::ULongToHandle(
+                                ULongToHandle(
                                     ::MileGetDefaultBackgroundColorValue(
                                         UseImmersiveDarkMode))))
                             {
