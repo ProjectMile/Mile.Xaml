@@ -23,6 +23,12 @@
     <None Include="NuGet\MrtCore.PriGen.targets">
       <Filter>NuGet</Filter>
     </None>
+    <None Include="NuGet\native\Mile.Xaml.props">
+      <Filter>NuGet\native</Filter>
+    </None>
+    <None Include="NuGet\net48\Mile.Xaml.props">
+      <Filter>NuGet\net48</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Mile.Xaml.Styles.SunValley.xaml" />
@@ -30,6 +36,12 @@
   <ItemGroup>
     <Filter Include="NuGet">
       <UniqueIdentifier>{605b5f3f-603b-4040-af54-14b0ebaebcb5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NuGet\net48">
+      <UniqueIdentifier>{4b063ee5-a877-4588-883e-e84a81e3aaaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NuGet\native">
+      <UniqueIdentifier>{61b1f018-f429-46e8-9b33-7ba89ede2d76}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
