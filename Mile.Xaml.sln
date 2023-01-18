@@ -3,11 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MileXamlApplication", "MileXamlApplication\MileXamlApplication.vcxproj", "{E92DF504-8673-495F-BC03-9CA3ECF452FB}"
-	ProjectSection(ProjectDependencies) = postProject
-		{4C5DA281-1FDD-41B7-9D3F-94132227CA0E} = {4C5DA281-1FDD-41B7-9D3F-94132227CA0E}
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mile.Xaml", "Mile.Xaml\Mile.Xaml.vcxproj", "{4C5DA281-1FDD-41B7-9D3F-94132227CA0E}"
 EndProject
 Global
@@ -20,24 +15,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|ARM64.ActiveCfg = Debug|ARM64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|ARM64.Build.0 = Debug|ARM64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|ARM64.Deploy.0 = Debug|ARM64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|x64.ActiveCfg = Debug|x64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|x64.Build.0 = Debug|x64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|x64.Deploy.0 = Debug|x64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|x86.ActiveCfg = Debug|Win32
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|x86.Build.0 = Debug|Win32
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Debug|x86.Deploy.0 = Debug|Win32
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|ARM64.ActiveCfg = Release|ARM64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|ARM64.Build.0 = Release|ARM64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|ARM64.Deploy.0 = Release|ARM64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|x64.ActiveCfg = Release|x64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|x64.Build.0 = Release|x64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|x64.Deploy.0 = Release|x64
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|x86.ActiveCfg = Release|Win32
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|x86.Build.0 = Release|Win32
-		{E92DF504-8673-495F-BC03-9CA3ECF452FB}.Release|x86.Deploy.0 = Release|Win32
 		{4C5DA281-1FDD-41B7-9D3F-94132227CA0E}.Debug|ARM64.ActiveCfg = Debug|ARM64
 		{4C5DA281-1FDD-41B7-9D3F-94132227CA0E}.Debug|ARM64.Build.0 = Debug|ARM64
 		{4C5DA281-1FDD-41B7-9D3F-94132227CA0E}.Debug|x64.ActiveCfg = Debug|x64
