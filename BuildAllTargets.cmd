@@ -11,6 +11,6 @@ rem Initialize Visual Studio environment
 call "%~dp0Mile.Project.Windows\InitializeVisualStudioEnvironment.cmd"
 
 rem Build all targets
-MSBuild BuildAllTargets.proj
+MSBuild -m BuildAllTargets.proj
 
 @endlocal
