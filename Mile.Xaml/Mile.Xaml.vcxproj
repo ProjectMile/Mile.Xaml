@@ -47,7 +47,6 @@
     <None Include="Mile.Xaml.nuspec" />
     <None Include="Mile.Xaml.props" />
     <None Include="Mile.Xaml.targets" />
-    <None Include="MrtCore.PriGen.targets" />
     <None Include="Mile.Xaml.def" />
     <None Include="$(GeneratedFilesDir)Mile.Xaml.Styles.SunValley.xbf">
       <DeploymentContent>true</DeploymentContent>
@@ -55,6 +54,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="NuGet\MrtCore.PriGen.targets" />
     <None Include="PropertySheet.props" />
   </ItemGroup>
   <ItemGroup>

@@ -17,7 +17,7 @@
     -->
     <DisableEmbeddedXbf>false</DisableEmbeddedXbf>
     <_SupportXbfAsEmbedFileResources>true</_SupportXbfAsEmbedFileResources>
-    <ForceImportAfterCppTargets>$(MSBuildThisFileDirectory)MrtCore.PriGen.targets;$(ForceImportAfterCppTargets)</ForceImportAfterCppTargets>
+    <ForceImportAfterCppTargets>$(MSBuildThisFileDirectory)..\MrtCore.PriGen.targets;$(ForceImportAfterCppTargets)</ForceImportAfterCppTargets>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
