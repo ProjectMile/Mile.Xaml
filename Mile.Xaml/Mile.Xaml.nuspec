@@ -40,7 +40,7 @@
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.Styles.SunValley.xbf" target="runtimes\win10-arm64\native"/>
 
     <file src="Mile.Xaml.props" target="build\native"/>
-    <file src="Mile.Xaml.targets" target="build\native"/>
+    <file src="NuGet\Mile.Xaml.targets" target="build\native"/>
     <file src="NuGet\MrtCore.PriGen.targets" target="build"/>
 
     <file src="..\ReadMe.md" target="."/>

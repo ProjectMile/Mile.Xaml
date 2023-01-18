@@ -46,7 +46,6 @@
   <ItemGroup>
     <None Include="Mile.Xaml.nuspec" />
     <None Include="Mile.Xaml.props" />
-    <None Include="Mile.Xaml.targets" />
     <None Include="Mile.Xaml.def" />
     <None Include="$(GeneratedFilesDir)Mile.Xaml.Styles.SunValley.xbf">
       <DeploymentContent>true</DeploymentContent>
