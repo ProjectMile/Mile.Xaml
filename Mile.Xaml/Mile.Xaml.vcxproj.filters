@@ -29,6 +29,9 @@
     <None Include="NuGet\net48\Mile.Xaml.props">
       <Filter>NuGet\net48</Filter>
     </None>
+    <None Include="NuGet\_._">
+      <Filter>NuGet</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Mile.Xaml.Styles.SunValley.xaml" />

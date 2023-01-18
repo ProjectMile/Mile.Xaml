@@ -55,6 +55,7 @@
     <None Include="NuGet\MrtCore.PriGen.targets" />
     <None Include="NuGet\native\Mile.Xaml.props" />
     <None Include="NuGet\net48\Mile.Xaml.props" />
+    <None Include="NuGet\_._" />
     <None Include="PropertySheet.props" />
   </ItemGroup>
   <ItemGroup>
