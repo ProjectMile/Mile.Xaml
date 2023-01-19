@@ -1,5 +1,22 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 1.2 (1.2.494.0)**
+
+- Update Mile.Windows.Helpers to 1.0.11.
+- Use solid background color instead of extending DWM frame into client area in
+  Windows 10 for solving background color behavior issue when user enabling the
+  "Show accent color on title bars and window borders" option in the Settings
+  app.
+- Update the minimum system requirement to Windows 10 Version 2004 (Build 19041)
+  or later.
+- Update to Git submodule version of Mile.Project.Windows.
+- Remove MileXamlApplication and MileXamlApplicationPackage project because it
+  will be added to the Mile.Xaml.Samples repository.
+- Adjust NuGet package layout. (Suggested by AndromedaMelody.)
+- Add target support for .NET Framework 4.8 or later. (Contributed by 
+  AndromedaMelody.)
+- Adjust project configurations.
+
 **Mile.Xaml 1.1 (1.1.434.0)**
 
 - Port Windows 11 XAML control styles from Windows UI Library 2.8.1. 
