@@ -1,6 +1,6 @@
 ﻿# Mile.Xaml Release Notes
 
-**Mile.Xaml 1.2 (1.2.494.0)**
+**Mile.Xaml 1.2 (1.2.495.0)**
 
 - Update Mile.Windows.Helpers to 1.0.11.
 - Use solid background color instead of extending DWM frame into client area in
