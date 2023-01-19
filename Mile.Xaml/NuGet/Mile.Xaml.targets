@@ -10,10 +10,10 @@
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Reference Include="$(MSBuildThisFileDirectory)Mile.Xaml.winmd">
+    <Reference Include="$(MSBuildThisFileDirectory)..\Mile.Xaml.winmd">
       <Implementation>Mile.Xaml.dll</Implementation>
     </Reference>
-    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\redist\$(PlatformTarget)\Mile.Xaml.dll" />
-    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\redist\$(PlatformTarget)\Mile.Xaml.Styles.SunValley.xbf" />
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\redist\$(PlatformTarget)\Mile.Xaml.dll" />
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\redist\$(PlatformTarget)\Mile.Xaml.Styles.SunValley.xbf" />
   </ItemGroup>
 </Project>

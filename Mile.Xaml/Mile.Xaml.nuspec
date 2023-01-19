@@ -30,6 +30,7 @@
     <file src="NuGet\_._" target="lib\net48" />
 
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.winmd" target="build" />
+    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.winmd" target="buildTransitive" />
 
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.dll" target="redist\x86"/>
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.pdb" target="redist\x86"/>
@@ -44,13 +45,15 @@
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.Styles.SunValley.xbf" target="redist\arm64"/>
 
     <file src="NuGet\native\Mile.Xaml.props" target="build\native"/>
+    <file src="NuGet\Mile.Xaml.targets" target="build\native"/>
     <file src="NuGet\net48\Mile.Xaml.props" target="build\net48"/>
-    <file src="NuGet\Mile.Xaml.targets" target="build"/>
+    <file src="NuGet\Mile.Xaml.targets" target="build\net48"/>
     <file src="NuGet\MrtCore.PriGen.targets" target="build"/>
 
     <file src="NuGet\native\Mile.Xaml.props" target="buildTransitive\native"/>
+    <file src="NuGet\Mile.Xaml.targets" target="buildTransitive\native"/>
     <file src="NuGet\net48\Mile.Xaml.props" target="buildTransitive\net48"/>
-    <file src="NuGet\Mile.Xaml.targets" target="buildTransitive"/>
+    <file src="NuGet\Mile.Xaml.targets" target="buildTransitive\net48"/>
     <file src="NuGet\MrtCore.PriGen.targets" target="buildTransitive"/>
 
     <file src="..\ReadMe.md" target="."/>
