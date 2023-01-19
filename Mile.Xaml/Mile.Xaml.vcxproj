@@ -17,6 +17,15 @@
     <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
     <MileProjectEnableCppWinRTSupport>true</MileProjectEnableCppWinRTSupport>
     <CppWinRTAddXamlMetaDataProviderIdl>false</CppWinRTAddXamlMetaDataProviderIdl>
+    <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
+    <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
+    <MileProjectFileDescription>Mile.Xaml</MileProjectFileDescription>
+    <MileProjectInternalName>Mile.Xaml</MileProjectInternalName>
+    <MileProjectLegalCopyright>(©) Project Mile. All rights reserved.</MileProjectLegalCopyright>
+    <MileProjectOriginalFilename>Mile.Xaml.dll</MileProjectOriginalFilename>
+    <MileProjectProductName>Mile.Xaml</MileProjectProductName>
+    <MileProjectVersion>1.1.434.0</MileProjectVersion>
+    <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag>
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
   <!-- <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" /> -->
@@ -30,7 +39,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="IWindowPrivate.h" />
-    <ClInclude Include="Mile.Project.Properties.h" />
     <ClInclude Include="Mile.Xaml.h" />
     <ClInclude Include="Mile.Xaml.Private.h" />
     <ClInclude Include="pch.h" />
