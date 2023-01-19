@@ -21,7 +21,7 @@
     <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
     <MileProjectFileDescription>Mile.Xaml</MileProjectFileDescription>
     <MileProjectInternalName>Mile.Xaml</MileProjectInternalName>
-    <MileProjectLegalCopyright>(©) Project Mile. All rights reserved.</MileProjectLegalCopyright>
+    <MileProjectLegalCopyright>© Project Mile. All rights reserved.</MileProjectLegalCopyright>
     <MileProjectOriginalFilename>Mile.Xaml.dll</MileProjectOriginalFilename>
     <MileProjectProductName>Mile.Xaml</MileProjectProductName>
     <MileProjectVersion>1.1.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</MileProjectVersion>
