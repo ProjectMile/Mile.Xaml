@@ -24,7 +24,7 @@
     <MileProjectLegalCopyright>(©) Project Mile. All rights reserved.</MileProjectLegalCopyright>
     <MileProjectOriginalFilename>Mile.Xaml.dll</MileProjectOriginalFilename>
     <MileProjectProductName>Mile.Xaml</MileProjectProductName>
-    <MileProjectVersion>1.1.434.0</MileProjectVersion>
+    <MileProjectVersion>1.1.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</MileProjectVersion>
     <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag>
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
