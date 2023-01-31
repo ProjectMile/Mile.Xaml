@@ -27,6 +27,7 @@
     <MileProjectVersion>1.2.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</MileProjectVersion>
     <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag>
   </PropertyGroup>
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
   <!-- <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" /> -->
   <ImportGroup Label="PropertySheets">
