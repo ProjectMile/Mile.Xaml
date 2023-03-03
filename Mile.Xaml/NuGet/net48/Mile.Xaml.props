@@ -16,7 +16,7 @@
     <!-- Remove Microsoft.UI.Xaml.Markup -->
     <EnableTypeInfoReflection>false</EnableTypeInfoReflection>
     <!-- Generate Default XAML Items for .Net SDK Style Project -->
-    <_EnableWindowsDesktopGlobbing Condition="'$(UsingMicrosoftNETSdk)' == 'true'">true</_EnableWindowsDesktopGlobbing>
+    <_EnableWindowsDesktopGlobbing>true</_EnableWindowsDesktopGlobbing>
     <!-- Enable XAML Compiler, not using targets not located in 8.21, due to prevent the impact of UWP Toolchain and support .Net SDK Style project -->
     <CustomAfterMicrosoftCSharpTargets>
       $(CustomAfterMicrosoftCSharpTargets);

@@ -7,6 +7,7 @@
    LICENSE:   The MIT License
 
    DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
+              AndromedaMelody (github.com/AndromedaMelody)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
@@ -17,5 +18,12 @@
     <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\redist\$(PlatformTarget)\Mile.Xaml.dll" />
     <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\redist\$(PlatformTarget)\Mile.Xaml.Styles.SunValley.xbf" />
   </ItemGroup>
+
+  <Target Name="CheckNetSdkEnvironment" BeforeTargets="BeforeBuild">
+    <Error Text="Must use .NET SDK."  Condition="'$(UsingMicrosoftNETSdk)' != 'true'" />
+    <Warning Text="Can't use WinRT XAML Intellisence while using Windows Forms, because Visual Studio will enable WPF XAML Intellisence in WinForms projects."  Condition="'$(UseWindowsForms)' == 'true' and '$(MileEnableXamlIntelliSense)' != 'false'" />
+    <Error Text="Can't use WinRT XAML and WPF XAML in one project. Please split them into different DLLs" Condition="'$(UseWPF)' == 'true'" />
+    <Error Text="Can't find WinRT XAML Compiler, please install Microsoft.Windows.SDK.CPP in NuGet Package Manager." Condition="!Exists($(WindowsKitsXamlCompilerTargetsPath))" />
+  </Target>
 
 </Project>
