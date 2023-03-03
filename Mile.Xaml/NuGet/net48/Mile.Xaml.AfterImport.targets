@@ -22,5 +22,17 @@
       <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     </PropertyGroup>
   </Target>
+
+  <PropertyGroup>
+    <VCInstallDir>Empty</VCInstallDir>
+    <SDKIdentifier>Windows</SDKIdentifier>
+    <SDKVersion>10.0</SDKVersion>
+    <WindowsSdkPath Condition="'$(WindowsSdkPath)' == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Kits\Installed Roots', 'KitsRoot10', null, RegistryView.Registry32, RegistryView.Default))</WindowsSdkPath>
+    <WindowsKitsXamlCompilerTargetsPath>$(WindowsSdkPath)bin\$(TargetPlatformVersion)\XamlCompiler\Microsoft.Windows.UI.Xaml.Common.targets</WindowsKitsXamlCompilerTargetsPath>
+  </PropertyGroup>
+
+  <Import Condition="Exists($(WindowsKitsXamlCompilerTargetsPath))" Project="$(WindowsKitsXamlCompilerTargetsPath)" />
+
+  <Import Project="$(MSBuildThisFileDirectory)\Microsoft.Windows.UI.Xaml.Common.Part.targets" />
   
 </Project>

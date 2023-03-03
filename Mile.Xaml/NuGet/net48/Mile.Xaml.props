@@ -6,13 +6,12 @@
 
    LICENSE:   The MIT License
 
-   DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
+   DEVELOPER: AndromedaMelody (github.com/AndromedaMelody)
+              Mouri_Naruto (Mouri_Naruto AT Outlook.com)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
   <PropertyGroup>
-    <!-- Use Windows 10 SDK instead of 7/8.x -->
-    <SDKIdentifier>Windows</SDKIdentifier>
-    <SDKVersion>10.0</SDKVersion>
     <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
     <!-- Remove Microsoft.UI.Xaml.Markup -->
     <EnableTypeInfoReflection>false</EnableTypeInfoReflection>
@@ -21,10 +20,9 @@
     <!-- Enable XAML Compiler, not using targets not located in 8.21, due to prevent the impact of UWP Toolchain and support .Net SDK Style project -->
     <CustomAfterMicrosoftCSharpTargets>
       $(CustomAfterMicrosoftCSharpTargets);
-       $(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\8.21\Microsoft.Windows.UI.Xaml.Common.targets;
-      $(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\8.21\Microsoft.Windows.UI.Xaml.Cps.targets;
       $(MSBuildThisFileDirectory)\Mile.Xaml.AfterImport.targets;
       $(MSBuildThisFileDirectory)..\MrtCore.PriGen.targets;
     </CustomAfterMicrosoftCSharpTargets>
   </PropertyGroup>
+
 </Project>
