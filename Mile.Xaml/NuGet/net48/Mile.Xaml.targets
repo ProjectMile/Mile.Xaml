@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+   PROJECT:   Mouri Internal Library Essentials
+   FILE:      Mile.Xaml.targets
+   PURPOSE:   MSBuild targets file for Mile.Xaml
+
+   LICENSE:   The MIT License
+
+   DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <ItemGroup>
+    <Reference Include="$(MSBuildThisFileDirectory)..\Mile.Xaml.winmd">
+      <Implementation>Mile.Xaml.dll</Implementation>
+    </Reference>
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\redist\$(PlatformTarget)\Mile.Xaml.dll" />
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\redist\$(PlatformTarget)\Mile.Xaml.Styles.SunValley.xbf" />
+  </ItemGroup>
+
+</Project>

@@ -21,8 +21,9 @@
     <!-- Enable XAML Compiler, not using targets not located in 8.21, due to prevent the impact of UWP Toolchain and support .Net SDK Style project -->
     <CustomAfterMicrosoftCSharpTargets>
       $(CustomAfterMicrosoftCSharpTargets);
-      $(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\8.21\Microsoft.Windows.UI.Xaml.Common.targets;
+       $(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\8.21\Microsoft.Windows.UI.Xaml.Common.targets;
       $(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\8.21\Microsoft.Windows.UI.Xaml.Cps.targets;
+      $(MSBuildThisFileDirectory)\Mile.Xaml.AfterImport.targets;
       $(MSBuildThisFileDirectory)..\MrtCore.PriGen.targets;
     </CustomAfterMicrosoftCSharpTargets>
   </PropertyGroup>

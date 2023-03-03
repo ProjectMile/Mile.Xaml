@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+   PROJECT:   Mouri Internal Library Essentials
+   FILE:      Mile.Xaml.AfterImport.targets
+   PURPOSE:   MSBuild targets file for Mile.Xaml
+
+   LICENSE:   The MIT License
+
+   DEVELOPER: AndromedaMelody (github.com/AndromedaMelody)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup Condition="'$(MileEnableXamlIntelliSense)' != 'false'">
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformMoniker>Windows,Version=$(TargetPlatformVersion)</TargetPlatformMoniker>
+    <TargetPlatformDisplayName>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformSDKDisplayName('Windows', $(TargetPlatformVersion)))</TargetPlatformDisplayName>
+    <SupportedOSPlatformVersion>$(TargetPlatformMinVersion)</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <Target Name="RestoreTargetPlatformIdentifier" Condition="'$(MileEnableXamlIntelliSense)' != 'false'" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    </PropertyGroup>
+  </Target>
+  
+</Project>
