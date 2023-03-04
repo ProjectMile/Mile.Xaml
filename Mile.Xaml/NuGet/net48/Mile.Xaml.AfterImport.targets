@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+   PROJECT:   Mouri Internal Library Essentials
+   FILE:      Mile.Xaml.AfterImport.targets
+   PURPOSE:   MSBuild targets file for Mile.Xaml
+
+   LICENSE:   The MIT License
+
+   DEVELOPER: AndromedaMelody (github.com/AndromedaMelody)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup Condition="'$(MileEnableXamlIntelliSense)' != 'false'">
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformMoniker>Windows,Version=$(TargetPlatformVersion)</TargetPlatformMoniker>
+    <TargetPlatformDisplayName>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformSDKDisplayName('Windows', $(TargetPlatformVersion)))</TargetPlatformDisplayName>
+    <SupportedOSPlatformVersion>$(TargetPlatformMinVersion)</SupportedOSPlatformVersion>
+  </PropertyGroup>
+
+  <Target Name="RestoreTargetPlatformIdentifier" Condition="'$(MileEnableXamlIntelliSense)' != 'false'" BeforeTargets="BeforeBuild">
+    <PropertyGroup>
+      <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    </PropertyGroup>
+  </Target>
+
+  <PropertyGroup>
+    <VCInstallDir>Empty</VCInstallDir>
+    <SDKIdentifier>Windows</SDKIdentifier>
+    <SDKVersion>10.0</SDKVersion>
+    <WindowsSdkPath Condition="'$(WindowsSdkPath)' == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Kits\Installed Roots', 'KitsRoot10', null, RegistryView.Registry32, RegistryView.Default))</WindowsSdkPath>
+    <WindowsKitsXamlCompilerTargetsPath>$(WindowsSdkPath)bin\$(TargetPlatformVersion)\XamlCompiler\Microsoft.Windows.UI.Xaml.Common.targets</WindowsKitsXamlCompilerTargetsPath>
+  </PropertyGroup>
+
+  <Import Condition="Exists($(WindowsKitsXamlCompilerTargetsPath))" Project="$(WindowsKitsXamlCompilerTargetsPath)" />
+
+  <Import Project="$(MSBuildThisFileDirectory)\Microsoft.Windows.UI.Xaml.Common.Part.targets" />
+  
+</Project>

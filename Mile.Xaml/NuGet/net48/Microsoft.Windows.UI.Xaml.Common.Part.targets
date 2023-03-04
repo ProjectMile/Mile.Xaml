@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- From $(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\8.21\Microsoft.Windows.UI.Xaml.Common.targets -->
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <AddProcessedXamlFilesToCopyLocalDependsOn>
+      ContentFilesProjectOutputGroup;
+      Prep_ComputeProcessXamlFiles;
+      $(AddProcessedXamlFilesToCopyLocalDependsOn)
+    </AddProcessedXamlFilesToCopyLocalDependsOn>
+  </PropertyGroup>
+
+  <Target Name="AddProcessedXamlFilesToCopyLocal" DependsOnTargets="$(AddProcessedXamlFilesToCopyLocalDependsOn)" BeforeTargets="GetCopyToOutputDirectoryItems">
+    <ItemGroup>
+      <_ProcessedXamlFilesToCopyLocal Include="@(GeneratedXamlSrc->'%(FullPath)')" />
+      <_ProcessedXamlFilesToCopyLocal Condition="'$(GenerateLibraryLayout)' == 'true' and '$(DisableXbfGeneration)' != 'true'" Include="@(GeneratedXamlSrc0->'%(FullPath)')" />
+    </ItemGroup>
+
+    <AssignTargetPath Files="@(_ProcessedXamlFilesToCopyLocal)" RootFolder="$(XamlGeneratedOutputPath)">
+      <Output TaskParameter="AssignedFiles" ItemName="_ProcessedXamlFilesToCopyLocalWithTargetPath" />
+    </AssignTargetPath>
+
+    <ItemGroup>
+      <_AllChildProjectItemsWithTargetPath Include="@(_ProcessedXamlFilesToCopyLocalWithTargetPath)" Condition="'%(Extension)' != '.xbf' OR ('%(Extension)' == '.xbf' AND '$(_SupportXbfAsEmbedFileResources)' != 'true')">
+        <TargetPath Condition="'$(AppxPriInitialPath)' != ''">$(AppxPriInitialPath)\%(_ProcessedXamlFilesToCopyLocalWithTargetPath.TargetPath)</TargetPath>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </_AllChildProjectItemsWithTargetPath>
+    </ItemGroup>
+
+    <ItemGroup>
+      <_AllChildProjectItemsWithTargetPath Include="@(ContentFilesProjectOutputGroupOutput)">
+        <TargetPath Condition="'$(AppxPriInitialPath)' != ''">$(AppxPriInitialPath)\%(ContentFilesProjectOutputGroupOutput.TargetPath)</TargetPath>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </_AllChildProjectItemsWithTargetPath>
+    </ItemGroup>
+
+    <Message Importance="Low" Text="(Out) _ProcessedXamlFilesToCopyLocal == @(_ProcessedXamlFilesToCopyLocal)" />
+    <Message Importance="Low" Text="(Out) _XamlFilesToCopyLocal == @(_XamlFilesToCopyLocal)" />
+  </Target>
+
+</Project>
