@@ -17,6 +17,12 @@
     <EnableTypeInfoReflection>false</EnableTypeInfoReflection>
     <!-- Generate Default XAML Items for .Net SDK Style Project -->
     <_EnableWindowsDesktopGlobbing>true</_EnableWindowsDesktopGlobbing>
+    <!-- Disable Microsoft.NET.Sdk.WindowsDesktop Toolchain -->
+    <ImportWindowsDesktopTargets>false</ImportWindowsDesktopTargets>
+    <!-- Disable WPF XAML Compiler Toolchain -->
+    <ImportFrameworkWinFXTargets>false</ImportFrameworkWinFXTargets>
+    <!-- Allow importing Assemblies by UseWindowsForms and UseWPF -->
+    <_EnableWindowsDesktopNETFrameworkImplicitReference>true</_EnableWindowsDesktopNETFrameworkImplicitReference>
     <!-- Some properties and targets must be import after CommonTargets -->
     <CustomAfterMicrosoftCommonTargets>
       $(CustomAfterMicrosoftCSharpTargets);
