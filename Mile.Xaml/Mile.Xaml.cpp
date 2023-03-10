@@ -13,7 +13,6 @@
 #include "Mile.Xaml.Private.h"
 
 #include "Application.g.cpp"
-#include "XamlControlsResources.g.cpp"
 
 #include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.UI.Xaml.h>

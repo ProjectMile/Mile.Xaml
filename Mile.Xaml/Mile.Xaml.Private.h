@@ -11,7 +11,6 @@
 #pragma once
 
 #include "Application.g.h"
-#include "XamlControlsResources.g.h"
 
 #include "Mile.Xaml.h"
 
