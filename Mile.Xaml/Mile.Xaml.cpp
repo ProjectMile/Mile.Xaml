@@ -48,7 +48,7 @@ namespace winrt
 
 namespace
 {
-    static bool volatile g_PreferredDarkModeIfAvailable = false;
+    static bool volatile g_PreferredDarkMode = false;
 
     static LRESULT CALLBACK MileXamlContentWindowCallback(
         _In_ HWND hWnd,
@@ -345,6 +345,63 @@ namespace
     }
 }
 
+EXTERN_C HRESULT WINAPI MileXamlGetTransparentBackgroundAttribute(
+    _Out_ PBOOLEAN TransparentBackground)
+{
+    try
+    {
+        return winrt::check_hresult(winrt::Window::Current().as<IWindowPrivate>(
+            )->get_TransparentBackground(TransparentBackground));
+    }
+    catch (winrt::hresult_error const& ex)
+    {
+        return ex.code();
+    }
+}
+
+EXTERN_C HRESULT WINAPI MileXamlSetTransparentBackgroundAttribute(
+    _In_ BOOLEAN TransparentBackground)
+{
+    try
+    {
+        return winrt::check_hresult(winrt::Window::Current().as<IWindowPrivate>(
+            )->put_TransparentBackground(TransparentBackground));
+    }
+    catch (winrt::hresult_error const& ex)
+    {
+        return ex.code();
+    }
+}
+
+EXTERN_C HRESULT WINAPI MileXamlGetPreferredDarkModeAttribute(
+    _Out_ PBOOLEAN PreferredDarkMode)
+{
+    if (!PreferredDarkMode)
+    {
+        return E_INVALIDARG;
+    }
+
+    *PreferredDarkMode = g_PreferredDarkMode;
+    return S_OK;
+}
+
+EXTERN_C HRESULT WINAPI MileXamlSetPreferredDarkModeAttribute(
+    _In_ BOOLEAN PreferredDarkMode)
+{
+    MILE_PREFERRED_APP_MODE PreferredAppMode = (
+        PreferredDarkMode
+        ? MILE_PREFERRED_APP_MODE_AUTO
+        : MILE_PREFERRED_APP_MODE_DEFAULT);
+
+    ::MileSetPreferredAppMode(PreferredAppMode);
+
+    // Call twice to get the current status.
+    g_PreferredDarkMode = (
+        MILE_PREFERRED_APP_MODE_AUTO == ::MileSetPreferredAppMode(
+            PreferredAppMode));
+    return S_OK;
+}
+
 namespace winrt::Mile::Xaml::implementation
 {
     Application::Application(winrt::XamlMetadataProviders const& Providers)
@@ -376,7 +433,7 @@ namespace winrt::Mile::Xaml::implementation
         this->m_WindowsXamlManager =
             winrt::WindowsXamlManager::InitializeForCurrentThread();
 
-        this->TransparentBackground(true);
+        winrt::check_hresult(::MileXamlSetTransparentBackgroundAttribute(TRUE));
 
         WNDCLASSEXW WindowClass;
         WindowClass.cbSize = sizeof(WNDCLASSEXW);
@@ -394,7 +451,7 @@ namespace winrt::Mile::Xaml::implementation
         WindowClass.hIconSm = nullptr;
         winrt::check_bool(::RegisterClassExW(&WindowClass));
 
-        this->PreferredDarkModeIfAvailable(true);
+        winrt::check_hresult(::MileXamlSetPreferredDarkModeAttribute(TRUE));
 
         // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
         // in the task bar.
@@ -431,9 +488,13 @@ namespace winrt::Mile::Xaml::implementation
 
         ::DestroyWindow(this->m_CoreWindowHostWindowHandle);
 
-        if (this->PreferredDarkModeIfAvailable())
+        BOOLEAN PreferredDarkMode = FALSE;
+        winrt::check_hresult(
+            ::MileXamlGetPreferredDarkModeAttribute(&PreferredDarkMode));
+        if (PreferredDarkMode)
         {
-            this->PreferredDarkModeIfAvailable(false);
+            winrt::check_hresult(
+                ::MileXamlSetPreferredDarkModeAttribute(FALSE));
         }
 
         ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
@@ -451,43 +512,6 @@ namespace winrt::Mile::Xaml::implementation
                 ::DispatchMessageW(&Message);
             }
         }
-    }
-
-    bool Application::TransparentBackground()
-    {
-        boolean value = false;
-        if (SUCCEEDED(winrt::Window::Current().as<IWindowPrivate>(
-            )->get_TransparentBackground(&value)))
-        {
-            return value;
-        }
-        return false;
-    }
-
-    void Application::TransparentBackground(bool const& value)
-    {
-        winrt::Window::Current().as<IWindowPrivate>(
-            )->put_TransparentBackground(value);
-    }
-
-    bool Application::PreferredDarkModeIfAvailable()
-    {
-        return g_PreferredDarkModeIfAvailable;
-    }
-
-    void Application::PreferredDarkModeIfAvailable(bool const& value)
-    {
-        MILE_PREFERRED_APP_MODE PreferredAppMode = (
-            value
-            ? MILE_PREFERRED_APP_MODE_AUTO
-            : MILE_PREFERRED_APP_MODE_DEFAULT);
-
-        ::MileSetPreferredAppMode(PreferredAppMode);
-
-        // Call twice to get the current status.
-        g_PreferredDarkModeIfAvailable = (
-            MILE_PREFERRED_APP_MODE_AUTO == ::MileSetPreferredAppMode(
-                PreferredAppMode));
     }
 
     Application::~Application()
