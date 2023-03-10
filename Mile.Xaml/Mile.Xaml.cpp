@@ -543,11 +543,6 @@ namespace winrt::Mile::Xaml::implementation
     {
         return this->m_Providers;
     }
-
-    XamlControlsResources::XamlControlsResources()
-    {
-        this->Source(winrt::Uri(L"ms-appx:///Mile.Xaml.Styles.SunValley.xbf"));
-    }
 }
 
 namespace winrt::Mile::Xaml::factory_implementation

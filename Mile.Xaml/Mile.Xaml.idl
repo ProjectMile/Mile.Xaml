@@ -28,10 +28,4 @@ namespace Mile.Xaml
         Boolean TransparentBackground;
         Boolean PreferredDarkModeIfAvailable;
     }
-
-    [default_interface]
-    runtimeclass XamlControlsResources : Windows.UI.Xaml.ResourceDictionary
-    {
-        XamlControlsResources();
-    }
 }

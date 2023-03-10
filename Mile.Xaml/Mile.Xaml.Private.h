@@ -68,15 +68,6 @@ namespace winrt::Mile::Xaml::implementation
         bool m_IsClosed = false;
         HWND m_CoreWindowHostWindowHandle = nullptr;
     };
-
-    class XamlControlsResources : public XamlControlsResourcesT<
-        XamlControlsResources,
-        winrt::composable>
-    {
-    public:
-
-        XamlControlsResources();
-    };
 }
 
 namespace winrt::Mile::Xaml::factory_implementation
@@ -93,11 +84,5 @@ namespace winrt::Mile::Xaml::factory_implementation
     private:
 
         std::vector<HMODULE> m_PreloadModules;
-    };
-
-    class XamlControlsResources : public XamlControlsResourcesT<
-        XamlControlsResources,
-        implementation::XamlControlsResources>
-    {
     };
 }
