@@ -7,22 +7,22 @@
    LICENSE:   The MIT License
 
    DEVELOPER: AndromedaMelody (github.com/AndromedaMelody)
-              Mouri_Naruto (Mouri_Naruto AT Outlook.com)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
   <PropertyGroup>
+    <!-- Remove UWP Default Main Method -->
     <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
     <!-- Remove Microsoft.UI.Xaml.Markup -->
     <EnableTypeInfoReflection>false</EnableTypeInfoReflection>
     <!-- Generate Default XAML Items for .Net SDK Style Project -->
     <_EnableWindowsDesktopGlobbing>true</_EnableWindowsDesktopGlobbing>
-    <!-- Enable XAML Compiler, not using targets not located in 8.21, due to prevent the impact of UWP Toolchain and support .Net SDK Style project -->
-    <CustomAfterMicrosoftCSharpTargets>
+    <!-- Some properties and targets must be import after CommonTargets -->
+    <CustomAfterMicrosoftCommonTargets>
       $(CustomAfterMicrosoftCSharpTargets);
       $(MSBuildThisFileDirectory)\Mile.Xaml.AfterImport.targets;
       $(MSBuildThisFileDirectory)..\MrtCore.PriGen.targets;
-    </CustomAfterMicrosoftCSharpTargets>
+    </CustomAfterMicrosoftCommonTargets>
   </PropertyGroup>
 
 </Project>
