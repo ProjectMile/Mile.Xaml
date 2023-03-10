@@ -10,19 +10,20 @@
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-  <PropertyGroup Condition="'$(MileEnableXamlIntelliSense)' != 'false'">
+  <!-- Enable Xaml IntelliSense -->
+  <PropertyGroup Condition="'$(MileXamlEnableIntelliSenseForDotNet)' != 'false'">
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformMoniker>Windows,Version=$(TargetPlatformVersion)</TargetPlatformMoniker>
     <TargetPlatformDisplayName>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformSDKDisplayName('Windows', $(TargetPlatformVersion)))</TargetPlatformDisplayName>
     <SupportedOSPlatformVersion>$(TargetPlatformMinVersion)</SupportedOSPlatformVersion>
   </PropertyGroup>
-
-  <Target Name="RestoreTargetPlatformIdentifier" Condition="'$(MileEnableXamlIntelliSense)' != 'false'" BeforeTargets="BeforeBuild">
+  <Target Name="RestoreTargetPlatformIdentifier" Condition="'$(MileXamlEnableIntelliSenseForDotNet)' != 'false'" BeforeTargets="BeforeBuild">
     <PropertyGroup>
       <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     </PropertyGroup>
   </Target>
 
+  <!-- Enable XAML Compiler -->
   <PropertyGroup>
     <VCInstallDir>Empty</VCInstallDir>
     <SDKIdentifier>Windows</SDKIdentifier>
@@ -30,9 +31,13 @@
     <WindowsSdkPath Condition="'$(WindowsSdkPath)' == ''">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Kits\Installed Roots', 'KitsRoot10', null, RegistryView.Registry32, RegistryView.Default))</WindowsSdkPath>
     <WindowsKitsXamlCompilerTargetsPath>$(WindowsSdkPath)bin\$(TargetPlatformVersion)\XamlCompiler\Microsoft.Windows.UI.Xaml.Common.targets</WindowsKitsXamlCompilerTargetsPath>
   </PropertyGroup>
+  <Import Project="$(WindowsKitsXamlCompilerTargetsPath)" />
+  <Import Condition="'$(OutputType)' == 'Library'" Project="$(MSBuildThisFileDirectory)\Microsoft.Windows.UI.Xaml.Common.Part.targets" />
 
-  <Import Condition="Exists($(WindowsKitsXamlCompilerTargetsPath))" Project="$(WindowsKitsXamlCompilerTargetsPath)" />
+  <!-- Must use .NET SDK and install Windows SDK -->
+  <Target Name="CheckNetSdkEnvironment" BeforeTargets="BeforeBuild">
+    <Error Text="Must use .NET SDK." Condition="'$(UsingMicrosoftNETSdk)' != 'true'" />
+    <Error Text="Can't find Windows.UI.Xaml Compiler, please install Microsoft.Windows.SDK.CPP in NuGet Package Manager." Condition="!Exists($(WindowsKitsXamlCompilerTargetsPath))" />
+  </Target>
 
-  <Import Project="$(MSBuildThisFileDirectory)\Microsoft.Windows.UI.Xaml.Common.Part.targets" />
-  
 </Project>
