@@ -59,8 +59,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="NuGet\Mile.Xaml.targets" />
     <None Include="NuGet\MrtCore.PriGen.targets" />
     <None Include="NuGet\native\Mile.Xaml.props" />
+    <None Include="NuGet\net48\Microsoft.Windows.UI.Xaml.Common.Part.targets" />
+    <None Include="NuGet\net48\Mile.Xaml.AfterImport.targets" />
     <None Include="NuGet\net48\Mile.Xaml.props" />
     <None Include="NuGet\_._" />
     <None Include="PropertySheet.props" />
