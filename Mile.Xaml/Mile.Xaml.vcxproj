@@ -41,12 +41,10 @@
   <ItemGroup>
     <ClInclude Include="IWindowPrivate.h" />
     <ClInclude Include="Mile.Xaml.h" />
-    <ClInclude Include="Mile.Xaml.Private.h" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mile.Xaml.cpp" />
-    <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>

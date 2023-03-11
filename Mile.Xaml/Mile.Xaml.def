@@ -2,10 +2,12 @@
 
 EXPORTS
 
-DllCanUnloadNow = WINRT_CanUnloadNow                    PRIVATE
-DllGetActivationFactory = WINRT_GetActivationFactory    PRIVATE
-
 MileXamlGetTransparentBackgroundAttribute
 MileXamlSetTransparentBackgroundAttribute
 MileXamlGetPreferredDarkModeAttribute
 MileXamlSetPreferredDarkModeAttribute
+
+MileXamlThreadInitialize
+MileXamlThreadUninitialize
+MileXamlGlobalInitialize
+MileXamlGlobalUninitialize

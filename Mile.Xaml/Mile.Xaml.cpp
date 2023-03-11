@@ -10,9 +10,7 @@
 
 #include "pch.h"
 
-#include "Mile.Xaml.Private.h"
-
-#include "Application.g.cpp"
+#include "Mile.Xaml.h"
 
 #include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.UI.Xaml.h>
@@ -43,12 +41,17 @@ namespace winrt
     using Windows::UI::Xaml::Controls::Grid;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSource;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceTakeFocusRequestedEventArgs;
+    using Windows::UI::Xaml::Hosting::WindowsXamlManager;
     using Windows::UI::Xaml::Media::VisualTreeHelper;
 }
 
 namespace
 {
     static bool volatile g_PreferredDarkMode = false;
+    static HWND volatile g_CoreWindowHostWindowHandle = nullptr;
+    static bool volatile g_IsGlobalUninitialized = false;
+
+    thread_local winrt::WindowsXamlManager g_WindowsXamlManager = nullptr;
 
     static LRESULT CALLBACK MileXamlContentWindowCallback(
         _In_ HWND hWnd,
@@ -402,36 +405,55 @@ EXTERN_C HRESULT WINAPI MileXamlSetPreferredDarkModeAttribute(
     return S_OK;
 }
 
-namespace winrt::Mile::Xaml::implementation
+EXTERN_C HRESULT WINAPI MileXamlThreadInitialize()
 {
-    Application::Application(winrt::XamlMetadataProviders const& Providers)
+    try
     {
-        for(auto const& Provider : Providers)
+        if (!g_WindowsXamlManager)
         {
-            this->m_Providers.Append(Provider);
+            g_WindowsXamlManager =
+                winrt::WindowsXamlManager::InitializeForCurrentThread();
         }
 
-        this->Initialize();
+        return S_OK;
     }
-
-    Application::Application()
+    catch (winrt::hresult_error const& ex)
     {
+        return ex.code();
     }
+}
 
-    void Application::Initialize()
+EXTERN_C HRESULT WINAPI MileXamlThreadUninitialize()
+{
+    try
     {
-        const auto out = outer();
-        if (out)
+        if (g_WindowsXamlManager)
         {
-            winrt::IXamlMetadataProvider provider(nullptr);
-            winrt::check_hresult(out->QueryInterface(
-                winrt::guid_of<winrt::IXamlMetadataProvider>(),
-                reinterpret_cast<void**>(winrt::put_abi(provider))));
-            this->m_Providers.Append(provider);
+            g_WindowsXamlManager.Close();      
+        }
+        g_WindowsXamlManager = nullptr;
+
+        {
+            MSG Message;
+            while (::PeekMessageW(&Message, nullptr, 0, 0, PM_REMOVE))
+            {
+                ::DispatchMessageW(&Message);
+            }
         }
 
-        this->m_WindowsXamlManager =
-            winrt::WindowsXamlManager::InitializeForCurrentThread();
+        return S_OK;
+    }
+    catch (winrt::hresult_error const& ex)
+    {
+        return ex.code();
+    }
+}
+
+EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize()
+{
+    try
+    {
+        winrt::check_hresult(::MileXamlThreadInitialize());
 
         winrt::check_hresult(::MileXamlSetTransparentBackgroundAttribute(TRUE));
 
@@ -461,7 +483,7 @@ namespace winrt::Mile::Xaml::implementation
         // For also fixing the window with empty content due to CoreWindow is
         // not exist issue, create a host window without message loop is a
         // better workaround.
-        this->m_CoreWindowHostWindowHandle = ::CreateWindowExW(
+        g_CoreWindowHostWindowHandle = ::CreateWindowExW(
             0,
             L"Mile.Xaml.ContentWindow",
             L"Mile.Xaml.CoreWindowHostWindow",
@@ -474,19 +496,28 @@ namespace winrt::Mile::Xaml::implementation
             nullptr,
             nullptr,
             winrt::get_abi(winrt::Grid()));
-        winrt::check_pointer(this->m_CoreWindowHostWindowHandle);
-    }
+        winrt::check_pointer(g_CoreWindowHostWindowHandle);
 
-    void Application::Close()
+        return S_OK;
+    }
+    catch (winrt::hresult_error const& ex)
     {
-        if (this->m_IsClosed)
+        return ex.code();
+    }
+}
+
+EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize()
+{
+    try
+    {
+        if (g_IsGlobalUninitialized)
         {
-            return;
+            return S_OK;
         }
 
-        this->m_IsClosed = true;
+        g_IsGlobalUninitialized = true;
 
-        ::DestroyWindow(this->m_CoreWindowHostWindowHandle);
+        ::DestroyWindow(g_CoreWindowHostWindowHandle);
 
         BOOLEAN PreferredDarkMode = FALSE;
         winrt::check_hresult(
@@ -499,105 +530,12 @@ namespace winrt::Mile::Xaml::implementation
 
         ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
 
-        this->m_WindowsXamlManager.Close();
-        this->m_Providers.Clear();
-        this->m_WindowsXamlManager = nullptr;
+        winrt::check_hresult(::MileXamlThreadUninitialize());
 
-        this->Exit();
-
-        {
-            MSG Message;
-            while (::PeekMessageW(&Message, nullptr, 0, 0, PM_REMOVE))
-            {
-                ::DispatchMessageW(&Message);
-            }
-        }
+        return S_OK;
     }
-
-    Application::~Application()
+    catch (winrt::hresult_error const& ex)
     {
-        this->Close();
-    }
-
-    winrt::IXamlType Application::GetXamlType(winrt::TypeName const& type)
-    {
-        for (const auto& Provider : this->m_Providers)
-        {
-            const auto Current = Provider.GetXamlType(type);
-            if (Current != nullptr)
-            {
-                return Current;
-            }
-        }
-
-        return nullptr;
-    }
-
-    winrt::IXamlType Application::GetXamlType(winrt::hstring const& fullName)
-    {
-        for (const auto& Provider : this->m_Providers)
-        {
-            const auto Current = Provider.GetXamlType(fullName);
-            if (Current != nullptr)
-            {
-                return Current;
-            }
-        }
-
-        return nullptr;
-    }
-
-    winrt::XmlnsDefinitions Application::GetXmlnsDefinitions()
-    {
-        std::list<winrt::XmlnsDefinition> Definitions;
-
-        for (const auto& Provider : this->m_Providers)
-        {
-            for (const auto& Definition : Provider.GetXmlnsDefinitions())
-            {
-                Definitions.insert(Definitions.begin(), Definition);
-            }
-        }
-
-        return winrt::XmlnsDefinitions(Definitions.begin(), Definitions.end());
-    }
-
-    winrt::XamlMetadataProviders Application::MetadataProviders()
-    {
-        return this->m_Providers;
-    }
-}
-
-namespace winrt::Mile::Xaml::factory_implementation
-{
-    Application::Application()
-    {
-        // Workaround a bug where twinapi.appcore.dll and threadpoolwinrt.dll
-        // gets loaded after it has been unloaded because of a call to
-        // GetActivationFactory.
-        LPCWSTR PreloadModuleNames[] =
-        {
-            L"twinapi.appcore.dll",
-            L"threadpoolwinrt.dll",
-        };
-        const size_t PreloadModuleNamesCount =
-            sizeof(PreloadModuleNames) / sizeof(*PreloadModuleNames);
-        for (size_t i = 0; i < PreloadModuleNamesCount; ++i)
-        {
-            this->m_PreloadModules.push_back(
-                ::LoadLibraryExW(
-                    PreloadModuleNames[i],
-                    nullptr,
-                    LOAD_LIBRARY_SEARCH_SYSTEM32));
-        }
-    }
-
-    Application::~Application()
-    {
-        for (auto const& PreloadModules : this->m_PreloadModules)
-        {
-            ::FreeLibrary(PreloadModules);
-        }
-        this->m_PreloadModules.clear();
+        return ex.code();
     }
 }

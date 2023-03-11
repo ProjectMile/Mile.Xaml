@@ -57,4 +57,32 @@ EXTERN_C HRESULT WINAPI MileXamlGetPreferredDarkModeAttribute(
 EXTERN_C HRESULT WINAPI MileXamlSetPreferredDarkModeAttribute(
     _In_ BOOLEAN PreferredDarkMode);
 
+/**
+ * @brief Initialize Mile.Xaml for non-main thread.
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+EXTERN_C HRESULT WINAPI MileXamlThreadInitialize();
+
+/**
+ * @brief Uninitialize Mile.Xaml for non-main thread.
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+EXTERN_C HRESULT WINAPI MileXamlThreadUninitialize();
+
+/**
+ * @brief Initialize Mile.Xaml for main thread.
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize();
+
+/**
+ * @brief Uninitialize Mile.Xaml for main thread.
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize();
+
 #endif // !MILE_XAML
