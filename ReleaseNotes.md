@@ -1,5 +1,10 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.0 Preview 1 (2.0.546.0)**
+
+- Use C functions instead of Windows Runtime classes.
+- Improve the .NET Framework support.
+
 **Mile.Xaml 1.2 (1.2.495.0)**
 
 - Update Mile.Windows.Helpers to 1.0.11.
