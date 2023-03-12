@@ -96,8 +96,7 @@ namespace
                 winrt::DesktopWindowXamlSource sender,
                 winrt::DesktopWindowXamlSourceTakeFocusRequestedEventArgs args)
             {
-                sender.Content().as<winrt::Control>().Focus(
-                    winrt::FocusState::Programmatic);
+                sender.NavigateFocus(args.Request());
             });
 
             if (!::SetPropW(
