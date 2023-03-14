@@ -26,6 +26,15 @@
     <None Include="NuGet\_._">
       <Filter>NuGet</Filter>
     </None>
+    <None Include="NuGet\net48\Microsoft.Windows.UI.Xaml.Common.Part.targets">
+      <Filter>NuGet\net48</Filter>
+    </None>
+    <None Include="NuGet\net48\Mile.Xaml.AfterImport.targets">
+      <Filter>NuGet\net48</Filter>
+    </None>
+    <None Include="NuGet\Mile.Xaml.targets">
+      <Filter>NuGet</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Page Include="Mile.Xaml.Styles.SunValley.xaml" />
@@ -40,5 +49,8 @@
     <Filter Include="NuGet\native">
       <UniqueIdentifier>{61b1f018-f429-46e8-9b33-7ba89ede2d76}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="Mile.Xaml.idl" />
   </ItemGroup>
 </Project>
