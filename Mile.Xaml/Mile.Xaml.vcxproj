@@ -41,11 +41,9 @@
   <ItemGroup>
     <ClInclude Include="IWindowPrivate.h" />
     <ClInclude Include="Mile.Xaml.h" />
-    <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mile.Xaml.cpp" />
-    <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Midl Include="Mile.Xaml.idl" />
