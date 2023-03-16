@@ -1,9 +1,40 @@
-﻿using System.Xml;
+﻿using System.Diagnostics;
+using System.Xml;
 
 namespace Mile.Xaml.ControlStyleXamlGenerator
 {
     internal class Program
     {
+        public static string GetRepositoryRoot()
+        {
+            Process process = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    FileName = "git.exe",
+                    Arguments = "rev-parse --show-toplevel"
+                }
+            };
+
+            if (process.Start())
+            {
+                process.WaitForExit();
+                if (process.ExitCode == 0)
+                {
+                    string? result = process.StandardOutput.ReadLine();
+                    if (result != null)
+                    {
+                        return Path.GetFullPath(result);
+                    }
+                }
+            }
+
+            return string.Empty;
+        }
+
         static void MergeResourceDictionary()
         {
             DirectoryInfo dir = new(@"D:\Projects\ProjectMile\Mile.Xaml\Mile.Xaml\SunValleyStylesReferences");
