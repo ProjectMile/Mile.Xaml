@@ -241,6 +241,17 @@ namespace
                 HIWORD(lParam),
                 SWP_SHOWWINDOW);
 
+            // Reference: https://github.com/microsoft/microsoft-ui-xaml
+            //            /issues/3577
+            // ContentDialogs don't resize themselves when the XAML island
+            // resizes. However, if we manually resize our CoreWindow, that'll
+            // actually trigger a resize of the ContentDialog.
+            ::PostMessageW(
+                ::MileXamlGetCoreWindowHandle(),
+                uMsg,
+                wParam,
+                lParam);
+
             break;
         }
         case WM_DPICHANGED:
