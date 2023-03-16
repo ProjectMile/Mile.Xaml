@@ -329,7 +329,15 @@ namespace
                     if (Content &&
                         winrt::VisualTreeHelper::GetParent(Content))
                     {
-                        Content.RequestedTheme(winrt::ElementTheme::Default);
+                        // Forward WM_SETTINGCHANGE to CoreWindow compatibility
+                        // window for improve the runtime light and dark mode
+                        // switch support for XAML Islands. (Noticed by
+                        // dongle-the-gadget.)
+                        ::PostMessageW(
+                            ::MileXamlGetCoreWindowHandle(),
+                            uMsg,
+                            wParam,
+                            lParam);
 
                         BOOL UseImmersiveDarkMode = (
                             Content.ActualTheme() == winrt::ElementTheme::Dark
