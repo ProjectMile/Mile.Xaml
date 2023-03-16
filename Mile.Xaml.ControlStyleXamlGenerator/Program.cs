@@ -35,9 +35,12 @@ namespace Mile.Xaml.ControlStyleXamlGenerator
             return string.Empty;
         }
 
-        static void MergeResourceDictionary()
+        static void Main(string[] args)
         {
-            DirectoryInfo dir = new(@"D:\Projects\ProjectMile\Mile.Xaml\Mile.Xaml\SunValleyStylesReferences");
+            string ProjectRootPath = GetRepositoryRoot();
+            Console.WriteLine(ProjectRootPath);
+
+            DirectoryInfo dir = new(ProjectRootPath + @"\Mile.Xaml.Styles.SunValley");
             string xmlns = "http://schemas.microsoft.com/winfx/2006/xaml/presentation";
             string xmlns_x = "http://schemas.microsoft.com/winfx/2006/xaml";
             XmlDocument genericXaml = new();
@@ -107,12 +110,8 @@ namespace Mile.Xaml.ControlStyleXamlGenerator
                     }
                 }
             }
-            genericXaml.Save(@"D:\Projects\ProjectMile\Mile.Xaml\Mile.Xaml\SunValleyStyles.xaml");
-        }
 
-        static void Main(string[] args)
-        {
-            MergeResourceDictionary();
+            genericXaml.Save(ProjectRootPath + @"\Mile.Xaml\Mile.Xaml.Styles.SunValley.xaml");
 
             Console.WriteLine("Hello, World!");
             Console.ReadKey();
