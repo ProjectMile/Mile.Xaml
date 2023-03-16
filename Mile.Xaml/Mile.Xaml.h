@@ -16,6 +16,12 @@
 #include <Windows.h>
 
 /**
+ * @brief Retrieves the handle to the CoreWindow compatibility window.
+ * @return The handle to the CoreWindow compatibility window.
+*/
+EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle();
+
+/**
  * @brief Retrieves the transparent background attribute for contents hosted
  *        via XAML Islands.
  * @param TransparentBackground TRUE to use transparent background, FALSE to

@@ -67,6 +67,7 @@ namespace
     static bool volatile g_PreferredDarkMode = false;
     static HWND volatile g_CoreWindowHostWindowHandle = nullptr;
     static bool volatile g_IsGlobalUninitialized = false;
+    static HWND volatile g_CoreWindowHandle = nullptr;
 
     thread_local winrt::WindowsXamlManager g_WindowsXamlManager = nullptr;
 
@@ -364,6 +365,11 @@ namespace
     }
 }
 
+EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle()
+{
+    return g_CoreWindowHandle;
+}
+
 EXTERN_C HRESULT WINAPI MileXamlGetTransparentBackgroundAttribute(
     _Out_ PBOOLEAN TransparentBackground)
 {
@@ -513,6 +519,12 @@ EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize()
             nullptr,
             winrt::get_abi(winrt::Grid()));
         winrt::check_pointer(g_CoreWindowHostWindowHandle);
+
+        HWND CoreWindowHandle = nullptr;
+        winrt::check_hresult(
+            winrt::CoreWindow::GetForCurrentThread().as<ICoreWindowInterop>(
+                )->get_WindowHandle(&CoreWindowHandle));
+        g_CoreWindowHandle = CoreWindowHandle;
 
         return S_OK;
     }
