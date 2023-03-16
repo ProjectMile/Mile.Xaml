@@ -1,0 +1,21 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- 2.5 controls should not depend on brushes on this file except for new controls like Expander -->
+    <ResourceDictionary.ThemeDictionaries>
+        <ResourceDictionary x:Key="Default">
+            <Color x:Key="ControlAAStrokeColorDefault">#8BFFFFFF</Color>
+            <SolidColorBrush x:Key="ControlAAStrokeColorDefaultBrush" Color="{StaticResource ControlAAStrokeColorDefault}" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="Light">
+            <Color x:Key="ControlAAStrokeColorDefault">#72000000</Color>
+            <SolidColorBrush x:Key="ControlAAStrokeColorDefaultBrush" Color="{StaticResource ControlAAStrokeColorDefault}" />
+        </ResourceDictionary>
+        <ResourceDictionary x:Key="HighContrast">
+            <Color x:Key="ControlAAStrokeColorDefault">#8BFFFFFF</Color>
+            <SolidColorBrush x:Key="ControlAAStrokeColorDefaultBrush" Color="{ThemeResource SystemColorButtonTextColor}" />
+        </ResourceDictionary>
+    </ResourceDictionary.ThemeDictionaries>
+
+</ResourceDictionary>
