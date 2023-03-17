@@ -2,6 +2,8 @@
 
 EXPORTS
 
+MileXamlGetCoreWindowHandle
+
 MileXamlGetTransparentBackgroundAttribute
 MileXamlSetTransparentBackgroundAttribute
 MileXamlGetPreferredDarkModeAttribute
