@@ -58,7 +58,7 @@ SOFTWARE.
 
 - C++/WinRT, https://github.com/microsoft/cppwinrt
 - IWindowPrivate, https://github.com/ADeltaX/IWindowPrivate
-- Mile.Cpp, https://github.com/ProjectMile/Mile.Cpp
+- Mile.Project.Windows, https://github.com/ProjectMile/Mile.Project.Windows
 - Mile.Windows.Helpers, https://github.com/ProjectMile/Mile.Windows.Helpers
 - VC-LTL, https://github.com/Chuyu-Team/VC-LTL5
 - Windows App SDK, https://github.com/microsoft/WindowsAppSDK
