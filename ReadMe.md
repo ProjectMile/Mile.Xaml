@@ -35,6 +35,7 @@ develop applications with Mile.Xaml and enjoy the beauty of XAML Islands.
 
 - [License](https://github.com/ProjectMile/Mile.Xaml/blob/main/License.md)
 - [Release Notes](https://github.com/ProjectMile/Mile.Xaml/blob/main/ReleaseNotes.md)
+- [Versioning](Documents/Versioning.md)
 
 ## Credits
 
