@@ -1,9 +1,36 @@
 ﻿# Mile.Xaml Release Notes
 
-**Mile.Xaml 2.0 Preview 1 (2.0.546.0)**
+**Mile.Xaml 2.0 Preview 2 (2.0.573.0)**
 
-- Use C functions instead of Windows Runtime classes.
+- Use C functions instead of Windows Runtime classes to interoperate Mile.Xaml.
+  - MileXamlGetCoreWindowHandle
+  - MileXamlGetTransparentBackgroundAttribute
+  - MileXamlSetTransparentBackgroundAttribute
+  - MileXamlGetPreferredDarkModeAttribute
+  - MileXamlSetPreferredDarkModeAttribute
+  - MileXamlThreadInitialize
+  - MileXamlThreadUninitialize
+  - MileXamlGlobalInitialize
+  - MileXamlGlobalUninitialize
 - Improve the .NET Framework support.
+- Fix keyboard navigation with Shift-Tab. (Contributed by driver1998.)
+- Make buildTransitive mode only applies to the C/C++ projects. (Contributed by
+  AndromedaMelody.)
+- Add native0.0 target framework setting. (Suggested by AndromedaMelody.)
+- Remove the unnecessary precompiled header file for optimizing the size and
+  reducing the disk space usage when compiling.
+- Add ContentDialog resizing support. (Inspired by Windows Terminal.)
+- Forward WM_SETTINGCHANGE to CoreWindow compatibility window for improve the
+  runtime light and dark mode switch support for XAML Islands. (Noticed by
+  dongle-the-gadget.)
+- Add source code of Mile.Xaml.Styles.SunValley and update the generated
+  Mile.Xaml.Styles.SunValley.xaml.. (Contributed by AndromedaMelody.)
+- Add Mile.Xaml.MaintainerTools solution and Mile.Xaml.ControlStyleXamlGenerator
+  project.
+- Update Mile.Project.Windows.
+- Adjust project configurations.
+- Simplify build script logic.
+- Update license.
 
 **Mile.Xaml 1.2 (1.2.495.0)**
 
