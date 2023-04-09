@@ -2,8 +2,15 @@
 
 [![NuGet Package](https://img.shields.io/nuget/vpre/Mile.Xaml)](https://www.nuget.org/packages/Mile.Xaml)
 
+![Screenshot for XAML controls demo](Documents/ControlsDemo.png)
+
+![Screenshot for XAML designer support](Documents/DesignerSupport.png)
+
 Mile.Xaml is the lightweight XAML Islands toolchain with the Windows 11 controls
-styles.
+styles. It was originally created for improving the development and deployment
+experience in modernization of [NanaZip](https://github.com/M2Team/NanaZip). For
+validating the usability of this, [NanaBox](https://github.com/M2Team/NanaBox)
+and [NanaGet](https://github.com/M2Team/NanaGet) were also created.
 
 ## Features
 
