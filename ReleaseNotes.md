@@ -24,7 +24,7 @@
   runtime light and dark mode switch support for XAML Islands. (Noticed by
   dongle-the-gadget.)
 - Add source code of Mile.Xaml.Styles.SunValley and update the generated
-  Mile.Xaml.Styles.SunValley.xaml.. (Contributed by AndromedaMelody.)
+  Mile.Xaml.Styles.SunValley.xaml. (Contributed by AndromedaMelody.)
 - Add Mile.Xaml.MaintainerTools solution and Mile.Xaml.ControlStyleXamlGenerator
   project.
 - Update Mile.Project.Windows.
