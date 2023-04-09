@@ -7,16 +7,19 @@ styles.
 
 ## Features
 
+- Provide XAML Compiler, XAML Designer and XAML Hot Reload support.
+- Provide Windows 11 XAML controls styles for Windows Runtime XAML controls.
+- Provide C/C++ projects and .NET Framework (Work In Progress) projects support.
 - Integrate all features from Microsoft.Toolkit.Win32.UI.XamlApplication.
+- Provide support for responding to Windows theme changes from dark to light
+  or vice versa at run time.
+- Integrate several XAML Islands workarounds.
 - Provide Mile.Xaml.ContentWindow window class for simplifying the development.
-- Provide partial XAML Designer and Hot Reload support.
+- Provide immersive Mica effect support Mile.Xaml.ContentWindow window class.
+- Provide Win32 context menu dark mode support.
 - Use [VC-LTL 5.x](https://github.com/Chuyu-Team/VC-LTL5) toolchain to make the
   binary size smaller.
 - Provide NuGet package.
-- Provide Windows 11 XAML controls styles and Mile.Xaml.XamlControlsResources
-  class for enabling them.
-- Provide immersive Mica effect support Mile.Xaml.ContentWindow window class.
-- Provide Win32 context menu dark mode support.
 
 ## Usage
 
@@ -29,7 +32,7 @@ develop applications with Mile.Xaml and enjoy the beauty of XAML Islands.
 ## System Requirements
 
 - Supported OS: Windows 10 Version 2004 (Build 19041) or later
-- Supported Platforms: x86, x86-64(AMD64) and ARM64.
+- Supported Platforms: x86, x86-64(AMD64) and ARM64
 
 ## Documents
 
