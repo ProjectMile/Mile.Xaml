@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x86.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x64.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0D0AB0E6-9F9D-4A7A-AF83-33B0D42DF111}</ProjectGuid>
+    <ProjectName>Mile.Xaml.Styles</ProjectName>
+    <RootNamespace>Mile.Xaml.Styles</RootNamespace>
+    <MileProjectType>StaticLibrary</MileProjectType>
+    <MinimalCoreWin>false</MinimalCoreWin>
+    <DefaultLanguage>en</DefaultLanguage>
+    <AppContainerApplication>false</AppContainerApplication>
+    <ApplicationType>Windows Store</ApplicationType>
+    <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
+    <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
+    <MileProjectEnableCppWinRTSupport>true</MileProjectEnableCppWinRTSupport>
+    <CppWinRTAddXamlMetaDataProviderIdl>false</CppWinRTAddXamlMetaDataProviderIdl>
+  </PropertyGroup>
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
+  <ItemGroup>
+    <Midl Include="Mile.Xaml.Styles.idl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(GeneratedFilesDir)Mile.Xaml.Styles.SunValley.xbf">
+      <DeploymentContent>true</DeploymentContent>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Mile.Xaml.Styles.SunValley.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mile.Xaml.Styles.h" />
+  </ItemGroup>
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.targets" />
+  <!-- 
+    Override the target which appends the XamlCompiler generated files to the
+    ClCompile input list. Doing this makes it so that we get XBF generation but
+    ignore the XamlCompiler outputs (which are in C++/CX format and do us no
+    good. We are currently hand-authoring the necessary parts of our
+    IXamlMetadataProvider implementation. 
+  -->
+  <Target Name="ComputeXamlGeneratedCompileInputs" />
+</Project>

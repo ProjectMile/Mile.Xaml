@@ -1,14 +1,14 @@
 ﻿/*
  * PROJECT:   Mouri Internal Library Essentials
- * FILE:      Application.idl
- * PURPOSE:   Definition for the Mile.Xaml.Application
+ * FILE:      Mile.Xaml.Styles.idl
+ * PURPOSE:   Definition for the Mile.Xaml.Styles placeholder
  *
  * LICENSE:   The MIT License
  *
  * DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
  */
 
-namespace Mile.Xaml
+namespace Mile.Xaml.Styles
 {
     [default_interface]
     runtimeclass PlaceHolder

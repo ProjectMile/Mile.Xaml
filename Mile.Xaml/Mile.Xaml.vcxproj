@@ -29,10 +29,6 @@
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
-  <!-- <Import Project="$(MSBuildThisFileDirectory)Mile.Xaml.props" /> -->
-  <ImportGroup Label="PropertySheets">
-    <Import Project="PropertySheet.props" />
-  </ImportGroup>
   <ItemDefinitionGroup>
     <Link>
       <ModuleDefinitionFile>Mile.Xaml.def</ModuleDefinitionFile>
@@ -46,15 +42,8 @@
     <ClCompile Include="Mile.Xaml.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Midl Include="Mile.Xaml.idl" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Mile.Xaml.nuspec" />
     <None Include="Mile.Xaml.def" />
-    <None Include="$(GeneratedFilesDir)Mile.Xaml.Styles.SunValley.xbf">
-      <DeploymentContent>true</DeploymentContent>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="NuGet\Mile.Xaml.targets" />
@@ -64,10 +53,6 @@
     <None Include="NuGet\net48\Mile.Xaml.AfterImport.targets" />
     <None Include="NuGet\net48\Mile.Xaml.props" />
     <None Include="NuGet\_._" />
-    <None Include="PropertySheet.props" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Mile.Xaml.Styles.SunValley.xaml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Mile.Windows.Helpers">
@@ -75,12 +60,4 @@
     </PackageReference>
   </ItemGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.targets" />
-  <!-- 
-    Override the target which appends the XamlCompiler generated files to the
-    ClCompile input list. Doing this makes it so that we get XBF generation but
-    ignore the XamlCompiler outputs (which are in C++/CX format and do us no
-    good. We are currently hand-authoring the necessary parts of our
-    IXamlMetadataProvider implementation. 
-  -->
-  <Target Name="ComputeXamlGeneratedCompileInputs" />
 </Project>
