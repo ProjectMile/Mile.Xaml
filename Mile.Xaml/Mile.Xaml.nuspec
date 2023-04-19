@@ -49,7 +49,7 @@
     <file src="Mile.Xaml.h" target="build\native\Include" />
     <file src="NuGet\native\Mile.Xaml.props" target="build\native" />
     <file src="NuGet\Mile.Xaml.targets" target="build\native" />
-    <file src="NuGet\net48\Microsoft.Windows.UI.Xaml.Common.Part.targets" target="build\net48" />
+    <file src="NuGet\net48\Microsoft.WinUI.NET.Markup.Compiler.targets" target="build\net48" />
     <file src="NuGet\net48\Mile.Xaml.AfterImport.targets" target="build\net48" />
     <file src="NuGet\net48\Mile.Xaml.props" target="build\net48" />
     <file src="NuGet\Mile.Xaml.targets" target="build\net48" />

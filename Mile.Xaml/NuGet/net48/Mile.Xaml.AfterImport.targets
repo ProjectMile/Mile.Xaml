@@ -32,7 +32,7 @@
     <WindowsKitsXamlCompilerTargetsPath>$(WindowsSdkPath)bin\$(TargetPlatformVersion)\XamlCompiler\Microsoft.Windows.UI.Xaml.Common.targets</WindowsKitsXamlCompilerTargetsPath>
   </PropertyGroup>
   <Import Project="$(WindowsKitsXamlCompilerTargetsPath)" />
-  <Import Condition="'$(OutputType)' == 'Library'" Project="$(MSBuildThisFileDirectory)\Microsoft.Windows.UI.Xaml.Common.Part.targets" />
+  <Import Condition="'$(OutputType)' == 'Library'" Project="$(MSBuildThisFileDirectory)\Microsoft.WinUI.NET.Markup.Compiler.targets" />
 
   <!-- Must use .NET SDK and install Windows SDK -->
   <Target Name="CheckNetSdkEnvironment" BeforeTargets="BeforeBuild">

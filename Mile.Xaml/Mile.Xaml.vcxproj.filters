@@ -22,7 +22,7 @@
     <None Include="NuGet\_._">
       <Filter>NuGet</Filter>
     </None>
-    <None Include="NuGet\net48\Microsoft.Windows.UI.Xaml.Common.Part.targets">
+    <None Include="NuGet\net48\Microsoft.WinUI.NET.Markup.Compiler.targets">
       <Filter>NuGet\net48</Filter>
     </None>
     <None Include="NuGet\net48\Mile.Xaml.AfterImport.targets">
