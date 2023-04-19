@@ -5,7 +5,6 @@
   <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0D0AB0E6-9F9D-4A7A-AF83-33B0D42DF111}</ProjectGuid>
-    <ProjectName>Mile.Xaml.Styles</ProjectName>
     <RootNamespace>Mile.Xaml.Styles</RootNamespace>
     <MileProjectType>StaticLibrary</MileProjectType>
     <MinimalCoreWin>false</MinimalCoreWin>

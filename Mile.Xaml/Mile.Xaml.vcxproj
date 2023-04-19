@@ -5,7 +5,6 @@
   <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4c5da281-1fdd-41b7-9d3f-94132227ca0e}</ProjectGuid>
-    <ProjectName>Mile.Xaml</ProjectName>
     <RootNamespace>Mile.Xaml</RootNamespace>
     <MileProjectType>DynamicLibrary</MileProjectType>
     <MinimalCoreWin>false</MinimalCoreWin>
