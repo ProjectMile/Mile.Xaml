@@ -19,7 +19,9 @@
     <license type="file">License.md</license>
     <readme>ReadMe.md</readme>
     <dependencies>
-      <group targetFramework="native0.0" />
+      <group targetFramework="native0.0">
+        <dependency id="Mile.Windows.Helpers" version="[1.0.11,2.0.0)" />
+      </group>
       <group targetFramework="uap10.0" />
       <group targetFramework=".NETFramework4.8" />
     </dependencies>
@@ -46,9 +48,8 @@
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.lib" target="redist\arm64" />
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.Styles.SunValley.xbf" target="redist\arm64" />
 
-    <file src="Mile.Xaml.h" target="build\native\Include" />
     <file src="NuGet\native\Mile.Xaml.props" target="build\native" />
-    <file src="NuGet\Mile.Xaml.targets" target="build\native" />
+    <file src="NuGet\native\Mile.Xaml.targets" target="build\native" />
     <file src="NuGet\net48\Microsoft.WinUI.NET.Markup.Compiler.targets" target="build\net48" />
     <file src="NuGet\net48\Mile.Xaml.AfterImport.targets" target="build\net48" />
     <file src="NuGet\net48\Mile.Xaml.props" target="build\net48" />
@@ -56,10 +57,13 @@
     <file src="NuGet\Mile.Xaml.targets" target="build\uap10.0" />
     <file src="NuGet\MrtCore.PriGen.targets" target="build" />
 
-    <file src="Mile.Xaml.h" target="buildTransitive\native\Include" />
     <file src="NuGet\native\Mile.Xaml.props" target="buildTransitive\native" />
-    <file src="NuGet\Mile.Xaml.targets" target="buildTransitive\native" />
+    <file src="NuGet\native\Mile.Xaml.targets" target="buildTransitive\native" />
     <file src="NuGet\MrtCore.PriGen.targets" target="buildTransitive" />
+
+    <file src="IWindowPrivate.h" target="Source\Native" />
+    <file src="Mile.Xaml.h" target="Source\Native" />
+    <file src="Mile.Xaml.cpp" target="Source\Native" />
 
     <file src="..\ReadMe.md" target="." />
     <file src="..\License.md" target="." />

@@ -2,7 +2,7 @@
 <!--
    PROJECT:   Mouri Internal Library Essentials
    FILE:      Mile.Xaml.props
-   PURPOSE:   MSBuild props file for Mile.Xaml
+   PURPOSE:   MSBuild props file for Mile.Xaml native target
 
    LICENSE:   The MIT License
 
@@ -18,10 +18,11 @@
     <DisableEmbeddedXbf>false</DisableEmbeddedXbf>
     <_SupportXbfAsEmbedFileResources>true</_SupportXbfAsEmbedFileResources>
     <ForceImportAfterCppTargets>$(MSBuildThisFileDirectory)..\MrtCore.PriGen.targets;$(ForceImportAfterCppTargets)</ForceImportAfterCppTargets>
-    <IncludePath>$(MSBuildThisFileDirectory)Include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(MSBuildThisFileDirectory)..\..\Source\Native\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PreprocessorDefinitions>DISABLE_XAML_GENERATED_MAIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
