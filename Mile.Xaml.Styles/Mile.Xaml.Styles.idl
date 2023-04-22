@@ -10,9 +10,5 @@
 
 namespace Mile.Xaml.Styles
 {
-    [default_interface]
-    runtimeclass PlaceHolder
-    {
-        PlaceHolder();
-    }
+
 }
