@@ -33,20 +33,20 @@
     <file src="NuGet\_._" target="lib\net48" />
     <file src="NuGet\_._" target="lib\uap10.0" />
 
-    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.dll" target="redist\x86" />
-    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.pdb" target="redist\x86" />
-    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.lib" target="redist\x86" />
-    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.Styles.SunValley.xbf" target="redist\x86" />
+    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.dll" target="Redist\x86" />
+    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.pdb" target="Redist\x86" />
+    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.lib" target="Redist\x86" />
+    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.Styles.SunValley.xbf" target="Redist\x86" />
 
-    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.dll" target="redist\x64" />
-    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.pdb" target="redist\x64" />
-    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.lib" target="redist\x64" />
-    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.Styles.SunValley.xbf" target="redist\x64" />
+    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.dll" target="Redist\x64" />
+    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.pdb" target="Redist\x64" />
+    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.lib" target="Redist\x64" />
+    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.Styles.SunValley.xbf" target="Redist\x64" />
 
-    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.dll" target="redist\arm64" />
-    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.pdb" target="redist\arm64" />
-    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.lib" target="redist\arm64" />
-    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.Styles.SunValley.xbf" target="redist\arm64" />
+    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.dll" target="Redist\arm64" />
+    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.pdb" target="Redist\arm64" />
+    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.lib" target="Redist\arm64" />
+    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.Styles.SunValley.xbf" target="Redist\arm64" />
 
     <file src="NuGet\native\Mile.Xaml.props" target="build\native" />
     <file src="NuGet\native\Mile.Xaml.targets" target="build\native" />
