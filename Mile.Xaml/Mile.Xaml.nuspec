@@ -36,17 +36,14 @@
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.dll" target="Redist\x86" />
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.pdb" target="Redist\x86" />
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.lib" target="Redist\x86" />
-    <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.Styles.SunValley.xbf" target="Redist\x86" />
 
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.dll" target="Redist\x64" />
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.pdb" target="Redist\x64" />
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.lib" target="Redist\x64" />
-    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.Styles.SunValley.xbf" target="Redist\x64" />
 
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.dll" target="Redist\arm64" />
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.pdb" target="Redist\arm64" />
     <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.lib" target="Redist\arm64" />
-    <file src="..\Output\Binaries\Release\ARM64\Mile.Xaml.Styles.SunValley.xbf" target="Redist\arm64" />
 
     <file src="NuGet\native\Mile.Xaml.props" target="build\native" />
     <file src="NuGet\native\Mile.Xaml.targets" target="build\native" />
@@ -60,6 +57,8 @@
     <file src="NuGet\native\Mile.Xaml.props" target="buildTransitive\native" />
     <file src="NuGet\native\Mile.Xaml.targets" target="buildTransitive\native" />
     <file src="NuGet\MrtCore.PriGen.targets" target="buildTransitive" />
+
+    <file src="..\Output\Binaries\Release\x64\Mile.Xaml.Styles.SunValley.xbf" target="Redist\Styles" />
 
     <file src="IWindowPrivate.h" target="Source\Native" />
     <file src="Mile.Xaml.h" target="Source\Native" />
