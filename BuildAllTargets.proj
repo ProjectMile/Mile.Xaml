@@ -5,10 +5,10 @@
   <Target Name="Restore">
     <ItemGroup>
       <ProjectReference Include="$(MSBuildThisFileDirectory)Mile.Xaml.sln">
-        <AdditionalProperties>Configuration=Debug;Platform=x86</AdditionalProperties>   
+        <AdditionalProperties>Configuration=Debug;Platform=x64</AdditionalProperties>   
       </ProjectReference>
       <ProjectReference Include="$(MSBuildThisFileDirectory)Mile.Xaml.sln">
-        <AdditionalProperties>Configuration=Release;Platform=x86</AdditionalProperties>   
+        <AdditionalProperties>Configuration=Release;Platform=x64</AdditionalProperties>   
       </ProjectReference>
     </ItemGroup>
     <MSBuild
