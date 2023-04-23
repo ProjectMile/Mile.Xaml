@@ -5,10 +5,9 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using Microsoft.Toolkit.Win32.UI.XamlHost;
 using windows = Windows;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     ///     A sample Windows Forms control that hosts XAML content

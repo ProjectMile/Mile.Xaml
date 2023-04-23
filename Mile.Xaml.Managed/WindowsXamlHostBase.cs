@@ -6,11 +6,10 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using Microsoft.Toolkit.Win32.UI.XamlHost;
 using Windows.Foundation.Metadata;
 using WUX = Windows.UI.Xaml;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     ///     WindowsXamlHostBase hosts UWP XAML content inside Windows Forms
@@ -228,7 +227,7 @@ namespace Microsoft.Toolkit.Forms.UI.XamlHost
                 _xamlIslandWindowHandle = desktopWindowXamlSourceNative.WindowHandle;
 
                 // Set window style required by container control to support Focus
-                if (Interop.Win32.UnsafeNativeMethods.SetWindowLong(Handle, Interop.Win32.NativeDefines.GWL_EXSTYLE, Interop.Win32.NativeDefines.WS_EX_CONTROLPARENT) == 0)
+                if (Interop.UnsafeNativeMethods.SetWindowLong(Handle, Interop.NativeDefines.GWL_EXSTYLE, Interop.NativeDefines.WS_EX_CONTROLPARENT) == 0)
                 {
                     throw new InvalidOperationException("WindowsXamlHostBase::OnHandleCreated: Failed to set WS_EX_CONTROLPARENT on control window.");
                 }

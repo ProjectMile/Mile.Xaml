@@ -4,10 +4,10 @@
 
 using System;
 using System.Drawing;
-using Microsoft.Toolkit.Forms.UI.XamlHost.Interop.Win32;
+using Mile.Xaml.Interop;
 using windows = Windows;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     ///     WindowsXamlHostBase hosts UWP XAML content inside Windows Forms

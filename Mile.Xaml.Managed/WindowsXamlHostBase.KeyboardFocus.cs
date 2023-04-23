@@ -5,11 +5,10 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using Microsoft.Toolkit.Forms.UI.XamlHost.Interop.Win32;
-using Microsoft.Toolkit.Win32.UI.XamlHost;
+using Mile.Xaml.Interop;
 using windows = Windows;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     ///     WindowsXamlHostBase hosts UWP XAML content inside Windows Forms

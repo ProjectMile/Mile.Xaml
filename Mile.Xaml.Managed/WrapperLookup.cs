@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     /// WrapperLookup is a set of extension methods to extend <see cref="UIElement"/> to make it relatively easy

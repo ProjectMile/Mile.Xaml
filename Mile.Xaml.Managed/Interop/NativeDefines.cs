@@ -3,9 +3,9 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
-using Microsoft.Toolkit.Win32.UI.Controls.Interop.Win32;
+using Mile.Xaml.Interop;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost.Interop.Win32
+namespace Mile.Xaml.Interop
 {
     /// <summary>
     /// Definitions required for native interop

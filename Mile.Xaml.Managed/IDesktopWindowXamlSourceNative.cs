@@ -6,7 +6,7 @@ using System;
 using System.Runtime.InteropServices;
 using WUX = Windows.UI.Xaml;
 
-namespace Microsoft.Toolkit.Win32.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     /// Enables access to native methods on DesktopWindowXamlSourceNative

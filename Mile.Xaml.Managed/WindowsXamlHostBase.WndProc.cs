@@ -6,9 +6,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Security.Permissions;
 using System.Windows.Forms;
-using Microsoft.Toolkit.Forms.UI.XamlHost.Interop.Win32;
+using Mile.Xaml.Interop;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     ///     WindowsXamlHostBase hosts UWP XAML content inside Windows Forms

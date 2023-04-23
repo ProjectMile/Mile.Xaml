@@ -6,7 +6,7 @@ using System;
 using windows = Windows;
 using WUX = Windows.UI.Xaml;
 
-namespace Microsoft.Toolkit.Win32.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     /// Provides factory methods for type registered with <seealso cref="WUX.Application"/>

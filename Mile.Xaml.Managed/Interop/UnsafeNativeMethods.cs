@@ -4,9 +4,9 @@
 
 using System;
 using System.Runtime.InteropServices;
-using Microsoft.Toolkit.Win32.UI.Controls.Interop.Win32;
+using Mile.Xaml.Interop;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost.Interop.Win32
+namespace Mile.Xaml.Interop
 {
     /// <summary>
     /// This class is for methods that are potentially dangerous. Any caller of these methods must perform a full security review to make sure that the usage is secure because no stack walk will be performed.

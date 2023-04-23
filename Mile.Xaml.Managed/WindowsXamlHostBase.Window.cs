@@ -3,9 +3,9 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
-using Microsoft.Toolkit.Forms.UI.XamlHost.Interop.Win32;
+using Mile.Xaml.Interop;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost
+namespace Mile.Xaml
 {
     /// <summary>
     ///     WindowsXamlHostBase hosts UWP XAML content inside Windows Forms

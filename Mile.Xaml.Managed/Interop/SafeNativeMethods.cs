@@ -5,9 +5,9 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-using Microsoft.Toolkit.Win32.UI.Controls.Interop.Win32;
+using Mile.Xaml.Interop;
 
-namespace Microsoft.Toolkit.Forms.UI.XamlHost.Interop.Win32
+namespace Mile.Xaml.Interop
 {
     /// <summary>
     /// This class is for methods that are safe for anyone to call. Callers of these methods are not required to perform a full security review to make sure that the usage is secure because the methods are harmless for any caller.
