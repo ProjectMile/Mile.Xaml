@@ -10,6 +10,7 @@
     <Product>Mile.Xaml</Product>
     <Copyright>© Project Mile. All rights reserved.</Copyright>
     <Version>2.0.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</Version>
+    <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>

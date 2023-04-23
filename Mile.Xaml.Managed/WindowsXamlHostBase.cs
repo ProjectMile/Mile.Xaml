@@ -19,39 +19,9 @@ namespace Microsoft.Toolkit.Forms.UI.XamlHost
     public abstract partial class WindowsXamlHostBase : ContainerControl
     {
         /// <summary>
-        /// An instance of <seealso cref="IXamlMetadataContainer"/>. Required to
-        /// probe at runtime for custom UWP XAML type information.
-        /// This must be implemented by the instance of <seealso cref="WUX.Application"/>
-        /// </summary>
-        /// <remarks>
-        /// <seealso cref="WUX.Application"/> object is required for loading custom control metadata.  If a custom
-        /// Application object is not provided by the application, the host control will create an instance of <seealso cref="XamlApplication"/>.
-        /// Instantiation of the application object must occur before creating the DesktopWindowXamlSource instance.
-        /// If no Application object is created before DesktopWindowXamlSource is created, DestkopWindowXamlSource
-        /// will create an instance of <seealso cref="XamlApplication"/> that implements <seealso cref="IXamlMetadataContainer"/>.
-        /// </remarks>
-        private static readonly IXamlMetadataContainer _metadataContainer;
-
-        static WindowsXamlHostBase()
-        {
-            _metadataContainer = XamlApplicationExtensions.GetOrCreateXamlMetadataContainer();
-        }
-
-        /// <summary>
         /// DesktopWindowXamlSource instance
         /// </summary>
         private readonly WUX.Hosting.DesktopWindowXamlSource _xamlSource;
-
-        /// <summary>
-        /// Gets the current instance of <seealso cref="XamlApplication"/>
-        /// </summary>
-        protected static IXamlMetadataContainer MetadataContainer
-        {
-            get
-            {
-                return _metadataContainer;
-            }
-        }
 
         /// <summary>
         /// Private field that backs ChildInternal property.
