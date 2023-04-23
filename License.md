@@ -1,4 +1,4 @@
-# Mile.Xaml License
+﻿# Mile.Xaml License
 
 For giving the maximum respect for the upstream projects and following the
 philosophy about open-source software from Kenji Mouri (MouriNaruto).
@@ -58,6 +58,8 @@ SOFTWARE.
 
 - C++/WinRT, https://github.com/microsoft/cppwinrt
 - IWindowPrivate, https://github.com/ADeltaX/IWindowPrivate
+- Windows Community Toolkit - WPF and Windows Forms,
+  https://github.com/CommunityToolkit/Microsoft.Toolkit.Win32
 - Mile.Project.Windows, https://github.com/ProjectMile/Mile.Project.Windows
 - Mile.Windows.Helpers, https://github.com/ProjectMile/Mile.Windows.Helpers
 - VC-LTL, https://github.com/Chuyu-Team/VC-LTL5
