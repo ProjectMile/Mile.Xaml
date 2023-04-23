@@ -5,7 +5,6 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-using Mile.Xaml.Interop;
 
 namespace Mile.Xaml.Interop
 {

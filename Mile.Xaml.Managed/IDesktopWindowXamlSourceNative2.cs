@@ -4,7 +4,7 @@
 
 using System;
 using System.Runtime.InteropServices;
-using WUX = Windows.UI.Xaml;
+using Windows.UI.Xaml.Hosting;
 
 namespace Mile.Xaml
 {
@@ -12,7 +12,7 @@ namespace Mile.Xaml
     /// Enables access to native methods on DesktopWindowXamlSourceNative version 2 for RS5
     /// </summary>
     /// <remarks>
-    /// Includes the method used to set the window handle of the <see cref="WUX.Hosting.DesktopWindowXamlSource" /> instance.
+    /// Includes the method used to set the window handle of the <see cref="DesktopWindowXamlSource" /> instance.
     /// </remarks>
     [ComImport]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
@@ -20,7 +20,7 @@ namespace Mile.Xaml
     internal partial interface IDesktopWindowXamlSourceNative2
     {
         /// <summary>
-        /// Attaches the <see cref="WUX.Hosting.DesktopWindowXamlSource" /> to a window using a window handle.
+        /// Attaches the <see cref="DesktopWindowXamlSource" /> to a window using a window handle.
         /// </summary>
         /// <param name="parentWnd">pointer to parent Wnd</param>
         /// <remarks>
@@ -30,12 +30,12 @@ namespace Mile.Xaml
         void AttachToWindow(IntPtr parentWnd);
 
         /// <summary>
-        /// Gets the handle associated with the <see cref="WUX.Hosting.DesktopWindowXamlSource" /> instance.
+        /// Gets the handle associated with the <see cref="DesktopWindowXamlSource" /> instance.
         /// </summary>
         IntPtr WindowHandle { get; }
 
         /// <summary>
-        /// Sends the <paramref name="message"/> to the internal <see cref="WUX.Hosting.DesktopWindowXamlSource" /> window handle.
+        /// Sends the <paramref name="message"/> to the internal <see cref="DesktopWindowXamlSource" /> window handle.
         /// </summary>
         /// <returns>True if the <paramref name="message"/> was handled</returns>
         bool PreTranslateMessage(ref System.Windows.Forms.Message message);

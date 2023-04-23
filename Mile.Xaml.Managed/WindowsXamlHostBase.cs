@@ -7,7 +7,8 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 using Windows.Foundation.Metadata;
-using WUX = Windows.UI.Xaml;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Hosting;
 
 namespace Mile.Xaml
 {
@@ -20,12 +21,12 @@ namespace Mile.Xaml
         /// <summary>
         /// DesktopWindowXamlSource instance
         /// </summary>
-        private readonly WUX.Hosting.DesktopWindowXamlSource _xamlSource;
+        private readonly DesktopWindowXamlSource _xamlSource;
 
         /// <summary>
         /// Private field that backs ChildInternal property.
         /// </summary>
-        private WUX.UIElement _childInternal;
+        private UIElement _childInternal;
 
         /// <summary>
         ///    Last preferredSize returned by UWP XAML during WinForms layout pass
@@ -76,7 +77,7 @@ namespace Mile.Xaml
             SizeChanged += OnWindowXamlHostSizeChanged;
 
             // Create DesktopWindowXamlSource, host for UWP XAML content
-            _xamlSource = new WUX.Hosting.DesktopWindowXamlSource();
+            _xamlSource = new DesktopWindowXamlSource();
 
             // Hook up method for DesktopWindowXamlSource Focus handling
             _xamlSource.TakeFocusRequested += this.OnTakeFocusRequested;
@@ -106,7 +107,7 @@ namespace Mile.Xaml
         /// </summary>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        protected WUX.UIElement ChildInternal
+        protected UIElement ChildInternal
         {
             get => _childInternal;
 
@@ -119,8 +120,8 @@ namespace Mile.Xaml
                         return;
                     }
 
-                    var newFrameworkElement = value as WUX.FrameworkElement;
-                    var oldFrameworkElement = ChildInternal as WUX.FrameworkElement;
+                    var newFrameworkElement = value as FrameworkElement;
+                    var oldFrameworkElement = ChildInternal as FrameworkElement;
 
                     if (oldFrameworkElement != null)
                     {
@@ -152,7 +153,7 @@ namespace Mile.Xaml
         /// Sets the root UWP XAML element on DesktopWindowXamlSource
         /// </summary>
         /// <param name="newValue">A UWP XAML Framework element</param>
-        protected virtual void SetContent(WUX.UIElement newValue)
+        protected virtual void SetContent(UIElement newValue)
         {
             if (_xamlSource != null)
             {
@@ -190,7 +191,7 @@ namespace Mile.Xaml
             {
                 SizeChanged -= OnWindowXamlHostSizeChanged;
 
-                var oldFrameworkElement = ChildInternal as WUX.FrameworkElement;
+                var oldFrameworkElement = ChildInternal as FrameworkElement;
                 if (oldFrameworkElement != null)
                 {
                     oldFrameworkElement.SizeChanged -= OnChildSizeChanged;

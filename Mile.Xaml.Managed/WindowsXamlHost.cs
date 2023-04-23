@@ -5,7 +5,7 @@
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
-using windows = Windows;
+using Windows.UI.Xaml;
 
 namespace Mile.Xaml
 {
@@ -66,10 +66,10 @@ namespace Mile.Xaml
         /// <summary>
         /// Gets or sets XAML content for XamlContentHost
         /// </summary>
-        /// <value>The <see cref="windows.UI.Xaml.UIElement"/>.</value>
+        /// <value>The <see cref="UIElement"/>.</value>
         [Browsable(false)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public windows.UI.Xaml.UIElement Child
+        public UIElement Child
         {
             get => ChildInternal;
 
@@ -77,9 +77,9 @@ namespace Mile.Xaml
         }
 
         /// <summary>
-        /// Raises the <see cref="System.Windows.Forms.Control.HandleCreated" /> event.
+        /// Raises the <see cref="Control.HandleCreated" /> event.
         /// </summary>
-        /// <param name="e">An <see cref="System.EventArgs" /> that contains the event data.</param>
+        /// <param name="e">An <see cref="EventArgs" /> that contains the event data.</param>
         /// <remarks>Assign window render target to UWP XAML content.</remarks>
         protected override void OnHandleCreated(EventArgs e)
         {

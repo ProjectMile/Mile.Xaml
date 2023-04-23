@@ -4,17 +4,17 @@
 
 using System;
 using System.Runtime.InteropServices;
-using WUX = Windows.UI.Xaml;
+using Windows.UI.Xaml.Hosting;
 
 namespace Mile.Xaml
 {
     /// <summary>
-    /// COM wrapper required to access native-only methods on <see cref="WUX.Hosting.DesktopWindowXamlSource" />
+    /// COM wrapper required to access native-only methods on <see cref="DesktopWindowXamlSource" />
     /// </summary>
     static partial class DesktopWindowXamlSourceExtensions
     {
         /// <summary>
-        /// Gets the <see cref="IDesktopWindowXamlSourceNative" /> interface from a <see cref="WUX.Hosting.DesktopWindowXamlSource" /> instance.
+        /// Gets the <see cref="IDesktopWindowXamlSourceNative" /> interface from a <see cref="DesktopWindowXamlSource" /> instance.
         /// </summary>
         /// <typeparam name="TInterface">The interface to cast to</typeparam>
         /// <param name="desktopWindowXamlSource">The DesktopWindowXamlSource instance to get the interface from</param>
@@ -22,7 +22,7 @@ namespace Mile.Xaml
         /// <remarks>
         /// This interface is the only way to set DesktopWindowXamlSource's target window for rendering.
         /// </remarks>
-        public static TInterface GetInterop<TInterface>(this WUX.Hosting.DesktopWindowXamlSource desktopWindowXamlSource)
+        public static TInterface GetInterop<TInterface>(this DesktopWindowXamlSource desktopWindowXamlSource)
             where TInterface : class
         {
             var win32XamlSourceIntPtr = Marshal.GetIUnknownForObject(desktopWindowXamlSource);
