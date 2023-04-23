@@ -11,7 +11,7 @@ namespace Mile.Xaml
     /// <summary>
     /// COM wrapper required to access native-only methods on <see cref="DesktopWindowXamlSource" />
     /// </summary>
-    static partial class DesktopWindowXamlSourceExtensions
+    public static class DesktopWindowXamlSourceExtensions
     {
         /// <summary>
         /// Gets the <see cref="IDesktopWindowXamlSourceNative" /> interface from a <see cref="DesktopWindowXamlSource" /> instance.

@@ -11,7 +11,7 @@ namespace Mile.Xaml
     /// <summary>
     /// Provides factory methods for type registered with <seealso cref="Application"/>
     /// </summary>
-    static partial class UWPTypeFactory
+    public static class UWPTypeFactory
     {
         /// <summary>
         /// Creates UWP XAML type instance from WinRT type name

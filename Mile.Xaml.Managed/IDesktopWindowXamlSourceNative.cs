@@ -17,7 +17,7 @@ namespace Mile.Xaml
     [ComImport]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
     [Guid("3cbcf1bf-2f76-4e9c-96ab-e84b37972554")]
-    partial interface IDesktopWindowXamlSourceNative
+    public interface IDesktopWindowXamlSourceNative
     {
         /// <summary>
         /// Attaches the <see cref="DesktopWindowXamlSource" /> to a window using a window handle.
