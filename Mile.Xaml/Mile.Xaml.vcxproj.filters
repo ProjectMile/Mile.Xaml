@@ -31,6 +31,9 @@
     <None Include="NuGet\Mile.Xaml.targets">
       <Filter>NuGet</Filter>
     </None>
+    <None Include="NuGet\native\Mile.Xaml.targets">
+      <Filter>NuGet\native</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="NuGet">
