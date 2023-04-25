@@ -52,6 +52,7 @@
     <None Include="NuGet\net48\Microsoft.WinUI.NET.Markup.Compiler.targets" />
     <None Include="NuGet\net48\Mile.Xaml.AfterImport.targets" />
     <None Include="NuGet\net48\Mile.Xaml.props" />
+    <None Include="NuGet\net48\Mile.Xaml.targets" />
     <None Include="NuGet\_._" />
   </ItemGroup>
   <ItemGroup>

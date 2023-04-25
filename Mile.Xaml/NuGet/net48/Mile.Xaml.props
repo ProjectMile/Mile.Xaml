@@ -2,7 +2,7 @@
 <!--
    PROJECT:   Mouri Internal Library Essentials
    FILE:      Mile.Xaml.props
-   PURPOSE:   MSBuild props file for Mile.Xaml
+   PURPOSE:   MSBuild props file for Mile.Xaml .NET Framework target
 
    LICENSE:   The MIT License
 
