@@ -28,9 +28,6 @@
     <None Include="NuGet\net48\Mile.Xaml.AfterImport.targets">
       <Filter>NuGet\net48</Filter>
     </None>
-    <None Include="NuGet\Mile.Xaml.targets">
-      <Filter>NuGet</Filter>
-    </None>
     <None Include="NuGet\native\Mile.Xaml.targets">
       <Filter>NuGet\native</Filter>
     </None>
