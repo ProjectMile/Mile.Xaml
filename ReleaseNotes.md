@@ -1,8 +1,9 @@
 ﻿# Mile.Xaml Release Notes
 
-**Mile.Xaml 2.0 Preview 2 (2.0.573.0)**
+**Mile.Xaml 2.0 Preview 3 (2.0.591.0)**
 
-- Use C functions instead of Windows Runtime classes to interoperate Mile.Xaml.
+- Use C functions instead of Windows Runtime classes to interoperate Mile.Xaml
+  from C/C++ projects and make use source code form to integrate directly.
   - MileXamlGetCoreWindowHandle
   - MileXamlGetTransparentBackgroundAttribute
   - MileXamlSetTransparentBackgroundAttribute
@@ -12,7 +13,9 @@
   - MileXamlThreadUninitialize
   - MileXamlGlobalInitialize
   - MileXamlGlobalUninitialize
-- Improve the .NET Framework support.
+- Improve the .NET Framework support via adding the pure managed version of
+  Mile.Xaml called Mile.Xaml.Managed which supports .NET Any CPU target.
+- Remove the unfinished .NET Native target support.
 - Fix keyboard navigation with Shift-Tab. (Contributed by driver1998.)
 - Make buildTransitive mode only applies to the C/C++ projects. (Contributed by
   AndromedaMelody.)
@@ -25,8 +28,8 @@
   dongle-the-gadget.)
 - Add source code of Mile.Xaml.Styles.SunValley and update the generated
   Mile.Xaml.Styles.SunValley.xaml. (Contributed by AndromedaMelody.)
-- Add Mile.Xaml.MaintainerTools solution and Mile.Xaml.ControlStyleXamlGenerator
-  project.
+- Split XAML control styles binary generation to Mile.Xaml.Styles project.
+- Add maintainer tools projects.
 - Update Mile.Project.Windows.
 - Adjust project configurations.
 - Simplify build script logic.
