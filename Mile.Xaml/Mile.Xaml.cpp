@@ -266,6 +266,8 @@ namespace
                 NewWindowRectangle->right - NewWindowRectangle->left,
                 NewWindowRectangle->bottom - NewWindowRectangle->top,
                 SWP_NOZORDER | SWP_NOACTIVATE);
+
+            break;
         }
         case WM_ERASEBKGND:
         {
