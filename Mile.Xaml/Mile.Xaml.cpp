@@ -101,7 +101,10 @@ namespace
 
             winrt::FrameworkElement Content = nullptr;
             winrt::copy_from_abi(Content, CreateStruct->lpCreateParams);
-            XamlSource.Content(Content);
+            if (Content)
+            {
+                XamlSource.Content(Content);
+            }
 
             HWND XamlWindowHandle = nullptr;
             if (FAILED(XamlSourceNative->get_WindowHandle(&XamlWindowHandle)))
@@ -133,7 +136,7 @@ namespace
                 MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA);
 
             BOOL UseImmersiveDarkMode = (
-                Content.ActualTheme() == winrt::ElementTheme::Dark
+                Content && Content.ActualTheme() == winrt::ElementTheme::Dark
                 ? TRUE
                 : FALSE);
 
@@ -266,8 +269,6 @@ namespace
                 NewWindowRectangle->right - NewWindowRectangle->left,
                 NewWindowRectangle->bottom - NewWindowRectangle->top,
                 SWP_NOZORDER | SWP_NOACTIVATE);
-
-            break;
         }
         case WM_ERASEBKGND:
         {
@@ -538,7 +539,7 @@ EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize()
             nullptr,
             nullptr,
             nullptr,
-            winrt::get_abi(winrt::Grid()));
+            nullptr);
         winrt::check_pointer(g_CoreWindowHostWindowHandle);
 
         HWND CoreWindowHandle = nullptr;
