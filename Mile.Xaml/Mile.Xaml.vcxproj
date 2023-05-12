@@ -6,7 +6,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4c5da281-1fdd-41b7-9d3f-94132227ca0e}</ProjectGuid>
     <RootNamespace>Mile.Xaml</RootNamespace>
-    <MileProjectType>DynamicLibrary</MileProjectType>
+    <MileProjectType>StaticLibrary</MileProjectType>
     <MinimalCoreWin>false</MinimalCoreWin>
     <DefaultLanguage>en</DefaultLanguage>
     <AppContainerApplication>false</AppContainerApplication>
@@ -16,23 +16,9 @@
     <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
     <MileProjectEnableCppWinRTSupport>true</MileProjectEnableCppWinRTSupport>
     <CppWinRTAddXamlMetaDataProviderIdl>false</CppWinRTAddXamlMetaDataProviderIdl>
-    <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
-    <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
-    <MileProjectFileDescription>Mile.Xaml</MileProjectFileDescription>
-    <MileProjectInternalName>Mile.Xaml</MileProjectInternalName>
-    <MileProjectLegalCopyright>© Project Mile. All rights reserved.</MileProjectLegalCopyright>
-    <MileProjectOriginalFilename>Mile.Xaml.dll</MileProjectOriginalFilename>
-    <MileProjectProductName>Mile.Xaml</MileProjectProductName>
-    <MileProjectVersion>2.0.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</MileProjectVersion>
-    <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag>
   </PropertyGroup>
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
-  <ItemDefinitionGroup>
-    <Link>
-      <ModuleDefinitionFile>Mile.Xaml.def</ModuleDefinitionFile>
-    </Link>
-  </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="IWindowPrivate.h" />
     <ClInclude Include="Mile.Xaml.h" />
@@ -42,7 +28,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Mile.Xaml.nuspec" />
-    <None Include="Mile.Xaml.def" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NuGet\MrtCore.PriGen.targets" />

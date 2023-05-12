@@ -9,7 +9,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Mile.Xaml.nuspec" />
-    <None Include="Mile.Xaml.def" />
     <None Include="NuGet\MrtCore.PriGen.targets">
       <Filter>NuGet</Filter>
     </None>
