@@ -46,9 +46,9 @@
 
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.Styles.SunValley.xbf" target="Redist\Styles" />
 
-    <file src="IWindowPrivate.h" target="Source\Native" />
-    <file src="Mile.Xaml.h" target="Source\Native" />
-    <file src="Mile.Xaml.cpp" target="Source\Native" />
+    <file src="..\Mile.Xaml.Native\IWindowPrivate.h" target="Source\Native" />
+    <file src="..\Mile.Xaml.Native\Mile.Xaml.h" target="Source\Native" />
+    <file src="..\Mile.Xaml.Native\Mile.Xaml.cpp" target="Source\Native" />
 
     <file src="..\Output\Binaries\Release\AnyCPU\net48\Mile.Xaml.Managed.dll" target="lib\net48" />
     <file src="..\Output\Binaries\Release\AnyCPU\net48\Mile.Xaml.Managed.pdb" target="lib\net48" />

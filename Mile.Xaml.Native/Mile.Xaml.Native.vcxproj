@@ -5,7 +5,7 @@
   <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4c5da281-1fdd-41b7-9d3f-94132227ca0e}</ProjectGuid>
-    <RootNamespace>Mile.Xaml</RootNamespace>
+    <RootNamespace>Mile.Xaml.Native</RootNamespace>
     <MileProjectType>StaticLibrary</MileProjectType>
     <MinimalCoreWin>false</MinimalCoreWin>
     <DefaultLanguage>en</DefaultLanguage>
@@ -25,19 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Mile.Xaml.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Mile.Xaml.nuspec" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="NuGet\MrtCore.PriGen.targets" />
-    <None Include="NuGet\native\Mile.Xaml.props" />
-    <None Include="NuGet\native\Mile.Xaml.targets" />
-    <None Include="NuGet\net48\Microsoft.WinUI.NET.Markup.Compiler.targets" />
-    <None Include="NuGet\net48\Mile.Xaml.AfterImport.targets" />
-    <None Include="NuGet\net48\Mile.Xaml.props" />
-    <None Include="NuGet\net48\Mile.Xaml.targets" />
-    <None Include="NuGet\_._" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Mile.Windows.Helpers">
