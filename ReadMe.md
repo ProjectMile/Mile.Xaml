@@ -36,6 +36,11 @@ There are [some samples](https://github.com/ProjectMile/Mile.Xaml.Samples)
 that demonstrate using XAML Islands with Mile.Xaml. We hope it can help you
 develop applications with Mile.Xaml and enjoy the beauty of XAML Islands.
 
+If you don't want to deploy Windows 11 XAML controls styles for Windows Runtime
+XAML controls (Mile.Xaml.Styles.SunValley.xbf) to your project's output folder,
+please set `<MileXamlNoSunValleyXamlStyle>true</MileXamlNoSunValleyXamlStyle>`
+in your project configuration file.
+
 ## System Requirements
 
 - Supported OS: Windows 10 Version 2004 (Build 19041) or later
