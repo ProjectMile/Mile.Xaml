@@ -246,7 +246,7 @@ namespace
             // ContentDialogs don't resize themselves when the XAML island
             // resizes. However, if we manually resize our CoreWindow, that'll
             // actually trigger a resize of the ContentDialog.
-            ::PostMessageW(
+            ::SendMessageW(
                 ::MileXamlGetCoreWindowHandle(),
                 uMsg,
                 wParam,
@@ -335,7 +335,7 @@ namespace
                         // window for improve the runtime light and dark mode
                         // switch support for XAML Islands. (Noticed by
                         // dongle-the-gadget.)
-                        ::PostMessageW(
+                        ::SendMessageW(
                             ::MileXamlGetCoreWindowHandle(),
                             uMsg,
                             wParam,
