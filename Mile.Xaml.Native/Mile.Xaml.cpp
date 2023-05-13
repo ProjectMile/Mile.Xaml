@@ -50,14 +50,13 @@ namespace winrt
     using Windows::Foundation::Uri;
     using Windows::UI::Core::CoreWindow;
     using Windows::UI::Xaml::ElementTheme;
-    using Windows::UI::Xaml::FocusState;
     using Windows::UI::Xaml::FrameworkElement;
+    using Windows::UI::Xaml::Input::KeyboardNavigationMode;
     using Windows::UI::Xaml::ResourceDictionary;
     using Windows::UI::Xaml::Window;
     using Windows::UI::Xaml::Controls::Control;
     using Windows::UI::Xaml::Controls::Grid;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSource;
-    using Windows::UI::Xaml::Hosting::DesktopWindowXamlSourceTakeFocusRequestedEventArgs;
     using Windows::UI::Xaml::Hosting::WindowsXamlManager;
     using Windows::UI::Xaml::Media::VisualTreeHelper;
 }
@@ -104,6 +103,11 @@ namespace
             if (Content)
             {
                 XamlSource.Content(Content);
+                // Focus returns to the first or the last keyboard navigation
+                // stop inside of a container when the first or last keyboard
+                // navigation stop is reached.
+                XamlSource.Content().TabFocusNavigation(
+                    winrt::KeyboardNavigationMode::Cycle);
             }
 
             HWND XamlWindowHandle = nullptr;
@@ -111,14 +115,6 @@ namespace
             {
                 return -1;
             }
-
-            // When focus is moving out from XAML island, move it back in again.
-            XamlSource.TakeFocusRequested([](
-                winrt::DesktopWindowXamlSource sender,
-                winrt::DesktopWindowXamlSourceTakeFocusRequestedEventArgs args)
-            {
-                sender.NavigateFocus(args.Request());
-            });
 
             if (!::SetPropW(
                 hWnd,
