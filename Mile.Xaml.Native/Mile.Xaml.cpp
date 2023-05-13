@@ -1,7 +1,7 @@
 ﻿/*
  * PROJECT:   Mouri Internal Library Essentials
  * FILE:      Mile.Xaml.cpp
- * PURPOSE:   Implementation for the Mile.Xaml
+ * PURPOSE:   Implementation for Mile.Xaml Public Interfaces
  *
  * LICENSE:   The MIT License
  *
