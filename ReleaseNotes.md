@@ -1,6 +1,6 @@
 ﻿# Mile.Xaml Release Notes
 
-**Mile.Xaml 2.0 Preview 3 (2.0.591.0)**
+**Mile.Xaml 2.0 (2.0.611.0)**
 
 - Use C functions instead of Windows Runtime classes to interoperate Mile.Xaml
   from C/C++ projects and make use source code form to integrate directly.
@@ -17,7 +17,9 @@
   Mile.Xaml called Mile.Xaml.Managed which supports .NET Any CPU target.
 - Remove the unfinished .NET Native target support.
 - Fix keyboard navigation with Shift-Tab. (Contributed by driver1998.)
-- Make buildTransitive mode only applies to the C/C++ projects. (Contributed by
+- Fix missing break statement when handling WM_DPICHANGED. (Contributed by
+  kernelbin.)
+- Remove buildTransitive mode for all projects. (Partially contributed by
   AndromedaMelody.)
 - Add native0.0 target framework setting. (Suggested by AndromedaMelody.)
 - Remove the unnecessary precompiled header file for optimizing the size and
@@ -26,6 +28,7 @@
 - Forward WM_SETTINGCHANGE to CoreWindow compatibility window for improve the
   runtime light and dark mode switch support for XAML Islands. (Noticed by
   dongle-the-gadget.)
+- Add MileXamlNoSunValleyXamlStyle MSBuild option support.
 - Add source code of Mile.Xaml.Styles.SunValley and update the generated
   Mile.Xaml.Styles.SunValley.xaml. (Contributed by AndromedaMelody.)
 - Split XAML control styles binary generation to Mile.Xaml.Styles project.
