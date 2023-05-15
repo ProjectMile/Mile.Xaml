@@ -2,11 +2,13 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
+using System;
 using System.ComponentModel;
 using System.Drawing;
-using System.Security.Permissions;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Mile.Xaml.Interop;
+using Windows.UI.Core;
 
 namespace Mile.Xaml
 {
@@ -61,6 +63,27 @@ namespace Mile.Xaml
             // Do not draw the background
         }
 
+        internal static IntPtr GetWindowHandleFromCurrentThreadCoreWindow()
+        {
+            IntPtr CoreWindowIntPtr = Marshal.GetIUnknownForObject(
+                CoreWindow.GetForCurrentThread());
+            try
+            {
+                ICoreWindowInterop CoreWindowInterop =
+                    (ICoreWindowInterop)Marshal.GetTypedObjectForIUnknown(
+                        CoreWindowIntPtr,
+                        typeof(ICoreWindowInterop));
+                return CoreWindowInterop.WindowHandle;
+            }
+            finally
+            {
+                Marshal.Release(CoreWindowIntPtr);
+            }
+        }
+
+        [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
+        internal static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+
         /// <summary>
         /// Processes Windows messages for XamlContentHost control window (not XAML window)
         /// </summary>
@@ -81,6 +104,13 @@ namespace Mile.Xaml
                 case NativeDefines.WM_WINDOWPOSCHANGING:
                     base.WndProc(ref m);
                     SetDesktopWindowXamlSourceWindowPos();
+
+                    // Reference: https://github.com/microsoft/microsoft-ui-xaml
+                    //            /issues/3577
+                    // ContentDialogs don't resize themselves when the XAML island
+                    // resizes. However, if we manually resize our CoreWindow, that'll
+                    // actually trigger a resize of the ContentDialog.
+                    SendMessage(GetWindowHandleFromCurrentThreadCoreWindow(), m.Msg, m.WParam, m.LParam);
                     break;
 
                 // BUGBUG: Focus integration with Windows.UI.Xaml.Hosting.XamlSourceFocusNavigation is
