@@ -99,10 +99,10 @@ namespace Mile.Xaml
         /// <returns>True if <seealso cref="_xamlSource"/> was able to handle the <paramref name="msg"/></returns>
         public override bool PreProcessMessage(ref Message msg)
         {
-            var desktopXamlSourceNative = this._xamlSource.GetInterop<IDesktopWindowXamlSourceNative2>();
-            if (desktopXamlSourceNative != null)
+            var XamlSourceNative = this._xamlSource.GetInterop();
+            if (XamlSourceNative != null)
             {
-                var result = desktopXamlSourceNative.PreTranslateMessage(ref msg);
+                var result = XamlSourceNative.PreTranslateMessage(ref msg);
                 if (result)
                 {
                     return true;

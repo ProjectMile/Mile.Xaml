@@ -63,24 +63,6 @@ namespace Mile.Xaml
             // Do not draw the background
         }
 
-        internal static IntPtr GetWindowHandleFromCurrentThreadCoreWindow()
-        {
-            IntPtr CoreWindowIntPtr = Marshal.GetIUnknownForObject(
-                CoreWindow.GetForCurrentThread());
-            try
-            {
-                ICoreWindowInterop CoreWindowInterop =
-                    (ICoreWindowInterop)Marshal.GetTypedObjectForIUnknown(
-                        CoreWindowIntPtr,
-                        typeof(ICoreWindowInterop));
-                return CoreWindowInterop.WindowHandle;
-            }
-            finally
-            {
-                Marshal.Release(CoreWindowIntPtr);
-            }
-        }
-
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         internal static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
 
@@ -110,7 +92,11 @@ namespace Mile.Xaml
                     // ContentDialogs don't resize themselves when the XAML island
                     // resizes. However, if we manually resize our CoreWindow, that'll
                     // actually trigger a resize of the ContentDialog.
-                    SendMessage(GetWindowHandleFromCurrentThreadCoreWindow(), m.Msg, m.WParam, m.LParam);
+                    SendMessage(
+                        CoreWindow.GetForCurrentThread().GetInterop().WindowHandle,
+                        m.Msg,
+                        m.WParam,
+                        m.LParam);
                     break;
 
                 // BUGBUG: Focus integration with Windows.UI.Xaml.Hosting.XamlSourceFocusNavigation is

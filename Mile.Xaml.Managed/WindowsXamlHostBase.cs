@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Windows.Foundation.Metadata;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Hosting;
+using Mile.Xaml.Interop;
 
 namespace Mile.Xaml
 {
@@ -223,9 +224,9 @@ namespace Mile.Xaml
             if (!DesignMode)
             {
                 // Attach window to DesktopWindowXamSource as a render target
-                var desktopWindowXamlSourceNative = _xamlSource.GetInterop<IDesktopWindowXamlSourceNative>();
-                desktopWindowXamlSourceNative.AttachToWindow(Handle);
-                _xamlIslandWindowHandle = desktopWindowXamlSourceNative.WindowHandle;
+                var XamlSourceNative = _xamlSource.GetInterop();
+                XamlSourceNative.AttachToWindow(Handle);
+                _xamlIslandWindowHandle = XamlSourceNative.WindowHandle;
 
                 // Set window style required by container control to support Focus
                 if (Interop.UnsafeNativeMethods.SetWindowLong(Handle, Interop.NativeDefines.GWL_EXSTYLE, Interop.NativeDefines.WS_EX_CONTROLPARENT) == 0)
