@@ -64,11 +64,11 @@ namespace winrt
 namespace
 {
     static bool volatile g_PreferredDarkMode = false;
-    static HWND volatile g_CoreWindowHostWindowHandle = nullptr;
     static bool volatile g_IsGlobalUninitialized = false;
-    static HWND volatile g_CoreWindowHandle = nullptr;
 
     thread_local winrt::WindowsXamlManager g_WindowsXamlManager = nullptr;
+    thread_local HWND volatile g_CoreWindowHostWindowHandle = nullptr;
+    thread_local HWND volatile g_CoreWindowHandle = nullptr;
 
     static LRESULT CALLBACK MileXamlContentWindowCallback(
         _In_ HWND hWnd,
@@ -449,71 +449,15 @@ EXTERN_C HRESULT WINAPI MileXamlThreadInitialize()
 {
     try
     {
-        if (!g_WindowsXamlManager)
-        {
-            g_WindowsXamlManager =
-                winrt::WindowsXamlManager::InitializeForCurrentThread();
-        }
-
-        return S_OK;
-    }
-    catch (winrt::hresult_error const& ex)
-    {
-        return ex.code();
-    }
-}
-
-EXTERN_C HRESULT WINAPI MileXamlThreadUninitialize()
-{
-    try
-    {
         if (g_WindowsXamlManager)
         {
-            g_WindowsXamlManager.Close();      
-        }
-        g_WindowsXamlManager = nullptr;
-
-        {
-            MSG Message;
-            while (::PeekMessageW(&Message, nullptr, 0, 0, PM_REMOVE))
-            {
-                ::DispatchMessageW(&Message);
-            }
+            return S_OK;
         }
 
-        return S_OK;
-    }
-    catch (winrt::hresult_error const& ex)
-    {
-        return ex.code();
-    }
-}
-
-EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize()
-{
-    try
-    {
-        winrt::check_hresult(::MileXamlThreadInitialize());
+        g_WindowsXamlManager =
+            winrt::WindowsXamlManager::InitializeForCurrentThread();
 
         winrt::check_hresult(::MileXamlSetTransparentBackgroundAttribute(TRUE));
-
-        WNDCLASSEXW WindowClass;
-        WindowClass.cbSize = sizeof(WNDCLASSEXW);
-        WindowClass.style = 0;
-        WindowClass.lpfnWndProc = ::MileXamlContentWindowCallback;
-        WindowClass.cbClsExtra = 0;
-        WindowClass.cbWndExtra = 0;
-        WindowClass.hInstance = nullptr;
-        WindowClass.hIcon = nullptr;
-        WindowClass.hCursor = ::LoadCursorW(nullptr, IDC_ARROW);
-        WindowClass.hbrBackground = reinterpret_cast<HBRUSH>(
-            ::GetStockObject(BLACK_BRUSH));
-        WindowClass.lpszMenuName = nullptr;
-        WindowClass.lpszClassName = L"Mile.Xaml.ContentWindow";
-        WindowClass.hIconSm = nullptr;
-        winrt::check_bool(::RegisterClassExW(&WindowClass));
-
-        winrt::check_hresult(::MileXamlSetPreferredDarkModeAttribute(TRUE));
 
         // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
         // in the task bar.
@@ -541,8 +485,73 @@ EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize()
         HWND CoreWindowHandle = nullptr;
         winrt::check_hresult(
             winrt::CoreWindow::GetForCurrentThread().as<ICoreWindowInterop>(
-                )->get_WindowHandle(&CoreWindowHandle));
+            )->get_WindowHandle(&CoreWindowHandle));
         g_CoreWindowHandle = CoreWindowHandle;
+
+        return S_OK;
+    }
+    catch (winrt::hresult_error const& ex)
+    {
+        return ex.code();
+    }
+}
+
+EXTERN_C HRESULT WINAPI MileXamlThreadUninitialize()
+{
+    try
+    {
+        if (g_CoreWindowHostWindowHandle)
+        {
+            g_CoreWindowHandle = nullptr;
+            ::DestroyWindow(g_CoreWindowHostWindowHandle);
+            g_CoreWindowHostWindowHandle = nullptr;
+        }
+
+        if (g_WindowsXamlManager)
+        {
+            g_WindowsXamlManager.Close();      
+        }
+        g_WindowsXamlManager = nullptr;
+
+        {
+            MSG Message;
+            while (::PeekMessageW(&Message, nullptr, 0, 0, PM_REMOVE))
+            {
+                ::DispatchMessageW(&Message);
+            }
+        }
+
+        return S_OK;
+    }
+    catch (winrt::hresult_error const& ex)
+    {
+        return ex.code();
+    }
+}
+
+EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize()
+{
+    try
+    {
+        WNDCLASSEXW WindowClass;
+        WindowClass.cbSize = sizeof(WNDCLASSEXW);
+        WindowClass.style = 0;
+        WindowClass.lpfnWndProc = ::MileXamlContentWindowCallback;
+        WindowClass.cbClsExtra = 0;
+        WindowClass.cbWndExtra = 0;
+        WindowClass.hInstance = nullptr;
+        WindowClass.hIcon = nullptr;
+        WindowClass.hCursor = ::LoadCursorW(nullptr, IDC_ARROW);
+        WindowClass.hbrBackground = reinterpret_cast<HBRUSH>(
+            ::GetStockObject(BLACK_BRUSH));
+        WindowClass.lpszMenuName = nullptr;
+        WindowClass.lpszClassName = L"Mile.Xaml.ContentWindow";
+        WindowClass.hIconSm = nullptr;
+        winrt::check_bool(::RegisterClassExW(&WindowClass));
+
+        winrt::check_hresult(::MileXamlSetPreferredDarkModeAttribute(TRUE));
+
+        winrt::check_hresult(::MileXamlThreadInitialize());
 
         return S_OK;
     }
@@ -563,7 +572,7 @@ EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize()
 
         g_IsGlobalUninitialized = true;
 
-        ::DestroyWindow(g_CoreWindowHostWindowHandle);
+        winrt::check_hresult(::MileXamlThreadUninitialize());
 
         BOOLEAN PreferredDarkMode = FALSE;
         winrt::check_hresult(
@@ -574,9 +583,7 @@ EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize()
                 ::MileXamlSetPreferredDarkModeAttribute(FALSE));
         }
 
-        ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
-
-        winrt::check_hresult(::MileXamlThreadUninitialize());
+        ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);        
 
         return S_OK;
     }
