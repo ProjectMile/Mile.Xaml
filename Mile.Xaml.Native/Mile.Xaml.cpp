@@ -245,7 +245,7 @@ namespace
             // ContentDialogs don't resize themselves when the XAML island
             // resizes. However, if we manually resize our CoreWindow, that'll
             // actually trigger a resize of the ContentDialog.
-            ::SendMessageW(
+            ::PostMessageW(
                 ::MileXamlGetCoreWindowHandle(),
                 uMsg,
                 wParam,
