@@ -1,5 +1,13 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.0 Update 1 (2.0.616.0)**
+
+- Improve the C/C++ projects support.
+  - Fix behavior issue for MileXamlThreadInitialize API.
+  - Fix ContentDialogs resizing handling issue when using maximize and restore.
+  - Update Mile.Windows.Helpers to 1.0.15 for improving the immersive UI
+	experience before Windows 11.
+
 **Mile.Xaml 2.0 (2.0.611.0)**
 
 - Use C functions instead of Windows Runtime classes to interoperate Mile.Xaml
