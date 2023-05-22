@@ -11,7 +11,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mile.Xaml</id>
-    <version>2.0.616.0</version>
+    <version>2.0.617.0</version>
     <description>Provides the modern Windows style to Windows.UI.Xaml for desktop applications with XAML Islands.</description>
     <authors>Kenji Mouri</authors>
     <projectUrl>https://github.com/ProjectMile/Mile.Xaml</projectUrl>
