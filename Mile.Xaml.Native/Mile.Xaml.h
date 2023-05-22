@@ -22,6 +22,19 @@
 EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle();
 
 /**
+ * @brief Sets the XAML content for the Mile.Xaml.ContentWindow class window.
+ * @param WindowHandle The handle to the Mile.Xaml.ContentWindow class window
+ *                     for which the XAML content is to be set.
+ * @param XamlContent The XAML content which is derived from
+ *                    Windows.UI.Xaml.FrameworkElement.
+ * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
+ *         HRESULT error code.
+*/
+EXTERN_C HRESULT WINAPI MileXamlSetXamlContentForContentWindow(
+    _In_ HWND WindowHandle,
+    _In_opt_ LPVOID XamlContent);
+
+/**
  * @brief The default window callback function for Mile.Xaml.ContentWindow
  *        window class.
  * @param hWnd A handle to the window.

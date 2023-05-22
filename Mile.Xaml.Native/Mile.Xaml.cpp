@@ -76,6 +76,65 @@ EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle()
     return g_CoreWindowHandle;
 }
 
+EXTERN_C HRESULT WINAPI MileXamlSetXamlContentForContentWindow(
+    _In_ HWND WindowHandle,
+    _In_opt_ LPVOID XamlContent)
+{
+    try
+    {
+        winrt::DesktopWindowXamlSource XamlSource = nullptr;
+        winrt::copy_from_abi(
+            XamlSource,
+            ::GetPropW(WindowHandle, L"XamlWindowSource"));
+        if (!XamlSource)
+        {
+            throw winrt::hresult_invalid_argument();
+        }
+
+        winrt::FrameworkElement Content = nullptr;
+        winrt::copy_from_abi(Content, XamlContent);
+        if (Content)
+        {
+            XamlSource.Content(Content);
+            // Focus returns to the first or the last keyboard navigation
+            // stop inside of a container when the first or last keyboard
+            // navigation stop is reached.
+            XamlSource.Content().TabFocusNavigation(
+                winrt::KeyboardNavigationMode::Cycle);
+        }
+
+        BOOL UseImmersiveDarkMode = (
+            Content && Content.ActualTheme() == winrt::ElementTheme::Dark
+            ? TRUE
+            : FALSE);
+
+        if (S_OK == ::MileEnableImmersiveDarkModeForWindow(
+            WindowHandle,
+            UseImmersiveDarkMode))
+        {
+            MARGINS Margins = { -1 };
+            ::DwmExtendFrameIntoClientArea(WindowHandle, &Margins);
+        }
+        else
+        {
+            if (!::SetPropW(
+                WindowHandle,
+                L"BackgroundFallbackColor",
+                ULongToHandle(::MileGetDefaultBackgroundColorValue(
+                    UseImmersiveDarkMode))))
+            {
+                throw winrt::hresult_access_denied();
+            }
+        }
+
+        return S_OK;
+    }
+    catch (winrt::hresult_error const& ex)
+    {
+        return ex.code();
+    }
+}
+
 EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     _In_ HWND hWnd,
     _In_ UINT uMsg,
@@ -104,18 +163,6 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
             return -1;
         }
 
-        winrt::FrameworkElement Content = nullptr;
-        winrt::copy_from_abi(Content, CreateStruct->lpCreateParams);
-        if (Content)
-        {
-            XamlSource.Content(Content);
-            // Focus returns to the first or the last keyboard navigation
-            // stop inside of a container when the first or last keyboard
-            // navigation stop is reached.
-            XamlSource.Content().TabFocusNavigation(
-                winrt::KeyboardNavigationMode::Cycle);
-        }
-
         HWND XamlWindowHandle = nullptr;
         if (FAILED(XamlSourceNative->get_WindowHandle(&XamlWindowHandle)))
         {
@@ -137,28 +184,11 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
             hWnd,
             MILE_WINDOW_SYSTEM_BACKDROP_TYPE_MICA);
 
-        BOOL UseImmersiveDarkMode = (
-            Content && Content.ActualTheme() == winrt::ElementTheme::Dark
-            ? TRUE
-            : FALSE);
-
-        if (S_OK == ::MileEnableImmersiveDarkModeForWindow(
+        if (FAILED(::MileXamlSetXamlContentForContentWindow(
             hWnd,
-            UseImmersiveDarkMode))
+            CreateStruct->lpCreateParams)))
         {
-            MARGINS Margins = { -1 };
-            ::DwmExtendFrameIntoClientArea(hWnd, &Margins);
-        }
-        else
-        {
-            if (!::SetPropW(
-                hWnd,
-                L"BackgroundFallbackColor",
-                ULongToHandle(::MileGetDefaultBackgroundColorValue(
-                    UseImmersiveDarkMode))))
-            {
-                return -1;
-            }
+            return -1;
         }
 
         return 0;
