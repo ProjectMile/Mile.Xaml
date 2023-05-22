@@ -1,5 +1,11 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.0 Update 2 (2.0.617.0)**
+
+- Improve the C/C++ projects support.
+  - Add MileXamlContentWindowDefaultCallback API.
+  - Add MileXamlSetXamlContentForContentWindow API.
+
 **Mile.Xaml 2.0 Update 1 (2.0.616.0)**
 
 - Improve the C/C++ projects support.
