@@ -22,6 +22,24 @@
 EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle();
 
 /**
+ * @brief The default window callback function for Mile.Xaml.ContentWindow
+ *        window class.
+ * @param hWnd A handle to the window.
+ * @param uMsg The message.
+ * @param wParam Additional message information. The contents of the wParam
+ *               parameter depend on the value of the uMsg parameter.
+ * @param lParam Additional message information. The contents of the lParam
+ *               parameter depend on the value of the uMsg parameter.
+ * @return The return value is the result of the message processing, and
+ *         depends on the message sent.
+*/
+EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
+    _In_ HWND hWnd,
+    _In_ UINT uMsg,
+    _In_ WPARAM wParam,
+    _In_ LPARAM lParam);
+
+/**
  * @brief Retrieves the transparent background attribute for contents hosted
  *        via XAML Islands.
  * @param TransparentBackground TRUE to use transparent background, FALSE to
