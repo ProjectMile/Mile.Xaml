@@ -5,7 +5,7 @@
  *
  * LICENSE:   The MIT License
  *
- * DEVELOPER: Mouri_Naruto (Mouri_Naruto AT Outlook.com)
+ * DEVELOPER: MouriNaruto (KurikoMouri@outlook.jp)
  */
 
 #include "Mile.Xaml.h"
@@ -539,7 +539,7 @@ EXTERN_C HRESULT WINAPI MileXamlThreadUninitialize()
 
         if (g_WindowsXamlManager)
         {
-            g_WindowsXamlManager.Close();      
+            g_WindowsXamlManager.Close();
         }
         g_WindowsXamlManager = nullptr;
 
@@ -613,7 +613,7 @@ EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize()
                 ::MileXamlSetPreferredDarkModeAttribute(FALSE));
         }
 
-        ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);        
+        ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
 
         return S_OK;
     }
