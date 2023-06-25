@@ -58,3 +58,4 @@ Note: This list sort in alphabetical order.
 
 - AndromedaMelody, https://github.com/AndromedaMelody
 - Kenji Mouri, https://github.com/MouriNaruto
+- Yifei Gao (高怡飞), https://github.com/Gaoyifei1011
