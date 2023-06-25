@@ -1,5 +1,24 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.1 Preview 1 (2.1.651.0)**
+
+- Add Windows 11 XAML control styles for several XAML controls from Windows UI
+  Library 2.8.4. (Contributed by Gaoyifei1011.)
+  - CalendarDatePicker and CalendarView
+  - ColorPicker and ColorSpectrum
+  - DatePicker and DateTimePickerFlyout
+  - FlipView and FlipViewItem
+  - GridViewItem
+  - InkToolbar
+  - MediaTransportControls
+  - PersonPicture
+  - RatingControl
+  - TimePicker and DateTimePickerFlyout
+  - TreeView and TreeViewItem
+- Update email address for source code.
+- Update Mile.Project.Windows.
+- Adjust project configurations. 
+
 **Mile.Xaml 2.0 Update 2 (2.0.617.0)**
 
 - Improve the C/C++ projects support.
