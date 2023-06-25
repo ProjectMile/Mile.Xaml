@@ -1,7 +1,10 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:contract14Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,14)">
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Styles/Common.xaml" />    
+        <ResourceDictionary Source="ms-appx:///Styles/CalendarView.xaml" />
+    </ResourceDictionary.MergedDictionaries>
 
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
@@ -105,7 +108,7 @@
         <Setter Property="UseSystemFocusVisuals" Value="{StaticResource UseSystemFocusVisuals}" />
         <Setter Property="FocusVisualMargin" Value="-3" />
         <Setter Property="CornerRadius" Value="{ThemeResource ControlCornerRadius}" />
-        <contract14Present:Setter Property="CalendarViewStyle" Value="{ThemeResource DefaultCalendarViewStyle}" />
+        <Setter Property="CalendarViewStyle" Value="{ThemeResource DefaultCalendarViewStyle}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CalendarDatePicker">

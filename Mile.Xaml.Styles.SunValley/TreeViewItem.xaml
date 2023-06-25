@@ -2,6 +2,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="ms-appx:///Styles/ListViewItem.xaml" />
+        <ResourceDictionary Source="ms-appx:///Styles/TreeView.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style
