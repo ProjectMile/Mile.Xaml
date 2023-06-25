@@ -1,7 +1,14 @@
 ﻿<ResourceDictionary
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:contract13NotPresent="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,13)"
     xmlns:contract13Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 13)">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ms-appx:///Styles/Common.xaml" />
+        <ResourceDictionary Source="ms-appx:///Styles/ScrollViewer.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
     <ResourceDictionary.ThemeDictionaries>
         <ResourceDictionary x:Key="Default">
             <StaticResource x:Key="CalendarViewFocusVisualPrimaryBrush" ResourceKey="FocusStrokeColorOuterBrush" />
@@ -262,55 +269,32 @@
 
     <Style BasedOn="{StaticResource DefaultCalendarViewStyle}" TargetType="CalendarView" />
 
-    <Style x:Key="DefaultCalendarViewStyle" TargetType="CalendarView">
-        <contract13Present:Setter Property="BlackoutStrikethroughBrush" Value="{ThemeResource CalendarViewBlackoutStrikethroughBrush}" />
+    <Style x:Key="DefaultCalendarViewBaseStyle" TargetType="CalendarView">
         <Setter Property="SelectedHoverBorderBrush" Value="{ThemeResource CalendarViewSelectedHoverBorderBrush}" />
         <Setter Property="SelectedPressedBorderBrush" Value="{ThemeResource CalendarViewSelectedPressedBorderBrush}" />
-        <contract13Present:Setter Property="SelectedDisabledBorderBrush" Value="{ThemeResource CalendarViewSelectedDisabledBorderBrush}" />
         <Setter Property="SelectedBorderBrush" Value="{ThemeResource CalendarViewSelectedBorderBrush}" />
         <Setter Property="HoverBorderBrush" Value="{ThemeResource CalendarViewHoverBorderBrush}" />
         <Setter Property="PressedBorderBrush" Value="{ThemeResource CalendarViewPressedBorderBrush}" />
         <Setter Property="CalendarItemBorderBrush" Value="{ThemeResource CalendarViewCalendarItemBorderBrush}" />
-        <contract13Present:Setter Property="TodaySelectedInnerBorderBrush" Value="{ThemeResource CalendarViewTodaySelectedInnerBorderBrush}" />
         <Setter Property="TodayForeground" Value="{ThemeResource CalendarViewTodayForeground}" />
-        <contract13Present:Setter Property="DisabledForeground" Value="{ThemeResource CalendarViewDisabledForeground}" />
         <Setter Property="BlackoutForeground" Value="{ThemeResource CalendarViewBlackoutForeground}" />
         <Setter Property="SelectedForeground" Value="{ThemeResource CalendarViewSelectedForeground}" />
-        <contract13Present:Setter Property="SelectedHoverForeground" Value="{ThemeResource CalendarViewSelectedHoverForeground}" />
-        <contract13Present:Setter Property="SelectedPressedForeground" Value="{ThemeResource CalendarViewSelectedPressedForeground}" />
-        <contract13Present:Setter Property="SelectedDisabledForeground" Value="{ThemeResource CalendarViewSelectedDisabledForeground}" />
         <Setter Property="PressedForeground" Value="{ThemeResource CalendarViewPressedForeground}" />
         <Setter Property="OutOfScopeForeground" Value="{ThemeResource CalendarViewOutOfScopeForeground}" />
-        <contract13Present:Setter Property="OutOfScopeHoverForeground" Value="{ThemeResource CalendarViewOutOfScopeHoverForeground}" />
-        <contract13Present:Setter Property="OutOfScopePressedForeground" Value="{ThemeResource CalendarViewOutOfScopePressedForeground}" />
         <Setter Property="CalendarItemForeground" Value="{ThemeResource CalendarViewCalendarItemForeground}" />
-        <contract13Present:Setter Property="TodayBackground" Value="{ThemeResource CalendarViewTodayBackground}" />
-        <contract13Present:Setter Property="TodayBlackoutBackground" Value="{ThemeResource CalendarViewTodayBlackoutBackground}" />
-        <contract13Present:Setter Property="TodayBlackoutForeground" Value="{ThemeResource CalendarViewTodayBlackoutForeground}" />
-        <contract13Present:Setter Property="TodayHoverBackground" Value="{ThemeResource CalendarViewTodayHoverBackground}" />
-        <contract13Present:Setter Property="TodayPressedBackground" Value="{ThemeResource CalendarViewTodayPressedBackground}" />
-        <contract13Present:Setter Property="TodayDisabledBackground" Value="{ThemeResource CalendarViewTodayDisabledBackground}" />
-        <contract13Present:Setter Property="BlackoutBackground" Value="{ThemeResource CalendarViewBlackoutBackground}" />
         <Setter Property="OutOfScopeBackground" Value="{ThemeResource CalendarViewOutOfScopeBackground}" />
         <Setter Property="CalendarItemBackground" Value="{ThemeResource CalendarViewCalendarItemBackground}" />
-        <contract13Present:Setter Property="CalendarItemHoverBackground" Value="{ThemeResource CalendarViewCalendarItemHoverBackground}" />
-        <contract13Present:Setter Property="CalendarItemPressedBackground" Value="{ThemeResource CalendarViewCalendarItemPressedBackground}" />
-        <contract13Present:Setter Property="CalendarItemDisabledBackground" Value="{ThemeResource CalendarViewCalendarItemDisabledBackground}" />
         <Setter Property="Foreground" Value="{ThemeResource CalendarViewForeground}" />
         <Setter Property="Background" Value="{ThemeResource CalendarViewBackground}" />
         <Setter Property="BorderBrush" Value="{ThemeResource CalendarViewBorderBrush}" />
         <Setter Property="DayItemFontFamily" Value="XamlAutoFontFamily" />
         <Setter Property="DayItemFontSize" Value="{ThemeResource CalendarViewDayItemFontSize}" />
-        <contract13Present:Setter Property="DayItemMargin" Value="{ThemeResource CalendarViewDayItemMargin}" />
         <Setter Property="FirstOfMonthLabelFontFamily" Value="XamlAutoFontFamily" />
         <Setter Property="FirstOfMonthLabelFontSize" Value="{ThemeResource CalendarViewFirstOfMonthLabelFontSize}" />
-        <contract13Present:Setter Property="FirstOfMonthLabelMargin" Value="{ThemeResource CalendarViewFirstOfMonthLabelMargin}" />
         <Setter Property="MonthYearItemFontFamily" Value="XamlAutoFontFamily" />
         <Setter Property="MonthYearItemFontSize" Value="{ThemeResource CalendarViewMonthYearItemFontSize}" />
-        <contract13Present:Setter Property="MonthYearItemMargin" Value="{ThemeResource CalendarViewMonthYearItemMargin}" />
         <Setter Property="FirstOfYearDecadeLabelFontFamily" Value="XamlAutoFontFamily" />
         <Setter Property="FirstOfYearDecadeLabelFontSize" Value="{ThemeResource CalendarViewFirstOfYearDecadeLabelFontSize}" />
-        <contract13Present:Setter Property="FirstOfYearDecadeLabelMargin" Value="{ThemeResource CalendarViewFirstOfYearDecadeLabelMargin}" />
         <Setter Property="TodayFontWeight" Value="{ThemeResource CalendarViewTodayFontWeight}" />
         <Setter Property="CalendarItemBorderThickness" Value="1" />
         <Setter Property="BorderThickness" Value="1" />
@@ -958,4 +942,32 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <contract13NotPresent:Style x:Key="DefaultCalendarViewStyle" TargetType="CalendarView" BasedOn="{StaticResource DefaultCalendarViewBaseStyle}" />
+
+    <contract13Present:Style x:Key="DefaultCalendarViewStyle" TargetType="CalendarView" BasedOn="{StaticResource DefaultCalendarViewBaseStyle}">
+        <Setter Property="BlackoutStrikethroughBrush" Value="{ThemeResource CalendarViewBlackoutStrikethroughBrush}" />
+        <Setter Property="SelectedDisabledBorderBrush" Value="{ThemeResource CalendarViewSelectedDisabledBorderBrush}" />
+        <Setter Property="TodaySelectedInnerBorderBrush" Value="{ThemeResource CalendarViewTodaySelectedInnerBorderBrush}" />
+        <Setter Property="DisabledForeground" Value="{ThemeResource CalendarViewDisabledForeground}" />
+        <Setter Property="SelectedHoverForeground" Value="{ThemeResource CalendarViewSelectedHoverForeground}" />
+        <Setter Property="SelectedPressedForeground" Value="{ThemeResource CalendarViewSelectedPressedForeground}" />
+        <Setter Property="SelectedDisabledForeground" Value="{ThemeResource CalendarViewSelectedDisabledForeground}" />
+        <Setter Property="OutOfScopeHoverForeground" Value="{ThemeResource CalendarViewOutOfScopeHoverForeground}" />
+        <Setter Property="OutOfScopePressedForeground" Value="{ThemeResource CalendarViewOutOfScopePressedForeground}" />
+        <Setter Property="TodayBackground" Value="{ThemeResource CalendarViewTodayBackground}" />
+        <Setter Property="TodayBlackoutBackground" Value="{ThemeResource CalendarViewTodayBlackoutBackground}" />
+        <Setter Property="TodayBlackoutForeground" Value="{ThemeResource CalendarViewTodayBlackoutForeground}" />
+        <Setter Property="TodayHoverBackground" Value="{ThemeResource CalendarViewTodayHoverBackground}" />
+        <Setter Property="TodayPressedBackground" Value="{ThemeResource CalendarViewTodayPressedBackground}" />
+        <Setter Property="TodayDisabledBackground" Value="{ThemeResource CalendarViewTodayDisabledBackground}" />
+        <Setter Property="BlackoutBackground" Value="{ThemeResource CalendarViewBlackoutBackground}" />
+        <Setter Property="CalendarItemHoverBackground" Value="{ThemeResource CalendarViewCalendarItemHoverBackground}" />
+        <Setter Property="CalendarItemPressedBackground" Value="{ThemeResource CalendarViewCalendarItemPressedBackground}" />
+        <Setter Property="CalendarItemDisabledBackground" Value="{ThemeResource CalendarViewCalendarItemDisabledBackground}" />
+        <Setter Property="DayItemMargin" Value="{ThemeResource CalendarViewDayItemMargin}" />
+        <Setter Property="FirstOfMonthLabelMargin" Value="{ThemeResource CalendarViewFirstOfMonthLabelMargin}" />
+        <Setter Property="MonthYearItemMargin" Value="{ThemeResource CalendarViewMonthYearItemMargin}" />
+        <Setter Property="FirstOfYearDecadeLabelMargin" Value="{ThemeResource CalendarViewFirstOfYearDecadeLabelMargin}" />
+    </contract13Present:Style>
 </ResourceDictionary>
