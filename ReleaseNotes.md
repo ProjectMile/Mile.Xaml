@@ -1,6 +1,6 @@
 ﻿# Mile.Xaml Release Notes
 
-**Mile.Xaml 2.1 Preview 1 (2.1.651.0)**
+**Mile.Xaml 2.1 (2.1.661.0)**
 
 - Add Windows 11 XAML control styles for several XAML controls from Windows UI
   Library 2.8.4. (Contributed by Gaoyifei1011.)
@@ -17,7 +17,10 @@
   - TreeView and TreeViewItem
 - Update email address for source code.
 - Update Mile.Project.Windows.
-- Adjust project configurations. 
+- Adjust project configurations.
+- Fix the background refreshing issue for Mile.Xaml.Managed.
+- Add transparent background option API for Mile.Xaml.Managed.
+- Continue to improve ContentDialog resizing support for Mile.Xaml.Managed.
 
 **Mile.Xaml 2.0 Update 2 (2.0.617.0)**
 
