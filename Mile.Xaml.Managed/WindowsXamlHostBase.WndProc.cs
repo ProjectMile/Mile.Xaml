@@ -6,6 +6,7 @@ using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mile.Xaml.Interop;
 using Windows.UI.Core;
@@ -83,20 +84,29 @@ namespace Mile.Xaml
                 case NativeDefines.WM_MOVE:
                 case NativeDefines.WM_SIZE:
                 case NativeDefines.WM_WINDOWPOSCHANGED:
-                case NativeDefines.WM_WINDOWPOSCHANGING:
                     base.WndProc(ref m);
                     SetDesktopWindowXamlSourceWindowPos();
 
-                    // Reference: https://github.com/microsoft/microsoft-ui-xaml
-                    //            /issues/3577
-                    // ContentDialogs don't resize themselves when the XAML island
-                    // resizes. However, if we manually resize our CoreWindow, that'll
-                    // actually trigger a resize of the ContentDialog.
-                    SendMessage(
-                        CoreWindow.GetForCurrentThread().GetInterop().WindowHandle,
-                        m.Msg,
-                        m.WParam,
-                        m.LParam);
+                    IntPtr CoreWindowHandle =
+                        CoreWindow.GetForCurrentThread().GetInterop().WindowHandle;
+                    Message CurrentMessage = m;
+
+                    // Use Delay execution for improving the resizing for ContentDialogs.
+                    Task.Delay(200).ContinueWith(t =>
+                    {
+                        // Reference: https://github.com/microsoft/microsoft-ui-xaml
+                        //            /issues/3577
+                        // ContentDialogs don't resize themselves when the XAML island
+                        // resizes. However, if we manually resize our CoreWindow, that'll
+                        // actually trigger a resize of the ContentDialog.
+                        SendMessage(
+                            CoreWindowHandle,
+                            CurrentMessage.Msg,
+                            CurrentMessage.WParam,
+                            CurrentMessage.LParam);
+                    });
+
+                   
                     break;
 
                 // BUGBUG: Focus integration with Windows.UI.Xaml.Hosting.XamlSourceFocusNavigation is
