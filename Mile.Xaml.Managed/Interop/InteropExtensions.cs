@@ -12,6 +12,7 @@ using System.Runtime.InteropServices;
 using System;
 using Windows.UI.Core;
 using Windows.UI.Xaml.Hosting;
+using Windows.UI.Xaml;
 
 namespace Mile.Xaml.Interop
 {
@@ -44,6 +45,22 @@ namespace Mile.Xaml.Interop
                     BaseObjectIntPtr,
                     typeof(ICoreWindowInterop));
                 return (ICoreWindowInterop)TypedObject;
+            }
+            finally
+            {
+                Marshal.Release(BaseObjectIntPtr);
+            }
+        }
+
+        public static IWindowPrivate GetInterop(this Window BaseObject)
+        {
+            IntPtr BaseObjectIntPtr = Marshal.GetIUnknownForObject(BaseObject);
+            try
+            {
+                object TypedObject = Marshal.GetTypedObjectForIUnknown(
+                    BaseObjectIntPtr,
+                    typeof(IWindowPrivate));
+                return (IWindowPrivate)TypedObject;
             }
             finally
             {
