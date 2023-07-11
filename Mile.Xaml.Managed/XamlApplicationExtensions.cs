@@ -8,6 +8,7 @@
  * DEVELOPER: MouriNaruto (KurikoMouri@outlook.jp)
  */
 
+using Mile.Xaml.Interop;
 using System;
 using System.Runtime.InteropServices;
 using Windows.UI.Xaml;
@@ -44,6 +45,8 @@ namespace Mile.Xaml
             {
                 XamlManager = WindowsXamlManager.InitializeForCurrentThread();
             }
+
+            BaseObject.SetTransparentBackgroundAttribute(true);
         }
 
         public static void ThreadUninitialize(
@@ -60,6 +63,19 @@ namespace Mile.Xaml
             {
                 DispatchMessage(ref Message);
             }
+        }
+
+        public static bool GetTransparentBackgroundAttribute(
+            this Application BaseObject)
+        {
+            return Window.Current.GetInterop().TransparentBackground;
+        }
+
+        public static void SetTransparentBackgroundAttribute(
+            this Application BaseObject,
+            bool AttributeValue)
+        {
+            Window.Current.GetInterop().TransparentBackground = AttributeValue;
         }
     }
 }

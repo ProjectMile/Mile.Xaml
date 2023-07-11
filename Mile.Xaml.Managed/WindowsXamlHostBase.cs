@@ -228,10 +228,10 @@ namespace Mile.Xaml
                 XamlSourceNative.AttachToWindow(Handle);
                 _xamlIslandWindowHandle = XamlSourceNative.WindowHandle;
 
-                // Set window style required by container control to support Focus
-                if (Interop.UnsafeNativeMethods.SetWindowLong(Handle, Interop.NativeDefines.GWL_EXSTYLE, Interop.NativeDefines.WS_EX_CONTROLPARENT) == 0)
+                // Set window style required by container control to support Focus and background refresh
+                if (Interop.UnsafeNativeMethods.SetWindowLong(Handle, Interop.NativeDefines.GWL_EXSTYLE, Interop.NativeDefines.WS_EX_CONTROLPARENT | Interop.NativeDefines.WS_EX_LAYERED) == 0)
                 {
-                    throw new InvalidOperationException("WindowsXamlHostBase::OnHandleCreated: Failed to set WS_EX_CONTROLPARENT on control window.");
+                    throw new InvalidOperationException("WindowsXamlHostBase::OnHandleCreated: Failed to set WS_EX_CONTROLPARENT and WS_EX_LAYERED on control window.");
                 }
 
                 if (ChildInternal != null)

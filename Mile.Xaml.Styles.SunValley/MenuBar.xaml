@@ -9,7 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <ResourceDictionary.ThemeDictionaries>
-        <ResourceDictionary x:Key="Dark">
+        <ResourceDictionary x:Key="Default">
             <StaticResource x:Key="MenuBarBackground" ResourceKey="SubtleFillColorTransparentBrush" />
         </ResourceDictionary>
 

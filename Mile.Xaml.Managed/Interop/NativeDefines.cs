@@ -24,6 +24,7 @@ namespace Mile.Xaml.Interop
 
         // Window Styles
         public const uint WS_EX_CONTROLPARENT = 0x00010000;
+        public const uint WS_EX_LAYERED = 0x00080000;
         public const int GWL_STYLE = -16;
         public const int GWL_EXSTYLE = -20;
 
