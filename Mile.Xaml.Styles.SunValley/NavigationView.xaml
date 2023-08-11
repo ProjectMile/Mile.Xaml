@@ -520,7 +520,7 @@
         <Setter Property="BorderThickness" Value="{ThemeResource NavigationViewToggleBorderThickness}" />
         <Setter Property="Background" Value="{ThemeResource NavigationViewItemBackground}" />
         <Setter Property="Foreground" Value="{ThemeResource NavigationViewItemForeground}" />
-        <Setter Property="Content" Value="&#xE11A;" />
+        <Setter Property="Content" Value="&#xE721;" />
         <Setter Property="MinHeight" Value="36" />
         <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="FocusVisualMargin" Value="-4,0" />
@@ -640,7 +640,7 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
 
-                                <Border x:Name="IconColumn" Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=TemplateSettings.SmallerIconWidth}">
+                                <Border x:Name="IconColumn">
                                     <Viewbox x:Name="IconBox"
                                         Height="{ThemeResource NavigationViewItemOnLeftIconBoxHeight}"
                                         HorizontalAlignment="Center"
