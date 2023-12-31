@@ -38,6 +38,9 @@ namespace Mile.Xaml
         [ThreadStatic]
         private static WindowsXamlManager XamlManager = null;
 
+        [ThreadStatic]
+        private static System.Windows.Forms.Form CoreWindowHostWindow = null;
+
         public static void ThreadInitialize(
             this Application BaseObject)
         {
@@ -47,6 +50,22 @@ namespace Mile.Xaml
             }
 
             BaseObject.SetTransparentBackgroundAttribute(true);
+
+            // Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window
+            // in the task bar.
+            // Reference: https://github.com/microsoft/terminal/issues/6507
+            // Reference: https://github.com/microsoft/microsoft-ui-xaml/issues/6490
+            // Fixes: https://github.com/M2Team/NanaZip/issues/225
+            // For also fixing the window with empty content due to CoreWindow is
+            // not exist issue, create a host window without message loop is a
+            // better workaround.
+            if (CoreWindowHostWindow == null)
+            {
+                CoreWindowHostWindow = new System.Windows.Forms.Form();
+                CoreWindowHostWindow.Controls.Add(new WindowsXamlHost());
+                CoreWindowHostWindow.Show();
+                CoreWindowHostWindow.Hide();
+            }
         }
 
         public static void ThreadUninitialize(
