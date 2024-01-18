@@ -9,10 +9,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mile.Xaml.Styles", "Mile.Xa
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mile.Xaml.Managed", "Mile.Xaml.Managed\Mile.Xaml.Managed.csproj", "{10ED12D7-2FD6-4759-BC20-BE821674DFB9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaintainerTools", "MaintainerTools", "{FD7451C0-A146-4821-863F-02AA75DCFC7E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mile.Xaml.ControlStyleXamlGenerator", "Mile.Xaml.ControlStyleXamlGenerator\Mile.Xaml.ControlStyleXamlGenerator.csproj", "{E295ADF5-52CA-447B-8064-C530A97E807E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mile.Xaml", "Mile.Xaml", "{931D228C-8E9D-47E5-A535-3F356CA96E78}"
 	ProjectSection(SolutionItems) = preProject
 		Mile.Xaml\Mile.Xaml.nuspec = Mile.Xaml\Mile.Xaml.nuspec
@@ -76,20 +72,11 @@ Global
 		{10ED12D7-2FD6-4759-BC20-BE821674DFB9}.Release|x64.ActiveCfg = Release|Any CPU
 		{10ED12D7-2FD6-4759-BC20-BE821674DFB9}.Release|x64.Build.0 = Release|Any CPU
 		{10ED12D7-2FD6-4759-BC20-BE821674DFB9}.Release|x86.ActiveCfg = Release|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Debug|ARM64.ActiveCfg = Debug|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Debug|x64.Build.0 = Debug|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Release|ARM64.ActiveCfg = Release|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Release|x64.ActiveCfg = Release|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Release|x64.Build.0 = Release|Any CPU
-		{E295ADF5-52CA-447B-8064-C530A97E807E}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E295ADF5-52CA-447B-8064-C530A97E807E} = {FD7451C0-A146-4821-863F-02AA75DCFC7E}
 		{EB76F0B3-3CE0-4517-8BF2-367C53D745AA} = {931D228C-8E9D-47E5-A535-3F356CA96E78}
 		{1A7C0865-004B-454E-9AB7-35D593AFAF25} = {EB76F0B3-3CE0-4517-8BF2-367C53D745AA}
 		{14C8B3F2-E47B-49F5-9EA3-EB207CBECFCC} = {EB76F0B3-3CE0-4517-8BF2-367C53D745AA}
