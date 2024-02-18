@@ -1,5 +1,17 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.2 (2.2.890.0)**
+
+- Improve the Windows 11 XAML control styles for several XAML controls from
+  Windows UI Library 2 Series.
+- Update email address for source code.
+- Update Mile.Project.Windows.
+- Adjust project configurations.
+- Move maintainer tools to Mile.Xaml.MaintainerTools solution.
+- Add "Prevent showing the dummy/empty/ghost DesktopWindowXamlSource window in
+  the task bar" workaround from Mile.Xaml.Native for Mile.Xaml.Managed.
+- Improve the .NET Framework target IntelliSense and debugging experience.
+
 **Mile.Xaml 2.1 (2.1.661.0)**
 
 - Add Windows 11 XAML control styles for several XAML controls from Windows UI
