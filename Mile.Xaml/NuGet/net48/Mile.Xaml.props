@@ -9,7 +9,6 @@
    DEVELOPER: AndromedaMelody (github.com/AndromedaMelody)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
   <PropertyGroup>
     <!-- Remove UWP Default Main Method -->
     <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
@@ -29,6 +28,7 @@
       $(MSBuildThisFileDirectory)\Mile.Xaml.AfterImport.targets;
       $(MSBuildThisFileDirectory)..\MrtCore.PriGen.targets;
     </CustomAfterMicrosoftCommonTargets>
+    <!-- Set the XAML runtime setting to UAP to workaround -->
+    <DefaultXamlRuntime>UAP</DefaultXamlRuntime>
   </PropertyGroup>
-
 </Project>

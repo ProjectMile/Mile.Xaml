@@ -9,20 +9,6 @@
    DEVELOPER: AndromedaMelody (github.com/AndromedaMelody)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
-  <!-- Enable Xaml IntelliSense -->
-  <PropertyGroup Condition="'$(MileXamlEnableIntelliSenseForDotNet)' != 'false'">
-    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
-    <TargetPlatformMoniker>Windows,Version=$(TargetPlatformVersion)</TargetPlatformMoniker>
-    <TargetPlatformDisplayName>$([Microsoft.Build.Utilities.ToolLocationHelper]::GetPlatformSDKDisplayName('Windows', $(TargetPlatformVersion)))</TargetPlatformDisplayName>
-    <SupportedOSPlatformVersion>$(TargetPlatformMinVersion)</SupportedOSPlatformVersion>
-  </PropertyGroup>
-  <Target Name="RestoreTargetPlatformIdentifier" Condition="'$(MileXamlEnableIntelliSenseForDotNet)' != 'false'" BeforeTargets="BeforeBuild">
-    <PropertyGroup>
-      <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
-    </PropertyGroup>
-  </Target>
-
   <!-- Enable XAML Compiler -->
   <PropertyGroup>
     <VCInstallDir>Empty</VCInstallDir>
@@ -33,11 +19,4 @@
   </PropertyGroup>
   <Import Project="$(WindowsKitsXamlCompilerTargetsPath)" />
   <Import Condition="'$(OutputType)' == 'Library'" Project="$(MSBuildThisFileDirectory)\Microsoft.WinUI.NET.Markup.Compiler.targets" />
-
-  <!-- Must use .NET SDK and install Windows SDK -->
-  <Target Name="CheckNetSdkEnvironment" BeforeTargets="BeforeBuild">
-    <Error Text="Must use .NET SDK." Condition="'$(UsingMicrosoftNETSdk)' != 'true'" />
-    <Error Text="Can't find Windows.UI.Xaml Compiler, please install Microsoft.Windows.SDK.CPP in NuGet Package Manager." Condition="!Exists($(WindowsKitsXamlCompilerTargetsPath))" />
-  </Target>
-
 </Project>

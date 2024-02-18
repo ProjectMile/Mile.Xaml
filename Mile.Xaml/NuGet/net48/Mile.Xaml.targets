@@ -12,4 +12,10 @@
   <ItemGroup Condition="'$(MileXamlNoSunValleyXamlStyle)' != 'true'">
     <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\Redist\Styles\Mile.Xaml.Styles.SunValley.xbf" />
   </ItemGroup>
+
+  <!-- Must use .NET SDK and install Windows SDK -->
+  <Target Name="CheckNetSdkEnvironment" BeforeTargets="BeforeBuild">
+    <Error Text="Must use .NET SDK." Condition="'$(UsingMicrosoftNETSdk)' != 'true'" />
+    <Error Text="Can't find Windows.UI.Xaml Compiler, please install Microsoft.Windows.SDK.CPP in NuGet Package Manager." Condition="!Exists($(WindowsKitsXamlCompilerTargetsPath))" />
+  </Target>
 </Project>
