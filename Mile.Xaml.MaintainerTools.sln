@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mile.Xaml.RefreshPackageVersion", "Mile.Xaml.RefreshPackageVersion\Mile.Xaml.RefreshPackageVersion.csproj", "{1F264EB8-8C28-4A29-8DBB-32C04A90B231}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mile.Xaml.ControlStyleXamlGenerator", "Mile.Xaml.ControlStyleXamlGenerator\Mile.Xaml.ControlStyleXamlGenerator.csproj", "{B8DB4ACE-F062-42C9-A984-C99AA33CC8D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F264EB8-8C28-4A29-8DBB-32C04A90B231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F264EB8-8C28-4A29-8DBB-32C04A90B231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F264EB8-8C28-4A29-8DBB-32C04A90B231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F264EB8-8C28-4A29-8DBB-32C04A90B231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8DB4ACE-F062-42C9-A984-C99AA33CC8D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8DB4ACE-F062-42C9-A984-C99AA33CC8D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8DB4ACE-F062-42C9-A984-C99AA33CC8D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8DB4ACE-F062-42C9-A984-C99AA33CC8D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8D131BB-613A-4699-92BE-1FE4E9000FF8}
+	EndGlobalSection
+EndGlobal

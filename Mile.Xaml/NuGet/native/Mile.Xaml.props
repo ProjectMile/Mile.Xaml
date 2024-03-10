@@ -6,7 +6,7 @@
 
    LICENSE:   The MIT License
 
-   DEVELOPER: MouriNaruto (KurikoMouri@outlook.jp)
+   MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>

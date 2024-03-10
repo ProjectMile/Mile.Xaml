@@ -16,7 +16,8 @@ and [NanaGet](https://github.com/M2Team/NanaGet) were also created.
 
 - Provide XAML Compiler, XAML Designer and XAML Hot Reload support.
 - Provide Windows 11 XAML controls styles for Windows Runtime XAML controls.
-- Provide C/C++ projects and .NET Framework (Work In Progress) projects support.
+- Provide C/C++ projects and .NET Framework (Visual Studio 2022 Version 17.9.0
+  or later) projects support.
 - Integrate all features from Microsoft.Toolkit.Win32.UI.XamlApplication.
 - Provide support for responding to Windows theme changes from dark to light
   or vice versa at run time.

@@ -6,12 +6,12 @@
 
   LICENSE:   The MIT License
 
-  DEVELOPER: MouriNaruto (KurikoMouri@outlook.jp)
+  MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
 -->
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
   <metadata>
     <id>Mile.Xaml</id>
-    <version>2.1.661.0</version>
+    <version>2.2.890.0</version>
     <description>Provides the modern Windows style to Windows.UI.Xaml for desktop applications with XAML Islands.</description>
     <authors>Kenji Mouri</authors>
     <projectUrl>https://github.com/ProjectMile/Mile.Xaml</projectUrl>
