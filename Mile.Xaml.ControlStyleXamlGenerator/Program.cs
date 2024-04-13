@@ -83,7 +83,8 @@ namespace Mile.Xaml.ControlStyleXamlGenerator
 
             genericXaml.Save(ProjectRootPath + @"\Mile.Xaml.Styles\Mile.Xaml.Styles.SunValley.xaml");
 
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine(
+                "Mile.Xaml.ControlStyleXamlGenerator task has been completed.");
             Console.ReadKey();
         }
     }
