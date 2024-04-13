@@ -42,7 +42,8 @@ namespace Mile.Xaml.RefreshPackageVersion
 
             Document.Save(NuspecFilePath);
 
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine(
+                "Mile.Xaml.RefreshPackageVersion task has been completed.");
             Console.ReadKey();
         }
     }
