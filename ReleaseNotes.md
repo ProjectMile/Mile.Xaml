@@ -1,5 +1,10 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.2 Update 1 (2.2.944.0)**
+
+- Add Mile.Xaml.Interop.IInitializeWithWindow. (Contributed by Gaoyifei1011.)
+- Improve CoreWindow host window implementation. (Thanks to Gaoyifei1011.)
+
 **Mile.Xaml 2.2 (2.2.890.0)**
 
 - Improve the Windows 11 XAML control styles for several XAML controls from
