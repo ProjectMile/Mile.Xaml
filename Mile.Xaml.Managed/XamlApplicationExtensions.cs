@@ -61,10 +61,7 @@ namespace Mile.Xaml
             // better workaround.
             if (CoreWindowHostWindow == null)
             {
-                CoreWindowHostWindow = new System.Windows.Forms.Form();
-                CoreWindowHostWindow.Controls.Add(new WindowsXamlHost());
-                CoreWindowHostWindow.Show();
-                CoreWindowHostWindow.Hide();
+                CoreWindowHostWindow = new CoreWindowHost();
             }
         }
 
