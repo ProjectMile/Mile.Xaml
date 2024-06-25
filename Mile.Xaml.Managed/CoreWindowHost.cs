@@ -20,6 +20,7 @@ namespace Mile.Xaml
         public CoreWindowHost()
         {
             Controls.Add(new WindowsXamlHost());
+            ShowInTaskbar = false;
             Show();
             Hide();
         }
