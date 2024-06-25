@@ -1,5 +1,10 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.2 Update 2 (2.2.1017.0)**
+
+- Fix the taskbar flashes issue when using Mile.Xaml.Managed. (Contributed by
+  Gaoyifei1011.)
+
 **Mile.Xaml 2.2 Update 1 (2.2.944.0)**
 
 - Add Mile.Xaml.Interop.IInitializeWithWindow. (Contributed by Gaoyifei1011.)
