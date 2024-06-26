@@ -31,7 +31,6 @@
 
 #include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.UI.Xaml.h>
-#include <winrt/Windows.UI.Xaml.Controls.h>
 #include <winrt/Windows.UI.Xaml.Hosting.h>
 #include <winrt/Windows.UI.Xaml.Media.h>
 
@@ -47,15 +46,11 @@
 
 namespace winrt
 {
-    using Windows::Foundation::Uri;
     using Windows::UI::Core::CoreWindow;
     using Windows::UI::Xaml::ElementTheme;
     using Windows::UI::Xaml::FrameworkElement;
     using Windows::UI::Xaml::Input::KeyboardNavigationMode;
-    using Windows::UI::Xaml::ResourceDictionary;
     using Windows::UI::Xaml::Window;
-    using Windows::UI::Xaml::Controls::Control;
-    using Windows::UI::Xaml::Controls::Grid;
     using Windows::UI::Xaml::Hosting::DesktopWindowXamlSource;
     using Windows::UI::Xaml::Hosting::WindowsXamlManager;
     using Windows::UI::Xaml::Media::VisualTreeHelper;
