@@ -27,6 +27,7 @@ namespace Mile.Xaml.Interop
     {
         void AttachToWindow(IntPtr parentWnd);
 
+        // Original declaration: IntPtr WindowHandle { get; }
         IntPtr GetWindowHandle();
 
         [return:MarshalAs(UnmanagedType.I1)]

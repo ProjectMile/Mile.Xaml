@@ -25,9 +25,12 @@ namespace Mile.Xaml.Interop
     [Guid("06636C29-5A17-458D-8EA2-2422D997A922")]
     public partial interface IWindowPrivate
     {
+        // IInspectable methods
         void GetIids(out int iidCount, out IntPtr iids);
         void GetRuntimeClassName(out IntPtr className);
         void GetTrustLevel(out int trustLevel);
+
+        // Original declaration: bool TransparentBackground { get; set; }
         [return: MarshalAs(UnmanagedType.I1)] bool GetTransparentBackground();
         void SetTransparentBackground([MarshalAs(UnmanagedType.I1)] bool transparentBackground);
     }

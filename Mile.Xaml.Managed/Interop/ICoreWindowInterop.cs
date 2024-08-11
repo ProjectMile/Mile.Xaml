@@ -25,7 +25,10 @@ namespace Mile.Xaml.Interop
     [Guid("45D64A29-A63E-4CB6-B498-5781D298CB4F")]
     public partial interface ICoreWindowInterop
     {
+        // Original declaration: IntPtr WindowHandle { get; }
         IntPtr GetWindowHandle();
+
+        // Original declaration: bool MessageHandled { set; }
         void SetMessageHandled([MarshalAs(UnmanagedType.I1)]bool messageHandled);
     }
 }
