@@ -1,5 +1,11 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.3 (2.3.1064.0)**
+
+- Introduce the Modern .NET support which supports Native AOT and needs .NET 8.0
+  or later. (Contributed by driver1998.)
+- Simplify the Mile.Xaml.Native implementation.
+
 **Mile.Xaml 2.2 Update 2 (2.2.1017.0)**
 
 - Fix the taskbar flashes issue when using Mile.Xaml.Managed. (Contributed by
