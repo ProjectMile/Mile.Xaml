@@ -18,7 +18,7 @@ namespace Mile.Xaml.RefreshPackageVersion
             string VersionTag = "-preview";
 
             string VersionString = string.Format(
-                "2.2.{0}.0{1}",
+                "2.3.{0}.0{1}",
                 DateTime.Today.Subtract(DateTime.Parse("2021-09-12")).TotalDays,
                 VersionTag);
 

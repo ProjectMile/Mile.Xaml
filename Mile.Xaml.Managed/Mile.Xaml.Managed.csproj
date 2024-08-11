@@ -9,7 +9,7 @@
     <Company>Project Mile</Company>
     <Product>Mile.Xaml</Product>
     <Copyright>© Project Mile. All rights reserved.</Copyright>
-    <Version>2.2.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</Version>
+    <Version>2.3.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</Version>
     <UseWindowsForms>true</UseWindowsForms>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Nullable>disable</Nullable>
