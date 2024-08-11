@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+   PROJECT:   Mouri Internal Library Essentials
+   FILE:      Mile.Xaml.targets
+   PURPOSE:   MSBuild targets file for Mile.Xaml .NET 8 target
+
+   LICENSE:   The MIT License
+
+   MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Condition="'$(MileXamlNoSunValleyXamlStyle)' != 'true'">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\Redist\Styles\Mile.Xaml.Styles.SunValley.xbf" />
+  </ItemGroup>
+
+  <!-- Must use .NET SDK and install Windows SDK -->
+  <Target Name="CheckNetSdkEnvironment" BeforeTargets="BeforeBuild">
+    <Error Text="Must use .NET SDK." Condition="'$(UsingMicrosoftNETSdk)' != 'true'" />
+    <Error Text="Can't find Windows.UI.Xaml Compiler, please install Microsoft.Windows.SDK.CPP in NuGet Package Manager." Condition="!Exists($(WindowsKitsXamlCompilerTargetsPath))" />
+  </Target>
+</Project>

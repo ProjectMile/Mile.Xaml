@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
     <TargetPlatformVersion>10.0.22621.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.19041.0</TargetPlatformMinVersion>
     <LangVersion>latest</LangVersion>
@@ -11,9 +11,21 @@
     <Copyright>© Project Mile. All rights reserved.</Copyright>
     <Version>2.2.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</Version>
     <UseWindowsForms>true</UseWindowsForms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
+  <PropertyGroup Condition="$(TargetFramework) == 'net8.0-windows'">
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <IsAotCompatible>true</IsAotCompatible>
+    <WindowsSdkPackageVersion>$([System.Version]::Parse('$(TargetPlatformMinVersion)').ToString(3)).39</WindowsSdkPackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup Condition="$(TargetFramework) == 'net8.0-windows'">
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.DisableRuntimeMarshalling" />
+  </ItemGroup>
+
+  <ItemGroup Condition="$(TargetFramework) == 'net48'">
     <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="$([System.Version]::Parse('$(TargetPlatformVersion)').ToString(3)).*" />
   </ItemGroup>
 

@@ -64,8 +64,13 @@ namespace Mile.Xaml
             // Do not draw the background
         }
 
+#if NET8_0_OR_GREATER
+        [LibraryImport("user32.dll", EntryPoint = "SendMessageW", SetLastError = true, StringMarshalling = StringMarshalling.Utf16)]
+        internal static partial IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+#else
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         internal static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, IntPtr lParam);
+#endif
 
         /// <summary>
         /// Processes Windows messages for XamlContentHost control window (not XAML window)
@@ -88,7 +93,7 @@ namespace Mile.Xaml
                     SetDesktopWindowXamlSourceWindowPos();
 
                     IntPtr CoreWindowHandle =
-                        CoreWindow.GetForCurrentThread().GetInterop().WindowHandle;
+                        CoreWindow.GetForCurrentThread().GetInterop().GetWindowHandle();
                     Message CurrentMessage = m;
 
                     // Use Delay execution for improving the resizing for ContentDialogs.
@@ -133,7 +138,7 @@ namespace Mile.Xaml
                 case NativeDefines.WM_KILLFOCUS:
                     // If focus is being set on the UWP XAML island window then we should prevent LostFocus by
                     // handling this message.
-                    if (_xamlIslandWindowHandle == null || _xamlIslandWindowHandle != m.WParam || _xamlSource.HasFocus)
+                    if (_xamlIslandWindowHandle != IntPtr.Zero || _xamlIslandWindowHandle != m.WParam || _xamlSource.HasFocus)
                     {
                         base.WndProc(ref m);
                     }
@@ -141,7 +146,7 @@ namespace Mile.Xaml
                     break;
 
                 case NativeDefines.WM_DPICHANGED_AFTERPARENT:
-                    if (_xamlIslandWindowHandle != null)
+                    if (_xamlIslandWindowHandle != IntPtr.Zero)
                     {
                         UpdateDpiScalingFactor();
                         PerformLayout();
