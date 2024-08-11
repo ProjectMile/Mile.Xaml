@@ -21,6 +21,10 @@ namespace Mile.Xaml.Interop
         public static IDesktopWindowXamlSourceNative2 GetInterop(
             this DesktopWindowXamlSource BaseObject)
         {
+#if NET8_0_OR_GREATER
+            IDesktopWindowXamlSourceNative2 InteropObject = (IDesktopWindowXamlSourceNative2)(object)BaseObject;
+            return InteropObject;
+#else
             IntPtr BaseObjectIntPtr = Marshal.GetIUnknownForObject(BaseObject);
             try
             {
@@ -33,11 +37,16 @@ namespace Mile.Xaml.Interop
             {
                 Marshal.Release(BaseObjectIntPtr);
             }
+#endif
         }
 
         public static ICoreWindowInterop GetInterop(
             this CoreWindow BaseObject)
         {
+#if NET8_0_OR_GREATER
+            ICoreWindowInterop InteropObject = (ICoreWindowInterop)(object)BaseObject;
+            return InteropObject;
+#else
             IntPtr BaseObjectIntPtr = Marshal.GetIUnknownForObject(BaseObject);
             try
             {
@@ -50,10 +59,15 @@ namespace Mile.Xaml.Interop
             {
                 Marshal.Release(BaseObjectIntPtr);
             }
+#endif
         }
 
         public static IWindowPrivate GetInterop(this Window BaseObject)
         {
+#if NET8_0_OR_GREATER
+            IWindowPrivate InteropObject = (IWindowPrivate)(object)BaseObject;
+            return InteropObject;
+#else
             IntPtr BaseObjectIntPtr = Marshal.GetIUnknownForObject(BaseObject);
             try
             {
@@ -66,6 +80,7 @@ namespace Mile.Xaml.Interop
             {
                 Marshal.Release(BaseObjectIntPtr);
             }
+#endif
         }
     }
 }

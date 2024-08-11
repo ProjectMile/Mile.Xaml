@@ -226,7 +226,7 @@ namespace Mile.Xaml
                 // Attach window to DesktopWindowXamSource as a render target
                 var XamlSourceNative = _xamlSource.GetInterop();
                 XamlSourceNative.AttachToWindow(Handle);
-                _xamlIslandWindowHandle = XamlSourceNative.WindowHandle;
+                _xamlIslandWindowHandle = XamlSourceNative.GetWindowHandle();
 
                 // Set window style required by container control to support Focus and background refresh
                 if (Interop.UnsafeNativeMethods.SetWindowLong(Handle, Interop.NativeDefines.GWL_EXSTYLE, Interop.NativeDefines.WS_EX_CONTROLPARENT | Interop.NativeDefines.WS_EX_LAYERED) == 0)

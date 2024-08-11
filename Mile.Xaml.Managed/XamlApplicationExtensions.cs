@@ -16,12 +16,22 @@ using Windows.UI.Xaml.Hosting;
 
 namespace Mile.Xaml
 {
-    public static class XamlApplicationExtensions
+    public static partial class XamlApplicationExtensions
     {
         private const uint PM_NOREMOVE = 0x0000;
         private const uint PM_REMOVE = 0x0001;
         private const uint PM_NOYIELD = 0x0002;
 
+#if NET8_0_OR_GREATER
+        [LibraryImport("user32.dll", EntryPoint = "PeekMessageW", SetLastError = true, StringMarshalling = StringMarshalling.Utf16)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        private static partial bool PeekMessage(
+            out System.Windows.Forms.Message lpMsg,
+            IntPtr hWnd,
+            uint wMsgFilterMin,
+            uint wMsgFilterMax,
+            uint wRemoveMsg);
+#else
         [DllImport("user32.dll", CharSet = CharSet.Unicode)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool PeekMessage(
@@ -30,10 +40,18 @@ namespace Mile.Xaml
             uint wMsgFilterMin,
             uint wMsgFilterMax,
             uint wRemoveMsg);
+#endif
 
+#if NET8_0_OR_GREATER
+        [LibraryImport("user32.dll", EntryPoint = "DispatchMessageW", SetLastError = true, StringMarshalling = StringMarshalling.Utf16)]
+        private static partial IntPtr DispatchMessage(
+            ref System.Windows.Forms.Message lpMsg);
+#else
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Unicode)]
         private static extern IntPtr DispatchMessage(
             ref System.Windows.Forms.Message lpMsg);
+#endif
+
 
         [ThreadStatic]
         private static WindowsXamlManager XamlManager = null;
@@ -84,14 +102,14 @@ namespace Mile.Xaml
         public static bool GetTransparentBackgroundAttribute(
             this Application BaseObject)
         {
-            return Window.Current.GetInterop().TransparentBackground;
+            return Window.Current.GetInterop().GetTransparentBackground();
         }
 
         public static void SetTransparentBackgroundAttribute(
             this Application BaseObject,
             bool AttributeValue)
         {
-            Window.Current.GetInterop().TransparentBackground = AttributeValue;
+            Window.Current.GetInterop().SetTransparentBackground(AttributeValue);
         }
     }
 }

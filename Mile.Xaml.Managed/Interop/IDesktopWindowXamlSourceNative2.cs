@@ -10,18 +10,26 @@
 
 using System;
 using System.Runtime.InteropServices;
+#if NET8_0_OR_GREATER
+using System.Runtime.InteropServices.Marshalling;
+#endif
 
 namespace Mile.Xaml.Interop
 {
+#if NET8_0_OR_GREATER
+    [GeneratedComInterface]
+#else
     [ComImport]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+#endif
     [Guid("e3dcd8c7-3057-4692-99c3-7b7720afda31")]
-    public interface IDesktopWindowXamlSourceNative2
+    public partial interface IDesktopWindowXamlSourceNative2
     {
         void AttachToWindow(IntPtr parentWnd);
 
-        IntPtr WindowHandle { get; }
+        IntPtr GetWindowHandle();
 
+        [return:MarshalAs(UnmanagedType.I1)]
         bool PreTranslateMessage(ref System.Windows.Forms.Message message);
     }
 }

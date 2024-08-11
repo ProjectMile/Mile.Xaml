@@ -10,15 +10,22 @@
 
 using System;
 using System.Runtime.InteropServices;
+#if NET8_0_OR_GREATER
+using System.Runtime.InteropServices.Marshalling;
+#endif
 
 namespace Mile.Xaml.Interop
 {
+#if NET8_0_OR_GREATER
+    [GeneratedComInterface]
+#else
     [ComImport]
-    [Guid("45D64A29-A63E-4CB6-B498-5781D298CB4F")]
     [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-    public interface ICoreWindowInterop
+#endif
+    [Guid("45D64A29-A63E-4CB6-B498-5781D298CB4F")]
+    public partial interface ICoreWindowInterop
     {
-        IntPtr WindowHandle { get; }
-        bool MessageHandled { set; }
+        IntPtr GetWindowHandle();
+        void SetMessageHandled([MarshalAs(UnmanagedType.I1)]bool messageHandled);
     }
 }

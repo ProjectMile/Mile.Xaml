@@ -34,6 +34,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net48", "net48", "{14C8B3F2
 		Mile.Xaml\NuGet\net48\Mile.Xaml.targets = Mile.Xaml\NuGet\net48\Mile.Xaml.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net8.0", "net8.0", "{2B753308-E55A-491B-B2FE-3CC4422864D6}"
+	ProjectSection(SolutionItems) = preProject		
+		Mile.Xaml\NuGet\net8.0\Mile.Xaml.props = Mile.Xaml\NuGet\net8.0\Mile.Xaml.props
+		Mile.Xaml\NuGet\net8.0\Mile.Xaml.targets = Mile.Xaml\NuGet\net8.0\Mile.Xaml.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|ARM64 = Debug|ARM64
@@ -80,6 +86,7 @@ Global
 		{EB76F0B3-3CE0-4517-8BF2-367C53D745AA} = {931D228C-8E9D-47E5-A535-3F356CA96E78}
 		{1A7C0865-004B-454E-9AB7-35D593AFAF25} = {EB76F0B3-3CE0-4517-8BF2-367C53D745AA}
 		{14C8B3F2-E47B-49F5-9EA3-EB207CBECFCC} = {EB76F0B3-3CE0-4517-8BF2-367C53D745AA}
+		{2B753308-E55A-491B-B2FE-3CC4422864D6} = {EB76F0B3-3CE0-4517-8BF2-367C53D745AA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7988428E-156C-4D84-8DEE-989B06041193}
