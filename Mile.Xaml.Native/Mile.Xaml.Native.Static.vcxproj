@@ -19,6 +19,13 @@
   <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
   <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <PreprocessorDefinitions>WINRT_NO_SOURCE_LOCATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <OmitDefaultLibName>true</OmitDefaultLibName>
+    </ClCompile>
+  </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="IWindowPrivate.h" />
     <ClInclude Include="Mile.Xaml.h" />
