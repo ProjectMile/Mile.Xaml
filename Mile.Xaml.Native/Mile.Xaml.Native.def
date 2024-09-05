@@ -1,0 +1,15 @@
+﻿LIBRARY
+
+EXPORTS
+
+MileXamlGetCoreWindowHandle
+MileXamlSetXamlContentForContentWindow
+MileXamlContentWindowDefaultCallback
+MileXamlGetTransparentBackgroundAttribute
+MileXamlSetTransparentBackgroundAttribute
+MileXamlGetPreferredDarkModeAttribute
+MileXamlSetPreferredDarkModeAttribute
+MileXamlThreadInitialize
+MileXamlThreadUninitialize
+MileXamlGlobalInitialize
+MileXamlGlobalUninitialize

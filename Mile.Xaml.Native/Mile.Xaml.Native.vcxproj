@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1BF27457-37EC-4C37-8BD1-EF181C5E11F3}</ProjectGuid>
+    <RootNamespace>Mile.Xaml.Native</RootNamespace>
+    <MileProjectType>DynamicLibrary</MileProjectType>
+    <TargetName>Mile.Xaml</TargetName>
+    <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
+    <MileProjectEnableVCLTLSupport>true</MileProjectEnableVCLTLSupport>
+    <MileProjectEnableCppWinRTSupport>true</MileProjectEnableCppWinRTSupport>
+    <MileProjectUseProjectProperties>true</MileProjectUseProjectProperties>
+    <MileProjectCompanyName>Project Mile</MileProjectCompanyName>
+    <MileProjectFileDescription>Mile.Xaml.Native</MileProjectFileDescription>
+    <MileProjectInternalName>Mile.Xaml.Native</MileProjectInternalName>
+    <MileProjectLegalCopyright>© Project Mile. All rights reserved.</MileProjectLegalCopyright>
+    <MileProjectOriginalFilename>Mile.Xaml.Native.dll</MileProjectOriginalFilename>
+    <MileProjectProductName>Mile.Xaml</MileProjectProductName>
+    <MileProjectVersion>2.3.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</MileProjectVersion>
+    <!-- <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag> -->
+  </PropertyGroup>
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x86.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.x64.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Platform.ARM64.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.Default.props" />
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.props" />
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <ModuleDefinitionFile>Mile.Xaml.Native.def</ModuleDefinitionFile>
+      <AdditionalDependencies>$(OutDir)Mile.Xaml.Native.Static.lib;runtimeobject.lib;libcmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="Mile.Xaml.Native.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="$(MSBuildThisFileDirectory)Mile.Xaml.Native.Static.vcxproj">
+      <Project>{4c5da281-1fdd-41b7-9d3f-94132227ca0e}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\Mile.Project.Windows\Mile.Project.Cpp.targets" />
+</Project>
