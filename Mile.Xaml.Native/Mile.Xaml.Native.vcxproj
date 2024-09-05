@@ -30,7 +30,7 @@
     <Link>
       <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
       <ModuleDefinitionFile>Mile.Xaml.Native.def</ModuleDefinitionFile>
-      <AdditionalDependencies>$(OutDir)Mile.Xaml.Native.Static.lib;runtimeobject.lib;libcmt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(OutDir)Mile.Xaml.Native.Static.lib;runtimeobject.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

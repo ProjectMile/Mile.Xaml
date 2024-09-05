@@ -23,7 +23,6 @@
     <ClCompile>
       <PreprocessorDefinitions>WINRT_NO_SOURCE_LOCATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
-      <OmitDefaultLibName>true</OmitDefaultLibName>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
