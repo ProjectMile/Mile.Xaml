@@ -53,6 +53,13 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     _In_ LPARAM lParam);
 
 /**
+ * @brief The default message loop function for Mile.Xaml.ContentWindow
+ *        window class.
+ * @return The message loop exit code.
+ */
+EXTERN_C int WINAPI MileXamlContentWindowDefaultMessageLoop();
+
+/**
  * @brief Retrieves the transparent background attribute for contents hosted
  *        via XAML Islands.
  * @param TransparentBackground TRUE to use transparent background, FALSE to
