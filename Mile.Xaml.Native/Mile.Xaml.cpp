@@ -522,90 +522,77 @@ EXTERN_C HRESULT WINAPI MileXamlThreadInitialize()
 
 EXTERN_C HRESULT WINAPI MileXamlThreadUninitialize()
 {
-    try
+    if (g_CoreWindowHostWindowHandle)
     {
-        if (g_CoreWindowHostWindowHandle)
-        {
-            g_CoreWindowHandle = nullptr;
-            ::DestroyWindow(g_CoreWindowHostWindowHandle);
-            g_CoreWindowHostWindowHandle = nullptr;
-        }
+        g_CoreWindowHandle = nullptr;
+        ::DestroyWindow(g_CoreWindowHostWindowHandle);
+        g_CoreWindowHostWindowHandle = nullptr;
+    }
 
-        if (g_WindowsXamlManager)
+    if (g_WindowsXamlManager)
+    {
+        try
         {
             g_WindowsXamlManager.Close();
         }
-        g_WindowsXamlManager = nullptr;
-
+        catch (...)
         {
-            MSG Message;
-            while (::PeekMessageW(&Message, nullptr, 0, 0, PM_REMOVE))
-            {
-                ::DispatchMessageW(&Message);
-            }
-        }
 
-        return S_OK;
+        }
+        g_WindowsXamlManager = nullptr;
     }
-    catch (winrt::hresult_error const& ex)
+
     {
-        return ex.code();
+        MSG Message;
+        while (::PeekMessageW(&Message, nullptr, 0, 0, PM_REMOVE))
+        {
+            ::DispatchMessageW(&Message);
+        }
     }
+
+    return S_OK;
 }
 
 EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize()
 {
-    try
+    WNDCLASSEXW WindowClass;
+    WindowClass.cbSize = sizeof(WNDCLASSEXW);
+    WindowClass.style = 0;
+    WindowClass.lpfnWndProc = ::MileXamlContentWindowDefaultCallback;
+    WindowClass.cbClsExtra = 0;
+    WindowClass.cbWndExtra = 0;
+    WindowClass.hInstance = nullptr;
+    WindowClass.hIcon = nullptr;
+    WindowClass.hCursor = ::LoadCursorW(nullptr, IDC_ARROW);
+    WindowClass.hbrBackground = reinterpret_cast<HBRUSH>(
+        ::GetStockObject(BLACK_BRUSH));
+    WindowClass.lpszMenuName = nullptr;
+    WindowClass.lpszClassName = L"Mile.Xaml.ContentWindow";
+    WindowClass.hIconSm = nullptr;
+    if (!::RegisterClassExW(&WindowClass))
     {
-        WNDCLASSEXW WindowClass;
-        WindowClass.cbSize = sizeof(WNDCLASSEXW);
-        WindowClass.style = 0;
-        WindowClass.lpfnWndProc = ::MileXamlContentWindowDefaultCallback;
-        WindowClass.cbClsExtra = 0;
-        WindowClass.cbWndExtra = 0;
-        WindowClass.hInstance = nullptr;
-        WindowClass.hIcon = nullptr;
-        WindowClass.hCursor = ::LoadCursorW(nullptr, IDC_ARROW);
-        WindowClass.hbrBackground = reinterpret_cast<HBRUSH>(
-            ::GetStockObject(BLACK_BRUSH));
-        WindowClass.lpszMenuName = nullptr;
-        WindowClass.lpszClassName = L"Mile.Xaml.ContentWindow";
-        WindowClass.hIconSm = nullptr;
-        winrt::check_bool(::RegisterClassExW(&WindowClass));
-
-        winrt::check_hresult(::MileXamlSetPreferredDarkModeAttribute(TRUE));
-
-        winrt::check_hresult(::MileXamlThreadInitialize());
-
-        return S_OK;
+        return HRESULT_FROM_WIN32(::GetLastError());
     }
-    catch (winrt::hresult_error const& ex)
-    {
-        return ex.code();
-    }
+
+    ::MileXamlSetPreferredDarkModeAttribute(TRUE);
+
+    return ::MileXamlThreadInitialize();
 }
 
 EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize()
 {
-    try
-    {
-        winrt::check_hresult(::MileXamlThreadUninitialize());
+    ::MileXamlThreadUninitialize();
 
-        BOOLEAN PreferredDarkMode = FALSE;
-        winrt::check_hresult(
-            ::MileXamlGetPreferredDarkModeAttribute(&PreferredDarkMode));
+    BOOLEAN PreferredDarkMode = FALSE;
+    if (SUCCEEDED(::MileXamlGetPreferredDarkModeAttribute(&PreferredDarkMode)))
+    {
         if (PreferredDarkMode)
         {
-            winrt::check_hresult(
-                ::MileXamlSetPreferredDarkModeAttribute(FALSE));
+            ::MileXamlSetPreferredDarkModeAttribute(FALSE);
         }
-
-        ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
-
-        return S_OK;
     }
-    catch (winrt::hresult_error const& ex)
-    {
-        return ex.code();
-    }
+
+    ::UnregisterClassW(L"Mile.Xaml.ContentWindow", nullptr);
+
+    return S_OK;
 }
