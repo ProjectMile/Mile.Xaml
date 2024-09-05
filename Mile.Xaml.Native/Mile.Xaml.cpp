@@ -59,7 +59,6 @@ namespace winrt
 namespace
 {
     static bool volatile g_PreferredDarkMode = false;
-    static bool volatile g_IsGlobalUninitialized = false;
 
     thread_local winrt::WindowsXamlManager g_WindowsXamlManager = nullptr;
     thread_local HWND volatile g_CoreWindowHostWindowHandle = nullptr;
@@ -590,13 +589,6 @@ EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize()
 {
     try
     {
-        if (g_IsGlobalUninitialized)
-        {
-            return S_OK;
-        }
-
-        g_IsGlobalUninitialized = true;
-
         winrt::check_hresult(::MileXamlThreadUninitialize());
 
         BOOLEAN PreferredDarkMode = FALSE;
