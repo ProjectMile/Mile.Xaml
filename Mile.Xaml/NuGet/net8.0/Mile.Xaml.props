@@ -3,14 +3,36 @@
    PROJECT:   Mouri Internal Library Essentials
    FILE:      Mile.Xaml.props
    PURPOSE:   MSBuild props file for Mile.Xaml .NET 8 target
+              Note: .NET 9 SDK or higher is required
 
    LICENSE:   The MIT License
 
    DEVELOPER: driver1998 (github.com/driver1998)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-	<PropertyGroup>
-		<!-- Remove UWP Default Main Method -->
-		<DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
-	</PropertyGroup>
+   <PropertyGroup>
+      <!-- Remove UWP Default Main Method -->
+      <DefineConstants>$(DefineConstants);DISABLE_XAML_GENERATED_MAIN</DefineConstants>
+      <!-- Disable Microsoft.NET.Sdk.WindowsDesktop Toolchain -->
+      <ImportWindowsDesktopTargets>false</ImportWindowsDesktopTargets>
+      <!-- Disable WPF XAML Compiler Toolchain -->
+      <ImportFrameworkWinFXTargets>false</ImportFrameworkWinFXTargets>
+      <!-- Allow importing Assemblies by UseWindowsForms and UseWPF -->
+      <_EnableWindowsDesktopNetCoreFrameworkReferences>true</_EnableWindowsDesktopNetCoreFrameworkReferences>
+      <!-- Use C#/WinRT Windows.UI.Xaml Projection -->
+      <UseUwp>true</UseUwp>
+      <!-- Enable Windows.UI.Xaml XAML Compiler -->
+      <UseUwpTools>true</UseUwpTools>
+      <!-- Remove VCLibs package reference -->
+      <AddMicrosoftVCLibsSDKReference>false</AddMicrosoftVCLibsSDKReference>
+      <!-- Remove debug UCRT package reference -->
+      <AddMicrosoftUniversalCRTDebugSDKReference>false</AddMicrosoftUniversalCRTDebugSDKReference>
+      <!-- Some properties and targets must be import after CommonTargets -->
+      <CustomAfterMicrosoftCommonTargets>
+         $(CustomAfterMicrosoftCSharpTargets);
+         $(MSBuildThisFileDirectory)..\MrtCore.PriGen.targets;
+      </CustomAfterMicrosoftCommonTargets>
+      <!-- Set the XAML runtime setting to UAP to workaround -->
+      <DefaultXamlRuntime>UAP</DefaultXamlRuntime>
+   </PropertyGroup>
 </Project>
