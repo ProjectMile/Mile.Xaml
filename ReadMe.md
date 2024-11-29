@@ -42,6 +42,32 @@ XAML controls (Mile.Xaml.Styles.SunValley.xbf) to your project's output folder,
 please set `<MileXamlNoSunValleyXamlStyle>true</MileXamlNoSunValleyXamlStyle>`
 in your project configuration file.
 
+## Notes About Modern .NET Support
+
+Modern .NET support is based on the 
+[official UWP Support in .NET 9 SDK](https://devblogs.microsoft.com/ifdef-windows/preview-uwp-support-for-dotnet-9-native-aot/), 
+which requires the following components:
+
+- .NET 9.0 SDK
+- Visual Studio 2022 v17.12
+- Windows 11 SDK 26100.1882
+
+Warning: the MSI version of Windows 11 SDK (and the 26100 SDK provided in VS) 
+is still at 26100.1742, which does not support the C#/WinRT mode of UWP XAML compiler. 
+
+If you installed it, you may see similar errors during build: 
+
+```
+error MSB4064: The "UsingCsWinRT" parameter is not supported by the "CompileXaml" task loaded from assembly: Microsoft.Windows.UI.Xaml.Build.Tasks, Version=0.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35 from the path: C:\Program Files (x86)\Windows Kits\10\bin\10.0.26100.0\XamlCompiler\Microsoft.Windows.UI.Xaml.Build.Tasks.dll. Verify that the parameter exists on the task, the <UsingTask> points to the correct assembly, and it is a settable public instance property.
+```
+
+Installing a newer NuGet version of SDK on your project **may not work**, 
+as VS will still prefer the globally installed version.
+
+To workaround this, you need to manually upgrade the XAML compiler in Windows SDK. 
+[Download the standalone XAML compiler from Microsoft](https://aka.ms/preview-uwp-support-for-dotnet9-windows-sdk) 
+and follow the instructions in the README file.
+
 ## System Requirements
 
 - Supported OS: Windows 10 Version 2004 (Build 19041) or later
