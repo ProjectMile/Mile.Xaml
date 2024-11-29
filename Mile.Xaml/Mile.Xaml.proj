@@ -16,7 +16,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <OutputFileNamesWithoutVersion>true</OutputFileNamesWithoutVersion>
     <PackageOutputPath>$(MileProjectOutputPath)</PackageOutputPath>
-    <Version>2.3.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</Version>
+    <Version>2.5.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</Version>
     <NuspecProperties>version=$(Version);</NuspecProperties>
     <NuspecFile>Mile.Xaml.nuspec</NuspecFile>
   </PropertyGroup>
