@@ -31,4 +31,9 @@
     <!-- Set the XAML runtime setting to UAP to workaround -->
     <DefaultXamlRuntime>UAP</DefaultXamlRuntime>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Enable Windows.UI.Xaml XAML templates for .NET Framework -->
+    <ProjectCapability Include="Uwp" />
+  </ItemGroup>
 </Project>

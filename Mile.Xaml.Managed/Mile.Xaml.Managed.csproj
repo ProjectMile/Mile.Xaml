@@ -18,7 +18,9 @@
   <PropertyGroup Condition="$(TargetFramework) == 'net8.0-windows'">
     <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
     <IsAotCompatible>true</IsAotCompatible>
-    <WindowsSdkPackageVersion>$([System.Version]::Parse('$(TargetPlatformMinVersion)').ToString(3)).39</WindowsSdkPackageVersion>
+    <UseUwp>true</UseUwp>
+    <UseUwpTools>false</UseUwpTools>
+    <WindowsSdkPackageVersion>$([System.Version]::Parse('$(TargetPlatformMinVersion)').ToString(3)).57</WindowsSdkPackageVersion>
   </PropertyGroup>
 
   <ItemGroup Condition="$(TargetFramework) == 'net8.0-windows'">
