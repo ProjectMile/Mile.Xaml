@@ -47,9 +47,9 @@
   </Target>
   <Target Name="Packaging">
     <MSBuild
-      Projects="$(MSBuildThisFileDirectory)Mile.Project.Windows\Mile.Project.NuGetPackaging.proj"
+      Projects="$(MSBuildThisFileDirectory)Mile.Xaml\Mile.Xaml.proj"
       Targets="Restore;Build"
       StopOnFirstFailure="True"
-      Properties="PreferredToolArchitecture=x64;NuspecFile=$(MSBuildThisFileDirectory)Mile.Xaml\Mile.Xaml.nuspec" />
+      Properties="PreferredToolArchitecture=x64" />
   </Target>
 </Project>
