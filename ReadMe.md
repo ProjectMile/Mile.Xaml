@@ -50,7 +50,7 @@ which requires the following components:
 
 - .NET 9.0 SDK
 - Visual Studio 2022 v17.12
-- Windows 11 SDK 26100.1882
+- Windows 11 SDK 26100.2454
 
 If you see similar errors during build: 
 
