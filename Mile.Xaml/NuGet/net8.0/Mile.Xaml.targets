@@ -12,6 +12,9 @@
   <ItemGroup Condition="'$(MileXamlNoSunValleyXamlStyle)' != 'true'">
     <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\Redist\Styles\Mile.Xaml.Styles.SunValley.xbf" />
   </ItemGroup>
+  <ItemGroup Condition="'$(MileXamlManagedNoNativeBackend)' != 'true'">
+    <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\Redist\ManagedNativeBackend\$(PlatformTarget)\*.*" />
+  </ItemGroup>
 
   <!-- Must use .NET SDK and install Windows SDK -->
   <Target Name="CheckNetSdkEnvironment" BeforeTargets="BeforeBuild">

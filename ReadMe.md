@@ -42,6 +42,11 @@ XAML controls (Mile.Xaml.Styles.SunValley.xbf) to your project's output folder,
 please set `<MileXamlNoSunValleyXamlStyle>true</MileXamlNoSunValleyXamlStyle>`
 in your project configuration file.
 
+If you don't want to deploy the native backend redistribute for .NET
+(Mile.Xaml.dll) to your .NET project's output folder, please set
+`<MileXamlManagedNoNativeBackend>true</MileXamlManagedNoNativeBackend>`
+in your project configuration file.
+
 ## Notes About Modern .NET Support
 
 Modern .NET support is based on the 
