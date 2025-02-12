@@ -1,5 +1,19 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.5 (2.5.1250.0)**
+
+- Introduce the native backend redistribute for .NET (Mile.Xaml.dll) for
+  introducing the .NET NativeAOT support.
+- Add MileXamlContentWindowDefaultMessageLoop API to native backend.
+- Fix issue for MileXamlGlobalUninitialize API in native backend.
+- Simplifying the MileXamlThreadUninitialize, MileXamlGlobalInitialize,
+  MileXamlGlobalUninitialize API implementation for native backend.
+- Migrate from Mile.Project.Windows to Mile.Project.Configurations.
+- Use Mile.Windows.UniCrt instead of VC-LTL.
+- Update to Mile.Windows.Helpers to 1.0.671.
+- Update Mile.Project.Helpers to 1.0.643 for Mile.Xaml.ControlStyleXamlGenerator
+  project.
+
 **Mile.Xaml 2.3 (2.3.1064.0)**
 
 - Introduce the Modern .NET support which supports Native AOT and needs .NET 8.0
