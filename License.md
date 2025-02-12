@@ -61,7 +61,7 @@ SOFTWARE.
 - IWindowPrivate, https://github.com/ADeltaX/IWindowPrivate
 - Mile.Project.Windows, https://github.com/ProjectMile/Mile.Project.Windows
 - Mile.Windows.Helpers, https://github.com/ProjectMile/Mile.Windows.Helpers
-- VC-LTL, https://github.com/Chuyu-Team/VC-LTL5
+- Mile.Windows.UniCrt, https://github.com/ProjectMile/Mile.Windows.UniCrt
 - Windows App SDK, https://github.com/microsoft/WindowsAppSDK
 - Windows Community Toolkit - WPF and Windows Forms,
   https://github.com/CommunityToolkit/Microsoft.Toolkit.Win32
