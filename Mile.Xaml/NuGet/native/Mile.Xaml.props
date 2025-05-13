@@ -11,9 +11,9 @@
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <!--
-      This is an override that, puzzlingly, _forces XBF (XAML binary) embedding_.
-      We have to do this to overcome a layout issue in the WAP packaging project.
-      When we do this, the XBF ends up in resources.pri.
+      This is an override that, puzzlingly, _forces XBF (XAML binary)
+      embedding_. We have to do this to overcome a layout issue in the WAP
+      packaging project. When we do this, the XBF ends up in resources.pri.
     -->
     <DisableEmbeddedXbf>false</DisableEmbeddedXbf>
     <_SupportXbfAsEmbedFileResources>true</_SupportXbfAsEmbedFileResources>

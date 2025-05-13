@@ -22,8 +22,11 @@
     <Error Text="Can't find Windows.UI.Xaml Compiler, please install Microsoft.Windows.SDK.CPP in NuGet Package Manager." Condition="!Exists($(WindowsKitsXamlCompilerTargetsPath))" />
   </Target>
   
-  <!-- .NET 9 does not resolve WPF references when UseWindowsForms=true but UseWPF=false,
-       having WindowsFormsIntegration.dll in this case will result in build error -->
+  <!--
+    .NET 9 does not resolve WPF references when UseWindowsForms = true but
+    UseWPF = false, having WindowsFormsIntegration.dll in this case will
+    result in build error.
+  -->
   <Target Name="RemoveWindowsFormsIntegrationOnNet9"
           Condition="$([MSBuild]::GetTargetFrameworkVersion('$(TargetFramework)')) >= 9 and '$(UseWindowsForms)' == 'true' and '$(UseWPF)' != 'true'"
           BeforeTargets="MarkupCompilePass1">
@@ -32,8 +35,11 @@
     </ItemGroup>
   </Target>
 
-  <!-- A dummy target to override the one in Microsoft.Windows.UI.Xaml.ModernNET.CSharp.targets,
-       allowing UseUwp and UseWindowsForms to coexist -->
+  <!--
+    A dummy target to override the one in
+    Microsoft.Windows.UI.Xaml.ModernNET.CSharp.targets,
+    allowing UseUwp and UseWindowsForms to coexist.
+  -->
   <Target Name="CheckForInvalidUseUwpToolsMixedConfigurations"/>
 
 </Project>
