@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mouri Internal Library Essentials
- * FILE:      CoreWindowHost.cs
- * PURPOSE:   Definition for Mile.Xaml.CoreWindowHost
+ * PROJECT:    Mouri Internal Library Essentials
+ * FILE:       CoreWindowHost.cs
+ * PURPOSE:    Definition for Mile.Xaml.CoreWindowHost
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

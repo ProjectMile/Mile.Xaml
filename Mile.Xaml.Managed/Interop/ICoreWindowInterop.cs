@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mouri Internal Library Essentials
- * FILE:      ICoreWindowInterop.cs
- * PURPOSE:   Definition for Mile.Xaml.Interop.ICoreWindowInterop
+ * PROJECT:    Mouri Internal Library Essentials
+ * FILE:       ICoreWindowInterop.cs
+ * PURPOSE:    Definition for Mile.Xaml.Interop.ICoreWindowInterop
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

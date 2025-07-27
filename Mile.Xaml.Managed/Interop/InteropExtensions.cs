@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mouri Internal Library Essentials
- * FILE:      InteropExtensions.cs
- * PURPOSE:   Definition for Mile.Xaml.Interop.InteropExtensions
+ * PROJECT:    Mouri Internal Library Essentials
+ * FILE:       InteropExtensions.cs
+ * PURPOSE:    Definition for Mile.Xaml.Interop.InteropExtensions
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

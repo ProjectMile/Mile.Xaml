@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
-   PROJECT:   Mouri Internal Library Essentials
-   FILE:      Mile.Xaml.props
-   PURPOSE:   MSBuild props file for Mile.Xaml .NET Framework target
+   PROJECT:    Mouri Internal Library Essentials
+   FILE:       Mile.Xaml.props
+   PURPOSE:    MSBuild props file for Mile.Xaml .NET Framework target
 
-   LICENSE:   The MIT License
+   LICENSE:    The MIT License
 
-   DEVELOPER: AndromedaMelody (github.com/AndromedaMelody)
+   MAINTAINER: AndromedaMelody (github.com/AndromedaMelody)
 -->
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>

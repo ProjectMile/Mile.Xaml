@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mouri Internal Library Essentials
- * FILE:      IDesktopWindowXamlSourceNative2.cs
- * PURPOSE:   Definition for Mile.Xaml.Interop.IDesktopWindowXamlSourceNative2
+ * PROJECT:    Mouri Internal Library Essentials
+ * FILE:       IDesktopWindowXamlSourceNative2.cs
+ * PURPOSE:    Definition for Mile.Xaml.Interop.IDesktopWindowXamlSourceNative2
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

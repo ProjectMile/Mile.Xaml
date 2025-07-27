@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mouri Internal Library Essentials
- * FILE:      IInitializeWithWindow.cs
- * PURPOSE:   Definition for Mile.Xaml.Interop.IInitializeWithWindow
+ * PROJECT:    Mouri Internal Library Essentials
+ * FILE:       IInitializeWithWindow.cs
+ * PURPOSE:    Definition for Mile.Xaml.Interop.IInitializeWithWindow
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */

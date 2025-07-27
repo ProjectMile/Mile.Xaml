@@ -1,9 +1,9 @@
 ﻿/*
- * PROJECT:   Mouri Internal Library Essentials
- * FILE:      IWindowPrivate.cs
- * PURPOSE:   Definition for Mile.Xaml.Interop.IWindowPrivate
+ * PROJECT:    Mouri Internal Library Essentials
+ * FILE:       IWindowPrivate.cs
+ * PURPOSE:    Definition for Mile.Xaml.Interop.IWindowPrivate
  *
- * LICENSE:   The MIT License
+ * LICENSE:    The MIT License
  *
  * MAINTAINER: MouriNaruto (Kenji.Mouri@outlook.com)
  */
