@@ -298,7 +298,7 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     }
     case WM_ERASEBKGND:
     {
-        RECT ClientArea = { 0 };
+        RECT ClientArea = {};
         if (::GetClientRect(hWnd, &ClientArea))
         {
             COLORREF BackgroundColor = HandleToULong(
