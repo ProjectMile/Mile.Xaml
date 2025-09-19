@@ -63,6 +63,16 @@ namespace
     thread_local winrt::WindowsXamlManager g_WindowsXamlManager = nullptr;
     thread_local HWND volatile g_CoreWindowHostWindowHandle = nullptr;
     thread_local HWND volatile g_CoreWindowHandle = nullptr;
+
+    winrt::DesktopWindowXamlSource MileXamlGetDesktopWindowXamlSource(
+        _In_ HWND WindowHandle)
+    {
+        winrt::DesktopWindowXamlSource XamlSource = nullptr;
+        winrt::copy_from_abi(
+            XamlSource,
+            ::GetPropW(WindowHandle, L"XamlWindowSource"));
+        return XamlSource;
+    }
 }
 
 EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle()
@@ -76,10 +86,8 @@ EXTERN_C HRESULT WINAPI MileXamlSetXamlContentForContentWindow(
 {
     try
     {
-        winrt::DesktopWindowXamlSource XamlSource = nullptr;
-        winrt::copy_from_abi(
-            XamlSource,
-            ::GetPropW(WindowHandle, L"XamlWindowSource"));
+        winrt::DesktopWindowXamlSource XamlSource =
+            ::MileXamlGetDesktopWindowXamlSource(WindowHandle);
         if (!XamlSource)
         {
             throw winrt::hresult_invalid_argument();
@@ -189,10 +197,8 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     }
     case WM_SETFOCUS:
     {
-        winrt::DesktopWindowXamlSource XamlSource = nullptr;
-        winrt::copy_from_abi(
-            XamlSource,
-            ::GetPropW(hWnd, L"XamlWindowSource"));
+        winrt::DesktopWindowXamlSource XamlSource =
+            ::MileXamlGetDesktopWindowXamlSource(hWnd);
         if (!XamlSource)
         {
             break;
@@ -219,10 +225,8 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
             break;
         }
 
-        winrt::DesktopWindowXamlSource XamlSource = nullptr;
-        winrt::copy_from_abi(
-            XamlSource,
-            ::GetPropW(hWnd, L"XamlWindowSource"));
+        winrt::DesktopWindowXamlSource XamlSource =
+            ::MileXamlGetDesktopWindowXamlSource(hWnd);
         if (!XamlSource)
         {
             break;
@@ -241,10 +245,8 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     }
     case WM_SIZE:
     {
-        winrt::DesktopWindowXamlSource XamlSource = nullptr;
-        winrt::copy_from_abi(
-            XamlSource,
-            ::GetPropW(hWnd, L"XamlWindowSource"));
+        winrt::DesktopWindowXamlSource XamlSource =
+            ::MileXamlGetDesktopWindowXamlSource(hWnd);
         if (!XamlSource)
         {
             break;
@@ -347,10 +349,8 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
 
         if (Section && 0 == std::wcscmp(Section, L"ImmersiveColorSet"))
         {
-            winrt::DesktopWindowXamlSource XamlSource = nullptr;
-            winrt::copy_from_abi(
-                XamlSource,
-                ::GetPropW(hWnd, L"XamlWindowSource"));
+            winrt::DesktopWindowXamlSource XamlSource =
+                ::MileXamlGetDesktopWindowXamlSource(hWnd);
             if (XamlSource)
             {
                 winrt::FrameworkElement Content =
