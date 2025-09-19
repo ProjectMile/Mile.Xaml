@@ -171,6 +171,9 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
             return -1;
         }
 
+        // winrt::detach_abi detaches a C++/WinRT object without decrementing
+        // the reference count. So, the reference count of XamlSource is at
+        // least 1 after this call.
         if (!::SetPropW(
             hWnd,
             L"XamlWindowSource",
@@ -396,7 +399,20 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     case WM_DESTROY:
     {
         ::RemovePropW(hWnd, L"BackgroundFallbackColor");
+
+        winrt::DesktopWindowXamlSource XamlSource =
+            ::MileXamlGetDesktopWindowXamlSource(hWnd);
+        // Clear the property first to avoid use-after-free issue.
         ::RemovePropW(hWnd, L"XamlWindowSource");
+        if (XamlSource)
+        {
+            // Release the reference count from SetPropW.
+            XamlSource.as<IUnknown>()->Release();
+            // Close the XAML Island.
+            XamlSource.Close();
+            // Destroy the content immediately to avoid unintended access.
+            XamlSource = nullptr;
+        }
 
         if (hWnd == ::GetAncestor(hWnd, GA_ROOT))
         {
