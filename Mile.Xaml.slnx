@@ -1,0 +1,39 @@
+<Solution>
+  <Configurations>
+    <Platform Name="ARM64" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/Mile.Xaml/">
+    <File Path="Mile.Xaml/Mile.Xaml.nuspec" />
+  </Folder>
+  <Folder Name="/Mile.Xaml/NuGet/">
+    <File Path="Mile.Xaml/NuGet/MrtCore.PriGen.targets" />
+    <File Path="Mile.Xaml/NuGet/_._" />
+  </Folder>
+  <Folder Name="/Mile.Xaml/NuGet/native/">
+    <File Path="Mile.Xaml/NuGet/native/Mile.Xaml.props" />
+    <File Path="Mile.Xaml/NuGet/native/Mile.Xaml.targets" />
+  </Folder>
+  <Folder Name="/Mile.Xaml/NuGet/net48/">
+    <File Path="Mile.Xaml/NuGet/net48/Microsoft.WinUI.NET.Markup.Compiler.targets" />
+    <File Path="Mile.Xaml/NuGet/net48/Mile.Xaml.AfterImport.targets" />
+    <File Path="Mile.Xaml/NuGet/net48/Mile.Xaml.props" />
+    <File Path="Mile.Xaml/NuGet/net48/Mile.Xaml.targets" />
+  </Folder>
+  <Folder Name="/Mile.Xaml/NuGet/net8.0/">
+    <File Path="Mile.Xaml/NuGet/net8.0/Mile.Xaml.props" />
+    <File Path="Mile.Xaml/NuGet/net8.0/Mile.Xaml.targets" />
+  </Folder>
+  <Project Path="Mile.Xaml.Managed/Mile.Xaml.Managed.csproj">
+    <Build Solution="*|ARM64" Project="false" />
+    <Build Solution="*|x86" Project="false" />
+  </Project>
+  <Project Path="Mile.Xaml.Native/Mile.Xaml.Native.Static.vcxproj" Id="4c5da281-1fdd-41b7-9d3f-94132227ca0e" />
+  <Project Path="Mile.Xaml.Native/Mile.Xaml.Native.vcxproj" Id="1bf27457-37ec-4c37-8bd1-ef181c5e11f3" />
+  <Project Path="Mile.Xaml.Styles/Mile.Xaml.Styles.vcxproj" Id="0d0ab0e6-9f9d-4a7a-af83-33b0d42df111">
+    <Platform Project="x64" />
+    <Build Solution="*|ARM64" Project="false" />
+    <Build Solution="*|x86" Project="false" />
+  </Project>
+</Solution>
