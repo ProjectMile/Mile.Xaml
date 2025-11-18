@@ -57,6 +57,7 @@ namespace Mile.Xaml
         /// </remarks>
         [Browsable(true)]
         [Category("XAML")]
+        [DefaultValue(null)]
         public string InitialTypeName
         {
             get;
