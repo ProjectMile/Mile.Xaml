@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
     <ProjectGuid>{4c5da281-1fdd-41b7-9d3f-94132227ca0e}</ProjectGuid>
@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Mile.Windows.Helpers">
-      <Version>1.0.952</Version>
+      <Version>1.0.1171</Version>
     </PackageReference>
   </ItemGroup>
   <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.targets" />
