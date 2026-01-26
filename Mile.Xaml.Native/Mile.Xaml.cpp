@@ -308,7 +308,8 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         {
             COLORREF BackgroundColor = HandleToULong(
                 ::GetPropW(hWnd, L"BackgroundFallbackColor"));
-            if (BackgroundColor)
+            DWORD ExtendedStyle = ::GetWindowLongW(hWnd, GWL_EXSTYLE);
+            if (BackgroundColor && !(WS_EX_NOREDIRECTIONBITMAP & ExtendedStyle))
             {
                 HBRUSH BackgroundBrush =
                     ::CreateSolidBrush(BackgroundColor);
