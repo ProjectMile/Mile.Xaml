@@ -1,5 +1,23 @@
 ﻿# Mile.Xaml Release Notes
 
+**Mile.Xaml 2.5 Update 1 (2.5.1616.0)**
+
+- Make sure the DesktopWindowXamlSource object will be destroyed when destroying
+  the Mile.Xaml.ContentWindow class window to resolve potential memory leak and
+  crash issue. (Suggested by dongle-the-gadget.)
+- Ensure WS_EX_NOREDIRECTIONBITMAP mode of the Mile.Xaml.ContentWindow class
+  window able to use DwmExtendFrameIntoClientArea freely by default.
+- Fix potential issue when handling WM_DPICHANGED message in the
+  Mile.Xaml.ContentWindow class window.
+- Simplify the native backend implementation for improving the maintainability
+  and stability.
+- Fix WFO1000 for the managed implementation.
+- Update Mile.Project.Configurations to 1.0.1827.
+- Update Mile.Windows.UniCrt to 1.2.410.
+- Update Mile.Windows.Helpers to 1.0.1171.
+- Update Mile.Project.Helpers to 1.0.975.
+- Migrate solution from sln to slnx.
+
 **Mile.Xaml 2.5 (2.5.1250.0)**
 
 - Introduce the native backend redistribute for .NET (Mile.Xaml.dll) for
