@@ -25,7 +25,7 @@
       <group targetFramework=".NETFramework4.8">
         <dependency id="Microsoft.Windows.SDK.Contracts" version="10.0.19041.1" />
       </group>
-      <group targetFramework="net10.0-windows10.0.19041.0"/>
+      <group targetFramework="net8.0-windows10.0.19041.0"/>
     </dependencies>
     <repository type="git" url="https://github.com/ProjectMile/Mile.Xaml.git" />
   </metadata>
@@ -39,8 +39,8 @@
     <file src="NuGet\net48\Mile.Xaml.AfterImport.targets" target="build\net48" />
     <file src="NuGet\net48\Mile.Xaml.props" target="build\net48" />
     <file src="NuGet\net48\Mile.Xaml.targets" target="build\net48" />
-    <file src="NuGet\net8.0\Mile.Xaml.targets" target="build\net10.0-windows10.0.19041.0" />
-    <file src="NuGet\net8.0\Mile.Xaml.props" target="build\net10.0-windows10.0.19041.0" />
+    <file src="NuGet\net8.0\Mile.Xaml.targets" target="build\net8.0-windows10.0.19041.0" />
+    <file src="NuGet\net8.0\Mile.Xaml.props" target="build\net8.0-windows10.0.19041.0" />
     <file src="NuGet\MrtCore.PriGen.targets" target="build" />
 
     <file src="..\Output\Binaries\Release\x64\Mile.Xaml.Styles.SunValley.xbf" target="Redist\Styles" />
@@ -52,8 +52,8 @@
     <file src="..\Output\Binaries\Release\AnyCPU\net48\Mile.Xaml.Managed.dll" target="lib\net48" />
     <file src="..\Output\Binaries\Release\AnyCPU\net48\Mile.Xaml.Managed.pdb" target="lib\net48" />
 
-    <file src="..\Output\Binaries\Release\AnyCPU\net10.0-windows\Mile.Xaml.Managed.dll" target="lib\net10.0-windows10.0.19041.0" />
-    <file src="..\Output\Binaries\Release\AnyCPU\net10.0-windows\Mile.Xaml.Managed.pdb" target="lib\net10.0-windows10.0.19041.0" />
+    <file src="..\Output\Binaries\Release\AnyCPU\net8.0-windows\Mile.Xaml.Managed.dll" target="lib\net8.0-windows10.0.19041.0" />
+    <file src="..\Output\Binaries\Release\AnyCPU\net8.0-windows\Mile.Xaml.Managed.pdb" target="lib\net8.0-windows10.0.19041.0" />
 
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.dll" target="Redist\ManagedNativeBackend\x86" />
     <file src="..\Output\Binaries\Release\Win32\Mile.Xaml.pdb" target="Redist\ManagedNativeBackend\x86" />
