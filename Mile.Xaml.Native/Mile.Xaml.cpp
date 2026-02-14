@@ -64,7 +64,7 @@ namespace
     thread_local HWND volatile g_CoreWindowHostWindowHandle = nullptr;
     thread_local HWND volatile g_CoreWindowHandle = nullptr;
 
-    winrt::DesktopWindowXamlSource MileXamlGetDesktopWindowXamlSource(
+    winrt::DesktopWindowXamlSource ToDesktopWindowXamlSource(
         _In_ HWND WindowHandle)
     {
         winrt::DesktopWindowXamlSource XamlSource = nullptr;
@@ -97,7 +97,7 @@ EXTERN_C HRESULT WINAPI MileXamlSetXamlContentForContentWindow(
     try
     {
         winrt::DesktopWindowXamlSource XamlSource =
-            ::MileXamlGetDesktopWindowXamlSource(WindowHandle);
+            ::ToDesktopWindowXamlSource(WindowHandle);
         if (!XamlSource)
         {
             throw winrt::hresult_invalid_argument();
@@ -215,7 +215,7 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     case WM_SETFOCUS:
     {
         winrt::DesktopWindowXamlSource XamlSource =
-            ::MileXamlGetDesktopWindowXamlSource(hWnd);
+            ::ToDesktopWindowXamlSource(hWnd);
         if (!XamlSource)
         {
             break;
@@ -247,7 +247,7 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         }
 
         winrt::DesktopWindowXamlSource XamlSource =
-            ::MileXamlGetDesktopWindowXamlSource(hWnd);
+            ::ToDesktopWindowXamlSource(hWnd);
         if (!XamlSource)
         {
             break;
@@ -271,7 +271,7 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     case WM_SIZE:
     {
         winrt::DesktopWindowXamlSource XamlSource =
-            ::MileXamlGetDesktopWindowXamlSource(hWnd);
+            ::ToDesktopWindowXamlSource(hWnd);
         if (!XamlSource)
         {
             break;
@@ -382,7 +382,7 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         if (Section && 0 == std::wcscmp(Section, L"ImmersiveColorSet"))
         {
             winrt::DesktopWindowXamlSource XamlSource =
-                ::MileXamlGetDesktopWindowXamlSource(hWnd);
+                ::ToDesktopWindowXamlSource(hWnd);
             if (XamlSource)
             {
                 winrt::FrameworkElement Content =
@@ -430,7 +430,7 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         ::RemovePropW(hWnd, L"BackgroundFallbackColor");
 
         winrt::DesktopWindowXamlSource XamlSource =
-            ::MileXamlGetDesktopWindowXamlSource(hWnd);
+            ::ToDesktopWindowXamlSource(hWnd);
         // Clear the property first to avoid use-after-free issue.
         ::RemovePropW(hWnd, L"XamlWindowSource");
         if (XamlSource)
