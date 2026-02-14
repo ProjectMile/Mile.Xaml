@@ -83,6 +83,31 @@ namespace
             ? XamlSource.try_as<IDesktopWindowXamlSourceNative>()
             : nullptr;
     }
+
+    HWND ToDesktopWindowXamlSourceWindowHandle(
+        _In_ HWND WindowHandle)
+    {
+        winrt::DesktopWindowXamlSource XamlSource =
+            ::ToDesktopWindowXamlSource(WindowHandle);
+        if (!XamlSource)
+        {
+            return nullptr;
+        }
+
+        winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
+            ::ToDesktopWindowXamlSourceNative(XamlSource);
+        if (!XamlSourceNative)
+        {
+            return nullptr;
+        }
+
+        HWND XamlWindowHandle = nullptr;
+        if (S_OK != XamlSourceNative->get_WindowHandle(&XamlWindowHandle))
+        {
+            return nullptr;
+        }
+        return XamlWindowHandle;
+    }
 }
 
 EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle()
@@ -214,23 +239,11 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     }
     case WM_SETFOCUS:
     {
-        winrt::DesktopWindowXamlSource XamlSource =
-            ::ToDesktopWindowXamlSource(hWnd);
-        if (!XamlSource)
+        HWND XamlWindowHandle = ::ToDesktopWindowXamlSourceWindowHandle(hWnd);
+        if (!XamlWindowHandle)
         {
             break;
         }
-
-        winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-            ::ToDesktopWindowXamlSourceNative(XamlSource);
-        if (!XamlSourceNative)
-        {
-            break;
-        }
-
-        HWND XamlWindowHandle = nullptr;
-        winrt::check_hresult(
-            XamlSourceNative->get_WindowHandle(&XamlWindowHandle));
 
         ::SetFocus(XamlWindowHandle);
 
@@ -246,23 +259,11 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
             break;
         }
 
-        winrt::DesktopWindowXamlSource XamlSource =
-            ::ToDesktopWindowXamlSource(hWnd);
-        if (!XamlSource)
+        HWND XamlWindowHandle = ::ToDesktopWindowXamlSourceWindowHandle(hWnd);
+        if (!XamlWindowHandle)
         {
             break;
         }
-
-        winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-            ::ToDesktopWindowXamlSourceNative(XamlSource);
-        if (!XamlSourceNative)
-        {
-            break;
-        }
-
-        HWND XamlWindowHandle = nullptr;
-        winrt::check_hresult(
-            XamlSourceNative->get_WindowHandle(&XamlWindowHandle));
 
         ::SetFocus(XamlWindowHandle);
 
@@ -270,23 +271,7 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     }
     case WM_SIZE:
     {
-        winrt::DesktopWindowXamlSource XamlSource =
-            ::ToDesktopWindowXamlSource(hWnd);
-        if (!XamlSource)
-        {
-            break;
-        }
-
-        winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-            ::ToDesktopWindowXamlSourceNative(XamlSource);
-        if (!XamlSourceNative)
-        {
-            break;
-        }
-
-        HWND XamlWindowHandle = nullptr;
-        winrt::check_hresult(
-            XamlSourceNative->get_WindowHandle(&XamlWindowHandle));
+        HWND XamlWindowHandle = ::ToDesktopWindowXamlSourceWindowHandle(hWnd);
         if (!XamlWindowHandle)
         {
             break;
