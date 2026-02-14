@@ -73,6 +73,16 @@ namespace
             ::GetPropW(WindowHandle, L"XamlWindowSource"));
         return XamlSource;
     }
+
+    using DesktopWindowXamlSourceNative =
+        winrt::com_ptr<IDesktopWindowXamlSourceNative>;
+    DesktopWindowXamlSourceNative ToDesktopWindowXamlSourceNative(
+        winrt::DesktopWindowXamlSource const& XamlSource)
+    {
+        return XamlSource
+            ? XamlSource.try_as<IDesktopWindowXamlSourceNative>()
+            : nullptr;
+    }
 }
 
 EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle()
@@ -157,7 +167,11 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         winrt::DesktopWindowXamlSource XamlSource;
 
         winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-            XamlSource.as<IDesktopWindowXamlSourceNative>();
+            ::ToDesktopWindowXamlSourceNative(XamlSource);
+        if (!XamlSourceNative)
+        {
+            return -1;
+        }
 
         // Parent the DesktopWindowXamlSource object to current window.
         if (FAILED(XamlSourceNative->AttachToWindow(hWnd)))
@@ -208,7 +222,11 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         }
 
         winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-            XamlSource.as<IDesktopWindowXamlSourceNative>();
+            ::ToDesktopWindowXamlSourceNative(XamlSource);
+        if (!XamlSourceNative)
+        {
+            break;
+        }
 
         HWND XamlWindowHandle = nullptr;
         winrt::check_hresult(
@@ -236,7 +254,11 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         }
 
         winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-            XamlSource.as<IDesktopWindowXamlSourceNative>();
+            ::ToDesktopWindowXamlSourceNative(XamlSource);
+        if (!XamlSourceNative)
+        {
+            break;
+        }
 
         HWND XamlWindowHandle = nullptr;
         winrt::check_hresult(
@@ -256,7 +278,11 @@ EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
         }
 
         winrt::com_ptr<IDesktopWindowXamlSourceNative> XamlSourceNative =
-            XamlSource.as<IDesktopWindowXamlSourceNative>();
+            ::ToDesktopWindowXamlSourceNative(XamlSource);
+        if (!XamlSourceNative)
+        {
+            break;
+        }
 
         HWND XamlWindowHandle = nullptr;
         winrt::check_hresult(
