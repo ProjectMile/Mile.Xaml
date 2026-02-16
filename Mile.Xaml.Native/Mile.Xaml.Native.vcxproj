@@ -18,11 +18,11 @@
     <MileProjectVersion>2.5.$([System.DateTime]::Today.Subtract($([System.DateTime]::Parse('2021-09-12'))).TotalDays).0</MileProjectVersion>
     <!-- <MileProjectVersionTag Condition="false">Alpha 1</MileProjectVersionTag> -->
   </PropertyGroup>
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.x86.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.x64.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Platform.ARM64.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.Default.props" />
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1917" Project="Mile.Project.Platform.x86.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1917" Project="Mile.Project.Platform.x64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1917" Project="Mile.Project.Platform.ARM64.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1917" Project="Mile.Project.Cpp.Default.props" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1917" Project="Mile.Project.Cpp.props" />
   <ItemDefinitionGroup>
     <ClCompile>
       <DebugInformationFormat>OldStyle</DebugInformationFormat>
@@ -52,5 +52,5 @@
       <Project>{4c5da281-1fdd-41b7-9d3f-94132227ca0e}</Project>
     </ProjectReference>
   </ItemGroup>
-  <Import Sdk="Mile.Project.Configurations" Version="1.0.1827" Project="Mile.Project.Cpp.targets" />
+  <Import Sdk="Mile.Project.Configurations" Version="1.0.1917" Project="Mile.Project.Cpp.targets" />
 </Project>
