@@ -5,9 +5,11 @@
         <ResourceDictionary Source="ms-appx:///Styles/TreeView.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
+    <Style BasedOn="{StaticResource DefaultListViewItemStyle}" TargetType="TreeViewItem" />
+  
     <Style
-        x:Key="MUX_TreeViewItemStyle"
-        BasedOn="{StaticResource DefaultListViewItemStyle}"
+        x:Key="DefaultListViewItemStyle"
+        BasedOn="{StaticResource TreeViewItemStyle}"
         TargetType="TreeViewItem">
         <Setter Property="Padding" Value="0" />
         <Setter Property="Background" Value="{ThemeResource TreeViewItemBackground}" />
