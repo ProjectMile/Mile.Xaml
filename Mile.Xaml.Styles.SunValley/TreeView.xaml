@@ -144,9 +144,13 @@
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 
-    <!--  not used, leave here for backword compatability  -->
-    <DataTemplate x:Key="TreeViewItemDataTemplate">
-        <Grid Height="44">
+    <GridLength x:Key="TreeViewItemHeight">Auto</GridLength>
+
+    <DataTemplate x:Key="DefaultTreeViewItemDataTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="{StaticResource TreeViewItemHeight}" />
+            </Grid.RowDefinitions>
             <TextBlock
                 HorizontalAlignment="Left"
                 VerticalAlignment="Center"
@@ -162,6 +166,7 @@
         <Setter Property="CanDragItems" Value="True" />
         <Setter Property="CanReorderItems" Value="True" />
         <Setter Property="AllowDrop" Value="True" />
+        <Setter Property="ItemTemplate" Value="{StaticResource DefaultTreeViewItemDataTemplate}" />
         <Setter Property="ItemContainerTransitions">
             <Setter.Value>
                 <TransitionCollection>
@@ -189,7 +194,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <Style BasedOn="{StaticResource MUX_TreeViewItemStyle}" TargetType="TreeViewItem" />
 
 </ResourceDictionary>
