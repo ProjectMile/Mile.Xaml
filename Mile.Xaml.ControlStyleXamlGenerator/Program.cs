@@ -1,4 +1,4 @@
-﻿using Mile.Project.Helpers;
+﻿using Mile.DotNet.Helpers;
 using System.Xml;
 
 namespace Mile.Xaml.ControlStyleXamlGenerator
@@ -7,7 +7,7 @@ namespace Mile.Xaml.ControlStyleXamlGenerator
     {
         static void Main(string[] args)
         {
-            string ProjectRootPath = GitRepository.GetRootPath();
+            string ProjectRootPath = Git.GetRootPath();
             Console.WriteLine(ProjectRootPath);
 
             DirectoryInfo dir = new(ProjectRootPath + @"\Mile.Xaml.Styles.SunValley");
