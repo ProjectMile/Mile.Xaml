@@ -18,7 +18,7 @@
 /**
  * @brief Retrieves the handle to the CoreWindow compatibility window.
  * @return The handle to the CoreWindow compatibility window.
-*/
+ */
 EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle();
 
 /**
@@ -29,7 +29,7 @@ EXTERN_C HWND WINAPI MileXamlGetCoreWindowHandle();
  *                    Windows.UI.Xaml.FrameworkElement.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlSetXamlContentForContentWindow(
     _In_ HWND WindowHandle,
     _In_opt_ LPVOID XamlContent);
@@ -45,7 +45,7 @@ EXTERN_C HRESULT WINAPI MileXamlSetXamlContentForContentWindow(
  *               parameter depend on the value of the uMsg parameter.
  * @return The return value is the result of the message processing, and
  *         depends on the message sent.
-*/
+ */
 EXTERN_C LRESULT CALLBACK MileXamlContentWindowDefaultCallback(
     _In_ HWND hWnd,
     _In_ UINT uMsg,
@@ -66,7 +66,7 @@ EXTERN_C int WINAPI MileXamlContentWindowDefaultMessageLoop();
  *                              use opaque background.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlGetTransparentBackgroundAttribute(
     _Out_ PBOOLEAN TransparentBackground);
 
@@ -77,7 +77,7 @@ EXTERN_C HRESULT WINAPI MileXamlGetTransparentBackgroundAttribute(
  *                              use opaque background.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlSetTransparentBackgroundAttribute(
     _In_ BOOLEAN TransparentBackground);
 
@@ -87,7 +87,7 @@ EXTERN_C HRESULT WINAPI MileXamlSetTransparentBackgroundAttribute(
  *                          preferred the default light mode.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlGetPreferredDarkModeAttribute(
     _Out_ PBOOLEAN PreferredDarkMode);
 
@@ -97,7 +97,7 @@ EXTERN_C HRESULT WINAPI MileXamlGetPreferredDarkModeAttribute(
  *                          preferred the default light mode.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlSetPreferredDarkModeAttribute(
     _In_ BOOLEAN PreferredDarkMode);
 
@@ -105,28 +105,28 @@ EXTERN_C HRESULT WINAPI MileXamlSetPreferredDarkModeAttribute(
  * @brief Initialize Mile.Xaml for non-main thread.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlThreadInitialize();
 
 /**
  * @brief Uninitialize Mile.Xaml for non-main thread.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlThreadUninitialize();
 
 /**
  * @brief Initialize Mile.Xaml for main thread.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlGlobalInitialize();
 
 /**
  * @brief Uninitialize Mile.Xaml for main thread.
  * @return If the function succeeds, it returns S_OK. Otherwise, it returns an
  *         HRESULT error code.
-*/
+ */
 EXTERN_C HRESULT WINAPI MileXamlGlobalUninitialize();
 
 #endif // !MILE_XAML
